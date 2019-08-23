@@ -1,0 +1,163 @@
+div.unit-relation.u-r-div {
+	border: 1px dashed rgba(0, 0, 0, .2);
+	padding: 5px 5px 28px;
+	border-radius: 10px;
+}
+div.u-r-div div[level] {
+	height: 34px;
+	margin-top: 23px;
+}
+div.u-r-div div[level] div.unit-actions {
+	display: block;
+	/* display: none; */
+	position: relative;
+	top: -55px;
+	width: 68px;
+	float: right;
+}
+div.u-r-div div[level] div.unit-actions a {
+	padding: 5px 6px;
+	width: 26px;
+	height: 26px;
+}
+div.u-r-div div[level] div.unit-actions a:hover {
+	background-color: rgba(0, 0, 0, .2);
+	border-radius: 15%;
+}
+div.u-r-div div[level] .unit-float-left {
+	height: 34px;
+	float: left;
+}
+div.u-r-div div[level] .unit-float-0 {
+	width: 100%;
+}
+div.u-r-div div[level] .unit-float-1 {
+	width: 95%;
+}
+div.u-r-div div[level] .unit-float-2 {
+	width: 90%;
+}
+div.u-r-div div[level] .unit-float-3 {
+	width: 85%;
+}
+div.u-r-div div[level] .unit-float-4 {
+	width: 80%;
+}
+div.u-r-div div[level] .unit-float-5 {
+	width: 75%;
+}
+div.u-r-div div[level] .unit-float-6 {
+	width: 70%;
+}
+div.u-r-div div[level] .unit-float-7 {
+	width: 65%;
+}
+div.u-r-div div[level] .unit-float-8 {
+	width: 60%;
+}
+div.u-r-div div[level] .unit-float-9 {
+	width: 55%;
+}
+div.u-r-div div[level] .unit-float-10 {
+	width: 50%;
+}
+div.u-r-div div[level] .unit-float-11 {
+	width: 45%;
+}
+div.u-r-div div[level] .unit-float-12 {
+	width: 40%;
+}
+div.u-r-div div[level] .unit-float-13 {
+	width: 35%;
+}
+div.u-r-div div[level] .unit-float-14 {
+	width: 30%;
+}
+div.u-r-div div[level] .unit-float-15 {
+	width: 25%;
+}
+div.u-r-div div[level] .unit-float-16 {
+	width: 20%;
+}
+div.u-r-div div[level] .unit-float-17 {
+	width: 15%;
+}
+div.u-r-div div[level] .unit-float-18 {
+	width: 10%;
+}
+div.u-r-div div[level] .unit-float-19 {
+	width: 5%;
+}
+div.u-r-div div[level] .bootstrap-select.unit-float {
+	float: right !important;
+}
+div.u-r-div div[level] .unit-float .unit-float {
+	width: 100%;
+}
+
+/* readonly样式：通过disabled实现 */
+div.bootstrap-select.form-control.sltpicker-readonly .btn.disabled {
+	opacity: 1;
+	cursor: default;
+}
+
+/* 父子关系线 */
+/* 所有格子适用 */
+div.u-r-div .unit-line {
+	/* border: 1px solid orange; */
+	height: 58px;
+	display: inline-block;
+	position: relative;
+	top: -24px;
+}
+/* 所有格子的BEFORE、AFTER，约定：垂直线=BEFORE、水平线=AFTER */
+div.u-r-div .unit-line:BEFORE,
+div.u-r-div .unit-line:AFTER {
+	content: '';
+	display: block;
+	position: absolute;
+}
+/* L型线/最后一格 */
+div.u-r-div .unit-line:LAST-OF-TYPE:BEFORE {
+	/* L型线的垂直线 */
+	/* background: #494949; */
+	border-left: 1px dashed rgba(0, 0, 0, .2);
+	height: 70%;
+	left: 50%;
+}
+div.u-r-div .unit-line:LAST-OF-TYPE:AFTER,
+div.u-r-div div.cell-t:AFTER {
+	/* L型线的水平线 */
+	/* T(├)线型-水平 */
+	/* background: #494949; */
+	border-bottom: 1px dashed rgba(0, 0, 0, .2);
+	width: 50%;
+	right: 0;
+	top: 70%;
+}
+/* T(├)线型 */
+div.u-r-div div.cell-t:BEFORE,
+div.u-r-div div.cell-i:BEFORE {
+	/* T(├)线型-垂直 */
+	/* I线型-垂直 */
+	/* background: #494949; */
+	border-left: 1px dashed rgba(0, 0, 0, .2);
+	height: 100% !important;
+	left: 50%;
+}
+/* div.u-r-div div.cell-t:AFTER {
+	T(├)线型-水平
+	background: #494949;
+	border-bottom: 1px dashed rgba(0, 0, 0, .2);
+	width: 50%;
+	right: 0;
+	top: 70%;
+} */
+/* I线型（只有垂直100%=只有BEFORE没有AFTER） */
+/* div.u-r-div div.cell-i:BEFORE {
+	I线型-垂直
+	background: #494949;
+	border-left: 1px dashed rgba(0, 0, 0, .2);
+	height: 100% !important;
+	left: 50%;
+} */

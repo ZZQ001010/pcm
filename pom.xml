@@ -1,0 +1,93 @@
+	<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.sunline.kite</groupId>
+		<artifactId>kite-parent</artifactId>
+		<version>5.5.0.RC15</version>
+	</parent>
+	<groupId>cn.sunline.pcm</groupId>
+	<artifactId>pcm-parent</artifactId>
+	<version>5.6.1-TB-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>PCM - 业务管理平台</name>
+	<modules>
+		<module>pcm-definition</module>
+		<module>pcm-infextension</module>
+		<module>pcm-infrastructure</module>
+		<module>pcm-service-api</module>
+		<module>pcm-surface-api</module>
+		<module>pcm-service-sdk</module>
+		<module>pcm-facility</module>
+		<module>pcm-surface-impl</module>
+		<module>pcm-service-impl</module>
+		<module>pcm-controller</module>
+	</modules>
+	<properties>
+		<ppy.version>5.6.1-TB-SNAPSHOT</ppy.version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<!-- 基础模块依赖 -->
+			<dependency>
+				<groupId>cn.sunline.kite</groupId>
+				<artifactId>kite-dependencies</artifactId>
+				<version>${kite-dependencies.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- 本模块依赖 -->
+			<dependency>
+				<groupId>cn.sunline.pcm</groupId>
+				<artifactId>pcm-definition</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.sunline.pcm</groupId>
+				<artifactId>pcm-infextension</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.sunline.pcm</groupId>
+				<artifactId>pcm-infrastructure</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.sunline.pcm</groupId>
+				<artifactId>pcm-service-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.sunline.pcm</groupId>
+				<artifactId>pcm-service-sdk</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.sunline.pcm</groupId>
+				<artifactId>pcm-facility</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.sunline.pcm</groupId>
+				<artifactId>pcm-surface-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.sunline.pcm</groupId>
+				<artifactId>pcm-surface-impl</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<!-- 其他模块依赖 -->
+			<dependency>
+				<groupId>cn.sunline.ppy</groupId>
+				<artifactId>ppy-dictionary</artifactId>
+				<version>${ppy.version}</version>
+			</dependency>
+			<!-- <dependency>
+				<groupId>cn.sunline.acm</groupId>
+				<artifactId>acm-service-sdk</artifactId>
+				<version>${acm.version}</version>
+			</dependency> -->
+		</dependencies>
+	</dependencyManagement>
+</project>
