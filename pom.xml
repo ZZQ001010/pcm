@@ -90,4 +90,15 @@
 			</dependency> -->
 		</dependencies>
 	</dependencyManagement>
+	<distributionManagement>
+		 <repository>
+		   <id>local-release</id>
+		   <url>http://10.191.9.13:8080/nexus/content/repositories/localRelease/</url>
+		 </repository>
+		 <snapshotRepository>
+		   <id>local-snapshot</id>
+		   <url>http://10.191.9.13:8080/nexus/content/repositories/localSnapshot/</url>
+		 </snapshotRepository>
+	</distributionManagement>
+	
 </project>
