@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.sunline.pcm</groupId>
+		<artifactId>pcm-parent</artifactId>
+		<version>5.6.1-TB-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>pcm-service-impl</artifactId>
+	<name>PCM - Service - Implementation - 联机服务实现</name>
+	<dependencies>
+		<!-- 本模块依赖 -->
+		<dependency>
+			<groupId>cn.sunline.pcm</groupId>
+			<artifactId>pcm-service-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.sunline.pcm</groupId>
+			<artifactId>pcm-service-sdk</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.sunline.pcm</groupId>
+			<artifactId>pcm-facility</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.sunline.pcm</groupId>
+			<artifactId>pcm-surface-impl</artifactId>
+		</dependency>
+		<!-- 底层依赖 -->
+		<dependency>
+			<groupId>cn.sunline.kite.rpc</groupId>
+			<artifactId>kite-rpc-eureka</artifactId>
+		</dependency>
+		<!-- 同步通知模块 -->
+		<dependency>
+			<groupId>cn.sunline.kite.distributed</groupId>
+			<artifactId>kite-distributed-sdk</artifactId>
+		</dependency>
+		<!-- 数据字典需要 -->
+		<dependency>
+			<groupId>cn.sunline.kite.web</groupId>
+			<artifactId>kite-web-service-sdk</artifactId>
+		</dependency>
+		<!-- 其他模块依赖 -->
+		<dependency>
+			<groupId>cn.sunline.acm</groupId>
+			<artifactId>acm-service-sdk</artifactId>
+		</dependency>
+		<!-- 第三方包依赖 -->
+		<!-- 独立运行的daemon进程需要依赖 -->
+		<dependency>
+			<groupId>commons-daemon</groupId>
+			<artifactId>commons-daemon</artifactId>
+			<optional>true</optional>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- druid连接池和数据库连接驱动 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<optional>true</optional>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<optional>true</optional>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- <dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<optional>true</optional>
+			<scope>runtime</scope>
+		</dependency> -->
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<useUniqueVersions>false</useUniqueVersions>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>${artifactId}-dependency/</classpathPrefix>
+							<mainClass>cn.sunline.common.spring.ServiceDaemon</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<includeScope>runtime</includeScope>
+					<useBaseVersion>true</useBaseVersion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

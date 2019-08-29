@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.sunline.pcm</groupId>
+		<artifactId>pcm-parent</artifactId>
+		<version>5.6.1-TB-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>pcm-definition</artifactId>
+	<name>pcm-definition - 参数定义（通用业务参数）</name>
+	<dependencies>
+		<!-- 底层依赖 -->
+		<dependency>
+			<groupId>cn.sunline.kite.common</groupId>
+			<artifactId>kite-common</artifactId>
+		</dependency>
+		<!-- 公共结构体和字典依赖 -->
+		<dependency>
+			<groupId>cn.sunline.ppy</groupId>
+			<artifactId>ppy-dictionary</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-cypher-compiler-2.2</artifactId>
+			<version>2.2.5</version>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: admin-pcm-service-impl
+    
+server:
+  port: 8003
+eureka:
+  instance: 
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+logging: 
+  config: classpath:config/log4j2.xml

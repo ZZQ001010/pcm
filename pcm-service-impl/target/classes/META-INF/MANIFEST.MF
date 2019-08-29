@@ -1,0 +1,186 @@
+Manifest-Version: 1.0
+Built-By: 11052
+Class-Path: pcm-service-impl-dependency/pcm-service-api-5.6.1-TB-SNAPS
+ HOT.jar pcm-service-impl-dependency/pcm-infextension-5.6.1-TB-SNAPSHO
+ T.jar pcm-service-impl-dependency/pcm-definition-5.6.1-TB-SNAPSHOT.ja
+ r pcm-service-impl-dependency/ppy-dictionary-5.6.1-TB-SNAPSHOT.jar pc
+ m-service-impl-dependency/neo4j-cypher-compiler-2.2-2.2.5.jar pcm-ser
+ vice-impl-dependency/scala-library-2.10.5.jar pcm-service-impl-depend
+ ency/scala-reflect-2.10.5.jar pcm-service-impl-dependency/parboiled-s
+ cala_2.10-1.1.7.jar pcm-service-impl-dependency/parboiled-core-1.1.7.
+ jar pcm-service-impl-dependency/concurrentlinkedhashmap-lru-1.4.jar p
+ cm-service-impl-dependency/pcm-service-sdk-5.6.1-TB-SNAPSHOT.jar pcm-
+ service-impl-dependency/xstream-1.4.10.jar pcm-service-impl-dependenc
+ y/xmlpull-1.1.3.1.jar pcm-service-impl-dependency/xpp3_min-1.1.4c.jar
+  pcm-service-impl-dependency/pcm-facility-5.6.1-TB-SNAPSHOT.jar pcm-s
+ ervice-impl-dependency/pcm-infrastructure-5.6.1-TB-SNAPSHOT.jar pcm-s
+ ervice-impl-dependency/kite-database-5.5.0.RC16.jar pcm-service-impl-
+ dependency/javax.el-api-3.0.0.jar pcm-service-impl-dependency/queryds
+ l-jpa-4.1.4.jar pcm-service-impl-dependency/querydsl-core-4.1.4.jar p
+ cm-service-impl-dependency/mysema-commons-lang-0.2.4.jar pcm-service-
+ impl-dependency/querydsl-apt-4.1.4.jar pcm-service-impl-dependency/qu
+ erydsl-codegen-4.1.4.jar pcm-service-impl-dependency/codegen-0.6.8.ja
+ r pcm-service-impl-dependency/ecj-4.3.1.jar pcm-service-impl-dependen
+ cy/reflections-0.9.9.jar pcm-service-impl-dependency/annotations-2.0.
+ 1.jar pcm-service-impl-dependency/jdo-api-3.0.1.jar pcm-service-impl-
+ dependency/jta-1.1.jar pcm-service-impl-dependency/querydsl-sql-4.1.4
+ .jar pcm-service-impl-dependency/org.apache.servicemix.bundles.javax-
+ inject-1_2.jar pcm-service-impl-dependency/bridge-method-annotation-1
+ .13.jar pcm-service-impl-dependency/hibernate-core-5.2.17.Final.jar p
+ cm-service-impl-dependency/hibernate-jpa-2.1-api-1.0.2.Final.jar pcm-
+ service-impl-dependency/javassist-3.22.0-GA.jar pcm-service-impl-depe
+ ndency/antlr-2.7.7.jar pcm-service-impl-dependency/jboss-transaction-
+ api_1.2_spec-1.0.1.Final.jar pcm-service-impl-dependency/jandex-2.0.3
+ .Final.jar pcm-service-impl-dependency/dom4j-1.6.1.jar pcm-service-im
+ pl-dependency/hibernate-commons-annotations-5.0.1.Final.jar pcm-servi
+ ce-impl-dependency/hibernate-entitymanager-5.2.17.Final.jar pcm-servi
+ ce-impl-dependency/byte-buddy-1.7.11.jar pcm-service-impl-dependency/
+ spring-boot-starter-data-jpa-2.0.3.RELEASE.jar pcm-service-impl-depen
+ dency/spring-boot-starter-jdbc-2.0.3.RELEASE.jar pcm-service-impl-dep
+ endency/HikariCP-2.7.9.jar pcm-service-impl-dependency/spring-jdbc-5.
+ 0.7.RELEASE.jar pcm-service-impl-dependency/javax.transaction-api-1.2
+ .jar pcm-service-impl-dependency/spring-data-jpa-2.0.8.RELEASE.jar pc
+ m-service-impl-dependency/spring-data-commons-2.0.8.RELEASE.jar pcm-s
+ ervice-impl-dependency/spring-orm-5.0.7.RELEASE.jar pcm-service-impl-
+ dependency/pcm-surface-impl-5.6.1-TB-SNAPSHOT.jar pcm-service-impl-de
+ pendency/pcm-surface-api-5.6.1-TB-SNAPSHOT.jar pcm-service-impl-depen
+ dency/kite-web-surface-impl-5.5.0.RC16.jar pcm-service-impl-dependenc
+ y/kite-web-surface-api-5.5.0.RC16.jar pcm-service-impl-dependency/kit
+ e-rpc-eureka-5.5.0.RC16.jar pcm-service-impl-dependency/jsr311-api-1.
+ 1.1.jar pcm-service-impl-dependency/jersey-client-1.19.1.jar pcm-serv
+ ice-impl-dependency/jersey-core-1.19.1.jar pcm-service-impl-dependenc
+ y/jersey-apache-client4-1.19.1.jar pcm-service-impl-dependency/httpcl
+ ient-4.5.5.jar pcm-service-impl-dependency/httpcore-4.4.9.jar pcm-ser
+ vice-impl-dependency/commons-codec-1.11.jar pcm-service-impl-dependen
+ cy/spring-cloud-starter-netflix-ribbon-2.0.0.RELEASE.jar pcm-service-
+ impl-dependency/spring-cloud-starter-2.0.0.RELEASE.jar pcm-service-im
+ pl-dependency/spring-cloud-context-2.0.0.RELEASE.jar pcm-service-impl
+ -dependency/spring-security-crypto-5.0.6.RELEASE.jar pcm-service-impl
+ -dependency/spring-cloud-commons-2.0.0.RELEASE.jar pcm-service-impl-d
+ ependency/spring-security-rsa-1.0.5.RELEASE.jar pcm-service-impl-depe
+ ndency/bcpkix-jdk15on-1.56.jar pcm-service-impl-dependency/bcprov-jdk
+ 15on-1.56.jar pcm-service-impl-dependency/spring-cloud-netflix-ribbon
+ -2.0.0.RELEASE.jar pcm-service-impl-dependency/spring-cloud-netflix-a
+ rchaius-2.0.0.RELEASE.jar pcm-service-impl-dependency/spring-cloud-st
+ arter-netflix-archaius-2.0.0.RELEASE.jar pcm-service-impl-dependency/
+ archaius-core-0.7.6.jar pcm-service-impl-dependency/jsr305-3.0.1.jar 
+ pcm-service-impl-dependency/commons-configuration-1.8.jar pcm-service
+ -impl-dependency/ribbon-2.2.5.jar pcm-service-impl-dependency/ribbon-
+ transport-2.2.5.jar pcm-service-impl-dependency/rxnetty-contexts-0.4.
+ 9.jar pcm-service-impl-dependency/rxnetty-servo-0.4.9.jar pcm-service
+ -impl-dependency/hystrix-core-1.5.12.jar pcm-service-impl-dependency/
+ javax.inject-1.jar pcm-service-impl-dependency/rxnetty-0.4.9.jar pcm-
+ service-impl-dependency/netty-codec-http-4.1.25.Final.jar pcm-service
+ -impl-dependency/netty-codec-4.1.25.Final.jar pcm-service-impl-depend
+ ency/netty-transport-native-epoll-4.1.25.Final.jar pcm-service-impl-d
+ ependency/netty-common-4.1.25.Final.jar pcm-service-impl-dependency/n
+ etty-buffer-4.1.25.Final.jar pcm-service-impl-dependency/netty-transp
+ ort-native-unix-common-4.1.25.Final.jar pcm-service-impl-dependency/n
+ etty-transport-4.1.25.Final.jar pcm-service-impl-dependency/netty-res
+ olver-4.1.25.Final.jar pcm-service-impl-dependency/guava-16.0.1.jar p
+ cm-service-impl-dependency/ribbon-core-2.2.5.jar pcm-service-impl-dep
+ endency/slf4j-api-1.7.25.jar pcm-service-impl-dependency/commons-lang
+ -2.6.jar pcm-service-impl-dependency/ribbon-httpclient-2.2.5.jar pcm-
+ service-impl-dependency/commons-collections-3.2.2.jar pcm-service-imp
+ l-dependency/servo-core-0.12.21.jar pcm-service-impl-dependency/netfl
+ ix-commons-util-0.3.0.jar pcm-service-impl-dependency/ribbon-loadbala
+ ncer-2.2.5.jar pcm-service-impl-dependency/netflix-statistics-0.1.1.j
+ ar pcm-service-impl-dependency/rxjava-1.3.8.jar pcm-service-impl-depe
+ ndency/spring-cloud-starter-netflix-eureka-client-2.0.0.RELEASE.jar p
+ cm-service-impl-dependency/spring-cloud-netflix-core-2.0.0.RELEASE.ja
+ r pcm-service-impl-dependency/spring-boot-autoconfigure-2.0.3.RELEASE
+ .jar pcm-service-impl-dependency/spring-boot-starter-aop-2.0.3.RELEAS
+ E.jar pcm-service-impl-dependency/aspectjweaver-1.8.13.jar pcm-servic
+ e-impl-dependency/spring-cloud-netflix-eureka-client-2.0.0.RELEASE.ja
+ r pcm-service-impl-dependency/eureka-client-1.9.2.jar pcm-service-imp
+ l-dependency/jettison-1.3.7.jar pcm-service-impl-dependency/stax-api-
+ 1.0.1.jar pcm-service-impl-dependency/netflix-eventbus-0.3.0.jar pcm-
+ service-impl-dependency/netflix-infix-0.3.0.jar pcm-service-impl-depe
+ ndency/commons-jxpath-1.3.jar pcm-service-impl-dependency/antlr-runti
+ me-3.4.jar pcm-service-impl-dependency/stringtemplate-3.2.1.jar pcm-s
+ ervice-impl-dependency/gson-2.8.5.jar pcm-service-impl-dependency/com
+ mons-math-2.2.jar pcm-service-impl-dependency/guice-4.1.0.jar pcm-ser
+ vice-impl-dependency/aopalliance-1.0.jar pcm-service-impl-dependency/
+ compactmap-1.2.1.jar pcm-service-impl-dependency/dexx-collections-0.2
+ .jar pcm-service-impl-dependency/jackson-annotations-2.9.0.jar pcm-se
+ rvice-impl-dependency/jackson-core-2.9.6.jar pcm-service-impl-depende
+ ncy/jackson-databind-2.9.6.jar pcm-service-impl-dependency/eureka-cor
+ e-1.9.2.jar pcm-service-impl-dependency/woodstox-core-asl-4.4.1.jar p
+ cm-service-impl-dependency/stax-api-1.0-2.jar pcm-service-impl-depend
+ ency/stax2-api-3.1.4.jar pcm-service-impl-dependency/ribbon-eureka-2.
+ 2.5.jar pcm-service-impl-dependency/spring-boot-starter-web-2.0.3.REL
+ EASE.jar pcm-service-impl-dependency/spring-boot-starter-2.0.3.RELEAS
+ E.jar pcm-service-impl-dependency/spring-boot-2.0.3.RELEASE.jar pcm-s
+ ervice-impl-dependency/javax.annotation-api-1.3.2.jar pcm-service-imp
+ l-dependency/spring-core-5.0.7.RELEASE.jar pcm-service-impl-dependenc
+ y/spring-jcl-5.0.7.RELEASE.jar pcm-service-impl-dependency/snakeyaml-
+ 1.19.jar pcm-service-impl-dependency/spring-boot-starter-json-2.0.3.R
+ ELEASE.jar pcm-service-impl-dependency/jackson-datatype-jdk8-2.9.6.ja
+ r pcm-service-impl-dependency/jackson-datatype-jsr310-2.9.6.jar pcm-s
+ ervice-impl-dependency/jackson-module-parameter-names-2.9.6.jar pcm-s
+ ervice-impl-dependency/spring-boot-starter-tomcat-2.0.3.RELEASE.jar p
+ cm-service-impl-dependency/tomcat-embed-core-8.5.31.jar pcm-service-i
+ mpl-dependency/tomcat-embed-el-8.5.31.jar pcm-service-impl-dependency
+ /tomcat-embed-websocket-8.5.31.jar pcm-service-impl-dependency/hibern
+ ate-validator-6.0.10.Final.jar pcm-service-impl-dependency/validation
+ -api-2.0.1.Final.jar pcm-service-impl-dependency/jboss-logging-3.3.2.
+ Final.jar pcm-service-impl-dependency/classmate-1.3.4.jar pcm-service
+ -impl-dependency/spring-web-5.0.7.RELEASE.jar pcm-service-impl-depend
+ ency/spring-beans-5.0.7.RELEASE.jar pcm-service-impl-dependency/sprin
+ g-webmvc-5.0.7.RELEASE.jar pcm-service-impl-dependency/spring-aop-5.0
+ .7.RELEASE.jar pcm-service-impl-dependency/spring-context-5.0.7.RELEA
+ SE.jar pcm-service-impl-dependency/spring-expression-5.0.7.RELEASE.ja
+ r pcm-service-impl-dependency/spring-boot-starter-actuator-2.0.3.RELE
+ ASE.jar pcm-service-impl-dependency/spring-boot-actuator-autoconfigur
+ e-2.0.3.RELEASE.jar pcm-service-impl-dependency/spring-boot-actuator-
+ 2.0.3.RELEASE.jar pcm-service-impl-dependency/micrometer-core-1.0.5.j
+ ar pcm-service-impl-dependency/HdrHistogram-2.1.10.jar pcm-service-im
+ pl-dependency/LatencyUtils-2.0.3.jar pcm-service-impl-dependency/spri
+ ng-boot-starter-freemarker-2.0.3.RELEASE.jar pcm-service-impl-depende
+ ncy/freemarker-2.3.28.jar pcm-service-impl-dependency/spring-context-
+ support-5.0.7.RELEASE.jar pcm-service-impl-dependency/kite-rpc-common
+ -5.5.0.RC16.jar pcm-service-impl-dependency/kite-common-5.5.0.RC16.ja
+ r pcm-service-impl-dependency/apollo-client-1.4.0.jar pcm-service-imp
+ l-dependency/apollo-core-1.4.0.jar pcm-service-impl-dependency/spring
+ -boot-starter-cache-2.0.3.RELEASE.jar pcm-service-impl-dependency/com
+ mons-lang3-3.7.jar pcm-service-impl-dependency/commons-io-2.6.jar pcm
+ -service-impl-dependency/commons-text-1.6.jar pcm-service-impl-depend
+ ency/commons-beanutils-1.9.3.jar pcm-service-impl-dependency/spring-t
+ x-5.0.7.RELEASE.jar pcm-service-impl-dependency/spring-cloud-starter-
+ netflix-hystrix-2.0.0.RELEASE.jar pcm-service-impl-dependency/hystrix
+ -serialization-1.5.12.jar pcm-service-impl-dependency/jackson-module-
+ afterburner-2.9.6.jar pcm-service-impl-dependency/hystrix-metrics-eve
+ nt-stream-1.5.12.jar pcm-service-impl-dependency/hystrix-javanica-1.5
+ .12.jar pcm-service-impl-dependency/asm-5.0.4.jar pcm-service-impl-de
+ pendency/rxjava-reactive-streams-1.2.1.jar pcm-service-impl-dependenc
+ y/reactive-streams-1.0.2.jar pcm-service-impl-dependency/jackson-modu
+ le-jaxb-annotations-2.9.6.jar pcm-service-impl-dependency/joda-time-2
+ .9.9.jar pcm-service-impl-dependency/sigar-1.6.4.jar pcm-service-impl
+ -dependency/sigar-1.6.4-native.jar pcm-service-impl-dependency/log4j-
+ core-2.10.0.jar pcm-service-impl-dependency/log4j-api-2.10.0.jar pcm-
+ service-impl-dependency/spring-boot-starter-log4j2-2.0.3.RELEASE.jar 
+ pcm-service-impl-dependency/log4j-slf4j-impl-2.10.0.jar pcm-service-i
+ mpl-dependency/log4j-jul-2.10.0.jar pcm-service-impl-dependency/jul-t
+ o-slf4j-1.7.25.jar pcm-service-impl-dependency/aspectjrt-1.8.13.jar p
+ cm-service-impl-dependency/spring-aspects-5.0.7.RELEASE.jar pcm-servi
+ ce-impl-dependency/commons-httpclient-3.1.jar pcm-service-impl-depend
+ ency/kite-distributed-sdk-5.5.0.RC16.jar pcm-service-impl-dependency/
+ kite-distributed-infrastructure-5.5.0.RC16.jar pcm-service-impl-depen
+ dency/kite-distributed-infextension-5.5.0.RC16.jar pcm-service-impl-d
+ ependency/kite-distributed-api-5.5.0.RC16.jar pcm-service-impl-depend
+ ency/kite-web-service-sdk-5.5.0.RC16.jar pcm-service-impl-dependency/
+ kite-web-service-api-5.5.0.RC16.jar pcm-service-impl-dependency/kite-
+ web-infextension-5.5.0.RC16.jar pcm-service-impl-dependency/kite-web-
+ definition-5.5.0.RC16.jar pcm-service-impl-dependency/kite-web-infext
+ ension-unify-5.5.0.RC16.jar pcm-service-impl-dependency/kite-web-infr
+ astructure-5.5.0.RC16.jar pcm-service-impl-dependency/acm-service-sdk
+ -5.5.0.RC16.jar pcm-service-impl-dependency/kite-console-service-sdk-
+ 5.5.0.RC16.jar pcm-service-impl-dependency/kite-console-facility-5.5.
+ 0.RC16.jar pcm-service-impl-dependency/kite-console-definition-5.5.0.
+ RC16.jar pcm-service-impl-dependency/commons-daemon-1.0.15.jar pcm-se
+ rvice-impl-dependency/druid-1.0.24.jar pcm-service-impl-dependency/my
+ sql-connector-java-5.1.46.jar
+Build-Jdk: 1.8.0_172
+Created-By: Maven Integration for Eclipse
+Main-Class: cn.sunline.common.spring.ServiceDaemon
+

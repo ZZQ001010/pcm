@@ -1,0 +1,10 @@
+cn\sunline\pcm\infrastructure\model\bo\BPcmProductRel.class
+cn\sunline\pcm\infrastructure\model\bo\BPcmProductGroup.class
+cn\sunline\pcm\infrastructure\model\bo\BPcmPrmObject.class
+cn\sunline\pcm\infrastructure\model\bo\BPcmProductUnits.class
+cn\sunline\pcm\infrastructure\model\bo\BPcmPrmControl.class
+cn\sunline\pcm\infrastructure\model\bo\BPcmProductUnit.class
+cn\sunline\pcm\infrastructure\model\bo\BPcmOrgParametter.class
+cn\sunline\pcm\infrastructure\model\bo\BPcmProductData.class
+cn\sunline\pcm\infrastructure\shared\enums\ParamOperationDef.class
+cn\sunline\pcm\infrastructure\model\bo\BPcmPrmAudit.class
