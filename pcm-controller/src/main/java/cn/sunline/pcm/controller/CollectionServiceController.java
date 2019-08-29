@@ -26,6 +26,7 @@ import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.BasicNetPremium;
 import cn.sunline.pcm.definition.ChannelInfo;
@@ -45,12 +46,10 @@ import cn.sunline.pcm.surface.api.ParameterSurface;
  */ 
 @Controller
 @RequestMapping("collectionService")
-public class CollectionServiceController {
+public class CollectionServiceController  extends Fee{
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	private ParameterSurface parameterSurface;
 	
 
 	/** 
@@ -119,7 +118,7 @@ public class CollectionServiceController {
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.BillingCycle.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
-	
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
             //所属机构
             HashMap<String, String> orgMap = new HashMap<>();
             parameterSurface.getParameterObject(PcmOrgParameter.class).forEach(
@@ -212,7 +211,7 @@ public class CollectionServiceController {
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.RmasFeeBasis.class));
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.BillingCycle.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
-
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
             //所属机构
             HashMap<String, String> orgMap = new HashMap<>();
             parameterSurface.getParameterObject(PcmOrgParameter.class).forEach(
@@ -320,7 +319,8 @@ public class CollectionServiceController {
 			view = KW.mvc.forwardView("collectionService/collectionServiceDetail");
 			view.addObject("factory",dcode==null);
 			CollectionService collectionService = parameterSurface.getParameterObject(dcode==null?code:dcode, CollectionService.class);
-			
+			collectionService.setTransferAccount(getPcmSettleAccMan(collectionService.getTransferAccount()));
+			collectionService.setTransferToAccount(getPcmSettleAccMan(collectionService.getTransferToAccount()));
 			view.addObject("partnerType", KC.Enum.getI18nLabel(collectionService.getPartnerType()));
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(collectionService.getFeeCollectionMethod()));
 			view.addObject("feeBasis", KC.Enum.getI18nLabel(collectionService.getFeeBasis()));

@@ -9,6 +9,10 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
+import cn.sunline.pcm.controller.common.Fee;
+import cn.sunline.pcm.definition.*;
+import cn.sunline.pcm.definition.enums.ChannelPartnerType;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +31,6 @@ import cn.sunline.common.KC;
 import cn.sunline.common.exception.ProcessException;
 import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
-import cn.sunline.pcm.definition.AssetSideCtrlInfo;
-import cn.sunline.pcm.definition.AssetSideInfo;
-import cn.sunline.pcm.definition.AssetSideRiskCtrl;
-import cn.sunline.pcm.definition.BasicNetPremium;
-import cn.sunline.pcm.definition.PcmOrgParameter;
 import cn.sunline.pcm.definition.enums.BanceDate;
 import cn.sunline.pcm.definition.enums.Expenses;
 import cn.sunline.pcm.definition.enums.Settlement;
@@ -48,12 +47,10 @@ import cn.sunline.web.common.utils.KW;
  */ 
 @Controller
 @RequestMapping("basicNetPremium")
-public class BasicNetPremiumController {
+public class BasicNetPremiumController extends Fee {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	private ParameterSurface parameterSurface;
 	
 
 	/** 
@@ -129,14 +126,53 @@ public class BasicNetPremiumController {
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
 			view.addObject("settlement",KC.Enum.getI18nLabelMap(Settlement.class));
 			view.addObject("expenses",KC.Enum.getI18nLabelMap(Expenses.class));
-			//资产方
+            view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
+        	view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
+
+            //资产方
             view.addObject("assetFundSideCode", parameterSurface.getParameterObject(AssetSideInfo.class)
             		.stream().collect(Collectors.toMap(AssetSideInfo::getAssetSideCode,AssetSideInfo::getAssetSideDesc)));
             //所属机构
             view.addObject("orgCode", parameterSurface.getParameterObject(PcmOrgParameter.class)
             		.stream().collect(Collectors.toMap(PcmOrgParameter::getOrgCode,PcmOrgParameter::getValue)));
 			view.addObject("basicNetPremium", new BasicNetPremium());
-			return view;
+            /**
+             * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
+             */
+            //资金方
+            List<FundSideInfo> fundSideInfoList = parameterSurface.getFetchResponse(null, FundSideInfo.class).getRows();
+            Map<String,String> fundSideInfoMap = new HashMap<String,String>();
+            for (FundSideInfo fundSideInfo : fundSideInfoList) {
+                fundSideInfoMap.put(fundSideInfo.getFundSideCode(),
+                        fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+            }
+            view.addObject("fundSideInfoMap",new JSONObject(fundSideInfoMap));
+            //资产方
+            List<AssetSideInfo> assetSideInfoList = parameterSurface.getFetchResponse(null, AssetSideInfo.class).getRows();
+            Map<String,String> assetSideInfoMap = new HashMap<String,String>();
+            for (AssetSideInfo AssetSideInfo : assetSideInfoList) {
+                assetSideInfoMap.put(AssetSideInfo.getAssetSideCode(),
+                        AssetSideInfo.getAssetSideCode()+"-"+AssetSideInfo.getAssetSideDesc());
+            }
+            view.addObject("assetSideInfoMap",new JSONObject(assetSideInfoMap));
+            //渠道方  
+            List<ChannelInfo> channelInfoList = parameterSurface.getFetchResponse(null, ChannelInfo.class).getRows();
+            Map<String,String> channelInfoMap = new HashMap<String,String>();
+            for (ChannelInfo channelInfo : channelInfoList) {
+                channelInfoMap.put(channelInfo.getChannelCode(),
+                        channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+            }
+            view.addObject("channelInfoMap",new JSONObject(channelInfoMap));
+            //服务方  
+            List<ServerInfo> serverInfoList = parameterSurface.getFetchResponse(null, ServerInfo.class).getRows();
+            Map<String,String> serverInfoMap = new HashMap<String,String>();
+            for (ServerInfo serverInfo : serverInfoList) {
+                serverInfoMap.put(serverInfo.getServerCode(),
+                        serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+            }
+            view.addObject("serverInfoMap",new JSONObject(serverInfoMap));
+
+            return view;
 		} catch (ProcessException e) {
 			logger.error(e.getMessage(), e);
 			throw new FlatException(e.getErrorCode(), e.getMessage());
@@ -190,12 +226,51 @@ public class BasicNetPremiumController {
 			view.addObject("assetFundSideCode", parameterSurface.getParameterObject(AssetSideInfo.class)
             		.stream().collect(Collectors.toMap(AssetSideInfo::getAssetSideCode,AssetSideInfo::getAssetSideDesc)));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			view.addObject("settlement",KC.Enum.getI18nLabelMap(Settlement.class));
 			view.addObject("expenses",KC.Enum.getI18nLabelMap(Expenses.class));
+            view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
+
             //所属机构
             view.addObject("orgCode", parameterSurface.getParameterObject(PcmOrgParameter.class)
             		.stream().collect(Collectors.toMap(PcmOrgParameter::getOrgCode,PcmOrgParameter::getValue)));
-			return view;
+            /**
+             * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
+             */
+            //资金方
+            List<FundSideInfo> fundSideInfoList = parameterSurface.getFetchResponse(null, FundSideInfo.class).getRows();
+            Map<String,String> fundSideInfoMap = new HashMap<String,String>();
+            for (FundSideInfo fundSideInfo : fundSideInfoList) {
+                fundSideInfoMap.put(fundSideInfo.getFundSideCode(),
+                        fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+            }
+            view.addObject("fundSideInfoMap",new JSONObject(fundSideInfoMap));
+            //资产方
+            List<AssetSideInfo> assetSideInfoList = parameterSurface.getFetchResponse(null, AssetSideInfo.class).getRows();
+            Map<String,String> assetSideInfoMap = new HashMap<String,String>();
+            for (AssetSideInfo AssetSideInfo : assetSideInfoList) {
+                assetSideInfoMap.put(AssetSideInfo.getAssetSideCode(),
+                        AssetSideInfo.getAssetSideCode()+"-"+AssetSideInfo.getAssetSideDesc());
+            }
+            view.addObject("assetSideInfoMap",new JSONObject(assetSideInfoMap));
+            //渠道方  
+            List<ChannelInfo> channelInfoList = parameterSurface.getFetchResponse(null, ChannelInfo.class).getRows();
+            Map<String,String> channelInfoMap = new HashMap<String,String>();
+            for (ChannelInfo channelInfo : channelInfoList) {
+                channelInfoMap.put(channelInfo.getChannelCode(),
+                        channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+            }
+            view.addObject("channelInfoMap",new JSONObject(channelInfoMap));
+            //服务方  
+            List<ServerInfo> serverInfoList = parameterSurface.getFetchResponse(null, ServerInfo.class).getRows();
+            Map<String,String> serverInfoMap = new HashMap<String,String>();
+            for (ServerInfo serverInfo : serverInfoList) {
+                serverInfoMap.put(serverInfo.getServerCode(),
+                        serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+            }
+            view.addObject("serverInfoMap",new JSONObject(serverInfoMap));
+
+            return view;
 		} catch (ProcessException e) {
 			logger.error(e.getMessage(), e);
 			throw new FlatException(e.getErrorCode(), e.getMessage());
@@ -250,7 +325,7 @@ public class BasicNetPremiumController {
 	 * <p>
 	 * 加载基础净含保费明细页面
 	 * </p>
-	 * @param id
+	 * @param view
 	 * @return
 	 * @throws FlatException
 	 */
@@ -260,6 +335,9 @@ public class BasicNetPremiumController {
 			 view = KW.mvc.forwardView("basicNetPremium/basicNetPremiumDetail");
 			 view.addObject("factory",dcode==null);
 			BasicNetPremium BasicNetPremium = parameterSurface.getParameterObject(dcode==null?code:dcode, BasicNetPremium.class);
+			
+			BasicNetPremium.setTransferAccount(getPcmSettleAccMan(BasicNetPremium.getTransferAccount()));
+			BasicNetPremium.setTransferToAccount(getPcmSettleAccMan(BasicNetPremium.getTransferAccount()));
 			view.addObject("basicNetPremium", BasicNetPremium);
 			String orgCode = BasicNetPremium.getOrgCode();
 			String newOrgCode = parameterSurface.getParameterObject(PcmOrgParameter.class).stream()
@@ -267,13 +345,37 @@ public class BasicNetPremiumController {
 			BasicNetPremium.setOrgCode(newOrgCode);
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(BasicNetPremium.getFeeCollectionMethod()));
 			view.addObject("feeBasis", KC.Enum.getI18nLabel(BasicNetPremium.getFeeBasis()));
-			
-			view.addObject("expenses", KC.Enum.getI18nLabel(BasicNetPremium.getExpenses()));
+            view.addObject("partnerType", KC.Enum.getI18nLabel(BasicNetPremium.getPartnerType()));
+
+            view.addObject("expenses", KC.Enum.getI18nLabel(BasicNetPremium.getExpenses()));
 			view.addObject("settlement", KC.Enum.getI18nLabel(BasicNetPremium.getSettlement()));
 			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabel(BasicNetPremium.getFrequencyOfCharge()));
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(BasicNetPremium.getBillingCycle()));
 			view.addObject("upperLimitControlMethod", KC.Enum.getI18nLabel(BasicNetPremium.getUpperLimitControlMethod()));
 			view.addObject("downLimitControlMethod", KC.Enum.getI18nLabel(BasicNetPremium.getDownLimitControlMethod()));
+            ChannelPartnerType type = BasicNetPremium.getPartnerType();
+            if(type!=null){
+                //资产方
+                if(type.equals(ChannelPartnerType.ZC)){
+                    AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(BasicNetPremium.getPartnerCode(),AssetSideInfo.class);
+                    view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+                }
+                //资金方
+                if(type.equals(ChannelPartnerType.ZJ)){
+                    FundSideInfo fundSideInfo = parameterSurface.getParameterObject(BasicNetPremium.getPartnerCode(),FundSideInfo.class);
+                    view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+                }
+                //服务方
+                if(type.equals(ChannelPartnerType.FW)){
+                    ServerInfo serverInfo = parameterSurface.getParameterObject(BasicNetPremium.getPartnerCode(),ServerInfo.class);
+                    view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+                }
+                //渠道方 
+                if(type.equals(ChannelPartnerType.QD)){
+                    ChannelInfo channelInfo = parameterSurface.getParameterObject(BasicNetPremium.getPartnerCode(),ChannelInfo.class);
+                    view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+                }
+            }
 			return view;
 		} catch (ProcessException e) {
 			logger.error(e.getMessage(), e);

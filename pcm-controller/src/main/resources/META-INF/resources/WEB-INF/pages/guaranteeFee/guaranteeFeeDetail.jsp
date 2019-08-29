@@ -28,22 +28,6 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${guaranteeFee.guaranteeFeeDesc }	
 			</label>
-			<!-- 单笔最小金额 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="guaranteeFee.guaranteeFeeminSun" text="单笔最小金额" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${guaranteeFee.guaranteeFeeminSun }	
-			</label>
-			<!-- 单笔最大金额 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="guaranteeFee.guaranteeFeemaxSun" text="单笔最大金额" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${guaranteeFee.guaranteeFeemaxSun }	
-			</label>
 			<!-- 费用收取方式 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
 				<spring:message code="guaranteeFee.feeCollectionMethod" text="费用收取方式" />
@@ -75,14 +59,6 @@
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${guaranteeFee.chargeRatio }	
-			</label>
-			<!-- 收取金额 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="guaranteeFee.chargeAmount" text="收取金额" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${guaranteeFee.chargeAmount }	
 			</label>
 			<!-- 转出账号 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
@@ -160,14 +136,7 @@
 				&nbsp;${guaranteeFee.balanceDate}
 			</label>
 			
-									<!-- 提前结清费用收取方式 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="guaranteeFee.settlement" text="结算周期" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${settlement}
-			</label>
+
 		</div>
 		
  <c:if test="${factroy==false }">

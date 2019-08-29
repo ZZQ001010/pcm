@@ -22,17 +22,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.sunline.common.KC;
-import cn.sunline.common.KC.map;
 import cn.sunline.common.exception.ProcessException;
 import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.ChannelServiceFee;
 import cn.sunline.pcm.definition.FundSideInfo;
 import cn.sunline.pcm.definition.PcmOrgParameter;
-import cn.sunline.pcm.definition.PremiumLatePaymentFee;
-import cn.sunline.pcm.definition.SafetyMat;
+import cn.sunline.pcm.definition.PcmSettleAccMan;
 import cn.sunline.pcm.definition.ServerInfo;
 import cn.sunline.pcm.definition.enums.BanceDate;
 import cn.sunline.pcm.definition.enums.BillingCycle;
@@ -43,7 +42,6 @@ import cn.sunline.pcm.definition.enums.FrequencyOfChannel;
 import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
-import scala.reflect.internal.Trees.New;
 
 /** 
  * <p>
@@ -53,13 +51,10 @@ import scala.reflect.internal.Trees.New;
  */ 
 @Controller
 @RequestMapping("channelServiceFee")
-public class ChannelServiceFeeController {
+public class ChannelServiceFeeController extends Fee {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	private ParameterSurface parameterSurface;
-	
 
 	/** 
 	 * <p>
@@ -114,7 +109,7 @@ public class ChannelServiceFeeController {
 			}
 			view.addObject("channelInfoJson",new JSONObject(channelInfoMap));
 			//服务方  
-			List<ServerInfo> serverInfoList = parameterSurface.getFetchResponse(null, ServerInfo.class).getRows();
+			List<ServerInfo> serverInfoList = parameterSurface.getParameterObject(ServerInfo.class);
 			Map<String,String> serverInfoMap = new HashMap<String,String>();
 			for (ServerInfo serverInfo : serverInfoList) {
 				serverInfoMap.put(serverInfo.getServerCode(), 
@@ -172,14 +167,14 @@ public class ChannelServiceFeeController {
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
-			//所属机构
-			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
-			List<PcmOrgParameter> list = response.getRows();
+			//所属机构t
+			List<PcmOrgParameter> list = parameterSurface.getParameterObject(PcmOrgParameter.class);
 			Map<String,String> orgMap = new HashMap<String,String>();
 			for (PcmOrgParameter pcmOrgParameter : list) {
 				orgMap.put(pcmOrgParameter.orgCode, pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
 			}
 			view.addObject("orgMap",orgMap);
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			/**
 			 * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
 			 */
@@ -225,6 +220,10 @@ public class ChannelServiceFeeController {
 			throw new FlatException(e,"channelServiceFee.channelServiceFeeAddPageFail","加载新增渠道方服务费页面异常");
 		}
 	}
+	
+	
+	
+	
 
 	/** 
 	 * <p>
@@ -266,9 +265,9 @@ public class ChannelServiceFeeController {
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			//所属机构
-			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
-			List<PcmOrgParameter> list = response.getRows();
+			List<PcmOrgParameter> list = parameterSurface.getParameterObject( PcmOrgParameter.class);
 			Map<String,String> orgMap = new HashMap<String,String>();
 			for (PcmOrgParameter pcmOrgParameter : list) {
 				orgMap.put(pcmOrgParameter.orgCode, pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
@@ -382,6 +381,8 @@ public class ChannelServiceFeeController {
 			}else{
 				view.addObject("balanceDate", channelServiceFee.getBalanceDate() );
 			}
+			channelServiceFee.setTransferAccount(getPcmSettleAccMan(channelServiceFee.getTransferAccount()));
+			channelServiceFee.setTransferToAccount(getPcmSettleAccMan(channelServiceFee.getTransferToAccount()));
 			view.addObject("channelServiceFee", channelServiceFee);
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(channelServiceFee.getFeeCollectionMethod()));
 			view.addObject("feeBasis", KC.Enum.getI18nLabel(channelServiceFee.getFeeBasis()));

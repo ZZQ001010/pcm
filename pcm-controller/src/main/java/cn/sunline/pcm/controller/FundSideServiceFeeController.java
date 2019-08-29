@@ -24,6 +24,7 @@ import cn.sunline.common.KC;
 import cn.sunline.common.exception.ProcessException;
 import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.Dedit;
@@ -50,13 +51,11 @@ import cn.sunline.web.common.utils.KW;
  */ 
 @Controller
 @RequestMapping("fundSideServiceFee")
-public class FundSideServiceFeeController {
+public class FundSideServiceFeeController extends Fee {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	private ParameterSurface parameterSurface;
-	
+ 
 
 	/** 
 	 * <p>
@@ -139,25 +138,25 @@ public class FundSideServiceFeeController {
 		try {
 			ModelAndView view = KW.mvc.forwardView("fundSideServiceFee/fundSideServiceFeeAdd");
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
-			view.addObject("settlement", KC.Enum.getI18nLabelMap(Settlement.class));
+			//view.addObject("settlement", KC.Enum.getI18nLabelMap(Settlement.class));
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(DeditMethodOfFeeCollection.class));				
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(CapitalMoneyBasics.class));				
 			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(SafeTyMatFrequencyOfCharge.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
 			//所属机构
-			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
-			List<PcmOrgParameter> list = response.getRows();
+			List<PcmOrgParameter> list = parameterSurface.getParameterObject(PcmOrgParameter.class);
 			Map<String,String> orgMap = new HashMap<String,String>();
 			for (PcmOrgParameter pcmOrgParameter : list) {
 				orgMap.put(pcmOrgParameter.orgCode, pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
 			}
 			view.addObject("orgMap",orgMap);
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			/**
 			 * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
 			 */
 			//资金方
-			List<FundSideInfo> fundSideInfoList = parameterSurface.getFetchResponse(null, FundSideInfo.class).getRows();
+			List<FundSideInfo> fundSideInfoList = parameterSurface.getParameterObject( FundSideInfo.class);
 			Map<String,String> fundSideInfoMap = new HashMap<String,String>();
 			for (FundSideInfo fundSideInfo : fundSideInfoList) {
 				fundSideInfoMap.put(fundSideInfo.getFundSideCode(), 
@@ -234,7 +233,7 @@ public class FundSideServiceFeeController {
 		try {
 			ModelAndView view = KW.mvc.forwardView("fundSideServiceFee/fundSideServiceFeeEdit");
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
-			view.addObject("settlement", KC.Enum.getI18nLabelMap(Settlement.class));
+			//view.addObject("settlement", KC.Enum.getI18nLabelMap(Settlement.class));
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));	
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(DeditMethodOfFeeCollection.class));				
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(CapitalMoneyBasics.class));				
@@ -248,6 +247,7 @@ public class FundSideServiceFeeController {
 				orgMap.put(pcmOrgParameter.orgCode, pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
 			}
 			view.addObject("orgMap",orgMap);
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			/**
 			 * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
 			 */
@@ -352,8 +352,10 @@ public class FundSideServiceFeeController {
 			view.addObject("factory",skillcode==null);
 			FundSideServiceFee fundSideServiceFee = parameterSurface
 					.getParameterObject(skillcode==null?code:skillcode,FundSideServiceFee.class);
+			fundSideServiceFee.setTransferAccount(getPcmSettleAccMan(fundSideServiceFee.getTransferAccount()));
+			fundSideServiceFee.setTransferToAccount(getPcmSettleAccMan(fundSideServiceFee.getTransferToAccount()));
 			view.addObject("banceDate", KC.Enum.getI18nLabel(fundSideServiceFee.getBanceDate()));
-			view.addObject("settlement", KC.Enum.getI18nLabel(fundSideServiceFee.getSettlement()));
+			//view.addObject("settlement", KC.Enum.getI18nLabel(fundSideServiceFee.getSettlement()));
 			view.addObject("partnerType", KC.Enum.getI18nLabel(fundSideServiceFee.getPartnerType()));
 			view.addObject("fundSideServiceFee", fundSideServiceFee);
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(fundSideServiceFee.getFeeCollectionMethod()));

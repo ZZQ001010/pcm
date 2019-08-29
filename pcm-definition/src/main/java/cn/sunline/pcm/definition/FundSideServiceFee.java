@@ -44,8 +44,8 @@ public class FundSideServiceFee implements Serializable{
 	@PropertyInfo(name="资金方",length=50)
 	public String capital; 
 	
-	@PropertyInfo(name="资金方平台服务方",length=50)
-	public String platformService ;
+	//@PropertyInfo(name="资金方平台服务方",length=50)
+	//public String platformService ;
 	
 	@PropertyInfo(name="转出账号",length=12)
 	public String TransferAccount; 
@@ -86,8 +86,8 @@ public class FundSideServiceFee implements Serializable{
 	 * 提前还款手续费方式
 	 * @return
 	 */
-	@PropertyInfo(name="提前还款手续费方式",length=32)
-	public Settlement settlement;
+	//@PropertyInfo(name="提前还款手续费方式",length=32)
+	//public Settlement settlement;
 	
 	
 	public BanceDate getBanceDate() {
@@ -110,14 +110,14 @@ public class FundSideServiceFee implements Serializable{
 	}
 
 
-	public Settlement getSettlement() {
-		return settlement;
-	}
-
-
-	public void setSettlement(Settlement settlement) {
-		this.settlement = settlement;
-	}
+	//public Settlement getSettlement() {
+	//	return settlement;
+	//}
+    //
+    //
+	//public void setSettlement(Settlement settlement) {
+	//	this.settlement = settlement;
+	//}
 
 
 
@@ -204,13 +204,13 @@ public class FundSideServiceFee implements Serializable{
 		this.capital = capital;
 	}
 
-	public String getPlatformService() {
-		return platformService;
-	}
-
-	public void setPlatformService(String platformService) {
-		this.platformService = platformService;
-	}
+	//public String getPlatformService() {
+	//	return platformService;
+	//}
+    //
+	//public void setPlatformService(String platformService) {
+	//	this.platformService = platformService;
+	//}
 
 	public String getTransferAccount() {
 		return TransferAccount;

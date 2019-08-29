@@ -68,8 +68,6 @@
 		pkNames.push("guaranteeFeeCode");
 		columns.push({ title: '<spring:message code="guaranteeFee.guaranteeFeeCode" text="担保费编码" />', data: 'guaranteeFeeCode'});
 		columns.push({ title: '<spring:message code="guaranteeFee.guaranteeFeeDesc" text="担保费描述" />', data: 'guaranteeFeeDesc'});
-		columns.push({ title: '<spring:message code="guaranteeFee.guaranteeFeeminSun" text="单笔最小金额" />', data: 'guaranteeFeeminSun'});
-		columns.push({ title: '<spring:message code="guaranteeFee.guaranteeFeemaxSun" text="单笔最大金额" />', data: 'guaranteeFeemaxSun'});
 		columns.push({ title: '<spring:message code="guaranteeFee.feeCollectionMethod" text="费用收取方式" />', data: 'feeCollectionMethod',
 			render : function(data, type, row, meta) {
 				return ${feeCollectionMethodJson}[data];
@@ -85,8 +83,7 @@
 				return ${frequencyOfChargeJson}[data];
 			}
 		});
-		columns.push({ title: '<spring:message code="guaranteeFee.chargeRatio" text="收取比例" />', data: 'chargeRatio'});
-		columns.push({ title: '<spring:message code="guaranteeFee.chargeAmount" text="收取金额" />', data: 'chargeAmount'});
+		columns.push({ title: '<spring:message code="guaranteeFee.ratio" text="收取比例" />', data: 'ratio'});
 		columns.push({ title: '<spring:message code="guaranteeFee.transferAccount" text="转出账号" />', data: 'transferAccount'});
 		columns.push({ title: '<spring:message code="guaranteeFee.transferToAccount" text="转入账号" />', data: 'transferToAccount'});
 		columns.push({ title: '<spring:message code="guaranteeFee.billingCycle" text="结算周期" />', data: 'billingCycle',

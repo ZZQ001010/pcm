@@ -28,6 +28,7 @@ import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
 import scala.reflect.internal.Trees.New;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.FundSideInfo;
 import cn.sunline.pcm.definition.PcmOrgParameter;
@@ -45,12 +46,10 @@ import cn.sunline.pcm.definition.enums.Settlement;
  */ 
 @Controller
 @RequestMapping("safetyMat")
-public class SafetyMatController {
+public class SafetyMatController extends Fee {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	private ParameterSurface parameterSurface;
 	
 
 	/** 
@@ -71,7 +70,7 @@ public class SafetyMatController {
 			view.addObject("feeBasisJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.SafeTymatFeeBasis.class));
 			view.addObject("frequencyOfChargeJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.SafeTyMatFrequencyOfCharge.class));
 			view.addObject("billingCycleJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.BillingCycle.class));
-			view.addObject("participationStatusJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.Indicator.class));
+			//view.addObject("participationStatusJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.Indicator.class));
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
 			List<PcmOrgParameter> list = response.getRows();
@@ -142,12 +141,13 @@ public class SafetyMatController {
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SafeTymatFeeBasis.class));				
 			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SafeTyMatFrequencyOfCharge.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.BillingCycle.class));				
-			view.addObject("participationStatusMap", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.Indicator.class));
+			//view.addObject("participationStatusMap", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.Indicator.class));
 			view.addObject("safetyMat", new SafetyMat());
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
 			view.addObject("settlement",KC.Enum.getI18nLabelMap(Settlement.class));
-			view.addObject("backsettlement",KC.Enum.getI18nLabelMap(Settlement.class));
+			//view.addObject("backsettlement",KC.Enum.getI18nLabelMap(Settlement.class));
 			view.addObject("expenses",KC.Enum.getI18nLabelMap(Expenses.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
 			List<PcmOrgParameter> list = response.getRows();
@@ -217,11 +217,12 @@ public class SafetyMatController {
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SafeTymatFeeBasis.class));				
 			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SafeTyMatFrequencyOfCharge.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.BillingCycle.class));				
-			view.addObject("participationStatusMap", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.Indicator.class));
+			//view.addObject("participationStatusMap", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.Indicator.class));
 			view.addObject("safetyMat", new SafetyMat());
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
 			view.addObject("settlement",KC.Enum.getI18nLabelMap(Settlement.class));
-			view.addObject("backsettlement",KC.Enum.getI18nLabelMap(Settlement.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
+			//view.addObject("backsettlement",KC.Enum.getI18nLabelMap(Settlement.class));
 			view.addObject("expenses",KC.Enum.getI18nLabelMap(Expenses.class));
 			SafetyMat safetyMat = parameterSurface.getParameterObject(code, SafetyMat.class);
 			view.addObject("safetyMat",safetyMat);
@@ -313,12 +314,14 @@ public class SafetyMatController {
 			 view = KW.mvc.forwardView("safetyMat/safetyMatDetail");
 			 view.addObject("factory",code==null); 
 			SafetyMat safetyMat = parameterSurface.getParameterObject(dcode==null?code:dcode, SafetyMat.class);
+			safetyMat.setTransferAccount(getPcmSettleAccMan(safetyMat.getTransferAccount()));
+			safetyMat.setTransferToAccount(getPcmSettleAccMan(safetyMat.getTransferToAccount()));
 			view.addObject("safetyMat", safetyMat);
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(safetyMat.getFeeCollectionMethod()));
 			view.addObject("feeBasis", KC.Enum.getI18nLabel(safetyMat.getFeeBasis()));
 			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabel(safetyMat.getFrequencyOfCharge()));
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(safetyMat.getBillingCycle()));
-			view.addObject("participationStatus", KC.Enum.getI18nLabel(safetyMat.getParticipationStatus()));
+			//view.addObject("participationStatus", KC.Enum.getI18nLabel(safetyMat.getParticipationStatus()));
 			//所属机构
 			PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(safetyMat.getOrganization(),PcmOrgParameter.class);
 			view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
@@ -333,7 +336,7 @@ public class SafetyMatController {
 			view.addObject("chargeBasics", KC.Enum.getI18nLabel(safetyMat.getChargeBasics()));
 			
 			view.addObject("settlement",KC.Enum.getI18nLabel(safetyMat.getSettlement()));
-			view.addObject("backsettlement",KC.Enum.getI18nLabel(safetyMat.getBacksettlement()));
+			//view.addObject("backsettlement",KC.Enum.getI18nLabel(safetyMat.getBacksettlement()));
 			view.addObject("expenses",KC.Enum.getI18nLabel(safetyMat.getExpenses()));
 			return view;
 		} catch (ProcessException e) {

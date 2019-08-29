@@ -83,8 +83,8 @@ public class SafetyMat implements Serializable{
 	@PropertyInfo(name="起始结算逾期周期数量",length=12)
 	public Integer periodNum ;
 	
-	@PropertyInfo(name="保费垫付是否参与分润",length=12)
-	public Indicator participationStatus  ;
+	//@PropertyInfo(name="保费垫付是否参与分润",length=12)
+	//public Indicator participationStatus  ;
 	
 	
 	/**
@@ -123,19 +123,19 @@ public class SafetyMat implements Serializable{
 	 * 放款当天提前还款费用收取方式
 	 * @return
 	 */
-	@PropertyInfo(name="提前还款费用收取方式",length=32)
-	public Settlement backsettlement;
+	//@PropertyInfo(name="提前还款费用收取方式",length=32)
+	//public Settlement backsettlement;
 	
 	
 	
-	public Settlement getBacksettlement() {
-		return backsettlement;
-	}
-
-
-	public void setBacksettlement(Settlement backsettlement) {
-		this.backsettlement = backsettlement;
-	}
+	//public Settlement getBacksettlement() {
+	//	return backsettlement;
+	//}
+    //
+    //
+	//public void setBacksettlement(Settlement backsettlement) {
+	//	this.backsettlement = backsettlement;
+	//}
 
 
 	public Expenses getExpenses() {
@@ -321,13 +321,13 @@ public class SafetyMat implements Serializable{
 		this.periodNum = periodNum;
 	}
 
-	public Indicator getParticipationStatus() {
-		return participationStatus;
-	}
-
-	public void setParticipationStatus(Indicator participationStatus) {
-		this.participationStatus = participationStatus;
-	}
+	//public Indicator getParticipationStatus() {
+	//	return participationStatus;
+	//}
+    //
+	//public void setParticipationStatus(Indicator participationStatus) {
+	//	this.participationStatus = participationStatus;
+	//}
 
 	
 	

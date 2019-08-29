@@ -103,24 +103,41 @@
 				<spring:message code="premiumLiquidatedDamages.chargeFixedAmount.desc" />
 			</div>
 		</div>
-        <div class="form-group row">
+		
+       <%--  <div class="form-group row">
             <!-- 收取固定金额 -->
             <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
                 <spring:message code="premiumLiquidatedDamages.startDate" text="收取起始账期" />
                 :
             </label>
             <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-                <%-- <fmt:formatDate var="startDateFmt" value="${premiumLiquidatedDamages.startDate}" type="date" pattern="yyyy-MM-dd"/> --%>
+                <fmt:formatDate var="startDateFmt" value="${premiumLiquidatedDamages.startDate}" type="date" pattern="yyyy-MM-dd"/>
                 <form:input class='form-control customize-datetime' value="${startDateFmt}" type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="startDate" onfocus="this.blur()"   />
                 <i class="fa fa-calendar input_date" ></i>
             </div>
-            <!-- 收取固定金额描述 -->
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-                <spring:message code="premiumLiquidatedDamages.startDate.desc" />
-            </div>
-        </div>
+          </div> --%>
+            
         <div class="form-group row">
-            <!-- 收取固定金额 -->
+			<!-- 收取起始账期 -->
+			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+				<spring:message code="premiumLiquidatedDamages.startDate" text="收取起始账期" />
+				:
+			</label>
+			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
+                <fmt:formatDate var="startDate" value="${premiumLiquidatedDamages.startDate}" type="date" pattern="yyyy-MM-dd"/>
+                <form:input class='form-control customize-datetime' type="text" value="${startDate}"
+                            data-picker-position="top-right" data-role-formate="yyyy-mm-dd"
+				 path="startDate" onfocus="this.blur()"   />
+				<i class="fa fa-calendar input_date" ></i>
+			</div>
+			<!-- 收取起始账期描述 -->
+			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
+				<spring:message code="premiumLiquidatedDamages.startDate.desc" />
+			</div>
+		</div>
+        
+        <div class="form-group row">
+            <!-- 收取终止账期 -->
             <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
                 <spring:message code="premiumLiquidatedDamages.endDate" text="收取终止账期" />
                 :
@@ -130,7 +147,7 @@
                 <form:input class='form-control customize-datetime' type="text" value="${endDateFmt}" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="endDate" onfocus="this.blur()"   />
                 <i class="fa fa-calendar input_date" ></i>
             </div>
-            <!-- 收取固定金额描述 -->
+            <!-- 收取终止账期描述 -->
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
                 <spring:message code="premiumLiquidatedDamages.endDate.desc" />
             </div>

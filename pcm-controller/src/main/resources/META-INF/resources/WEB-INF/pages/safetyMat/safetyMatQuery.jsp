@@ -124,11 +124,11 @@
 			}
 		});
 		columns.push({ title: '<spring:message code="safetyMat.periodNum" text="起始结算逾期周期数量" />', data: 'periodNum'});
-		columns.push({ title: '<spring:message code="" text="保费垫付是否参与分润" />', data: 'participationStatus',
-			render : function(data, type, row, meta) {
-				return ${participationStatusJson}[data];				
-			}
-		});
+		<%--columns.push({ title: '<spring:message code="" text="保费垫付是否参与分润" />', data: 'participationStatus',--%>
+			<%--render : function(data, type, row, meta) {--%>
+				<%--return ${participationStatusJson}[data];				--%>
+			<%--}--%>
+		<%--});--%>
 		var grid = $("#safetyMat_datatable").grid({
 			datatable : {
 	          	ajax: {

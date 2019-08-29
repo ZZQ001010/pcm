@@ -14,7 +14,7 @@ public class ChannelParameterInfoUnit implements IProductUnit {
 	 private final  String MODULE_NAME  ="channelParameterInfo";
 
 
-	    private final  String MODULE_NAME_ZH="渠道参数";
+	    private final  String MODULE_NAME_ZH="渠道参数信息";
 
 
 	    @Override

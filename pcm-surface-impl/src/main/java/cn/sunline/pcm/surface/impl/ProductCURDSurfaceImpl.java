@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 import cn.sunline.common.KC;
@@ -27,10 +28,14 @@ public class ProductCURDSurfaceImpl implements ProductCURDSurface {
 	
 	@Override
 	public void delNode(String productCode, String unitParamKey,String  parentId) {
+		BooleanExpression and = qPcmProductRel.paramKey.eq(unitParamKey);
+		if(parentId!=null){
+			 and = and.and(qPcmProductRel.parentId.eq(parentId));
+		}
 		new JPAQueryFactory(em)
 		.delete(qPcmProductRel).where(	qPcmProductRel.org.eq(KC.threadLocal.getCurrentOrg()),
-										qPcmProductRel.productCode.eq(productCode)
-										.and(qPcmProductRel.paramKey.eq(unitParamKey)).and(qPcmProductRel.parentId.eq(parentId)))
+										qPcmProductRel.productCode.eq(productCode),and
+										)
 		.execute();
 	}
 

@@ -78,6 +78,7 @@
             </label>
             <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
                 <form:select cssClass="form-control" path="fundSideBusinessScope">
+             <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
                     <form:options items="${fundSideBusinessScopes}" />
                 </form:select>
             </div>
@@ -93,6 +94,16 @@
                     <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
                     <form:options items="${fundSideProfessionScopes}" />
                 </form:select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <!-- 资金方申请年龄范围 -->
+            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+                <spring:message code="fundSideProductCtrlInfo.applicantsAgeRange" text="资金方申请年龄范围" />
+                :
+            </label>
+            <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
+                <form:input cssClass="form-control" type="text" path="applicantsAgeRange"  data-rule-required="false" />
             </div>
         </div>
         <div class="form-group row">
@@ -251,9 +262,9 @@
 				:
 			</label>
 			
-			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" >
+			<div class="col-lg-7 col-md-7  col-sm-6 col-xs-6" >
 				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
-				 <form:input style="width: 870px"   path="fundSideProductDueDayPayOver" class="time form-control dateTimeInput" type="text"     />
+				 <form:input  style="width:100%"    path="fundSideProductDueDayPayOver" class="time form-control dateTimeInput" type="text"     />
 			</div>
 			
 		</div>
@@ -323,6 +334,8 @@
 	    	<script type="text/javascript">
 	    		$(document).ready(function() {
 	    			$('.time').clockTimePicker({});
+	    			
+	    			$('#fundSideProductDueDayPayOver').parent().css("width","100%")
 	    		});
 	    	</script>
 </body>

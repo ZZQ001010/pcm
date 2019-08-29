@@ -67,7 +67,7 @@
 		var columns = [];
 		pkNames.push("code");
 		columns.push({ title: '<spring:message code="collectionService.code" text="催收服务费" />', data: 'code'});
-		columns.push({ title: '<spring:message code="collectionService.desc" text="催收服务描述" />', data: 'desc'});
+		columns.push({ title: '<spring:message code="collectionService.desc" text="催收服务费描述" />', data: 'desc'});
 		columns.push({ title: '<spring:message code="collectionService.feeCollectionMethod" text="费用收取方式" />', data: 'feeCollectionMethod',
 			render : function(data, type, row, meta) {
 				return ${feeCollectionMethodJson}[data];

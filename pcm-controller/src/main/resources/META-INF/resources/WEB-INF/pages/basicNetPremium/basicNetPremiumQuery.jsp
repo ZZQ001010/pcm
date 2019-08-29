@@ -69,6 +69,16 @@
 		columns.push({ title: '<spring:message code="basicNetPremium.code" text="流量服务费" />', data: 'code'});
 		columns.push({ title: '<spring:message code="basicNetPremium.desc" text="流量服务描述" />', data: 'desc'});
 		columns.push({ title: '<spring:message code="basicNetPremium.orgCode" text="机构编号" />', data: 'orgCode'});
+        columns.push({ title: '<spring:message code="basicNetPremium.partnerType" text="合作方类型" />', data: 'partnerType',
+            render : function(data, type, row, meta) {
+                return ${partnerTypeJson}[data];
+            }
+        });
+        columns.push({ title: '<spring:message code="basicNetPremium.partnerCode" text="合作方编码" />', data: 'partnerCode',
+            render : function(data, type, row, meta) {
+                return ${partnerCodeJson}[data];
+            }
+        });
 		columns.push({ title: '<spring:message code="basicNetPremium.feeCollectionMethod" text="费用收取方式" />', data: 'feeCollectionMethod',
 			render : function(data, type, row, meta) {
 				return ${feeCollectionMethodJson}[data];

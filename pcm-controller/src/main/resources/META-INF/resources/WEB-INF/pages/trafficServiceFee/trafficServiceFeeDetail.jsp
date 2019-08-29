@@ -170,13 +170,13 @@
 			</label>
 			
 			<!-- 放款当天提前结清费用收取方式 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="trafficServiceFee.advanceSettlement" text="放款当天提前结清费用收取方式" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${advanceSettlement}
-			</label>
+			<%--<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">--%>
+				<%--<spring:message code="trafficServiceFee.advanceSettlement" text="放款当天提前结清费用收取方式" />--%>
+				<%--:--%>
+			<%--</label>--%>
+			<%--<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">--%>
+				<%--&nbsp;${advanceSettlement}--%>
+			<%--</label>--%>
 		</div>
 	<c:if test="${factory==false }">
 		<div class="form-controls auto-float">

@@ -23,6 +23,7 @@ import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.FundSideInfo;
@@ -48,7 +49,7 @@ import cn.sunline.pcm.surface.api.ParameterSurface;
  */ 
 @Controller
 @RequestMapping("paymentPremium")
-public class PaymentPremiumController {
+public class PaymentPremiumController  extends Fee {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -169,7 +170,7 @@ public class PaymentPremiumController {
 			view.addObject("premiumAdvanceFlowServiceCharges", KC.Enum.getI18nLabelMap(PremiumAdvanceFlowServiceCharges.class));
 			view.addObject("unpaidRepaymentSafetyPad", KC.Enum.getI18nLabelMap(UnpaidRepaymentSafetyPad.class));
 			view.addObject("unpaidRepaymentServiceFee", KC.Enum.getI18nLabelMap(UnpaidRepaymentServiceFee.class));
-			
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
 			List<PcmOrgParameter> list = response.getRows();
@@ -268,6 +269,7 @@ public class PaymentPremiumController {
 			view.addObject("premiumAdvanceFlowServiceCharges", KC.Enum.getI18nLabelMap(PremiumAdvanceFlowServiceCharges.class));
 			view.addObject("unpaidRepaymentSafetyPad", KC.Enum.getI18nLabelMap(UnpaidRepaymentSafetyPad.class));
 			view.addObject("unpaidRepaymentServiceFee", KC.Enum.getI18nLabelMap(UnpaidRepaymentServiceFee.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
 			List<PcmOrgParameter> list = response.getRows();
@@ -391,6 +393,8 @@ public class PaymentPremiumController {
 			view.addObject("partnerType", KC.Enum.getI18nLabel(paymentPremium.getPartnerType()));
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(paymentPremium.getBillingCycle()));
 			view.addObject("paymentPremium", paymentPremium);
+			paymentPremium.setTransferAccount(getPcmSettleAccMan(paymentPremium.getTransferAccount()));
+			paymentPremium.setTransferToAccount(getPcmSettleAccMan(paymentPremium.getTransferToAccount()));
 			if(paymentPremium.getBillingCycle().equals(BillingCycle.Z)){
 				view.addObject("balanceDate",KC.Enum.getI18nLabelMap(BanceDate.class).get(paymentPremium.balanceDate));
 			}else{

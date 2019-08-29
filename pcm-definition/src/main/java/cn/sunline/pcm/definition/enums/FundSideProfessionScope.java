@@ -10,5 +10,5 @@ import cn.sunline.common.annotation.enums.EnumInfo;
 
 })
 public enum FundSideProfessionScope {
-
+	
 }

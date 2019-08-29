@@ -23,6 +23,7 @@ import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.FundSideInfo;
@@ -42,13 +43,9 @@ import cn.sunline.pcm.surface.api.ParameterSurface;
  */ 
 @Controller
 @RequestMapping("paymentPremiumBack")
-public class PaymentPremiumBackController {
+public class PaymentPremiumBackController extends Fee {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
-
-	@Autowired
-	private ParameterSurface parameterSurface;
-	
 
 	/** 
 	 * <p>
@@ -163,6 +160,7 @@ public class PaymentPremiumBackController {
 				orgMap.put(pcmOrgParameter.orgCode, pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
 			}
 			view.addObject("orgMap",orgMap);
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			/**
 			 * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
 			 */
@@ -246,6 +244,7 @@ public class PaymentPremiumBackController {
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
 			List<PcmOrgParameter> list = response.getRows();
@@ -355,9 +354,12 @@ public class PaymentPremiumBackController {
 		try {
 			ModelAndView view = KW.mvc.forwardView("paymentPremiumBack/paymentPremiumBackDetail");
 			PaymentPremiumBack paymentPremiumBack = parameterSurface.getParameterObject(paymentPremiumBackCode, PaymentPremiumBack.class);
+			paymentPremiumBack.setTransferAccount(getPcmSettleAccMan(paymentPremiumBack.getTransferAccount()));
+			paymentPremiumBack.setTransferToAccount(getPcmSettleAccMan(paymentPremiumBack.getTransferToAccount()));
 			view.addObject("paymentPremiumBack", paymentPremiumBack);
 			view.addObject("partnerType", KC.Enum.getI18nLabel(paymentPremiumBack.getPartnerType()));
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(paymentPremiumBack.getBillingCycle()));
+			
 			if(paymentPremiumBack.getBillingCycle().equals(BillingCycle.Z)){
 				view.addObject("balanceDate",KC.Enum.getI18nLabelMap(BanceDate.class).get(paymentPremiumBack.balanceDate));
 			}else{

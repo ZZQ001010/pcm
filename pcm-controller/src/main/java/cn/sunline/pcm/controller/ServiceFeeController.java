@@ -28,6 +28,7 @@ import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.CurrencyCd;
@@ -51,12 +52,10 @@ import cn.sunline.pcm.definition.enums.FrequencyOfChannel;
  */ 
 @Controller
 @RequestMapping("serviceFee")
-public class ServiceFeeController {
+public class ServiceFeeController  extends Fee{
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	private ParameterSurface parameterSurface;
 	
 	@Autowired
 	private AddressHelperFacility addressHelperFacility;
@@ -173,6 +172,7 @@ public class ServiceFeeController {
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
 			view.addObject("province",addressHelperFacility.loadProvince()); //获取中国所有的省
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
 			//货币类型
@@ -277,7 +277,7 @@ public class ServiceFeeController {
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
 			view.addObject("province",addressHelperFacility.loadProvince()); //获取中国所有的省
-
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
 			//货币类型
@@ -396,6 +396,8 @@ public class ServiceFeeController {
 			view = KW.mvc.forwardView("serviceFee/serviceFeeDetail");
 			view.addObject("factory",serviceFeeNo == null);
 			ServiceFee serviceFee = parameterSurface.getParameterObject(serviceFeeNo==null?code:serviceFeeNo, ServiceFee.class);
+			serviceFee.setTransferAccount(getPcmSettleAccMan(serviceFee.getTransferAccount()));
+			serviceFee.setTransferToAccount(getPcmSettleAccMan(serviceFee.getTransferToAccount()));
 			view.addObject("serviceFee",serviceFee);
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(serviceFee.getFeeCollectionMethod()));
 			view.addObject("feeBasis", KC.Enum.getI18nLabel(serviceFee.getFeeBasis()));

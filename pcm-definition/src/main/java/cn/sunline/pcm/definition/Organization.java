@@ -12,9 +12,12 @@ import cn.sunline.ppy.dictionary.enums.GraceIntType;
  * 机构属性
  */
 public class Organization implements Serializable {
-
-	private static final long serialVersionUID = 5225965589218240104L;
-
+ 
+	/**
+	 * 无任何意义起标识符作用，对应paramKey
+	 */
+	@PropertyInfo(name = "*(当前机构唯一参数)", length = 20)
+	public String oId;
 	/**
 	 * 支付渠道
 	 */
@@ -33,6 +36,7 @@ public class Organization implements Serializable {
 	@PropertyInfo(name = "人行征信报送类型", length = 1)
 	public PbocRptType pbocType;
 
+	
 	/**
 	 * 默认分行号smsToOrg
 	 */
@@ -110,6 +114,7 @@ public class Organization implements Serializable {
 	@PropertyInfo(name = "还款日调整区间（月）", length = 1)
 	public Integer adjStmtMonth;
 
+	private static final long serialVersionUID = 5225965589218240104L;
 	public String getBaseCurrCd() {
 		return baseCurrCd;
 	}
@@ -139,6 +144,14 @@ public class Organization implements Serializable {
 
 	public void setNofullpayDeferInd(GraceIntType nofullpayDeferInd) {
 		this.nofullpayDeferInd = nofullpayDeferInd;
+	}
+
+	public String getoId() {
+		return oId;
+	}
+
+	public void setoId(String oId) {
+		this.oId = oId;
 	}
 
 	public String getDepositPlanNbr() {

@@ -81,6 +81,7 @@
 		});
 		columns.push({ title: '<spring:message code="fundSideSettlementMethod.daysOverdue" text="逾期理赔等待期天数" />', data: 'daysOverdue'});
 		columns.push({ title: '<spring:message code="fundSideSettlementMethod.otalNumberOfClaimsStartPeriods" text="全期理赔起始期数" />', data: 'otalNumberOfClaimsStartPeriods'});
+		columns.push({ title: '<spring:message code="fundSideSettlementMethod.claimsReconciliationAllowanceAmount" text="理赔对账容差金额" />', data: 'claimsReconciliationAllowanceAmount'});
 		var grid = $("#fundSideSettlementMethod_datatable").grid({
 			datatable : {
 	          	ajax: {

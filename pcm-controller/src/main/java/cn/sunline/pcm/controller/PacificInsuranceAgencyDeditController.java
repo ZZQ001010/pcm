@@ -23,6 +23,7 @@ import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.ChannelServiceFee;
@@ -46,7 +47,7 @@ import cn.sunline.pcm.surface.api.ParameterSurface;
  */ 
 @Controller
 @RequestMapping("pacificInsuranceAgencyDedit")
-public class PacificInsuranceAgencyDeditController {
+public class PacificInsuranceAgencyDeditController  extends Fee{
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -164,9 +165,9 @@ public class PacificInsuranceAgencyDeditController {
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
 			view.addObject("pacificInsuranceAgencyDedit", new PacificInsuranceAgencyDedit());
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			//所属机构
-			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
-			List<PcmOrgParameter> list = response.getRows();
+			List<PcmOrgParameter> list  = parameterSurface.getParameterObject(PcmOrgParameter.class);
 			Map<String,String> orgMap = new HashMap<String,String>();
 			for (PcmOrgParameter pcmOrgParameter : list) {
 				orgMap.put(pcmOrgParameter.orgCode, pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
@@ -256,6 +257,7 @@ public class PacificInsuranceAgencyDeditController {
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));	
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			PacificInsuranceAgencyDedit pacificInsuranceAgencyDedit = parameterSurface.getParameterObject(deditCode, PacificInsuranceAgencyDedit.class);
 			view.addObject("pacificInsuranceAgencyDedit", pacificInsuranceAgencyDedit);
 			//所属机构
@@ -367,6 +369,8 @@ public class PacificInsuranceAgencyDeditController {
 			view = KW.mvc.forwardView("pacificInsuranceAgencyDedit/pacificInsuranceAgencyDeditDetail");
 			view.addObject("factory",deditCode == null);
 			PacificInsuranceAgencyDedit pacificInsuranceAgencyDedit = parameterSurface.getParameterObject(deditCode==null?code:deditCode, PacificInsuranceAgencyDedit.class) ;
+			pacificInsuranceAgencyDedit.setTransferAccount(getPcmSettleAccMan(pacificInsuranceAgencyDedit.getTransferAccount()));
+			pacificInsuranceAgencyDedit.setTransferToAccount(getPcmSettleAccMan(pacificInsuranceAgencyDedit.getTransferToAccount()));
 			view.addObject("pacificInsuranceAgencyDedit", pacificInsuranceAgencyDedit);
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(pacificInsuranceAgencyDedit.getFeeCollectionMethod()));
 			view.addObject("feeBasis", KC.Enum.getI18nLabel(pacificInsuranceAgencyDedit.getFeeBasis()));

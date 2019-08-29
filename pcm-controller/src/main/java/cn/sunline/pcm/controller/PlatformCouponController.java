@@ -1,8 +1,6 @@
 package cn.sunline.pcm.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +23,7 @@ import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.FundSideInfo;
@@ -43,12 +42,10 @@ import cn.sunline.pcm.definition.enums.ChannelPartnerType;
  */ 
 @Controller
 @RequestMapping("platformCoupon")
-public class PlatformCouponController {
+public class PlatformCouponController extends Fee {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	private ParameterSurface parameterSurface;
 	
 
 	/** 
@@ -141,6 +138,7 @@ public class PlatformCouponController {
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			//所属机构
 			view.addObject("orgMap",parameterSurface.getParameterObject(PcmOrgParameter.class)
 					.stream().collect(Collectors.toMap(PcmOrgParameter::getOrgCode,x->{
@@ -218,6 +216,7 @@ public class PlatformCouponController {
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			//所属机构
 			view.addObject("orgMap",parameterSurface.getParameterObject(PcmOrgParameter.class)
 					.stream().collect(Collectors.toMap(PcmOrgParameter::getOrgCode,x->{
@@ -314,6 +313,8 @@ public class PlatformCouponController {
 			view = KW.mvc.forwardView("platformCoupon/platformCouponDetail");
 			view.addObject("factory",couponCode == null);
 			PlatformCoupon platformCoupon = parameterSurface.getParameterObject(couponCode==null?code:couponCode, PlatformCoupon.class);
+			platformCoupon.setTransferAccount(getPcmSettleAccMan(platformCoupon.getTransferAccount()));
+			platformCoupon.setTransferToAccount(getPcmSettleAccMan(platformCoupon.getTransferToAccount()));
 			view.addObject("platformCoupon", platformCoupon);
 			view.addObject("partnerType", KC.Enum.getI18nLabel(platformCoupon.getPartnerType()));
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(platformCoupon.getBillingCycle()));

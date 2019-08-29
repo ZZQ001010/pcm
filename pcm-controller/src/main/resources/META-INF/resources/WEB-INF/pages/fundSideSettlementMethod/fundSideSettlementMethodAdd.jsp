@@ -110,6 +110,20 @@
 				<spring:message code="fundSideSettlementMethod.otalNumberOfClaimsStartPeriods.desc" />
 			</div>
 		</div>
+        <div class="form-group row">
+            <!-- 理赔对账容差金额 -->
+            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+                <spring:message code="fundSideSettlementMethod.claimsReconciliationAllowanceAmount" text="理赔对账容差金额" />
+                :
+            </label>
+            <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
+                <form:input cssClass="form-control" type="text" path="claimsReconciliationAllowanceAmount"   data-rule-digits="true" data-rule-min="0" data-rule-max="99999999999999999999999999999999" />
+            </div>
+            <!-- 理赔对账容差金额描述 -->
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
+                <spring:message code="fundSideSettlementMethod.claimsReconciliationAllowanceAmount.desc" />
+            </div>
+        </div>
 		<div class="form-controls auto-float">
 			<div class="btn-group-md">
 				<!-- 确定 -->

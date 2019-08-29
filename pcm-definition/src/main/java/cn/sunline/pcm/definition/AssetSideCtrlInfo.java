@@ -17,11 +17,6 @@ import cn.sunline.pcm.definition.enums.AssetSideLoanCtrl;
  */
 public class AssetSideCtrlInfo  implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 
 	/**
 	 * 资产方管控编码
@@ -109,6 +104,15 @@ public class AssetSideCtrlInfo  implements Serializable {
 	@PropertyInfo(name="余额额度有效期")
 	public Date balanceAmountUsefulLife;
 
+	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	
+	
 	public String getAssetSideCtrlCode() {
 		return assetSideCtrlCode;
 	}

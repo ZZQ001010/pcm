@@ -26,36 +26,7 @@
 				<spring:message code="guaranteeFee.guaranteeFeeDesc.desc" />
 			</div>
 		</div>				
-		<div class="form-group row">
-			<!-- 单笔最小金额 -->
-			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
-				<spring:message code="guaranteeFee.guaranteeFeeminSun" text="单笔最小金额" />
-				:
-			</label>
-			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="guaranteeFeeminSun"   data-rule-digits="true" data-rule-min="0" data-rule-max="999999999999" />
-			</div>
-			<!-- 单笔最小金额描述 -->
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-				<spring:message code="guaranteeFee.guaranteeFeeminSun.desc" />
-			</div>
-		</div>				
-		<div class="form-group row">
-			<!-- 单笔最大金额 -->
-			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
-				<spring:message code="guaranteeFee.guaranteeFeemaxSun" text="单笔最大金额" />
-				:
-			</label>
-			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="guaranteeFeemaxSun"  data-rule-digits="true" data-rule-min="0" data-rule-max="999999999999" />
-			</div>
-			<!-- 单笔最大金额描述 -->
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-				<spring:message code="guaranteeFee.guaranteeFeemaxSun.desc" />
-			</div>
-		</div>				
+
 		<div class="form-group row">
 			<!-- 费用收取方式 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
@@ -111,32 +82,18 @@
 			<!-- 收取比例 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 				<span class="span-icon">*&nbsp;</span>
-				<spring:message code="guaranteeFee.chargeRatio" text="收取比例" />
+				<spring:message code="guaranteeFee.ratio" text="收取比例" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="chargeRatio"   data-rule-digits="true" data-rule-min="0" data-rule-max="999999999999" />
+				<form:input cssClass="form-control" type="text" path="ratio"   data-rule-digits="true" data-rule-min="0" data-rule-max="999999999999" />
 			</div>
 			<!-- 收取比例描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-				<spring:message code="guaranteeFee.chargeRatio.desc" />
+				<spring:message code="guaranteeFee.ratio.desc" />
 			</div>
 		</div>				
-		<div class="form-group row">
-			<!-- 收取金额 -->
-			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
-				<spring:message code="guaranteeFee.chargeAmount" text="收取金额" />
-				:
-			</label>
-			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="chargeAmount"   data-rule-digits="true" data-rule-min="0" data-rule-max="999999999999" />
-			</div>
-			<!-- 收取金额描述 -->
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-				<spring:message code="guaranteeFee.chargeAmount.desc" />
-			</div>
-		</div>	
+
 		
 				
 				<div class="form-group row">
@@ -216,7 +173,10 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="transferAccount"   />
+						<form:select cssClass="form-control" path="transferAccount" >
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<form:options items="${pcmSettleAccMan}" />
+				</form:select>
 			</div>
 			<!-- 转出账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -231,7 +191,10 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="transferToAccount"   />
+				<form:select cssClass="form-control" path="transferToAccount" >
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<form:options items="${pcmSettleAccMan}" />
+				</form:select>
 			</div>
 			<!-- 转入账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -269,22 +232,6 @@
 				<spring:message code="guaranteeFee.balanceDate.desc" />
 			</div>
 		</div>
-				<div class="form-group row">
-			<!-- 放款当天提前放款手续费方式-->
-			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<spring:message code="" text="提前结清费用收取方式" />
-				:
-			</label>
-			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="settlement">
-					<form:options items="${settlement}" />
-				</form:select>
-			</div>
-			<!-- 放款当天提前还款手续费方式 -->
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-				<spring:message code="guaranteeFee.settlement.desc" />
-			</div>
-		</div>							
 		<div class="form-controls auto-float">
 			<div class="btn-group-md">
 				<!-- 确定 -->
@@ -431,10 +378,10 @@
 			if(val=='A'){
 				$("#chargeAmount").attr("disabled","isDisabled")
 				$("#chargeAmount").attr("data-rule-required",false)
-				$("#chargeRatio").attr("disabled",false)
+				// $("#chargeRatio").attr("disabled",false)
 			}
 			else{
-				$("#chargeRatio").attr("disabled","isDisabled")
+				// $("#chargeRatio").attr("disabled","isDisabled")
 				$("#chargeAmount").attr("disabled",false)
 			}
 		}

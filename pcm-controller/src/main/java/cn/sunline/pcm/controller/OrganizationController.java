@@ -114,6 +114,7 @@ public class OrganizationController {
 	@RequestMapping(value = "saveOrganizationPage.in", method = { RequestMethod.POST })
 	public void saveOrganizationPage(@RequestBody Organization organization) throws FlatException {
 		try {
+			organization.setoId("*");
 			Organization org = parameterSurface.getParameterObject("*", Organization.class);
 			if (org != null) {
 				parameterSurface.updateParameterObject("*", organization);

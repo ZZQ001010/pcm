@@ -27,6 +27,7 @@ import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.AssetSideRiskCtrl;
 import cn.sunline.pcm.definition.ChannelInfo;
@@ -47,7 +48,7 @@ import cn.sunline.pcm.definition.enums.Settlement;
  */ 
 @Controller
 @RequestMapping("guaranteeFee")
-public class GuaranteeFeeController {
+public class GuaranteeFeeController  extends Fee{
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -119,8 +120,7 @@ public class GuaranteeFeeController {
 			view.addObject("accumulated", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.Accumulated.class));
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
-			view.addObject("settlement", KC.Enum.getI18nLabelMap(Settlement.class));
-			
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FeeCollectionMethod.class));				
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FeeBasis.class));				
 			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FrequencyOfCharge.class));				
@@ -204,7 +204,7 @@ public class GuaranteeFeeController {
 	 * <p>
 	 * 加载修改担保费页面
 	 * </p>
-	 * @param id
+	 * @param guaranteeFeeCode
 	 * @param request
 	 * @return
 	 * @throws FlatException
@@ -216,8 +216,7 @@ public class GuaranteeFeeController {
 			view.addObject("accumulated", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.Accumulated.class));
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
-			view.addObject("settlement", KC.Enum.getI18nLabelMap(Settlement.class));
-			
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FeeCollectionMethod.class));				
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FeeBasis.class));				
 			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FrequencyOfCharge.class));				
@@ -333,13 +332,14 @@ public class GuaranteeFeeController {
 			 view.addObject("factroy",guaranteeFeeCode==null); 
 			GuaranteeFee guaranteeFee = parameterSurface.getParameterObject(
 						guaranteeFeeCode==null?code:guaranteeFeeCode, GuaranteeFee.class);
+			guaranteeFee.setTransferAccount(getPcmSettleAccMan(guaranteeFee.getTransferAccount()));
+			guaranteeFee.setTransferToAccount(getPcmSettleAccMan(guaranteeFee.getTransferToAccount()));
 			view.addObject("guaranteeFee", guaranteeFee);
 			
 			view.addObject("partnerType", KC.Enum.getI18nLabel(guaranteeFee.getPartnerType()));
 			view.addObject("accumulated", KC.Enum.getI18nLabel(guaranteeFee.getAccumulated()));
 			view.addObject("banceDate", KC.Enum.getI18nLabel(guaranteeFee.getBanceDate()));
-			view.addObject("settlement", KC.Enum.getI18nLabel(guaranteeFee.getSettlement()));
-			
+
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(guaranteeFee.getFeeCollectionMethod()));
 			view.addObject("feeBasis", KC.Enum.getI18nLabel(guaranteeFee.getFeeBasis()));
 			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabel(guaranteeFee.getFrequencyOfCharge()));

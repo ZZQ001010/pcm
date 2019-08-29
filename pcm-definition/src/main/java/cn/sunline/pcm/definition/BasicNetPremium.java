@@ -4,14 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 import cn.sunline.common.annotation.paramdef.PropertyInfo;
-import cn.sunline.pcm.definition.enums.BanceDate;
-import cn.sunline.pcm.definition.enums.BillingCycle;
-import cn.sunline.pcm.definition.enums.Expenses;
-import cn.sunline.pcm.definition.enums.FeeBasis;
-import cn.sunline.pcm.definition.enums.FeeCollectionMethod;
-import cn.sunline.pcm.definition.enums.FrequencyTimes;
-import cn.sunline.pcm.definition.enums.LimitControlMethod;
-import cn.sunline.pcm.definition.enums.Settlement;
+import cn.sunline.pcm.definition.enums.*;
 
 /**
  *  基础净含保费
@@ -127,7 +120,19 @@ public class BasicNetPremium implements Serializable{
 	 */
 	@PropertyInfo(name="费用累计月天数",length=32)
 	public Expenses expenses;
-	
+    /**
+     * 合作方类型
+     */
+    @PropertyInfo(name="合作方类型",length=12)
+    public ChannelPartnerType partnerType;
+
+
+
+    /**
+     * 合作方编码
+     */
+    @PropertyInfo(name="合作方编码",length=12)
+    public String partnerCode;
 	
 	/**
 	 * 放款当天提前结清费用收取方式
@@ -135,9 +140,24 @@ public class BasicNetPremium implements Serializable{
 	 */
 	@PropertyInfo(name="提前结清费用收取方式",length=32)
 	public Settlement settlement;
-	
-	
-	public Expenses getExpenses() {
+
+    public ChannelPartnerType getPartnerType() {
+        return partnerType;
+    }
+
+    public void setPartnerType(ChannelPartnerType partnerType) {
+        this.partnerType = partnerType;
+    }
+
+    public String getPartnerCode() {
+        return partnerCode;
+    }
+
+    public void setPartnerCode(String partnerCode) {
+        this.partnerCode = partnerCode;
+    }
+
+    public Expenses getExpenses() {
 		return expenses;
 	}
 

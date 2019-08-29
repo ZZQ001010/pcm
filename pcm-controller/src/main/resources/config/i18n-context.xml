@@ -64,6 +64,11 @@
 				<value>prepaymentFee/prepaymentFee</value>
 				<value>paymentPremium/paymentPremium</value>
 				<value>paymentPremiumBack/paymentPremiumBack</value>
+				<value>bankPrincipalInterest/bankPrincipalInterest</value>
+				<value>bankChargeMorePenaltyInterest/bankChargeMorePenaltyInterest</value>
+				<value>claimSettlement/claimSettlement</value>
+				<value>premium/premium</value>
+				<value>pursuingRecovery/pursuingRecovery</value>
 			</list>
 		</property>
 	</bean>

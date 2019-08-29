@@ -159,22 +159,22 @@
 				<spring:message code="fundSideServiceFee.partnerCode.desc" />
 			</div>
 		</div>
-		<div class="form-group row">
-			<!-- 资金方平台服务方 -->
-			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label ">
-				<spring:message code="fundSideServiceFee.platformService" text="资金方平台服务方" />
-				:
-			</label>
-			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="platformService">
-					<form:options items="${fundSidePaltformMap}" />
-				</form:select>
-			</div>
-			<!-- 资金方平台服务方描述 -->
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-				<spring:message code="fundSideServiceFee.platformService.desc" />
-			</div>
-		</div>
+		<%--<div class="form-group row">--%>
+			<%--<!-- 资金方平台服务方 -->--%>
+			<%--<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label ">--%>
+				<%--<spring:message code="fundSideServiceFee.platformService" text="资金方平台服务方" />--%>
+				<%--:--%>
+			<%--</label>--%>
+			<%--<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">--%>
+				<%--<form:select cssClass="form-control" path="platformService">--%>
+					<%--<form:options items="${fundSidePaltformMap}" />--%>
+				<%--</form:select>--%>
+			<%--</div>--%>
+			<%--<!-- 资金方平台服务方描述 -->--%>
+			<%--<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">--%>
+				<%--<spring:message code="fundSideServiceFee.platformService.desc" />--%>
+			<%--</div>--%>
+		<%--</div>--%>
 		<div class="form-group row">
 			<!-- 转出账号 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label ">
@@ -182,7 +182,10 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="transferAccount"  data-rule-maxlength="12" />
+				<form:select cssClass="form-control" path="transferAccount">
+				<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<form:options items="${pcmSettleAccMan}" />
+				</form:select>
 			</div>
 			<!-- 转出账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -196,7 +199,10 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="transferToAccount"  data-rule-maxlength="12" />
+				<form:select cssClass="form-control" path="transferToAccount">
+				<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<form:options items="${pcmSettleAccMan}" />
+				</form:select>
 			</div>
 			<!-- 转入账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -234,21 +240,21 @@
 				<spring:message code="fundSideServiceFee.balanceDate.desc" />
 			</div>
 		</div>
-				<div class="form-group row">
-			<!-- 放款当天提前放款手续费方式-->
-			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<spring:message code="" text="提前结清费用收取方式" />
-				:
-			</label>
-			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="settlement">
-					<form:options items="${settlement}" />
-				</form:select>
-			</div>
-			<!-- 放款当天提前还款手续费方式 -->
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-				<spring:message code="fundSideServiceFee.settlement.desc" />
-			</div>
+				<%--<div class="form-group row">--%>
+			<%--<!-- 放款当天提前放款手续费方式-->--%>
+			<%--<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">--%>
+				<%--<spring:message code="" text="提前结清费用收取方式" />--%>
+				<%--:--%>
+			<%--</label>--%>
+			<%--<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">--%>
+				<%--<form:select cssClass="form-control" path="settlement">--%>
+					<%--<form:options items="${settlement}" />--%>
+				<%--</form:select>--%>
+			<%--</div>--%>
+			<%--<!-- 放款当天提前还款手续费方式 -->--%>
+			<%--<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">--%>
+				<%--<spring:message code="fundSideServiceFee.settlement.desc" />--%>
+			<%--</div>--%>
 		</div>
 		<div class="form-controls auto-float">
 			<div class="btn-group-md">

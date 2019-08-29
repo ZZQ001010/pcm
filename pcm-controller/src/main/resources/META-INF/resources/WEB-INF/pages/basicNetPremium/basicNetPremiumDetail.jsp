@@ -76,6 +76,22 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${basicNetPremium.chargeAmount }	
 			</label> --%>
+            <!-- 合作方类型 -->
+            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+                <spring:message code="platformCoupon.partnerType" text="合作方类型" />
+                :
+            </label>
+            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+                &nbsp;${partnerType }
+            </label>
+            <!-- 合作方编码 -->
+            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+                <spring:message code="platformCoupon.partnerCode" text="合作方编码" />
+                :
+            </label>
+            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+                &nbsp;${partner }
+            </label>
 			<!-- 转出账号 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
 				<spring:message code="basicNetPremium.transferAccount" text="转出账号" />

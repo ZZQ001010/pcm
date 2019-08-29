@@ -67,13 +67,14 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="assetSideAmountGeneralControl" />
+				<form:input cssClass="form-control" type="number" oninput = "value=value.replace(/[^\d]/g,'')" path="assetSideAmountGeneralControl" />
 			</div>
 			<!-- 资产方额度总控描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="assetSideCtrlInfo.assetSideAmountGeneralControl.desc" />
 			</div>
 		</div>
+		
 		<div class="form-group row">
 			<!-- 授信额度有效期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
@@ -81,15 +82,18 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
-				<form:input class='form-control customize-datetime' type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="authorizationAmountUsefulLife" onfocus="this.blur()" />
+                <fmt:formatDate var="authorizationAmountUsefulLife" value="${assetSideCtrlInfo.authorizationAmountUsefulLife}" type="date" pattern="yyyy-MM-dd"/>
+                <form:input class='form-control customize-datetime' type="text" value="${authorizationAmountUsefulLife}"
+                            data-picker-position="top-right" data-role-formate="yyyy-mm-dd"
+				 path="authorizationAmountUsefulLife" onfocus="this.blur()"   />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
-			<!-- 授信额度有效期描述 -->
+			<!-- 余额额度有效期 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="assetSideCtrlInfo.authorizationAmountUsefulLife.desc" />
 			</div>
 		</div>
+		
 		<div class="form-group row">
 			<!-- 资产方放款管控 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
@@ -113,29 +117,36 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="assetSideAmountLoanControl"/>
+				<form:input cssClass="form-control" type="number" oninput = "value=value.replace(/[^\d]/g,'')" path="assetSideAmountLoanControl"/>
 			</div>
 			<!-- 资产方放款额总控描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="assetSideCtrlInfo.assetSideAmountLoanControl.desc" />
 			</div>
 		</div>
+		
+		
+		
 		<div class="form-group row">
-			<!-- 放款额度有效期 -->
+			<!-- 授信额度有效期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 				<spring:message code="assetSideCtrlInfo.loanAmountUsefulLife" text="放款额度有效期" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
-				<form:input class='form-control customize-datetime' type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="loanAmountUsefulLife" onfocus="this.blur()"/>
+                <fmt:formatDate var="loanAmountUsefulLife" value="${assetSideCtrlInfo.loanAmountUsefulLife}" type="date" pattern="yyyy-MM-dd"/>
+                <form:input class='form-control customize-datetime' type="text" value="${loanAmountUsefulLife}"
+                            data-picker-position="top-right" data-role-formate="yyyy-mm-dd"
+				 path="loanAmountUsefulLife" onfocus="this.blur()"   />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
-			<!-- 放款额度有效期描述 -->
+			<!-- 余额额度有效期 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="assetSideCtrlInfo.loanAmountUsefulLife.desc" />
 			</div>
 		</div>
+		
+		
 		<div class="form-group row">
 			<!-- 资产方月放款额管控 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
@@ -143,7 +154,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="assetSideControlMonth"/>
+				<form:input cssClass="form-control" type="number" oninput = "value=value.replace(/[^\d]/g,'')" path="assetSideControlMonth"/>
 			</div>
 			<!-- 资产方月放款额管控描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -157,7 +168,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="assetSideControlWeek"/>
+				<form:input cssClass="form-control" type="number" oninput = "value=value.replace(/[^\d]/g,'')" path="assetSideControlWeek"/>
 			</div>
 			<!-- 资产方余额总控描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -171,7 +182,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="assetSideControlDay"/>
+				<form:input cssClass="form-control" type="number" oninput = "value=value.replace(/[^\d]/g,'')" path="assetSideControlDay"/>
 			</div>
 			<!-- 资产方余额总控描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -185,7 +196,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="assetSideBalanceControl"/>
+				<form:input cssClass="form-control" type="number" oninput = "value=value.replace(/[^\d]/g,'')" path="assetSideBalanceControl"/>
 			</div>
 			<!-- 资产方余额总控描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">

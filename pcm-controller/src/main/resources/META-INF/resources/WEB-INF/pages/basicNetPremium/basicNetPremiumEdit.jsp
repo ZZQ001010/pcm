@@ -90,7 +90,41 @@
 				<spring:message code="basicNetPremium.chargeRatio.desc" />
 			</div>
 		</div>
-		
+        <div class="form-group row">
+            <!-- 合作方类型 -->
+            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+                <span class="span-icon">*&nbsp;</span>
+                <spring:message code="basicNetPremium.partnerType" text="合作方类型" />
+                :
+            </label>
+            <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
+                <form:select cssClass="form-control" path="partnerType" data-rule-required="true" id="partnerType" onchange="typeChange();">
+                    <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+                    <form:options items="${partnerType}" />
+                </form:select>
+            </div>
+            <!-- 合作方类型描述 -->
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
+                <spring:message code="basicNetPremium.partnerType.desc" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <!-- 合作方编码 -->
+            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+                <span class="span-icon">*&nbsp;</span>
+                <spring:message code="basicNetPremium.partnerCode" text="合作方编码" />
+                :
+            </label>
+            <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
+                <form:select cssClass="form-control" path="partnerCode" data-rule-required="true" id="partnerCode">
+                    <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+                </form:select>
+            </div>
+            <!-- 合作方编码描述 -->
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
+                <spring:message code="basicNetPremium.partnerCode.desc" />
+            </div>
+        </div>
 		
 				
 		<div class="form-group row">
@@ -154,7 +188,10 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="transferAccount" />
+						<form:select cssClass="form-control" path="transferAccount" >
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<form:options items="${pcmSettleAccMan}" />
+				</form:select>
 			</div>
 			<!-- 转出账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -168,7 +205,10 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="transferToAccount"/>
+						<form:select cssClass="form-control" path="transferToAccount" >
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<form:options items="${pcmSettleAccMan}" />
+				</form:select>
 			</div>
 			<!-- 转入账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -327,7 +367,43 @@
 				$('#balanceDate').attr("disabled",false); 
 			}
 		})
-		
+        typeChange();
+        //合作方编码控制
+        function typeChange(){
+            var type = $("#partnerType").val();
+            if(type=='ZJ'){
+                var map = ${fundSideInfoMap}
+                    $("#partnerCode").empty();
+                for(var key in map){
+                    $("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
+                }
+                $("#partnerCode").selectpicker("refresh");
+            }
+            if(type=='ZC'){
+                var map = ${assetSideInfoMap}
+                    $("#partnerCode").empty();
+                for(var key in map){
+                    $("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
+                }
+                $("#partnerCode").selectpicker("refresh");
+            }
+            if(type=='QD'){
+                var map = ${channelInfoMap}
+                    $("#partnerCode").empty();
+                for(var key in map){
+                    $("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
+                }
+                $("#partnerCode").selectpicker("refresh");
+            }
+            if(type=='FW'){
+                var map = ${serverInfoMap}
+                    $("#partnerCode").empty();
+                for(var key in map){
+                    $("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
+                }
+                $("#partnerCode").selectpicker("refresh");
+            }
+        }
 		$('#billingCycle').change(function(){
 			var value = $(this).val();
 			if(value=='A'){

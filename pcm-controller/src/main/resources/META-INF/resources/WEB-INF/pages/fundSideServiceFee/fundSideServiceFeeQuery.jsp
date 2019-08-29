@@ -94,11 +94,11 @@
 				return ${fundSideInfoJson}[data];
 			}
 		});
-		columns.push({ title: '<spring:message code="fundSideServiceFee.platformService" text="资金方平台服务方" />', data: 'platformService',
-			render : function(data, type, row, meta) {
-				return ${fundSeverSideJson}[data];
-			}
-		});
+		<%--columns.push({ title: '<spring:message code="fundSideServiceFee.platformService" text="资金方平台服务方" />', data: 'platformService',--%>
+			<%--render : function(data, type, row, meta) {--%>
+				<%--return ${fundSeverSideJson}[data];--%>
+			<%--}--%>
+		<%--});--%>
 		columns.push({ title: '<spring:message code="fundSideServiceFee.transferAccount" text="转出账号" />', data: 'transferAccount'});
 		columns.push({ title: '<spring:message code="fundSideServiceFee.transferToAccount" text="转入账号" />', data: 'transferToAccount'});
 		columns.push({ title: '<spring:message code="fundSideServiceFee.billingCycle" text="结算周期" />', data: 'billingCycle',

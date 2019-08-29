@@ -28,6 +28,7 @@ import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.AssetSideRiskCtrl;
 import cn.sunline.pcm.definition.ChannelInfo;
@@ -49,7 +50,7 @@ import cn.sunline.pcm.definition.enums.Expenses;
  */ 
 @Controller
 @RequestMapping("trafficServiceFee")
-public class TrafficServiceFeeController {
+public class TrafficServiceFeeController extends Fee {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -126,7 +127,8 @@ public class TrafficServiceFeeController {
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
 			view.addObject("expenses",KC.Enum.getI18nLabelMap(Expenses.class));
-			view.addObject("advanceSettlement",KC.Enum.getI18nLabelMap(AdvanceSettlement.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
+			//view.addObject("advanceSettlement",KC.Enum.getI18nLabelMap(AdvanceSettlement.class));
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
 			List<PcmOrgParameter> list = response.getRows();
@@ -212,7 +214,8 @@ public class TrafficServiceFeeController {
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
 			view.addObject("expenses",KC.Enum.getI18nLabelMap(Expenses.class));
-			view.addObject("advanceSettlement",KC.Enum.getI18nLabelMap(AdvanceSettlement.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
+			//view.addObject("advanceSettlement",KC.Enum.getI18nLabelMap(AdvanceSettlement.class));
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
 			List<PcmOrgParameter> list = response.getRows();
@@ -311,13 +314,15 @@ public class TrafficServiceFeeController {
 			 view.addObject("factory",trafficServiceFeeCode==null);
 			TrafficServiceFee trafficServiceFee = parameterSurface.getParameterObject(
 					trafficServiceFeeCode==null?code:trafficServiceFeeCode, TrafficServiceFee.class);
+			trafficServiceFee.setTransferAccount(getPcmSettleAccMan(trafficServiceFee.getTransferAccount()));
+			trafficServiceFee.setTransferToAccount(getPcmSettleAccMan(trafficServiceFee.getTransferToAccount()));
 			view.addObject("trafficServiceFee", trafficServiceFee);
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(trafficServiceFee.getFeeCollectionMethod()));
 			view.addObject("feeBasis", KC.Enum.getI18nLabel(trafficServiceFee.getFeeBasis()));
 			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabel(trafficServiceFee.getFrequencyOfCharge()));
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(trafficServiceFee.getBillingCycle()));
 			view.addObject("expenses", KC.Enum.getI18nLabel(trafficServiceFee.getExpenses()));
-			view.addObject("advanceSettlement", KC.Enum.getI18nLabel(trafficServiceFee.getAdvanceSettlement()));
+			//view.addObject("advanceSettlement", KC.Enum.getI18nLabel(trafficServiceFee.getAdvanceSettlement()));
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
 			List<PcmOrgParameter> list = response.getRows();

@@ -25,6 +25,7 @@ import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
+import cn.sunline.web.service.CodeService;
 import cn.sunline.pcm.definition.AssetSideCtrlInfo;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.AssetSideRiskCtrl;
@@ -50,7 +51,7 @@ public class FundSideCtrlProductInfoController {
 
     @Autowired
     private AddressHelperFacility addressHelperFacility;
-
+    
     /**
      * <p>
      * 资金方产品经营控制
@@ -99,6 +100,8 @@ public class FundSideCtrlProductInfoController {
             throw new FlatException(e,"fundSideProductCtrlInfo.queryFundSideProductCtrlInfoListFail","查询资金方产品经营控制列表失败");
         }
     }
+    
+
 
     /**
      * <p>
@@ -113,8 +116,11 @@ public class FundSideCtrlProductInfoController {
     public ModelAndView fundSideProductCtrlInfoAddPage(HttpServletRequest request) throws FlatException {
         try {
             ModelAndView view = KW.mvc.forwardView("fundSideProductCtrlInfo/fundSideProductCtrlInfoAdd");
-            view.addObject("fundSideBusinessScopes", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FundSideBusinessScope.class));
-            view.addObject("fundSideProfessionScopes", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FundSideProfessionScope.class));
+            view.addObject("fundSideBusinessScopes",
+            		codeService.getCodeMapByOrgAndCodeType(KC.threadLocal.getCurrentOrg(), "fundSideBusinessScopes"));
+            view.addObject("fundSideProfessionScopes", 
+            		codeService.getCodeMapByOrgAndCodeType(KC.threadLocal.getCurrentOrg(), "fundSideProfessionScopes"));
+            
             view.addObject("fundSideCreditCardCode", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FundSideCreditCardCode.class));
             TreeMap<String, String> map = addressHelperFacility.loadProvince();
             view.addObject("fundSideProv", map);
@@ -164,6 +170,9 @@ public class FundSideCtrlProductInfoController {
             throw new FlatException(e, "fundSideProductCtrlInfo.addFundSideProductCtrlInfoFail", "新增资金方产品经营控制失败");
         }
     }
+    
+    @Autowired
+    CodeService codeService; 
 
     /**
      * <p>
@@ -180,8 +189,12 @@ public class FundSideCtrlProductInfoController {
         try {
             ModelAndView view = KW.mvc.forwardView("fundSideProductCtrlInfo/fundSideProductCtrlInfoEdit");
             FundSideProductCtrlInfo fundSideProductCtrlInfo = parameterSurface.getParameterObject(fundSideCtrlCode, FundSideProductCtrlInfo.class);
-            view.addObject("fundSideBusinessScopes", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FundSideBusinessScope.class));
-            view.addObject("fundSideProfessionScopes", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FundSideProfessionScope.class));
+            view.addObject("fundSideBusinessScopes",
+            		codeService.getCodeMapByOrgAndCodeType(KC.threadLocal.getCurrentOrg(), "fundSideBusinessScopes"));
+            view.addObject("fundSideProfessionScopes", 
+            		codeService.getCodeMapByOrgAndCodeType(KC.threadLocal.getCurrentOrg(), "fundSideProfessionScopes"));
+            
+            
             view.addObject("fundSideCreditCardCode", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FundSideCreditCardCode.class));
             view.addObject("fundSideProv", addressHelperFacility.loadProvince());
             
@@ -278,10 +291,12 @@ public class FundSideCtrlProductInfoController {
     		//市
             view.addObject("FundSideProv",province);
             view.addObject("fundSideCity", city);
-            List<FundSideBusinessScope> fundSideBusinessScopes = fundSideProductCtrlInfo.getFundSideBusinessScope();
-            view.addObject("fundSideBusinessScopes",fundSideBusinessScopes.stream().map(n->KC.Enum.getI18nLabel(n)).collect(Collectors.toList()));
-            List<FundSideProfessionScope> fundSideProfessionScopes = fundSideProductCtrlInfo.getFundSideProfessionScope();
-            view.addObject("fundSideProfessionScopes",fundSideProfessionScopes.stream().map(n->KC.Enum.getI18nLabel(n)).collect(Collectors.toList()));
+            view.addObject("fundSideBusinessScopes",fundSideProductCtrlInfo.getFundSideBusinessScope().stream().map(
+            		n->codeService.getCodeNameByOrgAndCodeType(KC.threadLocal.getCurrentOrg(),
+            				"fundSideBusinessScopes",n)).collect(Collectors.toList()));
+            view.addObject("fundSideProfessionScopes",fundSideProductCtrlInfo.getFundSideProfessionScope().stream().map(
+            		n->codeService.getCodeNameByOrgAndCodeType(KC.threadLocal.getCurrentOrg(),
+            				"fundSideProfessionScopes",n)).collect(Collectors.toList()));
             return view;
         } catch (ProcessException e) {
             logger.error(e.getMessage(), e);
@@ -293,41 +308,5 @@ public class FundSideCtrlProductInfoController {
     }
 
 
-
-    /**
-     *
-     * @Description:    TODO(所有组件的简略信息)
-     * @param:  @return
-     * @param:  @throws FlatException
-     * @throws
-     */
-    @ResponseBody
-    @PostMapping(value="/unitConfig.in",produces={"application/json"})
-    public Map<String,String> unitConfig() throws FlatException{
-        try{
-            HashMap<String, String> resMap = new HashMap<>();
-            parameterSurface.getParameterObject(FundSideProductCtrlInfo.class).forEach(
-                    item->resMap.put(item.getFundSideCtrlCode(),item.getFundSideCtrlDesc()));
-            return resMap;
-        } catch (ProcessException e) {
-            logger.error(e.getMessage(), e);
-            throw new FlatException(e.getErrorCode(), e.getMessage());
-        } catch (Exception e) {
-            logger.error(e.getMessage(), e);
-            throw new FlatException(e, "branch.branchunitConfigFail", "加载数据失败！");
-        }
-
-    }
-
-
-    @ResponseBody
-    @PostMapping(value="/unitBase.in")
-    public List<String> unitBase(@RequestParam("code") String code){
-        FundSideProductCtrlInfo parameterObject = parameterSurface.getParameterObject(code,FundSideProductCtrlInfo.class);
-        List<String> list = new ArrayList<>();
-        list.add(parameterObject.getFundSideCtrlCode());
-        list.add(parameterObject.getFundSideCtrlDesc());
-        return list;
-    }
 
 }

@@ -51,14 +51,15 @@ public class FundSideProductCtrlInfo implements Serializable{
      * 资金方申请行业范围
      */
     @PropertyInfo(name="资金方申请行业范围")
-    public java.util.List<FundSideBusinessScope>  fundSideBusinessScope ;
+    public java.util.List<String>  fundSideBusinessScope ;
     
     /**
      * 资金方申请职业范围
      */
     @PropertyInfo(name="资金方申请职业范围")
-    public java.util.List<FundSideProfessionScope>  fundSideProfessionScope ;
-    
+    public java.util.List<String>  fundSideProfessionScope ;
+
+
     /**
      * 资金方专项资产方
      */
@@ -209,7 +210,7 @@ public class FundSideProductCtrlInfo implements Serializable{
     @PropertyInfo(name="资金方申请年龄范围")
     public String  applicantsAgeRange ;
 
-	public String getFundSideCtrlCode() {
+    public String getFundSideCtrlCode() {
 		return fundSideCtrlCode;
 	}
 
@@ -248,20 +249,22 @@ public class FundSideProductCtrlInfo implements Serializable{
 	public void setFundSideCity(String fundSideCity) {
 		this.fundSideCity = fundSideCity;
 	}
+ 
+	
 
-	public java.util.List<FundSideBusinessScope> getFundSideBusinessScope() {
+	public java.util.List<String> getFundSideBusinessScope() {
 		return fundSideBusinessScope;
 	}
 
-	public void setFundSideBusinessScope(java.util.List<FundSideBusinessScope> fundSideBusinessScope) {
+	public void setFundSideBusinessScope(java.util.List<String> fundSideBusinessScope) {
 		this.fundSideBusinessScope = fundSideBusinessScope;
 	}
 
-	public java.util.List<FundSideProfessionScope> getFundSideProfessionScope() {
+	public java.util.List<String> getFundSideProfessionScope() {
 		return fundSideProfessionScope;
 	}
 
-	public void setFundSideProfessionScope(java.util.List<FundSideProfessionScope> fundSideProfessionScope) {
+	public void setFundSideProfessionScope(java.util.List<String> fundSideProfessionScope) {
 		this.fundSideProfessionScope = fundSideProfessionScope;
 	}
 

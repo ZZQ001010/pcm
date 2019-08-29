@@ -61,6 +61,14 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${fundSideSettlementMethod.otalNumberOfClaimsStartPeriods }	
 			</label>
+            <!-- 理赔对账容差金额 -->
+            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+                <spring:message code="fundSideSettlementMethod.claimsReconciliationAllowanceAmount" text="理赔对账容差金额" />
+                :
+            </label>
+            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+                &nbsp;${fundSideSettlementMethod.claimsReconciliationAllowanceAmount }
+            </label>
 		</div>
 		
 	<c:if test="${factory==false }">

@@ -24,6 +24,7 @@ import cn.sunline.common.KC;
 import cn.sunline.common.exception.ProcessException;
 import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.Dedit;
@@ -47,7 +48,7 @@ import cn.sunline.web.common.utils.KW;
  */ 
 @Controller
 @RequestMapping("dedit")
-public class DeditController {
+public class DeditController extends Fee{
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -136,14 +137,15 @@ public class DeditController {
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.BillingCycle.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
 			//所属机构
-			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
-			List<PcmOrgParameter> list = response.getRows();
+			List<PcmOrgParameter> list  = parameterSurface.getParameterObject( PcmOrgParameter.class);
 			Map<String,String> orgMap = new HashMap<String,String>();
 			for (PcmOrgParameter pcmOrgParameter : list) {
 				orgMap.put(pcmOrgParameter.orgCode, pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
 			}
 			view.addObject("orgMap",orgMap);
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			 /**
+			  * 
 			 * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
 			 */
 			//资金方
@@ -230,13 +232,13 @@ public class DeditController {
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
 			Dedit dedit = parameterSurface.getParameterObject(deditCode, Dedit.class);
 			//所属机构
-			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
-			List<PcmOrgParameter> list = response.getRows();
+			List<PcmOrgParameter> list= parameterSurface.getParameterObject( PcmOrgParameter.class);
 			Map<String,String> orgMap = new HashMap<String,String>();
 			for (PcmOrgParameter pcmOrgParameter : list) {
 				orgMap.put(pcmOrgParameter.orgCode, pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
 			}
 			view.addObject("orgMap",orgMap);
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			 /**
 			 * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
 			 */
@@ -343,6 +345,9 @@ public class DeditController {
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(dedit.getFeeCollectionMethod()));
 			view.addObject("feeBasis", KC.Enum.getI18nLabel(dedit.getFeeBasis()));
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(dedit.getBillingCycle()));
+			
+			dedit.setTransferAccount(getPcmSettleAccMan(dedit.getTransferAccount()));
+			dedit.setTransferToAccount(getPcmSettleAccMan(dedit.getTransferToAccount()));
 			//所属机构
 			PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(dedit.getOrganization(),PcmOrgParameter.class);
 			view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());

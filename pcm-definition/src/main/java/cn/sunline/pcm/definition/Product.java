@@ -18,27 +18,25 @@ import cn.sunline.common.annotation.paramdef.PropertyInfo;
  */
 public class Product implements Serializable {
 
-	private static final long serialVersionUID = 9132406689211709311L;
-
-	/**
-	 * ty加的
-	 */
-	public String currency;
-	
-
-	
-	
 	/**
      * 产品代码
      */
     @PropertyInfo(name="产品代码", length=6)
     public String productCode;
-
+    
+    
     /**
      * 产品描述
      */
     @PropertyInfo(name="产品描述", length=40)
     public String description;
+    
+    
+	/**
+	 * ty加的
+	 */
+	public String currency;
+	
 
     /**
      * 卡品牌
@@ -146,6 +144,12 @@ public class Product implements Serializable {
      */
     @PropertyInfo(name = "人行记录是否合并", length = 8)
     public Indicator isPbocInfoMerged;
+    
+    
+    
+	private static final long serialVersionUID = 9132406689211709311L;
+	
+	
 
 	public String getProductCode() {
 		return productCode;

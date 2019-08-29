@@ -128,4 +128,11 @@ public interface ProductUnitSurface {
 	 * @param value
 	 */
 	void deleteAllByGroupId(String value);
+
+	/**
+	 * 检查该参数是否在产品中已经引用
+	 * @param paramClass
+	 * @param paramId
+	 */
+	List<BPcmProductRel> checkupParamIsExist(String paramClass, List<String> ids);
 }

@@ -31,7 +31,7 @@
 			<!-- 催收服务描述 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label ">
 				<span class="span-icon">*&nbsp;</span>
-				<spring:message code="collectionService.desc" text="催收服务描述" />
+				<spring:message code="collectionService.desc" text="催收服务费描述" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
@@ -164,7 +164,10 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="transferAccount"  data-rule-maxlength="12" />
+						<form:select cssClass="form-control" path="transferAccount" >
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<form:options items="${pcmSettleAccMan}" />
+				</form:select>
 			</div>
 			<!-- 转出账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -178,7 +181,10 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="transferToAccount"  data-rule-maxlength="12" />
+					<form:select cssClass="form-control" path="transferToAccount" >
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<form:options items="${pcmSettleAccMan}" />
+				</form:select>
 			</div>
 			<!-- 转入账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">

@@ -247,7 +247,10 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="transferAccount"  data-rule-maxlength="12" />
+						<form:select cssClass="form-control" path="transferAccount" >
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<form:options items="${pcmSettleAccMan}" />
+				</form:select>
 			</div>
 			<!-- 转出账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -261,7 +264,10 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="transferToAccount" data-rule-maxlength="12" />
+						<form:select cssClass="form-control" path="transferToAccount" >
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<form:options items="${pcmSettleAccMan}" />
+				</form:select>
 			</div>
 			<!-- 转入账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -330,39 +336,39 @@
 				<spring:message code="safetyMat.periodNum.desc" />
 			</div>
 		</div>
-		<div class="form-group row">
-			<!-- 保费垫付是否参与分润-->
-			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<spring:message code="" text="保费垫付是否参与分润" />
-				:
-			</label>
-			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="participationStatus">
-					<form:options items="${participationStatusMap}" />
-				</form:select>
-			</div>
-			<!-- 保费垫付是否参与分润 -->
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-				<spring:message code="" text="保费垫付是否参与分润" />
-			</div>
-		</div>
+		<%--<div class="form-group row">--%>
+			<%--<!-- 保费垫付是否参与分润-->--%>
+			<%--<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">--%>
+				<%--<spring:message code="" text="保费垫付是否参与分润" />--%>
+				<%--:--%>
+			<%--</label>--%>
+			<%--<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">--%>
+				<%--<form:select cssClass="form-control" path="participationStatus">--%>
+					<%--<form:options items="${participationStatusMap}" />--%>
+				<%--</form:select>--%>
+			<%--</div>--%>
+			<%--<!-- 保费垫付是否参与分润 -->--%>
+			<%--<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">--%>
+				<%--<spring:message code="" text="保费垫付是否参与分润" />--%>
+			<%--</div>--%>
+		<%--</div>--%>
 		
-		<div class="form-group row">
-			<!-- 放款当天提前还款手续费方式-->
-			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<spring:message code="" text="放款当天提前还款手续费方式" />
-				:
-			</label>
-			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="backsettlement">
-					<form:options items="${backsettlement}" />
-				</form:select>
-			</div>
-			<!-- 放款当天提前还款手续费方式 -->
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-				<spring:message code="safetyMat.backsettlement.desc" />
-			</div>
-		</div>
+		<%--<div class="form-group row">--%>
+			<%--<!-- 放款当天提前还款手续费方式-->--%>
+			<%--<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">--%>
+				<%--<spring:message code="" text="放款当天提前还款手续费方式" />--%>
+				<%--:--%>
+			<%--</label>--%>
+			<%--<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">--%>
+				<%--<form:select cssClass="form-control" path="backsettlement">--%>
+					<%--<form:options items="${backsettlement}" />--%>
+				<%--</form:select>--%>
+			<%--</div>--%>
+			<%--<!-- 放款当天提前还款手续费方式 -->--%>
+			<%--<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">--%>
+				<%--<spring:message code="safetyMat.backsettlement.desc" />--%>
+			<%--</div>--%>
+		<%--</div>--%>
 		
 		<div class="form-group row">
 			<!-- 放款当天提前放款手续费方式-->

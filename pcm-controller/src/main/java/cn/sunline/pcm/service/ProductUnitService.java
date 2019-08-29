@@ -144,7 +144,7 @@ public class ProductUnitService implements InitializingBean {
 	private void scanPackageAndFind() {
 		// 递归扫描指定包路径
 		List<Class<?>> list = new ArrayList<Class<?>>();
-		List<String> packages = Arrays.asList(new String[]{"cn.sunline.pcm", "cn.sunline.ccs"});
+		List<String> packages = Arrays.asList(new String[]{"cn.sunline"});
 		for (String pkg : packages) {
 			logger.debug("参数组件: 开始扫描{}", pkg);
 			List<Class<?>> clazzs = KC.Package.getClassList(pkg, true);

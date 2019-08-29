@@ -1,6 +1,7 @@
 package cn.sunline.pcm.definition.product.unit;
 
 import cn.sunline.pcm.definition.FundSideSettlementMethod;
+
 import cn.sunline.pcm.definition.Mulct;
 import cn.sunline.pcm.definition.product.IProductUnit;
 import cn.sunline.pcm.definition.product.ProductUnitInfo;
@@ -9,7 +10,7 @@ public class MulctUnit implements IProductUnit{
 	private final  String MODULE_NAME  ="mulct";
 
 
-    private final  String MODULE_NAME_ZH="罚金利率管理";
+    private final  String MODULE_NAME_ZH="罚息费率";
 
 
     @Override

@@ -20,9 +20,9 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${collectionService.code }	
 			</label>
-			<!-- 催收服务描述 -->
+			<!-- 催收服务费描述 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="collectionService.desc" text="催收服务描述" />
+				<spring:message code="collectionService.desc" text="催收服务费描述" />
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">

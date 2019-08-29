@@ -69,6 +69,14 @@
             <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
                 &nbsp;${fundSideProfessionScopes}
             </label>
+            <!-- 资金方申请年龄范围 -->
+            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+                <spring:message code="fundSideProductCtrlInfo.applicantsAgeRange" text="资金方申请年龄范围" />
+                :
+            </label>
+            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+                &nbsp;${fundSideProductCtrlInfo.applicantsAgeRange}
+            </label>
             <%--<!-- 资金方管控描述 -->--%>
             <%--<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">--%>
                 <%--<spring:message code="fundSideProductCtrlInfo.fundSideInfo" text="资金方专项资产方" />--%>

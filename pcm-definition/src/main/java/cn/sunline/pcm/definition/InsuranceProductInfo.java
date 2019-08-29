@@ -15,10 +15,7 @@ import cn.sunline.pcm.definition.enums.FeePayMethod;
  *
  */
 public class InsuranceProductInfo implements Serializable{
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
 
 	@PropertyInfo(name="保险产品编号",length=12)
     public String code ;
@@ -47,6 +44,11 @@ public class InsuranceProductInfo implements Serializable{
 
     @PropertyInfo(name="滞纳金比率(天)",length=50)
     public String lateFeeRatio ;
+    
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
     public String getCode() {
         return code;

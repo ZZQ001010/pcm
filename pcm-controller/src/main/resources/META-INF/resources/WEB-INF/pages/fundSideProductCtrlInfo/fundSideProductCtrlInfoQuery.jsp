@@ -91,7 +91,8 @@
                 return i18arr;
             }
         });
-		<%--columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.fundSideInfo" text="资金方专项资产方" />', data: 'fundSideInfo'});--%>
+        columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.applicantsAgeRange" text="资金方申请年龄范围" />', data: 'applicantsAgeRange'});
+        <%--columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.fundSideInfo" text="资金方专项资产方" />', data: 'fundSideInfo'});--%>
 		columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.fundSidePartRepay" text="资金方是否支持部分还款" />', data: 'fundSidePartRepay',
             render : function(data,type,row,meta){
                 if(data){

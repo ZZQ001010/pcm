@@ -28,12 +28,7 @@ public class GuaranteeFee  implements Serializable{
 	
 	@PropertyInfo(name="担保费描述",length=50)
 	public String guaranteeFeeDesc ; 
-	
-	@PropertyInfo(name="单笔最小金额",length=12)
-	public BigDecimal guaranteeFeeminSun; 
-	
-	@PropertyInfo(name="单笔最大金额",length=12)
-	public BigDecimal guaranteeFeemaxSun;
+
 	
 	@PropertyInfo(name="费用收取方式",length=12)
 	public FeeCollectionMethod feeCollectionMethod; 
@@ -48,11 +43,9 @@ public class GuaranteeFee  implements Serializable{
 	 *  例如 30% 填写 0.3
 	 */
 	@PropertyInfo(name="收取比例",length=12)
-	public BigDecimal chargeRatio; 
+	public BigDecimal ratio;
 	
-	@PropertyInfo(name="收取金额",length=12)
-	public BigDecimal chargeAmount; 
-	
+
 	@PropertyInfo(name="转出账号",length=12)
 	public String transferAccount; 
 	
@@ -101,13 +94,7 @@ public class GuaranteeFee  implements Serializable{
 	@PropertyInfo(name="合作方编码",length=12)
 	public String partnerCode;
 	
-	
-	/**
-	 * 放款当天提前结清费用收取方式
-	 * @return
-	 */
-	@PropertyInfo(name="提前结清费用收取方式",length=32)
-	public Settlement settlement;
+
 	
 	
 	public String getBalanceDate() {
@@ -158,13 +145,6 @@ public class GuaranteeFee  implements Serializable{
 		this.partnerCode = partnerCode;
 	}
 
-	public Settlement getSettlement() {
-		return settlement;
-	}
-
-	public void setSettlement(Settlement settlement) {
-		this.settlement = settlement;
-	}
 
 
 	
@@ -186,21 +166,6 @@ public class GuaranteeFee  implements Serializable{
 		this.guaranteeFeeDesc = guaranteeFeeDesc;
 	}
 
-	public BigDecimal getGuaranteeFeeminSun() {
-		return guaranteeFeeminSun;
-	}
-
-	public void setGuaranteeFeeminSun(BigDecimal guaranteeFeeminSun) {
-		this.guaranteeFeeminSun = guaranteeFeeminSun;
-	}
-
-	public BigDecimal getGuaranteeFeemaxSun() {
-		return guaranteeFeemaxSun;
-	}
-
-	public void setGuaranteeFeemaxSun(BigDecimal guaranteeFeemaxSun) {
-		this.guaranteeFeemaxSun = guaranteeFeemaxSun;
-	}
 
 	public FeeCollectionMethod getFeeCollectionMethod() {
 		return feeCollectionMethod;
@@ -226,23 +191,15 @@ public class GuaranteeFee  implements Serializable{
 		this.frequencyOfCharge = frequencyOfCharge;
 	}
 
-	public BigDecimal getChargeRatio() {
-		return chargeRatio;
-	}
+    public BigDecimal getRatio() {
+        return ratio;
+    }
 
-	public void setChargeRatio(BigDecimal chargeRatio) {
-		this.chargeRatio = chargeRatio;
-	}
+    public void setRatio(BigDecimal ratio) {
+        this.ratio = ratio;
+    }
 
-	public BigDecimal getChargeAmount() {
-		return chargeAmount;
-	}
-
-	public void setChargeAmount(BigDecimal chargeAmount) {
-		this.chargeAmount = chargeAmount;
-	}
-
-	public String getTransferAccount() {
+    public String getTransferAccount() {
 		return transferAccount;
 	}
 

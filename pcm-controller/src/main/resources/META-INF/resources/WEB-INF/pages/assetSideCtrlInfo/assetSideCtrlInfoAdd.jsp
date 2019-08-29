@@ -83,7 +83,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="assetSideAmountGeneralControl" />
+				<form:input cssClass="form-control" type="number"  oninput = "value=value.replace(/[^\d]/g,'')" path="assetSideAmountGeneralControl" />
 			</div>
 			<!-- 资产方额度总控描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -129,7 +129,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="assetSideAmountLoanControl"/>
+				<form:input cssClass="form-control" type="number" oninput = "value=value.replace(/[^\d]/g,'')" path="assetSideAmountLoanControl"/>
 			</div>
 			<!-- 资产方放款额总控描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -159,7 +159,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="assetSideControlMonth"/>
+				<form:input cssClass="form-control" type="number" oninput = "value=value.replace(/[^\d]/g,'')" path="assetSideControlMonth"/>
 			</div>
 			<!-- 资产方月放款额管控描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -173,7 +173,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="assetSideControlWeek"/>
+				<form:input cssClass="form-control" type="number" oninput = "value=value.replace(/[^\d]/g,'')" path="assetSideControlWeek"/>
 			</div>
 			<!-- 资产方余额总控描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -187,7 +187,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="assetSideControlDay"/>
+				<form:input cssClass="form-control" type="number" oninput = "value=value.replace(/[^\d]/g,'')" path="assetSideControlDay"/>
 			</div>
 			<!-- 资产方余额总控描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -201,7 +201,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="assetSideBalanceControl"/>
+				<form:input cssClass="form-control" type="number" oninput = "value=value.replace(/[^\d]/g,'')" path="assetSideBalanceControl"/>
 			</div>
 			<!-- 资产方余额总控描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">

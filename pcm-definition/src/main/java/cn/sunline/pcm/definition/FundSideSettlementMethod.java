@@ -1,6 +1,7 @@
 package cn.sunline.pcm.definition;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import cn.sunline.common.annotation.paramdef.PropertyInfo;
 import cn.sunline.pcm.definition.enums.SettlementMethod;
@@ -50,6 +51,12 @@ public class FundSideSettlementMethod implements Serializable{
 	@PropertyInfo(name="全期理赔起始期数",length=32)
 	public Integer  otalNumberOfClaimsStartPeriods ;
 
+    /**
+     * 理赔对账容差金额
+     */
+    @PropertyInfo(name="理赔对账容差金额",length=32)
+    public BigDecimal claimsReconciliationAllowanceAmount ;
+
 	public String getFundSideCode() {
 		return fundSideCode;
 	}
@@ -92,6 +99,13 @@ public class FundSideSettlementMethod implements Serializable{
 		this.otalNumberOfClaimsStartPeriods = otalNumberOfClaimsStartPeriods;
 	}
 
+    public BigDecimal getClaimsReconciliationAllowanceAmount() {
+        return claimsReconciliationAllowanceAmount;
+    }
+
+    public void setClaimsReconciliationAllowanceAmount(BigDecimal claimsReconciliationAllowanceAmount) {
+        this.claimsReconciliationAllowanceAmount = claimsReconciliationAllowanceAmount;
+    }
 
     public String getFundSide() {
         return fundSide;

@@ -174,12 +174,12 @@
 				&nbsp;${safetyMat.periodNum }	
 			</label>
 			<!-- 保费垫付是否参与分润 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="" text="保费垫付是否参与分润" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${participationStatus }	
+			<%--<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">--%>
+				<%--<spring:message code="" text="保费垫付是否参与分润" />--%>
+				<%--:--%>
+			<%--</label>--%>
+			<%--<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">--%>
+				<%--&nbsp;${participationStatus }	--%>
 			</label>
 			
 			
@@ -194,18 +194,18 @@
 			
 			
 						<!-- 放款当天提前还款手续费方式 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="" text="放款当天提前还款手续费方式" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${backsettlement }	
-			</label>
+			<%--<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">--%>
+				<%--<spring:message code="" text="放款当天提前还款手续费方式" />--%>
+				<%--:--%>
+			<%--</label>--%>
+			<%--<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">--%>
+				<%--&nbsp;${backsettlement }	--%>
+			<%--</label>--%>
 			
 			
 						<!-- 放款当天提前结清手续费方式 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="" text="保费垫付是否参与分润" />
+				<spring:message code="" text="放款当天提前结清手续费方式" />
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">

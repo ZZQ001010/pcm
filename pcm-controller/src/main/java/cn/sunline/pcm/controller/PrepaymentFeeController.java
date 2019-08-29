@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +20,7 @@ import cn.sunline.common.KC;
 import cn.sunline.common.exception.ProcessException;
 import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
+import cn.sunline.pcm.controller.common.Fee;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.FundSideInfo;
@@ -44,12 +44,10 @@ import cn.sunline.web.common.utils.KW;
  */ 
 @Controller
 @RequestMapping("prepaymentFee")
-public class PrepaymentFeeController {
+public class PrepaymentFeeController extends Fee {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	private ParameterSurface parameterSurface;
 
 	/** 
 	 * <p>
@@ -69,8 +67,7 @@ public class PrepaymentFeeController {
 			view.addObject("partnerTypeJson", KC.Enum.getI18nLabelMapJson(ChannelPartnerType.class));
 			view.addObject("fundSideInfoJson", KC.Enum.getI18nLabelMapJson(ChannelPartnerType.class));
 			//所属机构
-			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
-			List<PcmOrgParameter> list = response.getRows();
+			List<PcmOrgParameter> list  = parameterSurface.getParameterObject(PcmOrgParameter.class);
 			Map<String,String> orgMap = new HashMap<String,String>();
 			for (PcmOrgParameter pcmOrgParameter : list) {
 				orgMap.put(pcmOrgParameter.orgCode, pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
@@ -161,6 +158,7 @@ public class PrepaymentFeeController {
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
 			List<PcmOrgParameter> list = response.getRows();
@@ -255,9 +253,9 @@ public class PrepaymentFeeController {
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
 			PrepaymentFee prepaymentFee = parameterSurface.getParameterObject(prepaymentFeeCode, PrepaymentFee.class);
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			//所属机构
-			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
-			List<PcmOrgParameter> list = response.getRows();
+			List<PcmOrgParameter> list= parameterSurface.getParameterObject( PcmOrgParameter.class);
 			Map<String,String> orgMap = new HashMap<String,String>();
 			for (PcmOrgParameter pcmOrgParameter : list) {
 				orgMap.put(pcmOrgParameter.orgCode, pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
@@ -266,8 +264,8 @@ public class PrepaymentFeeController {
 			/**
 			 * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
 			 */
-			//资金方
-			List<FundSideInfo> fundSideInfoList = parameterSurface.getFetchResponse(null, FundSideInfo.class).getRows();
+			//资金方fundSideInfoList
+			List<FundSideInfo> fundSideInfoList = parameterSurface.getParameterObject(FundSideInfo.class);
 			Map<String,String> fundSideInfoMap = new HashMap<String,String>();
 			for (FundSideInfo fundSideInfo : fundSideInfoList) {
 				fundSideInfoMap.put(fundSideInfo.getFundSideCode(), 
@@ -365,11 +363,14 @@ public class PrepaymentFeeController {
 			view = KW.mvc.forwardView("prepaymentFee/prepaymentFeeDetail");
 			view.addObject("factory",prepaymentFeeCode == null);
 			PrepaymentFee prepaymentFee = parameterSurface.getParameterObject(prepaymentFeeCode==null?code:prepaymentFeeCode, PrepaymentFee.class);
+			prepaymentFee.setTransferAccount(prepaymentFee.getTransferAccount());
+			prepaymentFee.setTransferToAccount(prepaymentFee.getTransferToAccount());
 			view.addObject("prepaymentFee", prepaymentFee);
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(prepaymentFee.getFeeCollectionMethod()));
 			view.addObject("loanDayFeeColMethod", KC.Enum.getI18nLabel(prepaymentFee.getLoanDayFeeColMethod()));
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(prepaymentFee.getBillingCycle()));
 			view.addObject("partnerType", KC.Enum.getI18nLabel(prepaymentFee.getPartnerType()));
+			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			if(prepaymentFee.getBillingCycle().equals(BillingCycle.Z)){
 				view.addObject("balanceDate",KC.Enum.getI18nLabelMap(BanceDate.class).get(prepaymentFee.balanceDate));
 			}else{

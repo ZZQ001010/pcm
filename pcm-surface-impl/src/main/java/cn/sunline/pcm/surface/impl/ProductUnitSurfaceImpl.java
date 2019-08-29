@@ -1,10 +1,14 @@
 package cn.sunline.pcm.surface.impl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -361,6 +365,29 @@ public class ProductUnitSurfaceImpl implements ProductUnitSurface {
 		// TODO Auto-generated method stub
 		  new JPAQueryFactory(em).delete(qPcmProductUnit).where(qPcmProductUnit.org.eq(KC.threadLocal.getCurrentOrg())
 				  .and(qPcmProductUnit.productUnitGroup.eq(value))).execute();
+	}
+
+
+
+	/**
+	 * 
+	 */
+	@Override
+	public List<BPcmProductRel> checkupParamIsExist(String paramClass, List<String> ids) {
+		 List<BPcmProductRel> list = new ArrayList<>();
+		 ids.stream().map(id->checkupParamIsExist(paramClass,id))
+		.collect(Collectors.toList()).forEach(list::addAll);
+		 return list;
+	}
+	
+	private List<BPcmProductRel> checkupParamIsExist(String paramClass,  String id) {
+		  List<PcmProductRel> list = new JPAQueryFactory(em).selectFrom(qPcmProductRel)
+					.where(
+							qPcmProductRel.paramClass.eq(paramClass)
+							.and(qPcmProductRel.org.eq(KC.threadLocal.getCurrentOrg())
+							.and(qPcmProductRel.paramKey.eq(id))))
+					.fetch();
+				 return null==list ? new ArrayList<BPcmProductRel>() : PcmProductRel.convertToBOList(list);
 	}
 
 }
