@@ -76,11 +76,7 @@
 	</dependencies>
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>aspectj-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
+		    <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
@@ -88,19 +84,34 @@
 						<manifest>
 							<useUniqueVersions>false</useUniqueVersions>
 							<addClasspath>true</addClasspath>
-							<classpathPrefix>${artifactId}-dependency/</classpathPrefix>
+							<classpathPrefix>${project.artifactId}-dependency/</classpathPrefix>
 							<mainClass>cn.sunline.common.spring.ServiceDaemon</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
 			</plugin>
+			
+			
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<configuration>
-					<includeScope>runtime</includeScope>
-					<useBaseVersion>true</useBaseVersion>
-				</configuration>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-dependency-plugin</artifactId>
+			  <executions>
+			      <execution>
+			        <id>copy-dependencies</id>
+			        <phase>package</phase>
+			        <goals>
+			          <goal>copy-dependencies</goal>
+			        </goals>
+			        <configuration>
+			          <outputDirectory>target/${project.artifactId}-dependency</outputDirectory>
+			          <overWriteSnapshots>true</overWriteSnapshots>
+			        </configuration>
+			      </execution>
+			  </executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
