@@ -1,0 +1,164 @@
+/* 多选添加按钮 */
+.circle-multiple {
+	position: absolute;
+	font-size: 30px;
+	color: rgba(0, 0, 0, .2);
+	cursor: pointer;
+}
+.circle-multiple:HOVER {
+	color: rgba(0, 0, 0, .3);
+}
+/* 表格 */
+.table.circle-table {
+	margin: 0;
+	background-color: transparent;
+}
+.table.circle-table td {
+	/* padding: 0; */
+	/* border: 1px solid #ddd; */
+	border: none;
+}
+.table.circle-table td td {
+	border-top: 0;
+	border-left: 0;
+}
+.table.circle-table td td td {
+	border-bottom: 0;
+}
+.table.circle-table td td:LAST-CHILD {
+	border-right: 0;
+}
+/* 行定义 */
+.circle-row,
+.circle-row * {
+	vertical-align: middle !important;
+	text-align: center;
+}
+.circle-row .circle-left {
+	width: 220px;
+	border: 1px dashed orange;
+}
+.circle-row .circle-left.del-fix {
+}
+.circle-row .circle-right {
+	border: 1px dashed orange;
+	border-left: 0;
+}
+
+/* 圆定义 */
+.circle {
+	/* height: 180px;
+	width: 180px; */
+	height: 150px;
+	width: 150px;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 50%;
+	margin: auto;
+	cursor: pointer;
+	/* background-image: url(../img/circle.png); */
+}
+.circle:HOVER {
+	background-color: rgba(0, 0, 0, .1);
+}
+/* 留白 */
+.circle .blank-leaving {
+	width: 1%;
+	height: 15%;
+	margin: auto;
+}
+/* 中间部分 */
+.circle .circle-center {
+	width: 70%;
+	height: 70%;
+	margin: auto;
+}
+/* 空内容时的提示上下居中 */
+/* .circle .circle-center:BEFORE {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	width: 0;
+	vertical-align: middle;
+} */
+.circle .circle-center .circle-tip:BEFORE,
+.circle .circle-center .circle-one:BEFORE {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	width: 0;
+	vertical-align: middle;
+}
+.circle .circle-center .circle-tip {
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+	width: 100%;
+	/* 文字省略不换行 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/* 中间的内容条 */
+.circle .circle-center .circle-one {
+	/* height: 20%; */
+	vertical-align: middle;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/* 按钮图标 */
+div.circle i.circle-btn {
+	position: relative;
+	padding: 5px;
+	font-size: 18px;
+	border: 1px solid rgba(0, 0, 0, .5);
+	border-radius: 50%;
+	opacity: 0;
+	-webkit-transition: opacity .3s;
+	-ms-transition: opacity .3s;
+	-moz-transition: opacity .3s;
+	-o-transition: opacity .3s;
+	transition: opacity .3s;
+}
+div.circle:HOVER i.circle-btn {
+	opacity: .7;
+	-webkit-transition: opacity .5s;
+	-ms-transition: opacity .5s;
+	-moz-transition: opacity .5s;
+	-o-transition: opacity .5s;
+	transition: opacity .5s;
+}
+div.circle i.circle-btn:HOVER {
+	border: 1px solid rgba(0, 0, 0, .2);
+	background-color: rgba(0, 0, 0, .2);
+	opacity: 1;
+	cursor: pointer;
+}
+div.circle i.circle-btn.circle-detail {
+	left: 21%;
+	/* bottom: 174px; */
+	bottom: 146px;
+}
+div.circle i.circle-btn.circle-delete {
+	left: 19%;
+	/* bottom: 161px; */
+	bottom: 131px;
+}
+div.circle i.circle-btn.circle-detail.del-fix {
+	left: 24%;
+	/* bottom: 177px; */
+	bottom: 148px;
+}
+div.circle i.circle-btn.circle-delete.del-fix {
+	/* left: 22%;
+	bottom: 166px; */
+	left: 23%;
+	bottom: 138px;
+}
+div.circle i.circle-btn.circle-del {
+	/* left: 40%;
+	bottom: 127px; */
+	left: 18%;
+	/* bottom: 148px; */
+	bottom: 116px;
+}
