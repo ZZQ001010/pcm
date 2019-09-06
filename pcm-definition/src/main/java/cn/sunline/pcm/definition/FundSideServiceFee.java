@@ -9,8 +9,7 @@ import cn.sunline.pcm.definition.enums.BillingCycle;
 import cn.sunline.pcm.definition.enums.CapitalMoneyBasics;
 import cn.sunline.pcm.definition.enums.ChannelPartnerType;
 import cn.sunline.pcm.definition.enums.DeditMethodOfFeeCollection;
-import cn.sunline.pcm.definition.enums.SafeTyMatFrequencyOfCharge;
-import cn.sunline.pcm.definition.enums.Settlement;
+import cn.sunline.pcm.definition.enums.FrequencyOfCharge;
 
 /**
  * 资金方技术服务费
@@ -33,7 +32,7 @@ public class FundSideServiceFee implements Serializable{
 	public CapitalMoneyBasics FeeBasis; 
 	
 	@PropertyInfo(name="费用收取频次",length=12)
-	public SafeTyMatFrequencyOfCharge FrequencyOfCharge; 
+	public FrequencyOfCharge FrequencyOfCharge; 
 	
 	@PropertyInfo(name="收取比例",length=12)
 	public BigDecimal ChargeRatio; 
@@ -172,13 +171,15 @@ public class FundSideServiceFee implements Serializable{
 		FeeBasis = feeBasis;
 	}
 
-	public SafeTyMatFrequencyOfCharge getFrequencyOfCharge() {
+	public FrequencyOfCharge getFrequencyOfCharge() {
 		return FrequencyOfCharge;
 	}
 
-	public void setFrequencyOfCharge(SafeTyMatFrequencyOfCharge frequencyOfCharge) {
+
+	public void setFrequencyOfCharge(FrequencyOfCharge frequencyOfCharge) {
 		FrequencyOfCharge = frequencyOfCharge;
 	}
+
 
 	public BigDecimal getChargeRatio() {
 		return ChargeRatio;

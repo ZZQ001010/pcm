@@ -68,7 +68,7 @@ public class SafetyMatController extends Fee {
 			view.addObject("settlementJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.Settlement.class));
 			view.addObject("feeCollectionMethodJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.SafeTyFeeCollectionMethod.class));
 			view.addObject("feeBasisJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.SafeTymatFeeBasis.class));
-			view.addObject("frequencyOfChargeJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.SafeTyMatFrequencyOfCharge.class));
+			view.addObject("frequencyOfChargeJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.FrequencyOfCharge.class));
 			view.addObject("billingCycleJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.BillingCycle.class));
 			//view.addObject("participationStatusJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.Indicator.class));
 			//所属机构
@@ -139,7 +139,7 @@ public class SafetyMatController extends Fee {
 			ModelAndView view = KW.mvc.forwardView("safetyMat/safetyMatAdd");
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SafeTyFeeCollectionMethod.class));				
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SafeTymatFeeBasis.class));				
-			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SafeTyMatFrequencyOfCharge.class));				
+			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FrequencyOfCharge.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.BillingCycle.class));				
 			//view.addObject("participationStatusMap", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.Indicator.class));
 			view.addObject("safetyMat", new SafetyMat());
@@ -215,7 +215,7 @@ public class SafetyMatController extends Fee {
 			ModelAndView view = KW.mvc.forwardView("safetyMat/safetyMatEdit");
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SafeTyFeeCollectionMethod.class));				
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SafeTymatFeeBasis.class));				
-			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SafeTyMatFrequencyOfCharge.class));				
+			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FrequencyOfCharge.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.BillingCycle.class));				
 			//view.addObject("participationStatusMap", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.Indicator.class));
 			view.addObject("safetyMat", new SafetyMat());

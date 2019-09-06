@@ -1,9 +1,14 @@
 package cn.sunline.pcm.definition;
 
+import java.io.Serializable;
+
 import cn.sunline.common.annotation.paramdef.PropertyInfo;
 import cn.sunline.pcm.definition.enums.ChannelPartnerType;
 
-public class ClaimSettlement {
+@SuppressWarnings("serial")
+public class ClaimSettlement  implements Serializable{
+	
+	
     @PropertyInfo(name="理赔编码", length=15)
     public String claimSettlementCode;
     @PropertyInfo(name="理赔描述", length=50)

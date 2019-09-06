@@ -37,7 +37,7 @@ import cn.sunline.pcm.definition.enums.BillingCycle;
 import cn.sunline.pcm.definition.enums.CapitalMoneyBasics;
 import cn.sunline.pcm.definition.enums.ChannelPartnerType;
 import cn.sunline.pcm.definition.enums.DeditMethodOfFeeCollection;
-import cn.sunline.pcm.definition.enums.SafeTyMatFrequencyOfCharge;
+import cn.sunline.pcm.definition.enums.FrequencyOfCharge;
 import cn.sunline.pcm.definition.enums.Settlement;
 import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
@@ -71,7 +71,7 @@ public class FundSideServiceFeeController extends Fee {
 			ModelAndView view = KW.mvc.forwardView("fundSideServiceFee/fundSideServiceFeeQuery");
 			view.addObject("feeCollectionMethodJson", KC.Enum.getI18nLabelMapJson(DeditMethodOfFeeCollection.class));
 			view.addObject("feeBasisJson", KC.Enum.getI18nLabelMapJson(CapitalMoneyBasics.class));
-			view.addObject("frequencyOfChargeJson", KC.Enum.getI18nLabelMapJson(SafeTyMatFrequencyOfCharge.class));
+			view.addObject("frequencyOfChargeJson", KC.Enum.getI18nLabelMapJson(FrequencyOfCharge.class));
 			view.addObject("billingCycleJson", KC.Enum.getI18nLabelMapJson(BillingCycle.class));
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
@@ -142,7 +142,7 @@ public class FundSideServiceFeeController extends Fee {
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(DeditMethodOfFeeCollection.class));				
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(CapitalMoneyBasics.class));				
-			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(SafeTyMatFrequencyOfCharge.class));				
+			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(FrequencyOfCharge.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
 			//所属机构
 			List<PcmOrgParameter> list = parameterSurface.getParameterObject(PcmOrgParameter.class);
@@ -237,7 +237,7 @@ public class FundSideServiceFeeController extends Fee {
 			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));	
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(DeditMethodOfFeeCollection.class));				
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(CapitalMoneyBasics.class));				
-			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(SafeTyMatFrequencyOfCharge.class));				
+			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(FrequencyOfCharge.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
 			//所属机构
 			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);

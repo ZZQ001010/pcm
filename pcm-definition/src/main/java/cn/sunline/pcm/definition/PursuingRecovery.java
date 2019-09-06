@@ -1,10 +1,14 @@
 package cn.sunline.pcm.definition;
 
+import java.io.Serializable;
+
 import cn.sunline.common.annotation.paramdef.PropertyInfo;
-import cn.sunline.pcm.definition.enums.BillingCycle;
 import cn.sunline.pcm.definition.enums.ChannelPartnerType;
 
-public class PursuingRecovery {
+@SuppressWarnings("serial")
+public class PursuingRecovery  implements Serializable{
+	
+	
     @PropertyInfo(name="追偿编码", length=15)
     public String pursuingRecoveryCode;
     @PropertyInfo(name="追偿描述", length=50)

@@ -70,7 +70,7 @@ public class BasicNetPremiumController extends Fee {
 			view.addObject("settlementJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.Settlement.class));
 			view.addObject("feeCollectionMethodJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.FeeCollectionMethod.class));
 			view.addObject("feeBasisJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.FeeBasis.class));
-			view.addObject("frequencyOfChargeJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.FrequencyTimes.class));
+			view.addObject("frequencyOfChargeJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.FrequencyOfCharge.class));
 			view.addObject("billingCycleJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.BillingCycle.class));
 			view.addObject("upperLimitControlMethodJson", KC.Enum.getI18nLabelMapJson(cn.sunline.pcm.definition.enums.LimitControlMethod.class));
 			view.addObject("basicNetPremium", new BasicNetPremium());
@@ -120,7 +120,7 @@ public class BasicNetPremiumController extends Fee {
 			ModelAndView view = KW.mvc.forwardView("basicNetPremium/basicNetPremiumAdd");
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FeeCollectionMethod.class));				
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FeeBasis.class));				
-			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FrequencyTimes.class));				
+			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FrequencyOfCharge.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.BillingCycle.class));				
 			view.addObject("upperLimitControlMethod", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.LimitControlMethod.class));	
 			view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
@@ -218,7 +218,7 @@ public class BasicNetPremiumController extends Fee {
 			ModelAndView view = KW.mvc.forwardView("basicNetPremium/basicNetPremiumEdit");
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FeeCollectionMethod.class));				
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FeeBasis.class));				
-			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FrequencyTimes.class));				
+			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FrequencyOfCharge.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.BillingCycle.class));				
 			view.addObject("upperLimitControlMethod", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.LimitControlMethod.class));				
 			BasicNetPremium basicNetPremium = parameterSurface.getParameterObject(code, BasicNetPremium.class);

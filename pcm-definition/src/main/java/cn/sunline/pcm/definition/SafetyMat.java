@@ -7,9 +7,8 @@ import cn.sunline.common.annotation.paramdef.PropertyInfo;
 import cn.sunline.pcm.definition.enums.BanceDate;
 import cn.sunline.pcm.definition.enums.BillingCycle;
 import cn.sunline.pcm.definition.enums.Expenses;
-import cn.sunline.pcm.definition.enums.Indicator;
+import cn.sunline.pcm.definition.enums.FrequencyOfCharge;
 import cn.sunline.pcm.definition.enums.SafeTyFeeCollectionMethod;
-import cn.sunline.pcm.definition.enums.SafeTyMatFrequencyOfCharge;
 import cn.sunline.pcm.definition.enums.SafeTymatFeeBasis;
 import cn.sunline.pcm.definition.enums.SafetyPadLowerLimitControlMode;
 import cn.sunline.pcm.definition.enums.Settlement;
@@ -39,7 +38,7 @@ public class SafetyMat implements Serializable{
 	public SafeTymatFeeBasis feeBasis; 
 	
 	@PropertyInfo(name="费用收取频次",length=12)
-	public SafeTyMatFrequencyOfCharge frequencyOfCharge; 
+	public FrequencyOfCharge frequencyOfCharge; 
 	
 	/**
 	 *  例如 30% 填写 0.3
@@ -209,13 +208,15 @@ public class SafetyMat implements Serializable{
 		this.feeBasis = feeBasis;
 	}
 
-	public SafeTyMatFrequencyOfCharge getFrequencyOfCharge() {
+	public FrequencyOfCharge getFrequencyOfCharge() {
 		return frequencyOfCharge;
 	}
 
-	public void setFrequencyOfCharge(SafeTyMatFrequencyOfCharge frequencyOfCharge) {
+
+	public void setFrequencyOfCharge(FrequencyOfCharge frequencyOfCharge) {
 		this.frequencyOfCharge = frequencyOfCharge;
 	}
+
 
 	public BigDecimal getChargeRatio() {
 		return chargeRatio;

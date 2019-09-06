@@ -69,13 +69,13 @@
 						</div>    --> 
 						 <div id="contextDiv"  class="list-group">
 					        <div class="lable" id="add-node">
-					            <img alt="新增组件" title="新增组件" src="${ctx }/img/增加.png" style="height: 20px;width: 20px;">
+					            <img alt="新增组件" title="新增组件" src="${ctx }/img/add.png" style="height: 20px;width: 20px;">
 					        </div>
 					        <div class="lable" id="change-props">
-					            <img alt="修改组件" title="修改组件" src="${ctx }/img/修 改.png" style="height: 20px;width: 20px;">
+					            <img alt="修改组件" title="修改组件" src="${ctx }/img/update.png" style="height: 20px;width: 20px;">
 					        </div>
 					        <div class="lable" id="delete-node">
-					            <img alt="删除组件" title="删除组件" src="${ctx }/img/删 除.png" style="height: 20px;width: 20px;">
+					            <img alt="删除组件" title="删除组件" src="${ctx }/img/delete.png" style="height: 20px;width: 20px;">
 					        </div>
 					    </div>   
 						    	

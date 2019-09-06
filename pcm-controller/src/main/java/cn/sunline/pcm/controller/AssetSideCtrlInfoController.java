@@ -28,6 +28,7 @@ import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
 import cn.sunline.pcm.definition.AssetSideCtrlInfo;
 import cn.sunline.pcm.definition.AssetSideInfo;
+import cn.sunline.pcm.definition.Premium;
 
 /** 
  * <p>
@@ -45,7 +46,6 @@ public class AssetSideCtrlInfoController {
 	@Autowired
 	private ParameterSurface parameterSurface;
 	
-
 	/** 
 	 * <p>
 	 * 资产方管控信息 列表页面

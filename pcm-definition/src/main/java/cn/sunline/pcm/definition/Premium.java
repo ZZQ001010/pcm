@@ -1,11 +1,14 @@
 package cn.sunline.pcm.definition;
 
+import java.io.Serializable;
+
 import cn.sunline.common.annotation.paramdef.PropertyInfo;
 import cn.sunline.pcm.definition.enums.ChannelPartnerType;
 import cn.sunline.pcm.definition.enums.Expenses;
 import cn.sunline.pcm.definition.enums.FrequencyOfChannel;
 
-public class Premium {
+@SuppressWarnings("all")
+public class Premium implements Serializable {
     @PropertyInfo(name="保费编码", length=12)
     public String premiumCode ;
 

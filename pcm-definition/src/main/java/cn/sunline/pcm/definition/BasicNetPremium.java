@@ -34,7 +34,7 @@ public class BasicNetPremium implements Serializable{
 	public FeeBasis feeBasis; 
 	
 	@PropertyInfo(name="费用收取频次",length=12)
-	public FrequencyTimes frequencyOfCharge; 
+	public FrequencyOfCharge frequencyOfCharge; 
 	
 	/**
 	 *  例如 30% 填写 0.3
@@ -250,11 +250,11 @@ public class BasicNetPremium implements Serializable{
 		this.feeBasis = feeBasis;
 	}
 
-	public FrequencyTimes getFrequencyOfCharge() {
+	public FrequencyOfCharge getFrequencyOfCharge() {
 		return frequencyOfCharge;
 	}
 
-	public void setFrequencyOfCharge(FrequencyTimes frequencyOfCharge) {
+	public void setFrequencyOfCharge(FrequencyOfCharge frequencyOfCharge) {
 		this.frequencyOfCharge = frequencyOfCharge;
 	}
 
