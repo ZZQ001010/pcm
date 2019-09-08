@@ -116,6 +116,7 @@
 		//追加节点
 		function appendNode(map){
 			$("#channelAttribution").empty();
+			$("#channelAttribution").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 			for(var key in map){
 				$("#channelAttribution").append('<option value="'+key+'">'+map[key]+'</option>');
 			}

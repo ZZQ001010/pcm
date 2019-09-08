@@ -10,12 +10,16 @@ import cn.sunline.common.annotation.enums.EnumInfo;
  *
  */
 @EnumInfo({
-	//"A|按比例",
+	"A|按比例",
 	//"C|按固定金额",
     "D|基于本金" ,
 	"U|按剩余金额"
 })	
 public enum FeeCollectionMethod {
+	/**
+     * 按比例
+     */
+    A,
     /**
      * 基于本金
      */

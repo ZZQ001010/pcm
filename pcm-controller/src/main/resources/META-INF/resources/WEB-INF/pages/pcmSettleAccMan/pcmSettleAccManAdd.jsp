@@ -76,7 +76,7 @@
 			</div>
 		</div> -->
 		<div class="form-group row">
-			<!-- 机构编号 -->
+			<!-- 账号归属主体 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label" >
 				<spring:message code="pcmSettleAccMan.orgCode" text="机构编号" />
 				:
@@ -86,12 +86,12 @@
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 				</form:select>
 			</div>
-			<!-- 机构编号描述 -->
+			<!-- 账号归属主体描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="pcmSettleAccMan.orgCode.desc" />
 			</div>
 		</div> 
-		<div class="form-group row">
+		<div class="form-group row" id="orgAccountType">
 			<!-- 机构账号类型 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 				<spring:message code="pcmSettleAccMan.organizationAccountType" text="机构账号类型 " />
@@ -99,6 +99,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="organizationAccountType">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${organizationAccountType}" />
 				</form:select>
 			</div>
@@ -288,34 +289,92 @@
 			if(type=='F'){
 				var map = ${fundSideInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$("#organizationAccountType").empty();
+				$("#orgAccountType").hide();
 			}
 			if(type=='A'){
 				var map = ${assetSideInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$("#organizationAccountType").empty();
+				$("#orgAccountType").hide();
 			}
 			if(type=='Q'){
 				var map = ${channelInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$("#organizationAccountType").empty();
+				$("#organizationAccountType").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
+				$("#organizationAccountType").append('<option value="B">保费收入  </option>');
+				$("#organizationAccountType").append('<option value="Z">追偿收入  </option>');
+				$("#organizationAccountType").append('<option value="L">理赔支出  </option>');
+				$("#organizationAccountType").append('<option value="J">借款人对公还款  </option>');
+				//$("#organizationAccountType").selectpicker("refresh");
+				$("#orgAccountType").show();
 			}
 			if(type=='Z'){
 				var map = ${serverInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$("#organizationAccountType").empty();
+				$("#organizationAccountType").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
+				$("#organizationAccountType").append('<option value="B">保费收入  </option>');
+				$("#organizationAccountType").append('<option value="Z">追偿收入  </option>');
+				$("#organizationAccountType").append('<option value="L">理赔支出  </option>');
+				$("#organizationAccountType").append('<option value="J">借款人对公还款  </option>');
+				//$("#organizationAccountType").selectpicker("refresh");
+				$("#orgAccountType").show();
+			}
+			if(type=='O'){
+				var map = ${pcmOrgParameterMap}
+				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
+				for(var key in map){
+					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
+				}
+				$("#partnerCode").selectpicker("refresh");
+				$("#organizationAccountType").empty();
+				$("#organizationAccountType").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
+				$("#organizationAccountType").append('<option value="B">保费收入  </option>');
+				$("#organizationAccountType").append('<option value="Z">追偿收入  </option>');
+				$("#organizationAccountType").append('<option value="L">理赔支出  </option>');
+				$("#organizationAccountType").append('<option value="J">借款人对公还款  </option>');
+				//$("#organizationAccountType").selectpicker("refresh");
+				$("#orgAccountType").show();
+			}
+			if(type=='S'){
+				var map = ${pcmOrgParameterMap}
+				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
+				for(var key in map){
+					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
+				}
+				$("#partnerCode").selectpicker("refresh");
+				$("#organizationAccountType").empty();
+				$("#organizationAccountType").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
+				$("#organizationAccountType").append('<option value="B"> 保费收入  </option>');
+				$("#organizationAccountType").append('<option value="Z">追偿收入  </option>');
+				$("#organizationAccountType").append('<option value="L">理赔支出  </option>');
+				$("#organizationAccountType").append('<option value="J">借款人对公还款  </option>');
+				//$("#organizationAccountType").selectpicker("refresh");
+				$("#orgAccountType").show();
 			}
 		}
 

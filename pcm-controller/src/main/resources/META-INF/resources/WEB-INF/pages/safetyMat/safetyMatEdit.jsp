@@ -35,6 +35,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="feeCollectionMethod">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${feeCollectionMethod}" />
 				</form:select>
 			</div>
@@ -52,6 +53,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="feeBasis">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${feeBasis}" />
 				</form:select>
 			</div>
@@ -69,6 +71,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="frequencyOfCharge">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${frequencyOfCharge}" />
 				</form:select>
 			</div>
@@ -93,7 +96,7 @@
 			</div>
 		</div>
 		
-				<div class="form-group row">
+		<div class="form-group row">
 			<!-- 费用累计月天数 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 				<span class="span-icon">&nbsp;</span>
@@ -102,6 +105,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="expenses">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${expenses}" />
 				</form:select>
 			</div>
@@ -119,6 +123,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="organization">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${orgMap}" />
 				</form:select>
 			</div>
@@ -136,6 +141,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="asset" value="${assetSideInfo }">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${assetSideInfoMap}" />
 				</form:select>
 			</div>
@@ -154,6 +160,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="controlMode">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${controlModeMap}" />
 				</form:select>
 			</div>
@@ -199,6 +206,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="chargeWay">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${chargeWayMap}" />
 				</form:select>
 			</div>
@@ -216,6 +224,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="chargeBasics">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${chargeBasicsMap}" />
 				</form:select>
 			</div>
@@ -231,7 +240,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-						<form:select cssClass="form-control" path="transferAccount" >
+				<form:select cssClass="form-control" path="transferAccount" >
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${pcmSettleAccMan}" />
 				</form:select>
@@ -248,7 +257,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-						<form:select cssClass="form-control" path="transferToAccount" >
+				<form:select cssClass="form-control" path="transferToAccount" >
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${pcmSettleAccMan}" />
 				</form:select>
@@ -267,6 +276,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="billingCycle">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${billingCycle}" />
 				</form:select>
 			</div>
@@ -300,6 +310,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="period">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${billingCycle}" />
 				</form:select>
 			</div>
@@ -362,6 +373,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="settlement">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${settlement}" />
 				</form:select>
 			</div>

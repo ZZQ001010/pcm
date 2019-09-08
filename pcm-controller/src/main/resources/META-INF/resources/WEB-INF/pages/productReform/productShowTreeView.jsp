@@ -630,9 +630,9 @@
 			   //获取对应的unitCode 
 			   var unitCode = getunitCode($node);
 			   //根据unitCode查找对应的url
-			   var unitConfigUrl = getUnitConfigUrl(unitCode);
+			   var paramClass = getParamClass(unitCode);
 			   //发送ajax 得到列表数据
-			   var arr = getArrData(unitConfigUrl);
+			   var arr = getArrData(paramClass);
 			   //取出当前选中的数据
 			   var selectNode = $node.children('.unitParamId').text().trim();
 			   //初始化select
@@ -647,12 +647,12 @@
 					yes: function(index, layero) {
 						  //确定更新数据库数据
 						  if (updateDBrel($('#'+clicknode).children('.nodeDBId').text(),top.$('#paramkeySelect').val().trim())){
-							 var baseUrl =  $K.infos[$('#'+clicknode).children('.unitCode').text()].unitBaseUrl;
+							  var paramClass =  $K.infos[$('#'+clicknode).children('.unitCode').text()].paramClass; 
 							 var code = top.$('#paramkeySelect').val().trim();
 							 $.ajax({
-								 url: '${ctx}'+baseUrl,
+								 url: '${ctx}/paramCommon/getParamCollection.in',
 								 type: 'POST',
-								 data: {'code':code },
+								 data: {'paramClass':code },
 								 async: false,
 								 dataType: 'json',
 								success: function(data){
@@ -734,12 +734,17 @@
 			   return $K.infos[unitCode].unitConfigUrl
 		   }
 		   
-		   function getArrData(url){
+		   function getParamClass(unitCode){
+				return $K.infos[unitCode].unitClass;	   
+		   }
+		   
+		   function getArrData(paramClass){
 				var arr = [] ; 			   
 			   $K.ajax({
-				   url: '${ctx}'+url,
+				   url: '${ctx}/paramCommon/getParamCollection.in',
 				   type:  'post',
 				   async: false,
+				   data: {'paramClass':paramClass},
 				   success: function(data){
 					   arr=data; 
 				   }

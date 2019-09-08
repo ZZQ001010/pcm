@@ -18,7 +18,10 @@ import cn.sunline.common.annotation.enums.EnumInfo;
 @EnumInfo({
 	"F|资金方",
 	"A|资产方",
-	"O|自有"
+	"Q|渠道方",
+	"Z|服务方",
+	"O|自有",
+	"S|监管账户"
 })
 public enum AccountOwner {
 	/**
@@ -40,6 +43,10 @@ public enum AccountOwner {
 	/**
 	 * 自有
 	 */
-	O
+	O,
+	/**
+	 * 监管账户
+	 */
+	S
 	
 }

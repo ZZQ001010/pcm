@@ -11,6 +11,7 @@ import cn.sunline.common.annotation.enums.EnumInfo;
  */
 @EnumInfo({
     "A|基于本金" ,
+    "B|基于剩余本金" ,
 	"C|基于保费"
 })	
 public enum FeeBasis {
@@ -19,6 +20,10 @@ public enum FeeBasis {
 	 * 基于本金
 	 */
 	A,
+	/**
+	 * 基于剩余本金
+	 */
+	B,
 	/**
 	 * 基于保费
 	 */

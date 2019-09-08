@@ -227,7 +227,7 @@
 		</div>
 		
 		
-						<div class="form-group row">
+		<div class="form-group row">
 		<!-- 结算日期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 				<spring:message code="dedit.balanceDate" text="结算日期" />
@@ -276,6 +276,7 @@
 			if(type=='ZJ'){
 				var map = ${fundSideInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
@@ -284,6 +285,7 @@
 			if(type=='ZC'){
 				var map = ${assetSideInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
@@ -292,6 +294,7 @@
 			if(type=='QD'){
 				var map = ${channelInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
@@ -300,6 +303,7 @@
 			if(type=='FW'){
 				var map = ${serverInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}

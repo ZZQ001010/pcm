@@ -69,6 +69,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="assetSideWarrantWay" data-rule-required="true">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${assetSideWarrantWay}" />
 				</form:select>
 			</div>

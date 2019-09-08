@@ -68,6 +68,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="feeBasis">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${feeBasis}" />
 				</form:select>
 			</div>
@@ -98,6 +99,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="organization">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${orgMap}" />
 				</form:select>
 			</div>
@@ -150,7 +152,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-						<form:select cssClass="form-control" path="transferAccount" data-rule-required="true">
+				<form:select cssClass="form-control" path="transferAccount" data-rule-required="true">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${pcmSettleAccMan}" />
 				</form:select>
@@ -233,6 +235,7 @@
 			if(type=='ZJ'){
 				var map = ${fundSideInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
@@ -241,6 +244,7 @@
 			if(type=='ZC'){
 				var map = ${assetSideInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
@@ -249,6 +253,7 @@
 			if(type=='QD'){
 				var map = ${channelInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
@@ -257,6 +262,7 @@
 			if(type=='FW'){
 				var map = ${serverInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}

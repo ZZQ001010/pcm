@@ -36,7 +36,9 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="feeCollectionMethod">
-					<form:options items="${feeCollectionMethod}" />
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<%-- <form:options items="${feeCollectionMethod}" /> --%>
+					<option value="A">按比例</option>
 				</form:select>
 			</div>
 			<!-- 费用收取方式描述 -->
@@ -53,7 +55,9 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="feeBasis">
-					<form:options items="${feeBasis}" />
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<%-- <form:options items="${feeBasis}" /> --%>
+					<option value="B">基于剩余本金</option>
 				</form:select>
 			</div>
 			<!-- 费用收取基础描述 -->
@@ -70,6 +74,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="frequencyOfCharge">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${frequencyOfCharge}" />
 				</form:select>
 			</div>
@@ -86,7 +91,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="ratio"   data-rule-digits="true" data-rule-min="0" data-rule-max="999999999999" />
+				<form:input cssClass="form-control" type="text" path="ratio" data-rule-min="0" data-rule-max="999999999999" />
 			</div>
 			<!-- 收取比例描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -96,7 +101,7 @@
 
 		
 				
-				<div class="form-group row">
+		<div class="form-group row">
 			<!-- 费用累计年天数 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label ">
 				<spring:message code="guaranteeFee.accumulated" text="所属机构" />
@@ -104,10 +109,11 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="accumulated">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${accumulated}" />
 				</form:select>
 			</div>
-			<!-- 所属机构描述 -->
+			<!-- 费用累计年天数描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="guaranteeFee.accumulated.desc" />
 			</div>
@@ -120,6 +126,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="orgCode">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${orgMap}" />
 				</form:select>
 			</div>
@@ -210,6 +217,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="billingCycle">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${billingCycle}" />
 				</form:select>
 			</div>
@@ -332,14 +340,16 @@
 			if(type=='ZJ'){
 				var map = ${fundSideInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
 			}
 			if(type=='ZC'){
-				var map = ${assetSideInfoMap}
+				var map = ${assetSideInfoMap};
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
@@ -348,6 +358,7 @@
 			if(type=='QD'){
 				var map = ${channelInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
@@ -356,6 +367,7 @@
 			if(type=='FW'){
 				var map = ${serverInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}

@@ -36,6 +36,7 @@ import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.AssetSideRiskCtrl;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.FundSideInfo;
+import cn.sunline.pcm.definition.PcmOrgParameter;
 import cn.sunline.pcm.definition.PcmSettleAccMan;
 import cn.sunline.pcm.definition.ServerInfo;
 import cn.sunline.pcm.definition.enums.AccountOwner;
@@ -164,6 +165,14 @@ public class PcmSettleAccManController {
 						serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
 			}
 			view.addObject("serverInfoMap",new JSONObject(serverInfoMap));
+			// 自有
+			List<PcmOrgParameter> pcmOrgParameterList = parameterSurface.getFetchResponse(null, PcmOrgParameter.class).getRows();
+			Map<String,String> pcmOrgParameterMap = new HashMap<String,String>();
+			for (PcmOrgParameter pcmOrgParameter : pcmOrgParameterList) {
+				pcmOrgParameterMap.put(pcmOrgParameter.getOrgCode(), 
+						pcmOrgParameter.getOrgCode()+"-"+pcmOrgParameter.getOrgName());
+			}
+			view.addObject("pcmOrgParameterMap",new JSONObject(pcmOrgParameterMap));
 			view.addObject("organizationAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.OrganizationAccountType.class));
 			//view.addObject("assetSideInfoMap",assetSideInfoMap);
 			view.addObject("pcmSettleAccMan", new PcmSettleAccMan());

@@ -287,6 +287,7 @@
 			if(type=='ZJ'){
 				var map = ${fundSideInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
@@ -295,6 +296,7 @@
 			if(type=='ZC'){
 				var map = ${assetSideInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
@@ -303,6 +305,7 @@
 			if(type=='QD'){
 				var map = ${channelInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
@@ -311,6 +314,7 @@
 			if(type=='FW'){
 				var map = ${serverInfoMap}
 				$("#partnerCode").empty();
+				$("#partnerCode").append('<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>');
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
