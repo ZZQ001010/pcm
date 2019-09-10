@@ -35,6 +35,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="costCalculationMethod">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${costCalculationMethod}" />
 				</form:select>
 			</div>
@@ -50,7 +51,8 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-						<form:select cssClass="form-control" path="whetherToCharge">
+				<form:select cssClass="form-control" path="whetherToCharge">
+					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${whetherToCharge}" />
 				</form:select>
 			</div>
@@ -81,6 +83,7 @@
 			</label>
             <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
                 <form:select cssClass="form-control" path="additionalNPremiums">
+                    <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
                     <form:options items="${additionalNPremiums}" />
                 </form:select>
             </div>

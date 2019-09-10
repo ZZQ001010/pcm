@@ -14,7 +14,7 @@ import cn.sunline.pcm.definition.enums.FundSideProfessionScope;
  *	资金方产品经营控制
  */
 public class FundSideProductCtrlInfo implements Serializable{
-	private static final long serialVersionUID = 1L;
+
 
 
 	/**
@@ -34,7 +34,7 @@ public class FundSideProductCtrlInfo implements Serializable{
      */
     @PropertyInfo(name="资金方编码")
     public String  fundSideCode ;
-    
+	private static final long serialVersionUID = 1L;
     /**
      * 资金方支持展业省份
      */

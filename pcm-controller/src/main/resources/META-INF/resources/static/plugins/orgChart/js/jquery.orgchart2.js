@@ -1136,7 +1136,8 @@
             complementLine($siblingTds.eq(0).before($nodeChart.closest('td').siblings().addBack().unwrap()), siblingCount, existingSibligCount);
             $siblingTds.addClass('hidden').find('.node').addClass('slide-left');
           } else {
-            complementLine($siblingTds.eq(insertPostion).after($nodeChart.closest('td').unwrap()), siblingCount, 1);
+          //  complementLine($siblingTds.eq(insertPostion).after($nodeChart.closest('td').unwrap()), siblingCount, 1);
+        	  complementLine($siblingTds.eq(0).before($nodeChart.closest('td').siblings().addBack().unwrap()), siblingCount, existingSibligCount);
             $siblingTds.not(':eq(' + insertPostion + 1 + ')').addClass('hidden')
               .slice(0, insertPostion).find('.node').addClass('slide-right')
               .end().end().slice(insertPostion).find('.node').addClass('slide-left');
