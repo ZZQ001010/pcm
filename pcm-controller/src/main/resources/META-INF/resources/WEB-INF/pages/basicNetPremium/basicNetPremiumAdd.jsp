@@ -102,7 +102,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="number" path="chargeRatio" data-rule-digits="true" data-rule-min="0" data-rule-max="999999999999" />
+				<form:input cssClass="form-control" type="number" path="chargeRatio" data-rule-min="0" data-rule-max="999999999999" />
 			</div>
 			
 			<!-- 收取比例描述 -->
