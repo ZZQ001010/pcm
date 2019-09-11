@@ -1,6 +1,6 @@
 spring:
   application:
-    name: T134505762.PCM001.S00001
+    name: ${dcn}-pcm-service-impl
     
 server:
   port: 8003
