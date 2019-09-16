@@ -56,8 +56,7 @@
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="feeBasis">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
-					<%-- <form:options items="${feeBasis}" /> --%>
-					<option value="B">基于剩余本金</option>
+					  <form:options items="${feeBasis}" />  
 				</form:select>
 			</div>
 			<!-- 费用收取基础描述 -->

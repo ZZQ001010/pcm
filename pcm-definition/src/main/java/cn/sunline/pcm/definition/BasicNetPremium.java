@@ -43,8 +43,6 @@ public class BasicNetPremium implements Serializable{
 	public BigDecimal chargeRatio; 
 	
 //	
-//	@PropertyInfo(name="收取金额",length=12)
-//	public BigDecimal chargeAmount; 
 
 
 	@PropertyInfo(name="转出账号",length=12)

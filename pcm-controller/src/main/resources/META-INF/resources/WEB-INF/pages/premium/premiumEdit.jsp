@@ -125,7 +125,10 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="transferAccount"   />
+				 <form:select cssClass="form-control" path="transferAccount" data-rule-required="true">
+                    <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+                    <form:options items="${pcmSettleAccMan}" />
+                </form:select>
 			</div>
 			<!-- 转出账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -140,7 +143,10 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="transferToAccount"   />
+				 <form:select cssClass="form-control" path="transferToAccount" data-rule-required="true">
+                    <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+                    <form:options items="${pcmSettleAccMan}" />
+                </form:select>
 			</div>
 			<!-- 转入账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -209,7 +215,7 @@
 	  					+'<option value="${item.value}">${item.value}</option>'
 	  				</c:forEach>
 				+'<select>');
-				$('#balanceDate').val('${safetyMat.balanceDate}')
+				$("#balanceDate").selectpicker("val",'${premium.balanceDate}'); 
 			}else if(value=='C'){
 				var zzqParent = $('#balanceDate').parent('div');
 				zzqParent.empty();
@@ -218,7 +224,7 @@
 					autoclose : true,
 					format: 'dd',
 				})
-				$('#balanceDate').val('${safetyMat.balanceDate}')
+				$("#balanceDate").selectpicker("val",'${premium.balanceDate}'); 
 			}else if(value=='I'){
 				$('#balanceDate').datepicker('destroy')
 				var zzqParent = $('#balanceDate').parent('div');
@@ -228,7 +234,7 @@
 					autoclose : true,
 					format: 'mm-dd',
 				})
-				$('#balanceDate').val('${safetyMat.balanceDate}')
+				$("#balanceDate").selectpicker("val",'${premium.balanceDate}'); 
 			}else{
 				$('#balanceDate').attr("disabled",false); 
 			}
@@ -241,6 +247,7 @@
 				zzqParent.empty();
 				zzqParent.append('<input id="balanceDate" name="balanceDate"  class="form-control" type="text"   />')
 				$('#balanceDate').attr("disabled",true); 
+				 
 			}else if(value=='Z'){
 				var zzqParent = $('#balanceDate').parent('div');
 				zzqParent.empty();
@@ -269,6 +276,7 @@
 			}else{
 				$('#balanceDate').attr("disabled",false); 
 			}
+			
 		})
 		
 		
@@ -312,6 +320,8 @@
 				}
 				$("#partnerCode").selectpicker("refresh");
 			}
+			$("#partnerCode").selectpicker("val",'${premium.partnerCode}');  
+			
 		}
 		
 

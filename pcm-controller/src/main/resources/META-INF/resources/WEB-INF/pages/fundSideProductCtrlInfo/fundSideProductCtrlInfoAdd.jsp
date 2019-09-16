@@ -82,6 +82,11 @@
                 </form:select>
             </div>
         </div>
+        
+        
+        
+        
+        
         <div class="form-group row">
             <!-- 资金方申请行业范围 -->
             <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
@@ -160,7 +165,7 @@
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 				<spring:message code="fundSideProductCtrlInfo.fundSideProductWorkdayCR" text="资金方产品-工作日支持征信时间段" />
 			</label>
-			<div class="col-lg-2 col-md-7 col-sm-6 col-xs-6">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
 				 <form:input    path="fundSideProductWorkdayCRStart" class="time form-control dateTimeInput" type="text"     />
 				<span> - </span>
@@ -172,7 +177,7 @@
 				<spring:message code="fundSideProductCtrlInfo.fundSideProductHolidaysCR" text="资金方产品-节假日支持征信时间段" />
 			</label>
 			
-			<div class="col-lg-2 col-md-7 col-sm-6 col-xs-6">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
 				 <form:input    path="fundSideProductHolidaysCRStart" class="time form-control dateTimeInput" type="text"     />
 				<span> - </span>
@@ -186,7 +191,7 @@
 				<spring:message code="fundSideProductCtrlInfo.fundSideProductWorkdaySX" text="资金方产品-工作日支持授信时间段" />
 			</label>
 			
-			<div class="col-lg-2 col-md-7 col-sm-6 col-xs-6">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
 				 <form:input    path="fundSideProductWorkdaySXStart" class="time form-control dateTimeInput" type="text"     />
 				<span> - </span>
@@ -198,7 +203,7 @@
 				<spring:message code="fundSideProductCtrlInfo.fundSideProductHolidaysSX" text="资金方产品-节假日支持授信时间段" />
 			</label>
 			
-			<div class="col-lg-2 col-md-7 col-sm-6 col-xs-6">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
 				 <form:input    path="fundSideProductHolidaysSXStart" class="time form-control dateTimeInput" type="text"     />
 				<span> - </span>
@@ -212,7 +217,7 @@
 				<spring:message code="fundSideProductCtrlInfo.fundSideProductWorkdayFK" text="资金方产品-工作日支持放款时间段" />
 			</label>
 			
-			<div class="col-lg-2 col-md-7 col-sm-6 col-xs-6">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
 				 <form:input    path="fundSideProductWorkdayFKStart" class="time form-control dateTimeInput" type="text"     />
 				<span> - </span>
@@ -224,7 +229,7 @@
 				<spring:message code="fundSideProductCtrlInfo.fundSideProductHolidaysFK" text="资金方产品-节假日支持放款时间段" />
 			</label>
 			
-			<div class="col-lg-2 col-md-7 col-sm-6 col-xs-6">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
 				 <form:input    path="fundSideProductHolidaysFKStart" class="time form-control dateTimeInput" type="text"     />
 				<span> - </span>
@@ -239,7 +244,7 @@
 			</label>
 			
 			
-			<div class="col-lg-2 col-md-7 col-sm-6 col-xs-6">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
 				 <form:input    path="fundSideProductWorkdayHKStart" class="time form-control dateTimeInput" type="text"     />
 				<span> - </span>
@@ -252,7 +257,7 @@
 				<spring:message code="fundSideProductCtrlInfo.fundSideProductHolidaysHK" text="资金方产品-节假日支持还款时间段" />
 			</label>
 			
-			<div class="col-lg-2 col-md-7 col-sm-6 col-xs-6">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
 				 <form:input    path="fundSideProductHolidaysHKStart" class="time form-control dateTimeInput" type="text"     />
 				<span> - </span>

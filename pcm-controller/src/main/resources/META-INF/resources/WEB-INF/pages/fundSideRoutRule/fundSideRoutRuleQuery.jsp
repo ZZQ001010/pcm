@@ -25,13 +25,6 @@
 								<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
 									<form:input cssClass="form-control" type="text" path="fundSideRoutCode"  data-rule-required="true" data-rule-maxlength="32" />
 								</div>
-								<label class="control-label col-lg-1 col-md-2 col-sm-6 col-xs-12" for="fundSide">
-									<spring:message code="fundSideRoutRule.fundSide" text="资金方基本信息中的资金方编码-描述" />
-									:
-								</label>
-								<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-									<form:input cssClass="form-control" type="text" path="fundSide"  data-rule-maxlength="200" />
-								</div>
 								<label class="control-label col-lg-1 col-md-2 col-sm-6 col-xs-12" for="routRuleCode">
 									<spring:message code="fundSideRoutRule.routRuleCode" text="路由规则编码" />
 									:
@@ -82,8 +75,6 @@
 		pkNames.push("fundSideRoutCode");
 		columns.push({ title: '<spring:message code="fundSideRoutRule.fundSideRoutCode" text="资金方路由编码" />', data: 'fundSideRoutCode'});
 		columns.push({ title: '<spring:message code="fundSideRoutRule.fundSIdeRoutDesc" text="资金方路由描述" />', data: 'fundSIdeRoutDesc'});
-		columns.push({ title: '<spring:message code="fundSideRoutRule.xinBaoProduct" text="信保产品的编码描述" />', data: 'xinBaoProduct'});
-		columns.push({ title: '<spring:message code="fundSideRoutRule.fundSide" text="资金方基本信息中的资金方编码-描述" />', data: 'fundSide'});
 		columns.push({ title: '<spring:message code="fundSideRoutRule.routRuleCode" text="路由规则编码" />', data: 'routRuleCode'});
 		var grid = $("#fundSideRoutRule_datatable").grid({
 			datatable : {

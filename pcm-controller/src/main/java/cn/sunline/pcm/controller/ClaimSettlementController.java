@@ -25,11 +25,13 @@ import cn.sunline.common.KC.map;
 import cn.sunline.common.exception.ProcessException;
 import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
+import cn.sunline.pcm.controller.common.constent.ParameterFlags;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.ClaimSettlement;
 import cn.sunline.pcm.definition.FundSideInfo;
 import cn.sunline.pcm.definition.PcmOrgParameter;
+import cn.sunline.pcm.definition.PcmSettleAccMan;
 import cn.sunline.pcm.definition.ServerInfo;
 import cn.sunline.pcm.definition.enums.BanceDate;
 import cn.sunline.pcm.definition.enums.BillingCycle;
@@ -155,6 +157,12 @@ public class ClaimSettlementController {
         try {
             ModelAndView view = KW.mvc.forwardView("claimSettlement/claimSettlementAdd");
             view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
+            
+            view.addObject("pcmSettleAccMan",
+            		parameterSurface.getParameterObject(PcmSettleAccMan.class)
+            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())));
+            
            //所属机构
             FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
             List<PcmOrgParameter> list = response.getRows();
@@ -243,6 +251,11 @@ public class ClaimSettlementController {
     public ModelAndView claimSettlementEditPage(String claimSettlementCode, HttpServletRequest request) throws FlatException {
         try {
             ModelAndView view = KW.mvc.forwardView("claimSettlement/claimSettlementEdit");
+            view.addObject("pcmSettleAccMan",
+            		parameterSurface.getParameterObject(PcmSettleAccMan.class)
+            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())));
+            
             view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
             //所属机构
             FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
@@ -384,6 +397,8 @@ public class ClaimSettlementController {
                     view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
                 }
             }
+            
+            
             return view;
         } catch (ProcessException e) {
             logger.error(e.getMessage(), e);

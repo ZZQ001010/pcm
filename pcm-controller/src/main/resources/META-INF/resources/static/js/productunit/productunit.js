@@ -82,11 +82,11 @@
     return getdata();
   }
 
-var oc ;
+var ocCopy ;
 //渲染组织树
   var renderpic = function(datascource){
     $('#chart-container').empty();//渲染之前先全部清空
-    oc =  $('#chart-container').orgchart({
+    ocCopy =  $('#chart-container').orgchart({
       'data' : datascource,
 //      'parentNodeSymbol': 'fa-th-large',
 //			'exportButton': true,
@@ -94,11 +94,11 @@ var oc ;
       'nodeContent': "unitNameCn",
       'nodeTitle': 'value', 
       'direction': 'l2r',
-      'pan': false,
+      'pan': true,
       'draggable': false,
-//      'zoom': false,
-//     'zoominLimit': 7,
-//      'zoomoutLimit': 0.5,
+//      'zoom': true,
+//      'zoominLimit': 3,
+//      'zoomoutLimit': 0.2,
       'createNode': function($node, data) {
         $node[0].id = data.id;
         if(data.unitParamId=='null' || typeof (data.unitParamId)=='undefined'){
@@ -106,7 +106,7 @@ var oc ;
         }
         $node.append('<div class="unitParamId">'+data.unitParamId+'</div>'); 
       },
-      'draggable': true,
+      'draggable': false,
       'dropCriteria': function($draggedNode, $dragZone, $dropZone) {
         if($draggedNode.find('.content').text().indexOf('manager') > -1 && $dropZone.find('.content').text().indexOf('engineer') > -1) {
           return false;

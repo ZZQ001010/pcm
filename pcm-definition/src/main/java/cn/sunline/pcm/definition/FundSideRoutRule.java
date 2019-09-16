@@ -28,11 +28,7 @@ public class FundSideRoutRule implements Serializable{
 	 */
 	@PropertyInfo(name="资金方路由描述",length=200)
 	public String fundSIdeRoutDesc;
-	/**
-	 * 信保产品的编码描述
-	 */
-	@PropertyInfo(name="信保产品的编码描述",length=200)
-	public String xinBaoProduct;
+	 
 	/**
 	 * 资金方基本信息中的资金方编码-描述
 	 */
@@ -69,18 +65,6 @@ public class FundSideRoutRule implements Serializable{
 	 */
 	public void setFundSIdeRoutDesc(String fundSIdeRoutDesc) {
 		this.fundSIdeRoutDesc = fundSIdeRoutDesc;
-	}
-	/**
-	 * @return the xinBaoProduct
-	 */
-	public String getXinBaoProduct() {
-		return xinBaoProduct;
-	}
-	/**
-	 * @param xinBaoProduct the xinBaoProduct to set
-	 */
-	public void setXinBaoProduct(String xinBaoProduct) {
-		this.xinBaoProduct = xinBaoProduct;
 	}
 	/**
 	 * @return the fundSide

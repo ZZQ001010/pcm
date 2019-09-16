@@ -87,7 +87,6 @@
                 return ${billingCycleJson}[data];
             }
         });
-        columns.push({ title: '<spring:message code="pursuingRecovery.balanceDate" text="结算日期" />', data: 'balanceDate'});
         var grid = $("#pursuingRecovery_datatable").grid({
 			datatable : {
 	          	ajax: {

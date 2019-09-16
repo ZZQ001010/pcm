@@ -26,6 +26,7 @@ import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
+import cn.sunline.pcm.controller.common.constent.ParameterFlags;
 import cn.sunline.pcm.definition.AssetSideCtrlInfo;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.Premium;
@@ -108,7 +109,7 @@ public class AssetSideCtrlInfoController {
 			//资产方
             HashMap<String, String> assetMap = new HashMap<>();
             parameterSurface.getParameterObject(AssetSideInfo.class).forEach(
-                            item->assetMap.put(item.getAssetSideCode(),item.getAssetSideDesc()));
+                            item->assetMap.put(item.getAssetSideCode(),item.getAssetSideCode()+ParameterFlags.SHORT_CROSS+item.getAssetSideDesc()));
             view.addObject("assetFundSideCode", assetMap);
 			view.addObject("assetSideCtrlInfo", new AssetSideCtrlInfo());
 			return view;
@@ -160,7 +161,7 @@ public class AssetSideCtrlInfoController {
 			//资产方
             HashMap<String, String> assetMap = new HashMap<>();
             parameterSurface.getParameterObject(AssetSideInfo.class).forEach(
-                            item->assetMap.put(item.getAssetSideCode(),item.getAssetSideDesc()));
+                    item->assetMap.put(item.getAssetSideCode(),item.getAssetSideCode()+ParameterFlags.SHORT_CROSS+item.getAssetSideDesc()));
             view.addObject("assetFundSideCode", assetMap);
 			view.addObject("assetSideCtrlInfo", assetSideCtrlInfo);
 			return view;

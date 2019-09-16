@@ -24,7 +24,7 @@
 		            <spring:message code="product.productCode" text="产品代码"/>:
 		        </label>
 		        <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4">
-		            <form:input cssClass="form-control" path="productCode" data-rule-required="true" data-rule-maxlength="6"/>
+		            <form:input cssClass="form-control" path="productCode" data-rule-required="true" data-rule-maxlength="15"/>
 		        </div>
 		        <div class="hide desc" for="productCode">
 		            <spring:message code="product.productCode.desc"/>

@@ -21,15 +21,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.sunline.common.KC;
-import cn.sunline.common.KC.map;
 import cn.sunline.common.exception.ProcessException;
 import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
+import cn.sunline.pcm.controller.common.constent.ParameterFlags;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.BankPrincipalInterest;
 import cn.sunline.pcm.definition.FundSideInfo;
 import cn.sunline.pcm.definition.PcmOrgParameter;
+import cn.sunline.pcm.definition.PcmSettleAccMan;
 import cn.sunline.pcm.definition.ServerInfo;
 import cn.sunline.pcm.definition.enums.BanceDate;
 import cn.sunline.pcm.definition.enums.BillingCycle;
@@ -116,6 +117,7 @@ public class BankPrincipalInterestController {
                 serverInfoMap.put(serverInfo.getServerCode(),
                         serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
             }
+   
             view.addObject("serverInfoJson",new JSONObject(serverInfoMap));
             view.addObject("bankPrincipalInterest", new BankPrincipalInterest());
             return view;
@@ -210,6 +212,14 @@ public class BankPrincipalInterestController {
                 serverInfoMap.put(serverInfo.getServerCode(),
                         serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
             }
+            
+            
+            //结算账号
+            view.addObject("pcmSettleAccMan",
+            		parameterSurface.getParameterObject(PcmSettleAccMan.class)
+            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())));
+            
             view.addObject("serverInfoMap",new JSONObject(serverInfoMap));
             view.addObject("bankPrincipalInterest", new BankPrincipalInterest());
             return view;
@@ -256,6 +266,12 @@ public class BankPrincipalInterestController {
     public ModelAndView bankPrincipalInterestEditPage(String bankPrincipalInterestCode, HttpServletRequest request) throws FlatException {
         try {
             ModelAndView view = KW.mvc.forwardView("bankPrincipalInterest/bankPrincipalInterestEdit");
+            
+            //结算账号
+            view.addObject("pcmSettleAccMan",
+            		parameterSurface.getParameterObject(PcmSettleAccMan.class)
+            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())));
             view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(ChannelFeeCollectionMethod.class));
             view.addObject("feeBasis", KC.Enum.getI18nLabelMap(FeeBasis.class));
             view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(FrequencyOfChannel.class));

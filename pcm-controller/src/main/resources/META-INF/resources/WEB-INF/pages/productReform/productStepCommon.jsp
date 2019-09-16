@@ -5,7 +5,7 @@
             <spring:message code="product.productCode" text="产品代码"/>:
         </label>
         <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4">
-            <form:input cssClass="form-control" path="productCode" data-rule-required="true" data-rule-maxlength="6"/>
+            <form:input cssClass="form-control" path="productCode" data-rule-required="true" data-rule-maxlength="15"/>
         </div>
         <div class="hide desc">
             <spring:message code="product.productCode.desc"/>
@@ -15,8 +15,8 @@
             <spring:message code="product.productType" text="产品类型"/>:
         </label>
         <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4">
-<%--             <form:select cssClass="form-control" path="productType" data-rule-required="true">
-            	<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--"/></option>
+<%--           <form:select cssClass="form-control" path="productType" data-rule-required="true">
+            		<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--"/></option>
                 <form:options items="${productTypeMap}"/>
             </form:select> --%>
             <!-- 这个地方应该是一个树形选择框 -->

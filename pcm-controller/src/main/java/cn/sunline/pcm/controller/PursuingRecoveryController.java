@@ -25,11 +25,13 @@ import cn.sunline.common.KC.map;
 import cn.sunline.common.exception.ProcessException;
 import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
+import cn.sunline.pcm.controller.common.constent.ParameterFlags;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.PursuingRecovery;
 import cn.sunline.pcm.definition.FundSideInfo;
 import cn.sunline.pcm.definition.PcmOrgParameter;
+import cn.sunline.pcm.definition.PcmSettleAccMan;
 import cn.sunline.pcm.definition.ServerInfo;
 import cn.sunline.pcm.definition.enums.BanceDate;
 import cn.sunline.pcm.definition.enums.BillingCycle;
@@ -160,6 +162,11 @@ public class PursuingRecoveryController {
         try {
             ModelAndView view = KW.mvc.forwardView("pursuingRecovery/pursuingRecoveryAdd");
             view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
+            view.addObject("pcmSettleAccMan",
+            		parameterSurface.getParameterObject(PcmSettleAccMan.class)
+            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())));
+            
             view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
             view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
             //所属机构
@@ -251,6 +258,11 @@ public class PursuingRecoveryController {
         try {
             ModelAndView view = KW.mvc.forwardView("pursuingRecovery/pursuingRecoveryEdit");
            view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
+           view.addObject("pcmSettleAccMan",
+           		parameterSurface.getParameterObject(PcmSettleAccMan.class)
+           		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+           				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())));
+           
             view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
             view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
             //所属机构
@@ -376,6 +388,12 @@ public class PursuingRecoveryController {
             PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(pursuingRecovery.getOrganization(),PcmOrgParameter.class);
             view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
             ChannelPartnerType type = pursuingRecovery.getPartnerType();
+           	Map<String, String> collect = parameterSurface.getParameterObject(PcmSettleAccMan.class)
+            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())) ;
+           	pursuingRecovery.setTransferAccount(collect.get(pursuingRecovery.getTransferAccount()));
+           	pursuingRecovery.setTransferToAccount(collect.get(pursuingRecovery.getTransferToAccount()));
+            
             if(type!=null){
                 //资产方
                 if(type.equals(ChannelPartnerType.ZC)){

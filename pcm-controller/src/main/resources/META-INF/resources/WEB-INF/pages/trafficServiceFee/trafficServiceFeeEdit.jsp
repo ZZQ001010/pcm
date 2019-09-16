@@ -153,7 +153,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="trafficService"  data-rule-required="true" data-rule-digits="true" data-rule-min="0" data-rule-max="999999999999" />
+				<form:input cssClass="form-control" type="number" path="trafficService"  data-rule-required="true"   data-rule-min="0" data-rule-max="999999999999" />
 			</div>
 			<!-- 流量服务费折扣 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">

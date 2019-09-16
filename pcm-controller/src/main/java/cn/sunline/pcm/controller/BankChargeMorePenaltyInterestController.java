@@ -25,11 +25,13 @@ import cn.sunline.common.KC.map;
 import cn.sunline.common.exception.ProcessException;
 import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
+import cn.sunline.pcm.controller.common.constent.ParameterFlags;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.BankChargeMorePenaltyInterest;
 import cn.sunline.pcm.definition.FundSideInfo;
 import cn.sunline.pcm.definition.PcmOrgParameter;
+import cn.sunline.pcm.definition.PcmSettleAccMan;
 import cn.sunline.pcm.definition.ServerInfo;
 import cn.sunline.pcm.definition.enums.BanceDate;
 import cn.sunline.pcm.definition.enums.BillingCycle;
@@ -162,6 +164,12 @@ public class BankChargeMorePenaltyInterestController {
            view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
             view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
             view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
+          //结算账号
+            view.addObject("pcmSettleAccMan",
+            		parameterSurface.getParameterObject(PcmSettleAccMan.class)
+            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())));
+            
             //所属机构
             FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
             List<PcmOrgParameter> list = response.getRows();
@@ -253,6 +261,12 @@ public class BankChargeMorePenaltyInterestController {
             view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
             view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
             view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
+          //结算账号
+            view.addObject("pcmSettleAccMan",
+            		parameterSurface.getParameterObject(PcmSettleAccMan.class)
+            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())));
+            
             //所属机构
             FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
             List<PcmOrgParameter> list = response.getRows();

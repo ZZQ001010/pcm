@@ -33,8 +33,8 @@
 	    		/*  text-align: left !important */;
 	    	}
 			.orgchart.l2r .node{
-				 width: 100px !important;
-    			 height: 130px !important;
+				 width: 130px !important;
+    			 height: 220px !important;
 			}
 			.orgchart{
 				cursor:pointer

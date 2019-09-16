@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
+import cn.sunline.pcm.controller.common.constent.ParameterFlags;
 import cn.sunline.pcm.definition.*;
 import cn.sunline.pcm.definition.enums.*;
 import org.json.JSONObject;
@@ -154,6 +155,12 @@ public class PremiumController {
     public ModelAndView premiumAddPage(HttpServletRequest request) throws FlatException {
         try {
             ModelAndView view = KW.mvc.forwardView("premium/premiumAdd");
+          //结算账号
+            view.addObject("pcmSettleAccMan",
+            		parameterSurface.getParameterObject(PcmSettleAccMan.class)
+            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())));
+            
             view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(ChannelFeeCollectionMethod.class));
             view.addObject("feeBasis", KC.Enum.getI18nLabelMap(FeeBasis.class));
             view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(FrequencyOfChannel.class));
@@ -250,6 +257,12 @@ public class PremiumController {
     public ModelAndView premiumEditPage(String premiumCode, HttpServletRequest request) throws FlatException {
         try {
             ModelAndView view = KW.mvc.forwardView("premium/premiumEdit");
+          //结算账号
+            view.addObject("pcmSettleAccMan",
+            		parameterSurface.getParameterObject(PcmSettleAccMan.class)
+            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())));
+            
             view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(ChannelFeeCollectionMethod.class));
             view.addObject("feeBasis", KC.Enum.getI18nLabelMap(FeeBasis.class));
             view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(FrequencyOfChannel.class));
@@ -385,6 +398,7 @@ public class PremiumController {
             PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(premium.getOrganization(),PcmOrgParameter.class);
             view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
             ChannelPartnerType type = premium.getPartnerType();
+            
             if(type!=null){
                 //资产方
                 if(type.equals(ChannelPartnerType.ZC)){

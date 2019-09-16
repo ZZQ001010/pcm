@@ -199,6 +199,7 @@
                 }
                 $("#partnerCode").selectpicker("refresh");
             }
+            $("#partnerCode").selectpicker("val",${pursuingRecovery.partnerCode});
         }
 
         //结算日期控制

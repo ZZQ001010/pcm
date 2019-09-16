@@ -24,10 +24,10 @@ public class ClaimSettlement  implements Serializable{
     public String partnerCode;
 
     @PropertyInfo(name="转出账号",length=12)
-    public String TransferAccount;
+    public String transferAccount;
 
     @PropertyInfo(name="转入账号",length=12)
-    public String TransferToAccount;
+    public String transferToAccount;
 
     public String getClaimSettlementCode() {
         return claimSettlementCode;
@@ -65,23 +65,25 @@ public class ClaimSettlement  implements Serializable{
         return partnerCode;
     }
 
-    public void setPartnerCode(String partnerCode) {
-        this.partnerCode = partnerCode;
-    }
+	public String getTransferAccount() {
+		return transferAccount;
+	}
 
-    public String getTransferAccount() {
-        return TransferAccount;
-    }
+	public void setTransferAccount(String transferAccount) {
+		this.transferAccount = transferAccount;
+	}
 
-    public void setTransferAccount(String transferAccount) {
-        TransferAccount = transferAccount;
-    }
+	public String getTransferToAccount() {
+		return transferToAccount;
+	}
 
-    public String getTransferToAccount() {
-        return TransferToAccount;
-    }
+	public void setTransferToAccount(String transferToAccount) {
+		this.transferToAccount = transferToAccount;
+	}
 
-    public void setTransferToAccount(String transferToAccount) {
-        TransferToAccount = transferToAccount;
-    }
+	public void setPartnerCode(String partnerCode) {
+		this.partnerCode = partnerCode;
+	}
+
+    
 }

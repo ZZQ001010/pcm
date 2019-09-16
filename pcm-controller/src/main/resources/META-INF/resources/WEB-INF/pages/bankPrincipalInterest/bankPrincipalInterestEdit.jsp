@@ -180,7 +180,7 @@
         });
 
         function typeChange(){
-            var type = $("#partnerType").val();
+        	var type = $("#partnerType").val();
             if(type=='ZJ'){
                 var map = ${fundSideInfoMap}
                 $("#partnerCode").empty();
@@ -217,6 +217,9 @@
                 }
                 $("#partnerCode").selectpicker("refresh");
             }
+            
+            //选择
+            $("#partnerCode").selectpicker("val",'${bankPrincipalInterest.partnerCode}');
         }
 
         //结算日期控制

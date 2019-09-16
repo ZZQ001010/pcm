@@ -18,15 +18,15 @@ public class FundSideProductCtrlInfo implements Serializable{
 
 
 	/**
-     * 资金方管控编码
+     * 资金方经营控制编码
      */
-    @PropertyInfo(name="资金方管控编码")
+    @PropertyInfo(name="资金方经营控制编码")
     public  String fundSideCtrlCode ;
 
     /**
-     * 资金方管控描述
+     * 资金方经营控制描述
      */
-    @PropertyInfo(name="资金方管控描述")
+    @PropertyInfo(name="资金方经营控制描述")
     public String  fundSideCtrlDesc ;
     
     /**

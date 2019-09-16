@@ -26,6 +26,7 @@ import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
 import cn.sunline.web.service.CodeService;
+import cn.sunline.pcm.controller.common.constent.ParameterFlags;
 import cn.sunline.pcm.definition.AssetSideCtrlInfo;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.AssetSideRiskCtrl;
@@ -128,7 +129,7 @@ public class FundSideCtrlProductInfoController {
             //资金方
             HashMap<String, String> codeMap = new HashMap<>();
             parameterSurface.getParameterObject(FundSideInfo.class).forEach(
-                            item->codeMap.put(item.getFundSideCode(),item.getFundSideDesc()));
+                            item->codeMap.put(item.getFundSideCode(),item.getFundSideCode()+ParameterFlags.SHORT_CROSS+item.getFundSideDesc()));
             view.addObject("fundSideCode", codeMap);
             //资产方
             HashMap<String, String> assetMap = new HashMap<>();
@@ -204,7 +205,7 @@ public class FundSideCtrlProductInfoController {
             //资金方
             HashMap<String, String> codeMap = new HashMap<>();
             parameterSurface.getParameterObject(FundSideInfo.class).forEach(
-                            item->codeMap.put(item.getFundSideCode(),item.getFundSideDesc()));
+                            item->codeMap.put(item.getFundSideCode(),item.getFundSideCode()+ParameterFlags.SHORT_CROSS+item.getFundSideDesc()));
             view.addObject("fundSideCode", codeMap);
             //资产方
             HashMap<String, String> assetMap = new HashMap<>();

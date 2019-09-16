@@ -19,7 +19,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="prepaymentFeeDesc"  data-rule-required="true" data-rule-maxlength="15" />
+				<form:input cssClass="form-control" type="text" path="prepaymentFeeDesc"  data-rule-required="true" data-rule-maxlength="30" />
 			</div>
 			<!-- 提前还款手续费描述描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">

@@ -1,7 +1,6 @@
 package cn.sunline.pcm.controller.common;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -104,7 +103,7 @@ public class ParameterCommonHandler {
 				String code ,
 				String paramClass,
 				@RequestParam(name="startAttrIndex",defaultValue="0") Integer startAttrIndex,
-				@RequestParam(name="endAttrIndex",defaultValue="3") Integer endAttrIndex
+				@RequestParam(name="endAttrIndex",defaultValue="5") Integer endAttrIndex
 			) throws FlatException{
 		try{
 		Class<?> paramClazz = Class.forName(paramClass);

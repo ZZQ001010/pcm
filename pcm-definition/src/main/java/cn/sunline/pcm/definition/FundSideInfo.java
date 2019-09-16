@@ -91,17 +91,7 @@ public class FundSideInfo implements Serializable{
      */
     @PropertyInfo(name="征信机构代码", length=50)
     public String  creditOrgCode;
-    /**
-     * 结算账号
-     */
-    @PropertyInfo(name="结算账号", length=50)
-    public String  settlementAccount;
-    
-    @PropertyInfo(name="资金方技术服务费结算账号", length=50)
-    public String  jishuService;
-    
-    @PropertyInfo(name="理赔结算账号", length=50)
-    public String  lipeiAccount;
+  
     
     
 
@@ -109,21 +99,7 @@ public class FundSideInfo implements Serializable{
 
 	
 
-	public String getJishuService() {
-		return jishuService;
-	}
-
-	public void setJishuService(String jishuService) {
-		this.jishuService = jishuService;
-	}
-
-	public String getLipeiAccount() {
-		return lipeiAccount;
-	}
-
-	public void setLipeiAccount(String lipeiAccount) {
-		this.lipeiAccount = lipeiAccount;
-	}
+	 
 
 	/*************************营业执照信息************************/
 	/**
@@ -308,14 +284,7 @@ public class FundSideInfo implements Serializable{
         this.creditOrgCode = creditOrgCode;
     }
 
-    public String getSettlementAccount() {
-        return settlementAccount;
-    }
-
-    public void setSettlementAccount(String settlementAccount) {
-        this.settlementAccount = settlementAccount;
-    }
-
+    
     public String getCompanyName() {
         return companyName;
     }

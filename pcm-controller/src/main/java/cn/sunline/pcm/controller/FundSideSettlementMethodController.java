@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,6 +29,7 @@ import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
+import cn.sunline.pcm.controller.common.constent.ParameterFlags;
 import cn.sunline.pcm.definition.AssetSideRiskCtrl;
 import cn.sunline.pcm.definition.FundSideCtrlInfo;
 import cn.sunline.pcm.definition.FundSideSettlementMethod;
@@ -120,13 +122,12 @@ public class FundSideSettlementMethodController {
 			ModelAndView view = KW.mvc.forwardView("fundSideSettlementMethod/fundSideSettlementMethodAdd");
 			view.addObject("fundSideInfo", KC.Enum.getI18nLabelMap(SettlementMethod.class));				
 			view.addObject("fundSideSettlementMethod", new FundSideSettlementMethod());
-            //资金方
-            List<FundSideInfo> fundSideInfoList = parameterSurface.getFetchResponse(null, FundSideInfo.class).getRows();
-            Map<String,String> fundSideInfoMap = new HashMap<String,String>();
-            for (FundSideInfo FundSideInfo : fundSideInfoList) {
-                fundSideInfoMap.put(FundSideInfo.getFundSideCode(),FundSideInfo.getFundSideDesc());
-            }
-            view.addObject("fundSideInfoMap",fundSideInfoMap);
+            view.addObject("fundSideInfoMap",parameterSurface.getParameterObject(FundSideInfo.class)
+            		.stream().collect(Collectors.toMap(
+            				FundSideInfo::getFundSideCode, 
+            				fund->fund.getFundSideCode()+ParameterFlags.SHORT_CROSS+fund.getFundSideDesc())
+            				)
+            		);
 			return view;
 		} catch (ProcessException e) {
 			logger.error(e.getMessage(), e);
@@ -176,13 +177,12 @@ public class FundSideSettlementMethodController {
 			view.addObject("fundSideInfo", KC.Enum.getI18nLabelMap(SettlementMethod.class));				
 			FundSideSettlementMethod fundSideSettlementMethod = parameterSurface.getParameterObject(fundSideCode, FundSideSettlementMethod.class);
 			view.addObject("fundSideSettlementMethod", fundSideSettlementMethod);
-            //资金方
-            List<FundSideInfo> fundSideInfoList = parameterSurface.getFetchResponse(null, FundSideInfo.class).getRows();
-            Map<String,String> fundSideInfoMap = new HashMap<String,String>();
-            for (FundSideInfo FundSideInfo : fundSideInfoList) {
-                fundSideInfoMap.put(FundSideInfo.getFundSideCode(),FundSideInfo.getFundSideDesc());
-            }
-            view.addObject("fundSideInfoMap",fundSideInfoMap);
+            view.addObject("fundSideInfoMap",parameterSurface.getParameterObject(FundSideInfo.class)
+            		.stream().collect(Collectors.toMap(
+            				FundSideInfo::getFundSideCode, 
+            				fund->fund.getFundSideCode()+ParameterFlags.SHORT_CROSS+fund.getFundSideDesc())
+            				)
+            		);
 
             return view;
 		} catch (ProcessException e) {

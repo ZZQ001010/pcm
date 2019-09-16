@@ -2,7 +2,6 @@ package cn.sunline.pcm.definition;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 import cn.sunline.common.annotation.paramdef.PropertyInfo;
 import cn.sunline.pcm.definition.enums.FeeBasis;
@@ -43,14 +42,15 @@ public class PremiumLatePaymentFee implements Serializable{
 	public BigDecimal chargeAmount;
 	
 	@PropertyInfo(name="滞纳金宽限期",length=12)
-	public Date kuanxianqi;
+	public Integer kuanxianqi;
 
 
-	public Date getKuanxianqi() {
+	 
+	public Integer getKuanxianqi() {
 		return kuanxianqi;
 	}
 
-	public void setKuanxianqi(Date kuanxianqi) {
+	public void setKuanxianqi(Integer kuanxianqi) {
 		this.kuanxianqi = kuanxianqi;
 	}
 

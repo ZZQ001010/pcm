@@ -259,7 +259,9 @@
       $chartContainer.on('wheel', function(event) {
         event.preventDefault();
         var newScale  = 1 + (event.originalEvent.deltaY > 0 ? -0.2 : 0.2);
-        setChartScale($chart, newScale);
+        //TODO @zzq 在此做了改动实现了放大镜效果
+        // setChartScale($chart, newScale);
+        setChartScale(ocCopy, newScale);
       });
 
       $chartContainer.on('touchstart',function(e){

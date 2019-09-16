@@ -17,7 +17,7 @@
 				<spring:message code="fundSideRoutRule.fundSideRoutCode" text="资金方路由编码" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${fundSideRoutRule.fundSideRoutCode }	
 			</label>
 			<!-- 资金方路由描述 -->
@@ -27,22 +27,6 @@
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${fundSideRoutRule.fundSIdeRoutDesc }	
-			</label>
-			<!-- 信保产品的编码描述 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="fundSideRoutRule.xinBaoProduct" text="信保产品的编码描述" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${fundSideRoutRule.xinBaoProduct }	
-			</label>
-			<!-- 资金方基本信息中的资金方编码-描述 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="fundSideRoutRule.fundSide" text="资金方基本信息中的资金方编码-描述" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${fundSideRoutRule.fundSide }	
 			</label>
 			<!-- 路由规则编码 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">

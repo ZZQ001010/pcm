@@ -190,50 +190,6 @@
                 <spring:message code="fundSideInfo.creditOrgCode.desc" />
             </div>
         </div>
-        <div class="form-group row">
-            <!-- 本息结算账号-->
-            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-                <spring:message code="fundSideInfo.settlementAccount" text="本息结算账号" />
-                :
-            </label>
-            <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-                <form:input cssClass="form-control" type="text" path="settlementAccount"  data-rule-maxlength="50" />
-            </div>
-            <!-- 本息结算账号 -->
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-                <spring:message code="fundSideInfo.settlementAccount.desc" />
-            </div>
-        </div>
-        
-        <div class="form-group row">
-            <!-- 本息结算账号-->
-            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-                <spring:message code="fundSideInfo.jishuService" text="资金方技术服务费结算账号" />
-                :
-            </label>
-            <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-                <form:input cssClass="form-control" type="text" path="jishuService"  data-rule-maxlength="50" />
-            </div>
-            <!-- 本息结算账号 -->
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-                <spring:message code="fundSideInfo.jishuService.desc" />
-            </div>
-        </div>
-        
-         <div class="form-group row">
-            <!-- 本息结算账号-->
-            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-                <spring:message code="fundSideInfo.lipeiAccount" text="理赔结算账号" />
-                :
-            </label>
-            <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-                <form:input cssClass="form-control" type="text" path="lipeiAccount"  data-rule-maxlength="50" />
-            </div>
-            <!-- 本息结算账号 -->
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-                <spring:message code="fundSideInfo.lipeiAccount.desc" />
-            </div>
-        </div>
         
 
 		<h2 style="margin-left: 20px">营业执照信息</h2>
@@ -242,12 +198,11 @@
 		<div class="form-group row">
 			<!-- 名称 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.companyName" text="名称" />
 				:
 			</label>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-				<form:input cssClass="form-control" type="text" path="companyName"  data-rule-required="true" data-rule-maxlength="50" />
+				<form:input cssClass="form-control" type="text" path="companyName"    data-rule-maxlength="50" />
 			</div>
 			<!-- 名称描述 -->
 			<div class="hide desc" for="companyName">
@@ -256,12 +211,11 @@
 		
 			<!-- 登记机关 -->
 			<label class="col-lg-1 col-md-1 col-sm-1 col-xs-1 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.registrationAuthority" text="登记机关" />
 				:
 			</label>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-				<form:input cssClass="form-control" type="text" path="registrationAuthority"  data-rule-required="true" data-rule-maxlength="30" />
+				<form:input cssClass="form-control" type="text" path="registrationAuthority"    data-rule-maxlength="30" />
 			</div>
 			<!-- 登记机关描述 -->
 			<div class="hide desc" for="registrationAuthority">
@@ -269,13 +223,12 @@
 			</div>
 			<!-- 成立时间 -->
 			<label class="col-lg-1 col-md-1 col-sm-1 col-xs-1 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.registerDate" text="成立时间" />
 				:
 			</label>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
-				<form:input class='form-control customize-datetime' type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="registerDate" onfocus="this.blur()"  data-rule-required="true" />
+				<form:input class='form-control customize-datetime' type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="registerDate" onfocus="this.blur()"   />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 成立时间描述 -->
@@ -284,18 +237,15 @@
 			</div>
 		</div>
 		
-		
-		
 		<div class="form-group row">
 			<!-- 统一社会信用代码 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.unifySocialCreditCode" text="统一社会信用代码" />
 				:
 			</label>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<form:input cssClass="form-control" type="text" path="unifySocialCreditCode" 
-						 data-rule-required="true" data-rule-maxlength="12" />
+						   data-rule-maxlength="12" />
 			</div>
 			<!-- 统一社会信用代码描述 -->
 			<div class="hide desc" for="unifySocialCreditCode">
@@ -303,12 +253,12 @@
 			</div>
 			<!-- 类型 -->
 			<label class="col-lg-1 col-md-1 col-sm-1 col-xs-1 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.companyType" text="类型" />
 				:
 			</label>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<form:select cssClass="form-control" path="companyType">
+				 <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${companyType}" />
 				</form:select>
 			</div>
@@ -318,13 +268,11 @@
 			</div>
 			<!-- 营业期限有限期起始日期 -->
 			<label class="col-lg-1 col-md-1 col-sm-1 col-xs-1 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.businessBeginDate" text="营业期限有限期起始日期" />
 				:
 			</label>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
-				<form:input class='form-control customize-datetime' type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="businessBeginDate" onfocus="this.blur()"  data-rule-required="true" />
+				<form:input class='form-control customize-datetime' type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="businessBeginDate" onfocus="this.blur()"    />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 营业期限有限期起始日期描述 -->
@@ -335,13 +283,12 @@
 		<div class="form-group row">
 			<!-- 营业期限有限期截止日期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.businessEndDate" text="营业期限有限期截止日期" />
 				:
 			</label>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
-				<form:input class='form-control customize-datetime' type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="businessEndDate" onfocus="this.blur()"  data-rule-required="true" />
+				<form:input class='form-control customize-datetime' type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="businessEndDate" onfocus="this.blur()"    />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 营业期限有限期截止日期描述 -->
@@ -350,12 +297,11 @@
 			</div>
 			<!-- 营业执照号码 -->
 			<label class="col-lg-1 col-md-1 col-sm-1 col-xs-1 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.businessLicenseNumber" text="营业执照号码" />
 				:
 			</label>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-				<form:input cssClass="form-control" type="text" path="businessLicenseNumber"  data-rule-required="true" data-rule-maxlength="15" />
+				<form:input cssClass="form-control" type="text" path="businessLicenseNumber"   data-rule-maxlength="15" />
 			</div>
 			<!-- 营业执照号码描述 -->
 			<div class="hide desc" for="businessLicenseNumber">
@@ -364,15 +310,15 @@
 			
 			<!-- 实收资本 -->
 			<label class="col-lg-1 col-md-1 col-sm-1 col-xs-1 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.paidInCapital" text="实收资本" />
 				:
 			</label>
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-				<form:input cssClass="form-control" type="text" path="paidInCapital.sumNum" id="sumNum" data-rule-required="true" data-rule-maxlength="12" />
+				<form:input cssClass="form-control" type="text" path="paidInCapital.sumNum" id="sumNum"   data-rule-maxlength="12" />
 			</div>
 			<div class="col-lg-1 col-md-1 ol-sm-1 col-xs-1">
-				<form:select cssClass="form-control" path="paidInCapital.currencyCd" id="currencyCd" data-rule-required="true">
+				<form:select cssClass="form-control" path="paidInCapital.currencyCd" id="currencyCd"  >
+					 <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${currencyCds}" />
 				</form:select>
 			</div>
@@ -387,12 +333,11 @@
 		<div class="form-group row">
 			<!-- 法定代表人 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.legalPerson" text="法定代表人" />
 				:
 			</label>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-				<form:input cssClass="form-control" type="text" path="legalPerson"  data-rule-required="true" data-rule-maxlength="15" />
+				<form:input cssClass="form-control" type="text" path="legalPerson"    data-rule-maxlength="15" />
 			</div>
 			<!-- 法定代表人描述 -->
 			<div class="hide desc" for="legalPerson">
@@ -401,12 +346,11 @@
 
 			<!-- 注册资本 -->
 			<label class="col-lg-1 col-md-1 col-sm-1 col-xs-1 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.registerMoney" text="注册资本" />
 				:
 			</label>
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-				<form:input cssClass="form-control" type="text" path="registerMoney.sumNum" id="sumNumR"  data-rule-required="true" data-rule-maxlength="12" />
+				<form:input cssClass="form-control" type="text" path="registerMoney.sumNum" id="sumNumR"   data-rule-maxlength="12" />
 			</div>
 			
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
@@ -420,14 +364,13 @@
 			</div>
 			<!-- 登记时间 -->
 			<label class="col-lg-1 col-md-1 col-sm-1 col-xs-1 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.register" text="登记时间" />
 				:
 			</label>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<!-- data-picker-position="top-right/top-left/bottom-right/bottom-left"  -->
 				<form:input class='form-control customize-datetime'  type="text"
-					 data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="register" onfocus="this.blur()"  data-rule-required="true" />
+					 data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="register" onfocus="this.blur()"   />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 登记时间描述 -->
@@ -438,7 +381,6 @@
 		<div class="form-group row">
 			<!-- 住所 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideInfo.residence" text="住所" />
 				:
 			</label>
@@ -446,9 +388,10 @@
 			
 			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 			<!-- 国家 -->
-				<div class="col-lg-2 col-md-1 col-sm-1 col-xs-1">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 					<!-- 	<form:input cssClass="form-control" type="text" path="residence.country"  data-rule-required="true" data-rule-maxlength="30" /> -->
 					<select class="form-control" path="residence.country" id="country">
+					 <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 						<option value="中国" >中国</option>
 					<select>
 					
@@ -457,9 +400,9 @@
 							<spring:message code="fundSideInfo.residence.country"/>
 						</div>
 			<!-- 省 先把省选择上-->
-				<div class="col-lg-2 col-md-1 col-sm-1 col-xs-1">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 					<!-- <form:input cssClass="form-control" type="text" path="residence.province"  data-rule-required="true" data-rule-maxlength="30" /> -->
-					<form:select cssClass="form-control" path="residence.province" id="province" data-rule-required="true">
+					<form:select cssClass="form-control" path="residence.province" id="province"  >
 						<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 						<form:options items="${province}" />
 					</form:select>
@@ -471,7 +414,7 @@
 					</div>
 				
 			<!-- 市 -->	
-				<div class="col-lg-2 col-md-1 col-sm-1 col-xs-1" id="cityBox">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" id="cityBox">
 					<!-- <form:input cssClass="form-control" type="text" path="residence.city"  data-rule-required="true" data-rule-maxlength="30" />
 					 -->
 					 
@@ -486,7 +429,7 @@
 						<spring:message code="fundSideInfo.residence.city"/>
 				</div>
 				
-				<div class="col-lg-2 col-md-1 col-sm-1 col-xs-1" id="microdistrictBox">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" id="microdistrictBox">
 					<!-- <form:input cssClass="form-control" type="text" path="residence.microdistrict"  id="microdistrict" data-rule-required="true" data-rule-maxlength="30" /> -->
 					<form:select cssClass="form-control" path="residence.microdistrict" id="microdistrict" >
 						<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
@@ -498,8 +441,8 @@
 						<spring:message code="fundSideInfo.residence.microdistrict"/>
 					</div>
 				
-				<div class="col-lg-4 col-md-1 col-sm-1 col-xs-1">
-					<form:input cssClass="form-control" type="text" path="residence.specificInformation" id="specificInformation"  data-rule-required="true" data-rule-maxlength="30" />
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<form:input cssClass="form-control" type="text" path="residence.specificInformation" id="specificInformation"   data-rule-maxlength="30" />
 					
 					<div class=" hide desc" for="specificInformation">
 						<spring:message code="fundSideInfo.residence.specificInformation"/>

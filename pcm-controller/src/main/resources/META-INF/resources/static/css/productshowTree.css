@@ -47,3 +47,18 @@ body {
   display: none;
   position:absolute;
 }
+
+
+
+.orgchart.l2r .node .title 	{
+    transform: rotate(-90deg) translate( -90px,-90px) rotateY(180deg) !important;
+    transform-origin: center bottom !important;
+    width: 220px  !important
+}
+
+
+.orgchart.l2r .node .content {
+    transform: rotate(-90deg) translate(-90px, -90px) rotateY(180deg) !important;
+    transform-origin: center top !important;
+    width: 220px !important;
+}

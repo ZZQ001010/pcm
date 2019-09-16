@@ -21,7 +21,7 @@
 				:
 			</label>
 			<div class="col-lg-2 col-md-4 col-sm-4 col-xs-4">
-				<form:input cssClass="form-control"  path="productCode" data-rule-required="true" data-rule-maxlength="6" />
+				<form:input cssClass="form-control"  path="productCode" data-rule-required="true" data-rule-maxlength="15" />
 			</div>
 			<!-- 产品代码描述 -->
 			<div class="hide desc"  for="productCode">

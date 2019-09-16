@@ -17,15 +17,15 @@ public class FundSideSettlementMethod implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 资金方编码
+	 * 资金方理赔方式编码
 	 */
-	@PropertyInfo(name="资金方编码", length=32)
+	@PropertyInfo(name="资金方理赔方式编码", length=32)
 	public String  fundSideCode ;
 	
 	/**
-	 * 资金方描述
+	 *  描述
 	 */
-	@PropertyInfo(name="资金方描述", length=32)
+	@PropertyInfo(name="描述", length=32)
 	public String  fundSideDesc ;
 
     /**
