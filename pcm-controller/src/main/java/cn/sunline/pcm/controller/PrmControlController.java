@@ -172,7 +172,7 @@ public class PrmControlController {
 			prmControlSurface.updPrmControl(bPcmPrmControl);
 		} catch (ProcessException e) {
 			logger.error(e.getMessage(), e);
-			throw new FlatException(e.getErrorCode(), e.getMessage(), bPcmPrmControl.getId().toString());
+			throw new FlatException(e.getErrorCode(), e.getMessage(), bPcmPrmControl.getPid().toString());
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			throw new FlatException(e, "prmControl.updPrmControlFail", "修改参数管控失败");

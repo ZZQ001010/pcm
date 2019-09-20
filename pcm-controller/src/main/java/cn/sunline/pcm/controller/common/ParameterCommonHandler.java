@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cn.sunline.common.KC;
 import cn.sunline.common.StringUtils;
+import cn.sunline.common.annotation.paramdef.PropertyInfo;
 import cn.sunline.common.exception.ProcessException;
+import cn.sunline.pcm.infrastructure.model.bo.BPcmParameterOrder;
 import cn.sunline.pcm.infrastructure.model.bo.BPcmProductRel;
+import cn.sunline.pcm.surface.PcmParameterOrderSurface;
 import cn.sunline.pcm.surface.ProductUnitSurface;
 import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
@@ -35,6 +38,9 @@ import cn.sunline.web.service.CodeService;
 public class ParameterCommonHandler {
 	
 	Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	@Autowired
+	private PcmParameterOrderSurface pcmParameterOrderSurface; 
 	
 	@Autowired
 	private ParameterSurface parameterSurface; 
@@ -108,21 +114,57 @@ public class ParameterCommonHandler {
 		try{
 		Class<?> paramClazz = Class.forName(paramClass);
 		Object obj = parameterSurface.getParameterObject(code, paramClazz);
-		 List<Field> fields = Arrays.asList(paramClazz.getFields());
-		 if (!(fields.size()<=endAttrIndex)) {
-			 fields= fields.subList(startAttrIndex,endAttrIndex);
+		List<Field> fields = Arrays.asList(paramClazz.getFields());
+		
+		//查询数据查看当前参数是否用户自定义了展示方式
+		List<BPcmParameterOrder> orderList = pcmParameterOrderSurface.findPcmParameterOrderByParamClass(paramClass);
+		if (orderList==null || orderList.size()==0) {
+			//默认排序方式
+			return defaultFields(fields,startAttrIndex,endAttrIndex,obj);
+		}else{
+			//按照用户自定义的走
+			return customFields(paramClazz,orderList,obj);
 		}
-		return fields.parallelStream().collect(
-				 Collectors.toMap(
-						 k->k.getDeclaredAnnotation(cn.sunline.common.annotation.paramdef.PropertyInfo.class).name(),
-						 v->analysisField(v,obj)
-						 ));
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			throw new FlatException(e,"param.notfind.filed","对应的参数未找到!");
 		}
 		
 	}
+	
+	/**
+	 * 用户自定义的fileds
+	 * @param fields
+	 * @param startAttrIndex
+	 * @param endAttrIndex
+	 * @return
+	 */
+	private Map<Object, Object> customFields(Class<?> paramClazz,List<BPcmParameterOrder> orderList,Object prototype ) throws Exception{
+		Map<Object, Object> map =new java.util.LinkedHashMap();
+		for (BPcmParameterOrder bPcmParameterOrder : orderList) {
+			String filedName = bPcmParameterOrder.getFiledName();
+			Field declaredField = paramClazz.getDeclaredField(filedName);
+			String nameZh = declaredField.getDeclaredAnnotation(PropertyInfo.class).name();
+			Object value = analysisField(declaredField,prototype);
+			map.put(nameZh, value);
+		}
+		return map ; 
+	}
+	
+	/**
+	 * 默认的的列表
+	 * @return
+	 */
+	private Map<Object, Object> defaultFields(
+				List<Field> fields,Integer startAttrIndex,Integer endAttrIndex,Object prototype ) throws Exception{
+		 if (!(fields.size()<=endAttrIndex))  fields= fields.subList(startAttrIndex,endAttrIndex);
+		 return fields.parallelStream().collect(
+				 Collectors.toMap(
+						 k->k.getDeclaredAnnotation(cn.sunline.common.annotation.paramdef.PropertyInfo.class).name(),
+						 v->analysisField(v,prototype)
+						 ));
+	}
+	
 	
 	
 	
@@ -142,16 +184,19 @@ public class ParameterCommonHandler {
 			e.printStackTrace();
 			logger.error("参数属性获取失败....");
 		}
-		if (type.isEnum()) {
-			//枚举类型
-			 return KC.Enum.getI18nLabelMap((Class<? extends Enum<?>>) type).get(object.toString());
-		}else if (obj instanceof Boolean) {
-			//布尔类型
-			 return  codeService.getCodeMapByCodeType("booleanDic").get(obj);
-		}else {
-			//数组，结构体，string 都按照默认的tostring()
-			return object==null?"":object; 
+		if(object!=null){
+			if (type.isEnum()) {
+				//枚举类型
+				 return KC.Enum.getI18nLabelMap((Class<? extends Enum<?>>) type).get(object.toString());
+			}else if (obj instanceof Boolean) {
+				//布尔类型
+				 return  codeService.getCodeMapByCodeType("booleanDic").get(obj);
+			}else {
+				//数组，结构体，string 都按照默认的tostring()
+				return object==null?"":object; 
+			}
 		}
+		return object ;
 	}
 	
 	

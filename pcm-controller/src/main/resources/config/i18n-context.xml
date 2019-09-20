@@ -69,6 +69,7 @@
 				<value>claimSettlement/claimSettlement</value>
 				<value>premium/premium</value>
 				<value>pursuingRecovery/pursuingRecovery</value>
+				<value>pcmParameterOrder/pcmParameterOrder</value>
 			</list>
 		</property>
 	</bean>

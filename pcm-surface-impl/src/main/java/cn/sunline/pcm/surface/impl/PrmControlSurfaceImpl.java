@@ -95,7 +95,7 @@ public class PrmControlSurfaceImpl implements PrmControlSurface {
 	@Override
 	@Transactional
 	public void updPrmControl(BPcmPrmControl bPcmPrmControl) throws Exception {
-		PcmPrmControl tmPrmControl = rPcmPrmControl.findById(bPcmPrmControl.getId()).orElseThrow(new ProcessException("kite.web.common.notexist", "该数据不存在[{0}]"));
+		PcmPrmControl tmPrmControl = rPcmPrmControl.findById(bPcmPrmControl.getPid()).orElseThrow(new ProcessException("kite.web.common.notexist", "该数据不存在[{0}]"));
 		tmPrmControl.updateValueFromBO(bPcmPrmControl);
 		rPcmPrmControl.save(tmPrmControl );
 	}
