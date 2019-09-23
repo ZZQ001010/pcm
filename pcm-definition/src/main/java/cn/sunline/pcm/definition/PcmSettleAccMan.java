@@ -69,32 +69,14 @@ public class PcmSettleAccMan implements Serializable{
 	 * 银行账户
 	 */
 	@PropertyInfo(name="银行账户",length=32)
-	public String bankAccount;
-	/**
-	 * 统一社会信用代码
-	 */
-//	@PropertyInfo(name="统一社会信用代码",length=100)
-//	public String unifiedSocCreCode;
-		
+	public String bankAccount; 
 	/**
 	 * 机构编号
 	 */
 	@PropertyInfo(name="机构编号",length=32)
 	public String orgCode;
 		
-		
-	/**
-	 * 账户备注名
-	 */
-//	@PropertyInfo(name="账户备注名",length=32)
-//	public String accNoteName;
-		
-	/**
-	 * 对公账户的开户行号
-	 */
-//	@PropertyInfo(name="对公账户的开户行号",length=100)
-//	public String pubOpenNum;
-		
+ 
 	/**
 	 * 开户银行
 	 */
