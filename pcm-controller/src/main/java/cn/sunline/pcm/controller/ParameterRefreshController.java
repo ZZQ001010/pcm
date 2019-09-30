@@ -4,6 +4,7 @@ package cn.sunline.pcm.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -32,7 +33,7 @@ public class ParameterRefreshController {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
+	@Resource(name="parameterRefreshSurfaceImpl")
 	private ParameterRefreshSurface refreshSurface;
 	
 	

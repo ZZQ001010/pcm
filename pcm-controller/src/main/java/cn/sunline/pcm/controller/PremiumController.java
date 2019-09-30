@@ -68,7 +68,8 @@ public class PremiumController {
             view.addObject("partnerTypeJson", KC.Enum.getI18nLabelMapJson(ChannelPartnerType.class));
             view.addObject("billingCycleJson", KC.Enum.getI18nLabelMapJson(BillingCycle.class));
             //所属机构
-            FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
+            
+            FetchResponse<PcmOrgParameter> response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
             List<PcmOrgParameter> list = response.getRows();
             Map<String,String> orgMap = new HashMap<String,String>();
             for (PcmOrgParameter pcmOrgParameter : list) {

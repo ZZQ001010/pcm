@@ -66,6 +66,7 @@ public class BankPrincipalInterestController {
      * @return
      * @throws FlatException
      */
+    @SuppressWarnings("all")
     @RequestMapping("bankPrincipalInterestQueryPage.in")
     public ModelAndView bankPrincipalInterestQueryPage(HttpServletRequest request) throws FlatException{
         try {

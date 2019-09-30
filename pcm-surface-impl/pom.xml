@@ -27,6 +27,44 @@
 			<groupId>cn.sunline.kite.web</groupId>
 			<artifactId>kite-web-surface-impl</artifactId>
 		</dependency>
+		
+			<!-- 前后端分离，surface需要独立启动需要依赖如下jar包 -->
+		<dependency>
+			  <groupId>cn.sunline.kite.rpc</groupId>
+  			  <artifactId>kite-rpc-eureka</artifactId>
+  			  <optional>true</optional>
+		</dependency>
+		<!-- 独立运行的daemon进程需要依赖 -->
+		<dependency>
+			<groupId>commons-daemon</groupId>
+			<artifactId>commons-daemon</artifactId>
+			<optional>true</optional>
+			<scope>compile</scope>
+		</dependency>
+		<!-- druid连接池和数据库驱动 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<optional>true</optional>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<optional>true</optional>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>
@@ -34,6 +72,47 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>aspectj-maven-plugin</artifactId>
+			</plugin>
+		
+		<!-- 独立启动所需的编译插件配置 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<useUniqueVersions>false</useUniqueVersions>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>${artifactId}-dependency/</classpathPrefix>
+							<mainClass>cn.sunline.common.spring.ServiceDaemon</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<includeScope>runtime</includeScope>
+					<useBaseVersion>true</useBaseVersion>
+				</configuration>
+			</plugin>
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-dependency-plugin</artifactId>
+			  <executions>
+			      <execution>
+			        <id>copy-dependencies</id>
+			        <phase>package</phase>
+			        <goals>
+			          <goal>copy-dependencies</goal>
+			        </goals>
+			        <configuration>
+			          <outputDirectory>target/lib</outputDirectory>
+			          <overWriteSnapshots>true</overWriteSnapshots>
+			        </configuration>
+			      </execution>
+			  </executions>
 			</plugin>
 		</plugins>
 	</build>

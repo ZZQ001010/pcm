@@ -6,12 +6,57 @@
 		http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.6.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
-	<!-- 托管进程相关服务 -->
-	<!-- <bean class="cn.sunline.rpc.common.define.RPCClientBean">
-		<property name="target" value="adm"/>
-		<property name="server" value="#{env['adm'] ?: env['dcn']}-pcm-service-impl"/>
+	<bean abstract="true" id="kitePcmCom">
+	  	<property name="protocol" value="#{env['rpc.protocol'] ?: 'SCHTTP'}" />
+	  	<property name="server" value="#{env['dcn']}-pcm-surface-impl"/>
+	</bean>
+	<!-- 清除缓存中的指定参数服务 -->
+	<bean class="cn.sunline.rpc.common.define.RPCClientBean" parent="kitePcmCom" >
+		<property name="serviceName" value="parameterRefreshSurface"/>
+		<property name="serviceInterface" value="cn.sunline.pcm.surface.ParameterRefreshSurface" />
+	</bean>
+	<!-- 参数变更日志服务 -->
+	<bean class="cn.sunline.rpc.common.define.RPCClientBean" parent="kitePcmCom" >
+		<property name="serviceName" value="prmAuditSurface"/>
+		<property name="serviceInterface" value="cn.sunline.pcm.surface.PrmAuditSurface" />
+	</bean>
+	<!-- 产品的curd 操作服务 -->
+	<bean class="cn.sunline.rpc.common.define.RPCClientBean" parent="kitePcmCom" >
+		<property name="serviceName" value="productCURDSurface"/>
+		<property name="serviceInterface" value="cn.sunline.pcm.surface.ProductCURDSurface" />
+	</bean>
+	<!-- 参数管控服务 -->
+	<bean class="cn.sunline.rpc.common.define.RPCClientBean" parent="kitePcmCom" >
+		<property name="serviceName" value="prmControlSurface"/>
+		<property name="serviceInterface" value="cn.sunline.pcm.surface.PrmControlSurface" />
+	</bean>
+	<!-- 产品页面分组服务 -->
+	<bean class="cn.sunline.rpc.common.define.RPCClientBean" parent="kitePcmCom" >
+		<property name="serviceName" value="productGroupSurface"/>
+		<property name="serviceInterface" value="cn.sunline.pcm.surface.ProductGroupSurface" />
+	</bean>
+	<!-- 产品页面组件服务 -->
+	<bean class="cn.sunline.rpc.common.define.RPCClientBean" parent="kitePcmCom" >
+		<property name="serviceName" value="productUnitsSurface"/>
+		<property name="serviceInterface" value="cn.sunline.pcm.surface.ProductUnitsSurface" />
+	</bean>
+	<!-- 产品页面组件服务 -->
+	<bean class="cn.sunline.rpc.common.define.RPCClientBean" parent="kitePcmCom" >
+		<property name="serviceName" value="productUnitSurface"/>
+		<property name="serviceInterface" value="cn.sunline.pcm.surface.ProductUnitSurface" />
+	</bean>
+	<!-- 参数服务服务 -->
+	<bean class="cn.sunline.rpc.common.define.RPCClientBean" parent="kitePcmCom" >
 		<property name="serviceName" value="parameterSurface"/>
-		<property name="protocol" value="#{env['rpc.protocol'] ?: 'LOCAL'}" />
 		<property name="serviceInterface" value="cn.sunline.pcm.surface.api.ParameterSurface" />
-	</bean> -->
+	</bean>
+	
+	<!-- 参数服务服务 -->
+	<bean class="cn.sunline.rpc.common.define.RPCClientBean" parent="kitePcmCom" >
+		<property name="serviceName" value="pcmParameterOrderSurface"/>
+		<property name="serviceInterface" value="cn.sunline.pcm.surface.PcmParameterOrderSurface" />
+	</bean>
+	
+	
+	
 </beans>
