@@ -22,10 +22,10 @@
 	</bean>
 	
 	<!-- 参数管理服务 -->
-	<bean class="cn.sunline.rpc.common.define.RPCServiceBean">
+<!-- 	<bean class="cn.sunline.rpc.common.define.RPCServiceBean">
 		<property name="serviceName" value="parameterSurface"/>
 		<property name="service" value="parameterSurfaceImpl" />
 		<property name="serviceInterface" value="cn.sunline.pcm.surface.api.ParameterSurface" />
 		<property name="protocol" value="#{env['rpc.protocol'] ?: 'SCHTTP'}" />
-	</bean>
+	</bean> -->
 </beans>
