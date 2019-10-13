@@ -10,6 +10,11 @@
 	<artifactId>pcm-surface-impl</artifactId>
 	<name>pcm-surface-impl - WEB服务实现</name>
 	<dependencies>
+	<dependency>
+		<groupId>cn.sunline.kite.common</groupId>
+		<artifactId>kite-common</artifactId>
+		<version>5.5.0-SNAPSHOT</version>
+	</dependency>
 		<!-- 本项目依赖 -->
 		<dependency>
 			<groupId>cn.sunline.pcm</groupId>
@@ -19,6 +24,13 @@
 			<groupId>cn.sunline.pcm</groupId>
 			<artifactId>pcm-surface-api</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>cn.sunline.pcm</groupId>
+			<artifactId>pcm-service-sdk</artifactId>
+		</dependency>
+		
+		
 		<dependency>
 			<groupId>cn.sunline.pcm</groupId>
 			<artifactId>pcm-service-api</artifactId>
@@ -27,8 +39,13 @@
 			<groupId>cn.sunline.kite.web</groupId>
 			<artifactId>kite-web-surface-impl</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>cn.sunline.kite.distributed</groupId>
+			<artifactId>kite-distributed-surface-impl</artifactId>
+		</dependency>
 		
-			<!-- 前后端分离，surface需要独立启动需要依赖如下jar包 -->
+	<!-- 前后端分离，surface需要独立启动需要依赖如下jar包 -->
 		<dependency>
 			  <groupId>cn.sunline.kite.rpc</groupId>
   			  <artifactId>kite-rpc-eureka</artifactId>
@@ -55,11 +72,6 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
@@ -73,8 +85,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>aspectj-maven-plugin</artifactId>
 			</plugin>
-		
-		<!-- 独立启动所需的编译插件配置 -->
+			<!-- 独立启动所需的编译插件配置 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
