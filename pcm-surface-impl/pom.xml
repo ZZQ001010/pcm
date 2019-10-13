@@ -10,11 +10,6 @@
 	<artifactId>pcm-surface-impl</artifactId>
 	<name>pcm-surface-impl - WEB服务实现</name>
 	<dependencies>
-	<dependency>
-		<groupId>cn.sunline.kite.common</groupId>
-		<artifactId>kite-common</artifactId>
-		<version>5.5.0-SNAPSHOT</version>
-	</dependency>
 		<!-- 本项目依赖 -->
 		<dependency>
 			<groupId>cn.sunline.pcm</groupId>
