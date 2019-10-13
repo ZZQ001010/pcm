@@ -14,5 +14,11 @@
 			<groupId>cn.sunline.pcm</groupId>
 			<artifactId>pcm-infextension</artifactId>
 		</dependency>
+			
+		<dependency>
+			<groupId>cn.sunline.kite.distributed</groupId>
+			<artifactId>kite-distributed-surface-api</artifactId>
+		</dependency>
+		
 	</dependencies>
 </project>

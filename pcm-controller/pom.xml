@@ -15,6 +15,10 @@
 			<groupId>cn.sunline.kite.web</groupId>
 			<artifactId>kite-web-controller</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>cn.sunline.kite.web</groupId>
+			<artifactId>kite-web-surface-impl</artifactId>
+		</dependency>
 		<!-- 本模块依赖 -->
 		<dependency>
 			<groupId>cn.sunline.pcm</groupId>
