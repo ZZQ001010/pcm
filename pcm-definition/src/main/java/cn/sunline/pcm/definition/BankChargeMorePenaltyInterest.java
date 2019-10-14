@@ -5,9 +5,11 @@ import cn.sunline.pcm.definition.enums.BillingCycle;
 import cn.sunline.pcm.definition.enums.ChannelPartnerType;
 import cn.sunline.pcm.definition.enums.FrequencyOfChannel;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class BankChargeMorePenaltyInterest {
+@SuppressWarnings("serial")
+public class BankChargeMorePenaltyInterest implements Serializable {
     @PropertyInfo(name="银行多记罚息编码", length=15)
     public String bankChargeMorePenaltyInterestCode;
 
