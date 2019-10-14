@@ -75,12 +75,6 @@
 	</dependencies>
 	<build>
 		<plugins>
-			<!-- aspectj编译插件 -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>aspectj-maven-plugin</artifactId>
-			</plugin>
-			<!-- 独立启动所需的编译插件配置 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -89,20 +83,12 @@
 						<manifest>
 							<useUniqueVersions>false</useUniqueVersions>
 							<addClasspath>true</addClasspath>
-							<classpathPrefix>${artifactId}-dependency/</classpathPrefix>
+							<classpathPrefix>${project.artifactId}-dependency/</classpathPrefix>
 							<mainClass>cn.sunline.common.spring.ServiceDaemon</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<configuration>
-					<includeScope>runtime</includeScope>
-					<useBaseVersion>true</useBaseVersion>
-				</configuration>
-			</plugin>
+			</plugin>	
 			<plugin>
 			  <groupId>org.apache.maven.plugins</groupId>
 			  <artifactId>maven-dependency-plugin</artifactId>
@@ -114,7 +100,7 @@
 			          <goal>copy-dependencies</goal>
 			        </goals>
 			        <configuration>
-			          <outputDirectory>target/lib</outputDirectory>
+			          <outputDirectory>target/${project.artifactId}-dependency</outputDirectory>
 			          <overWriteSnapshots>true</overWriteSnapshots>
 			        </configuration>
 			      </execution>
