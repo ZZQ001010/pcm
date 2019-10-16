@@ -92,7 +92,7 @@ public class ParameterSurfaceImpl implements ParameterSurface {
 	 * @see cn.sunline.pcm.surface.api.ParameterSurface#updateParameterObject(java.lang.String, java.lang.Object)
 	 */
 	@Override
-	public <T> void updateParameterObject(String key, T obj) throws ProcessException {
+	public <T> void updateParameterObject(String key, Object obj) throws ProcessException {
 		parameterFacility.updateParameterObject(key, obj);
 	}
 

@@ -15,6 +15,15 @@
 			<groupId>cn.sunline.pcm</groupId>
 			<artifactId>pcm-facility</artifactId>
 		</dependency>
+		
+	<dependency>
+			<groupId>cn.sunline.ccs</groupId>
+			<artifactId>ccs-definition</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		
+		
 		<dependency>
 			<groupId>cn.sunline.pcm</groupId>
 			<artifactId>pcm-surface-api</artifactId>
