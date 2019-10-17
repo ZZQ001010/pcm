@@ -13,35 +13,35 @@
 	<form:form cssClass="form-horizontal" cssStyle="padding-top: 40px" modelAttribute="channelParameterInfo">
 		<div class="form-group row">
 			<!-- 渠道编码 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="channelParameterInfo.channelCode" text="渠道编码" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${channelParameterInfo.channelCode }	
 			</label>
 			<!-- 渠道名称 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="channelParameterInfo.channelName" text="渠道名称" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${channelParameterInfo.channelName }
 			</label>
             <!-- 渠道归属类型 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="channelParameterInfo.channelAttributionType" text="保费率" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${channelAttributionType }
             </label>
             <!-- 渠道归属-->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="channelParameterInfo.channelAttribution" text="保费缴纳方式" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${channelAttribution }
             </label>
 		</div>

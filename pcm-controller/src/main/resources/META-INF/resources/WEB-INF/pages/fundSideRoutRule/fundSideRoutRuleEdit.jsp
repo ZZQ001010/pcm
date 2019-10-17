@@ -12,6 +12,21 @@
 	<form:form cssClass="form-horizontal" id="fundSideRoutRuleUpdForm" cssStyle="padding-top: 40px" modelAttribute="fundSideRoutRule" method="post" action="${ctx}/fundSideRoutRule/updFundSideRoutRule.in" data-confirm="true">
 		<form:hidden path="fundSideRoutCode" />
 		<div class="form-group row">
+			<!-- 资金方路由编码 -->
+			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+				<span class="span-icon">*&nbsp;</span>
+				<spring:message code="fundSideRoutRule.fundSideRoutCode" text="资金方路由编码" />
+				:
+			</label>
+			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
+				<form:input cssClass="form-control" type="text" path="fundSideRoutCode"  data-rule-required="true" data-rule-maxlength="32" />
+			</div>
+			<!-- 资金方路由编码描述 -->
+			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
+				<spring:message code="fundSideRoutRule.fundSideRoutCode.desc" />
+			</div>
+		</div>
+		<div class="form-group row">
 			<!-- 资金方路由描述 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 				<span class="span-icon">*&nbsp;</span>
@@ -25,26 +40,12 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="fundSideRoutRule.fundSIdeRoutDesc.desc" />
 			</div>
-		</div>				
-		 			
-		<div class="form-group row">
-			<!-- 资金方基本信息中的资金方编码-描述 -->
-			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<spring:message code="fundSideRoutRule.fundSide" text="资金方基本信息中的资金方编码-描述" />
-				:
-			</label>
-			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="fundSide"  data-rule-maxlength="200" />
-			</div>
-			<!-- 资金方基本信息中的资金方编码-描述描述 -->
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-				<spring:message code="fundSideRoutRule.fundSide.desc" />
-			</div>
-		</div>				
+		</div>
+		
+		 
 		<div class="form-group row">
 			<!-- 路由规则编码 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideRoutRule.routRuleCode" text="路由规则编码" />
 				:
 			</label>
@@ -55,7 +56,10 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="fundSideRoutRule.routRuleCode.desc" />
 			</div>
-		</div>				
+		</div>			
+		
+		
+		
 		<div class="form-controls auto-float">
 			<div class="btn-group-md">
 				<!-- 确定 -->

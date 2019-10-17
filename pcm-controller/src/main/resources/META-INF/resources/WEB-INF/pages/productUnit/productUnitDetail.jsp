@@ -21,79 +21,79 @@
 				</form:select>
 				
 				<!-- 产品组件名称 -->
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 					<spring:message code="pcmProductUnit.unitCode" text="产品组件编码" />:
 				</label>
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 					&nbsp;${bPcmProductUnit.unitCode}	
 				</label>
 				<!-- 产品组件名称 -->
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 					<spring:message code="pcmProductUnit.unitName" text="产品组件国际化名称" />:
 				</label>
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 					&nbsp;${bPcmProductUnit.unitName}	
 				</label>
 				<!-- 产品组件国际化名称 -->
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 					<spring:message code="pcmProductUnit.unitNameCn" text="产品组件中文名称" />:
 				</label>
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 					&nbsp;${bPcmProductUnit.unitNameCn}	
 				</label>
 				<!-- 产品组件类型 -->
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 					<spring:message code="pcmProductUnit.unitModule" text="产品组件类型" />:
 				</label>
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 					&nbsp;${unitModuleStr}
 				</label>
 				<!-- 允许多选 -->
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 					<spring:message code="pcmProductUnit.multiple" text="允许多选" />:
 				</label>
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 					&nbsp;${mltipleStr}
 				</label>
 				<!-- 产品组件序号 -->
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 					<spring:message code="pcmProductUnit.unitIndex" text="产品组件序号" />:
 				</label>
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 					&nbsp;${bPcmProductUnit.unitIndex}	
 				</label>
 				<!-- 创建时间 -->
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 					<spring:message code="pcmProductUnit.createTime" text="创建时间" />:
 				</label>
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 					<fmt:formatDate var="createTimeFmt" value="${bPcmProductUnit.createTime}" type="date" pattern="yyyy-MM-dd hh:mm:ss" />
 					${createTimeFmt}
 				</label>
 				<!-- 创建人 -->
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 					<spring:message code="pcmProductUnit.createUser" text="创建人" />:
 				</label>
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 					&nbsp;${bPcmProductUnit.createUser}	
 				</label>
 				<!-- 最后更新时间 -->
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 					<spring:message code="pcmProductUnit.lstUpdTime" text="最后更新时间" />:
 				</label>
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 					<fmt:formatDate var="lstUpdTimeFmt" value="${bPcmProductUnit.lstUpdTime}" type="date" pattern="yyyy-MM-dd hh:mm:ss" />
 					${lstUpdTimeFmt}
 				</label>
 				<!-- 最后更新人 -->
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 					<spring:message code="pcmProductUnit.lstUpdUser" text="最后更新人" />:
 				</label>
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 					&nbsp;${bPcmProductUnit.lstUpdUser}	
 				</label>
 				<!-- 关联组件 -->
-				<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 					<spring:message code="pcmProductUnit.unitRelations" text="关联组件" />:
 				</label>
 				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">

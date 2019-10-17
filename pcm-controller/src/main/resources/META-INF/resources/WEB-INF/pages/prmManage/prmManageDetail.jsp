@@ -14,27 +14,27 @@
 	<form:form cssClass="form-horizontal" cssStyle="padding-top: 40px" modelAttribute="prmManage">
 		<div class="form-group row">
 			<!-- 资金方管控编码 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="prmManage.id" text="参数编码" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${prmManage.id }
 			</label>
 			<!-- 资金方管控描述 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="prmManage.name" text="参数名称" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${prmManage.name }
 			</label>
             <!-- 资金方 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="prmManage.desc" text="参数描述" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${prmManage.desc}
             </label>
 		</div>

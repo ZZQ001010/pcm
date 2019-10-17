@@ -45,12 +45,11 @@
 		<div class="form-group row">
 			<!-- 机构地址 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="pcmOrgParameter.orgAddress" text="机构地址" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="orgAddress"  data-rule-required="true" data-rule-maxlength="200" />
+				<form:input cssClass="form-control" type="text" path="orgAddress"    data-rule-maxlength="200" />
 			</div>
 			<!-- 机构地址描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -60,12 +59,11 @@
 		<div class="form-group row">
 			<!-- 机构级别 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="pcmOrgParameter.orgLevel" text="机构级别" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="orgLevel"  data-rule-required="true" data-rule-maxlength="32" />
+				<form:input cssClass="form-control" type="text" path="orgLevel"   data-rule-maxlength="32" />
 			</div>
 			<!-- 机构级别描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -148,14 +146,13 @@
 		<div class="form-group row">
 			<!-- 业务许可有效起期  -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="businessLicensStartDate" text="业务许可有效起期 " />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 			<form:input class='form-control customize-datetime' type="text"
 			 data-picker-position="top-right" data-role-formate="yyyy-mm-dd" 
-				 path="businessLicensStartDate" onfocus="this.blur()"  data-rule-required="true" />
+				 path="businessLicensStartDate" onfocus="this.blur()"    />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 业务许可有效起期描述  -->
@@ -166,14 +163,13 @@
 		<div class="form-group row">
 			<!-- 业务许可有效止期  -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="businessLicensEndDate" text="业务许可有效止期 " />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 			<form:input class='form-control customize-datetime' type="text"
 			 data-picker-position="top-right" data-role-formate="yyyy-mm-dd" 
-				 path="businessLicensEndDate" onfocus="this.blur()"  data-rule-required="true" />
+				 path="businessLicensEndDate" onfocus="this.blur()"    />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 业务许可有效止期 描述 -->
@@ -257,7 +253,6 @@
 		<div class="form-group row">
 			<!-- 营业执照号码  -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-			
 				<spring:message code="businessNo" text="营业执照号码 " />
 				:
 			</label>
@@ -345,14 +340,13 @@
 		<div class="form-group row">
 			<!-- 营业执照有效起期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="busCertificateStartDate" text="营业执照有效起期 " />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 			<form:input class='form-control customize-datetime' type="text"
 			 data-picker-position="top-right" data-role-formate="yyyy-mm-dd" 
-				 path="busCertificateStartDate" onfocus="this.blur()"  data-rule-required="true" />
+				 path="busCertificateStartDate" onfocus="this.blur()"    />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 营业执照有效起期 描述 -->
@@ -363,14 +357,13 @@
 		<div class="form-group row">
 			<!-- 营业执照有效止期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="busCertificateEndDate" text="营业执照有效止期 " />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 			<form:input class='form-control customize-datetime' type="text"
 			 data-picker-position="top-right" data-role-formate="yyyy-mm-dd" 
-				 path="busCertificateEndDate" onfocus="this.blur()"  data-rule-required="true" />
+				 path="busCertificateEndDate" onfocus="this.blur()"    />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 营业执照有效止期 描述 -->

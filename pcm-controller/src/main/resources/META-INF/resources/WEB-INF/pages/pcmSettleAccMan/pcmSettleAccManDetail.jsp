@@ -34,16 +34,7 @@
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${accountOwner}
-			</label>
-			
-			<!-- 账号归属主体 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="pcmSettleAccMan.orgCode" text="账号归属主体" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${partner}	
+				&nbsp;${pcmSettleAccMan.accountOwner }	
 			</label>
 			<!-- 机构账号类型 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
@@ -51,17 +42,8 @@
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${org }
+				&nbsp;${pcmSettleAccMan.organizationAccountType }	
 			</label>
-			
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
-			style="margin-left: 20px">
-			<h2>
-				<spring:message code="pcmSettleAccMan.accInfo.title" text="账号信息" />
-			</h2>
-			<hr>
-		</div>
-
 			<!-- 单位名称 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
 				<spring:message code="pcmSettleAccMan.unitName" text="单位名称" />
@@ -78,7 +60,7 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${pcmSettleAccMan.bankAccount }	
 			</label>
-
+			<!-- 开户银行 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
 				<spring:message code="pcmSettleAccMan.openBank" text="开户银行" />
 				:
@@ -92,7 +74,7 @@
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${pcmSettleAccMan.openBankProv }	
+				&nbsp;${openBankProv }	
 			</label>
 			<!-- 开户行城市 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
@@ -100,7 +82,15 @@
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${pcmSettleAccMan.openBankCity }	
+				&nbsp;${city }	
+			</label>
+			<!-- 资金方支持展业区、县 -->
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<spring:message code="pcmSettleAccMan.district" text="资金方支持展业区、县" />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				&nbsp;${district }	
 			</label>
 			<!-- 开户行支行 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
@@ -110,9 +100,64 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${pcmSettleAccMan.openBankBranch }	
 			</label>
+			<!-- 单位名称 -->
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<spring:message code="pcmSettleAccMan.vUnitName" text="单位名称" />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				&nbsp;${pcmSettleAccMan.vUnitName }	
+			</label>
+			<!-- 银行账户 -->
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<spring:message code="pcmSettleAccMan.vBankAccount" text="银行账户" />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				&nbsp;${pcmSettleAccMan.vBankAccount }	
+			</label>
+			<!-- 开户银行 -->
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<spring:message code="pcmSettleAccMan.vOpenBank" text="开户银行" />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				&nbsp;${pcmSettleAccMan.vOpenBank }	
+			</label>
+			<!-- 开户行省份 -->
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<spring:message code="pcmSettleAccMan.vOpenBankProv" text="开户行省份" />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				&nbsp;${vOpenBankProv }	
+			</label>
+			<!-- 开户行城市 -->
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<spring:message code="pcmSettleAccMan.vOpenBankCity" text="开户行城市" />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				&nbsp;${vCity }	
+			</label>
+			<!-- 资金方支持展业区、县 -->
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<spring:message code="pcmSettleAccMan.vDistrict" text="资金方支持展业区、县" />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				&nbsp;${vDistrict }	
+			</label>
+			<!-- 开户行支行 -->
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<spring:message code="pcmSettleAccMan.vOpenBankBranch" text="开户行支行" />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				&nbsp;${pcmSettleAccMan.vOpenBankBranch }	
+			</label>
 		</div>
-		<c:if test="${factory }">
-		<div class="form-controls auto-float" >
+		<div class="form-controls auto-float">
 			<div class="btn-group-sm">
 			<k:access code="pcmSettleAccMan_edit">
 				<!--修改 -->
@@ -129,7 +174,6 @@
 				<input type="button" class="btn-default btn only-slide-out" value="<spring:message code='kite.web.common.btnBack' text='返回' />" />
 			</div>
 		</div>
-		</c:if>
 	</form:form>
 	<%@ include file="/common/foot.jsp"%>
 </body>

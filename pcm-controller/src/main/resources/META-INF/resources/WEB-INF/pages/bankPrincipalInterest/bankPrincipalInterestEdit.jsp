@@ -159,6 +159,21 @@
                 <spring:message code="basicNetPremium.balanceDate.desc" />
             </div>
         </div>
+        
+        		<div class="form-group row">
+			<!-- 结算信息 -->
+			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+				<spring:message code="fundSideServiceFee.settleAccounts" text="结算信息" />
+				:
+			</label>
+			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
+				<form:input cssClass="form-control" type="text" path="settleAccounts" data-rule-min="0" />
+			</div>
+			<!-- 结算信息描述 -->
+			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
+				<spring:message code="fundSideServiceFee.settleAccounts.desc" />
+			</div>
+		</div>	
 
         <div class="form-controls auto-float">
 			<div class="btn-group-md">
