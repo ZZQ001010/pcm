@@ -45,6 +45,7 @@
 		<div class="form-group row">
 			<!-- 机构地址 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="pcmOrgParameter.orgAddress" text="机构地址" />
 				:
 			</label>
@@ -59,6 +60,7 @@
 		<div class="form-group row">
 			<!-- 机构级别 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="pcmOrgParameter.orgLevel" text="机构级别" />
 				:
 			</label>
@@ -146,6 +148,7 @@
 		<div class="form-group row">
 			<!-- 业务许可有效起期  -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="businessLicensStartDate" text="业务许可有效起期 " />
 				:
 			</label>
@@ -163,6 +166,7 @@
 		<div class="form-group row">
 			<!-- 业务许可有效止期  -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="businessLicensEndDate" text="业务许可有效止期 " />
 				:
 			</label>
@@ -253,6 +257,7 @@
 		<div class="form-group row">
 			<!-- 营业执照号码  -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+			
 				<spring:message code="businessNo" text="营业执照号码 " />
 				:
 			</label>
@@ -340,6 +345,7 @@
 		<div class="form-group row">
 			<!-- 营业执照有效起期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="busCertificateStartDate" text="营业执照有效起期 " />
 				:
 			</label>
@@ -357,6 +363,7 @@
 		<div class="form-group row">
 			<!-- 营业执照有效止期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="busCertificateEndDate" text="营业执照有效止期 " />
 				:
 			</label>

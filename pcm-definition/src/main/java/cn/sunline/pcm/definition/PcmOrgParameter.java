@@ -159,10 +159,6 @@ public class PcmOrgParameter implements Serializable{
 	public Date busCertificateEndDate;
 	
 	
-	public String getValue(){
-		return this.getOrgCode()+"-"+this.getOrgName();
-	}
-	
 	
 	public String getBussinessScope() {
 		return bussinessScope;
