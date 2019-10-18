@@ -10,7 +10,6 @@
 <body class="${param.skin}">
 	<!-- data-confirm=true 提交前需要确认 -->
 	<form:form cssClass="form-horizontal" id="fundSideRoutRuleUpdForm" cssStyle="padding-top: 40px" modelAttribute="fundSideRoutRule" method="post" action="${ctx}/fundSideRoutRule/updFundSideRoutRule.in" data-confirm="true">
-		<form:hidden path="fundSideRoutCode" />
 		<div class="form-group row">
 			<!-- 资金方路由编码 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">

@@ -266,9 +266,11 @@ public class FundSideInfoController {
 			//实收资本
 			Sum paidInCapital = fundSideInfo.getPaidInCapital();
 			CurrencyCd currency = parameterSurface.getParameterObject(paidInCapital.getCurrencyCd(),CurrencyCd.class);
+			if (currency!=null) {
+				String paidInCapitalStr = paidInCapital.getSumNum()+" "+currency.getDescription();
+				view.addObject("paidInCapital", paidInCapitalStr);
+			}
 			
-			String paidInCapitalStr = paidInCapital.getSumNum()+" "+currency.getDescription();
-			view.addObject("paidInCapital", paidInCapitalStr);
 			//注册资本
 			Sum registerMoney = fundSideInfo.getRegisterMoney();
 			

@@ -342,30 +342,30 @@ public class PcmSettleAccManController {
 			//资产方
 			view.addObject("accountOwner", KC.Enum.getI18nLabel(pcmSettleAccMan.getAccountOwner()));
 			
-			AccountOwner accountOwner = pcmSettleAccMan.accountOwner;
-			if(accountOwner!=null){
-				System.err.println(accountOwner);
-				//资产方
-				if(accountOwner.equals(AccountOwner.A)){
-					AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(pcmSettleAccMan.getOrgCode(),AssetSideInfo.class);
-					view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
-				}
-				//资金方
-				if(accountOwner.equals(AccountOwner.F)){
-					FundSideInfo fundSideInfo = parameterSurface.getParameterObject(pcmSettleAccMan.getOrgCode(),FundSideInfo.class);
-					view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
-				}
-				//服务方
-				if(accountOwner.equals(AccountOwner.Z)){
-					ServerInfo serverInfo = parameterSurface.getParameterObject(pcmSettleAccMan.getOrgCode(),ServerInfo.class);
-					view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
-				}
-				//渠道方 
-				if(accountOwner.equals(AccountOwner.Q)){
-					ChannelInfo channelInfo = parameterSurface.getParameterObject(pcmSettleAccMan.getOrgCode(),ChannelInfo.class);
-					view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
-				}
-			}
+//			AccountOwner accountOwner = pcmSettleAccMan.accountOwner;
+//			if(accountOwner!=null){
+//				System.err.println(accountOwner);
+//				//资产方
+//				if(accountOwner.equals(AccountOwner.A)){
+//					AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(pcmSettleAccMan.getOrgCode(),AssetSideInfo.class);
+//					view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+//				}
+//				//资金方
+//				if(accountOwner.equals(AccountOwner.F)){
+//					FundSideInfo fundSideInfo = parameterSurface.getParameterObject(pcmSettleAccMan.getOrgCode(),FundSideInfo.class);
+//					view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+//				}
+//				//服务方
+//				if(accountOwner.equals(AccountOwner.Z)){
+//					ServerInfo serverInfo = parameterSurface.getParameterObject(pcmSettleAccMan.getOrgCode(),ServerInfo.class);
+//					view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+//				}
+//				//渠道方 
+//				if(accountOwner.equals(AccountOwner.Q)){
+//					ChannelInfo channelInfo = parameterSurface.getParameterObject(pcmSettleAccMan.getOrgCode(),ChannelInfo.class);
+//					view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+//				}
+//			}
 			
 			
 			

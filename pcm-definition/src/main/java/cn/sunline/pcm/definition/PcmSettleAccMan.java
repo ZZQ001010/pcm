@@ -41,11 +41,6 @@ public class PcmSettleAccMan implements Serializable{
 	@PropertyInfo(name="账号归属")
 	public AccountOwner accountOwner;
 	
-	/**
-	 * 资产方
-	 */
-	@PropertyInfo(name="资产方",length=32)
-	public String asset;
 	
 	/**
 	 * 机构账号类型
@@ -54,29 +49,25 @@ public class PcmSettleAccMan implements Serializable{
 	public OrganizationAccountType organizationAccountType;
 	
 	/**
+	 *  ------------------实体账号信息------------                     	
+	 */
+	
+	/**
 	 * 单位名称
 	 */
 	@PropertyInfo(name="单位名称",length=32)
 	public String  unitName;
 	
-	/**
-	 * 账号信息
-	 */
-	@PropertyInfo(name="账号信息",length=64)
-	public String accInfo;
 	
 	/**
 	 * 银行账户
 	 */
 	@PropertyInfo(name="银行账户",length=32)
-	public String bankAccount; 
-	/**
-	 * 机构编号
-	 */
-	@PropertyInfo(name="机构编号",length=32)
-	public String orgCode;
+	public String bankAccount;
 		
  
+		
+		
 	/**
 	 * 开户银行
 	 */
@@ -95,13 +86,96 @@ public class PcmSettleAccMan implements Serializable{
 	 */
 	@PropertyInfo(name="开户行城市",length=32)
 	public String openBankCity;
+	
+    /**
+     * 资金方支持展业区、县
+     */
+    @PropertyInfo(name="资金方支持展业区、县")
+    public String  district;
+   
+	
+	
 		
 	/**
 	 * 开户行支行
 	 */
 	@PropertyInfo(name="开户行支行",length=100)
 	public String openBankBranch;
-
+	
+	
+	
+	
+	/**
+	 *  --------------虚拟账号信息-------------
+	 */
+	
+	/**
+	 * 单位名称
+	 */
+	@PropertyInfo(name="单位名称",length=32)
+	public String  vUnitName;
+	
+	
+	/**
+	 * 银行账户
+	 */
+	@PropertyInfo(name="银行账户",length=32)
+	public String vBankAccount;
+		
+ 
+		
+		
+	/**
+	 * 开户银行
+	 */
+	@PropertyInfo(name="开户银行",length=100)
+	public String vOpenBank;
+		
+	
+	/**
+	 * 开户行省份
+	 */
+	@PropertyInfo(name="开户行省份",length=32)
+	public String vOpenBankProv;
+		
+	/**
+	 * 开户行城市
+	 */
+	@PropertyInfo(name="开户行城市",length=32)
+	public String vOpenBankCity;
+	
+    /**
+     * 资金方支持展业区、县
+     */
+    @PropertyInfo(name="资金方支持展业区、县")
+    public String  vDistrict;
+   
+	
+	
+		
+	/**
+	 * 开户行支行
+	 */
+	@PropertyInfo(name="开户行支行",length=100)
+	public String vOpenBankBranch;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * @return the settleAccCode
 	 */
@@ -144,18 +218,62 @@ public class PcmSettleAccMan implements Serializable{
 		this.accountOwner = accountOwner;
 	}
 
-	/**
-	 * @return the orgCode
-	 */
-	public String getOrgCode() {
-		return orgCode;
+	 
+
+	public String getvUnitName() {
+		return vUnitName;
 	}
 
-	/**
-	 * @param orgCode the orgCode to set
-	 */
-	public void setOrgCode(String orgCode) {
-		this.orgCode = orgCode;
+	public void setvUnitName(String vUnitName) {
+		this.vUnitName = vUnitName;
+	}
+
+	public String getvBankAccount() {
+		return vBankAccount;
+	}
+
+	public void setvBankAccount(String vBankAccount) {
+		this.vBankAccount = vBankAccount;
+	}
+
+	public String getvOpenBank() {
+		return vOpenBank;
+	}
+
+	public void setvOpenBank(String vOpenBank) {
+		this.vOpenBank = vOpenBank;
+	}
+
+	public String getvOpenBankProv() {
+		return vOpenBankProv;
+	}
+
+	public void setvOpenBankProv(String vOpenBankProv) {
+		this.vOpenBankProv = vOpenBankProv;
+	}
+
+	public String getvOpenBankCity() {
+		return vOpenBankCity;
+	}
+
+	public void setvOpenBankCity(String vOpenBankCity) {
+		this.vOpenBankCity = vOpenBankCity;
+	}
+
+	public String getvDistrict() {
+		return vDistrict;
+	}
+
+	public void setvDistrict(String vDistrict) {
+		this.vDistrict = vDistrict;
+	}
+
+	public String getvOpenBankBranch() {
+		return vOpenBankBranch;
+	}
+
+	public void setvOpenBankBranch(String vOpenBankBranch) {
+		this.vOpenBankBranch = vOpenBankBranch;
 	}
 
 	/**
@@ -185,6 +303,9 @@ public class PcmSettleAccMan implements Serializable{
 	public void setOpenBankProv(String openBankProv) {
 		this.openBankProv = openBankProv;
 	}
+	
+	
+	
 
 	/**
 	 * @return the openBankCity
@@ -213,24 +334,7 @@ public class PcmSettleAccMan implements Serializable{
 	public void setOpenBankBranch(String openBankBranch) {
 		this.openBankBranch = openBankBranch;
 	}
-
-	public String getAsset() {
-		return asset;
-	}
-
-	public void setAsset(String asset) {
-		this.asset = asset;
-	}
-
-
-
-	public String getAccInfo() {
-		return accInfo;
-	}
-
-	public void setAccInfo(String accInfo) {
-		this.accInfo = accInfo;
-	}
+ 
 
 	public OrganizationAccountType getOrganizationAccountType() {
 		return organizationAccountType;
@@ -255,6 +359,16 @@ public class PcmSettleAccMan implements Serializable{
 	public void setBankAccount(String bankAccount) {
 		this.bankAccount = bankAccount;
 	}
+
+	public String getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
+	}
 	
 		
+	
+	
 }
