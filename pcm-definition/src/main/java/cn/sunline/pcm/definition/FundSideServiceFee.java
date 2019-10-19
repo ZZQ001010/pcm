@@ -81,6 +81,13 @@ public class FundSideServiceFee implements Serializable{
 	@PropertyInfo(name="结算日期",length=32)
 	public String balanceDate;
 	
+	
+	/**
+	 * 结算信息
+	 */
+	@PropertyInfo(name="结算信息",length=32)
+	public  String settleAccounts; 
+	
 	/**
 	 * 提前还款手续费方式
 	 * @return
@@ -89,8 +96,21 @@ public class FundSideServiceFee implements Serializable{
 	//public Settlement settlement;
 	
 	
+	
+	
+	
 	public BanceDate getBanceDate() {
 		return banceDate;
+	}
+
+
+	public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
 	}
 
 

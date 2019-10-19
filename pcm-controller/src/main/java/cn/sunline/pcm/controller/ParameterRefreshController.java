@@ -47,14 +47,14 @@ public class ParameterRefreshController {
 	public ModelAndView resourceQueryPage()throws FlatException{
 		try {
 			// 参数同步的数据携带
-			List<String> list = new ArrayList<String>();
-			list.add("serviceId=ParamConsistentService");
-			list.add("syncBusinessKey=");
-			list.add("autoRefresh=false");
-			return KW.mvc.forwardRealPathView("/sync/syncQueryPage.in?" + KC.string.join(list, "&"));
+//			List<String> list = new ArrayList<String>();
+//			list.add("serviceId=ParamConsistentService");
+//			list.add("syncBusinessKey=");
+//			list.add("autoRefresh=false");
+//			return KW.mvc.forwardRealPathView("/sync/syncQueryPage.in?" + KC.string.join(list, "&"));
 			// 旧的参数刷新
-//			ModelAndView view = KW.mvc.forwardView("parameterRefresh/parameterRefresh");
-//			return view;
+			ModelAndView view = KW.mvc.forwardView("parameterRefresh/parameterRefresh");
+			return view;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			throw new FlatException(e, "parameterRefresh.parameterRefreshPageFail", "加载参数刷新页面失败");

@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ import cn.sunline.pcm.controller.common.constent.ParameterFlags;
 import cn.sunline.pcm.definition.AssetSideCtrlInfo;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.AssetSideRiskCtrl;
+import cn.sunline.pcm.definition.FundSideCtrlInfo;
 import cn.sunline.pcm.definition.FundSideInfo;
 import cn.sunline.pcm.definition.FundSideProductCtrlInfo;
 import cn.sunline.pcm.definition.enums.FundSideBusinessScope;
@@ -286,9 +288,17 @@ public class FundSideCtrlProductInfoController {
             FundSideProductCtrlInfo fundSideProductCtrlInfo = parameterSurface.getParameterObject(
                     fundSideCtrlCode==null?code:fundSideCtrlCode, FundSideProductCtrlInfo.class);
             view.addObject("fundSideProductCtrlInfo", fundSideProductCtrlInfo);
-            view.addObject("fundSidePartRepay",fundSideProductCtrlInfo.getFundSidePartRepay()?"是":"否");
-    		String province = addressHelperFacility.loadProvince().get(fundSideProductCtrlInfo.getFundSideProv());
-    		String city = addressHelperFacility.loadCity(fundSideProductCtrlInfo.getFundSideProv()).get(fundSideProductCtrlInfo.getFundSideCity());
+            if (StringUtils.isNotEmpty(fundSideProductCtrlInfo.getFundSideProv())) {
+            	 view.addObject("fundSidePartRepay",fundSideProductCtrlInfo.getFundSidePartRepay()?"是":"否");
+			}
+            String province ="" ; 
+            String city=""; 
+            if (fundSideProductCtrlInfo.getFundSideProv()!=null) {
+            	province = addressHelperFacility.loadProvince().get(fundSideProductCtrlInfo.getFundSideProv());
+			}
+            if (fundSideProductCtrlInfo.getFundSideCity()!=null) {
+            	city = addressHelperFacility.loadCity(fundSideProductCtrlInfo.getFundSideProv()).get(fundSideProductCtrlInfo.getFundSideCity());
+			}
     		//市
             view.addObject("FundSideProv",province);
             view.addObject("fundSideCity", city);

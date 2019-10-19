@@ -59,7 +59,21 @@ public class PacificInsuranceAgencyDedit implements Serializable {
 	@PropertyInfo(name="结算星期",length=32)
 	public BanceDate banceDate;
 	
+	@PropertyInfo(name="结算信息",length=32)
+	public String settleAccounts; 
 	
+	
+	
+	public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
+
+
 	public BanceDate getBanceDate() {
 		return banceDate;
 	}

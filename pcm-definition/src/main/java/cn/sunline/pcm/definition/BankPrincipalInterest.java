@@ -42,8 +42,25 @@ public class BankPrincipalInterest  implements Serializable{
      */
     @PropertyInfo(name="结算日期",length=32)
     public String  balanceDate;
+    
+    
+    /**
+     * 结算信息
+     */
+    @PropertyInfo(name="结算信息",length=32)
+    public String  settleAccounts;
 
-    public String getBankPrincipalInterestCode() {
+    
+    
+    public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
+
+	public String getBankPrincipalInterestCode() {
         return bankPrincipalInterestCode;
     }
 

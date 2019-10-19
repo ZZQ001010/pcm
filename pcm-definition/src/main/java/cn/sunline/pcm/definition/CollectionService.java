@@ -9,8 +9,6 @@ import cn.sunline.pcm.definition.enums.BillingCycle;
 import cn.sunline.pcm.definition.enums.ChannelPartnerType;
 import cn.sunline.pcm.definition.enums.FeeBasis;
 import cn.sunline.pcm.definition.enums.FeeCollectionMethod;
-import cn.sunline.pcm.definition.enums.FrequencyOfCharge;
-import cn.sunline.pcm.definition.enums.LimitControlMethod;
 
 /**
  *  催收服务费
@@ -19,8 +17,10 @@ import cn.sunline.pcm.definition.enums.LimitControlMethod;
  *
  */
 public class CollectionService implements Serializable{
-	private static final long serialVersionUID = 1L;
 
+	
+	
+	
 	@PropertyInfo(name="催收服务费", length=15)
 	public  String code ; 
 	
@@ -84,6 +84,24 @@ public class CollectionService implements Serializable{
 	public BanceDate banceDate;
 	
 	
+	@PropertyInfo(name="结算信息",length=32)
+	public String  settleAccounts ; 
+	
+	
+	
+	
+	
+	
+	public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
+
+
 	public ChannelPartnerType getPartnerType() {
 		return partnerType;
 	}

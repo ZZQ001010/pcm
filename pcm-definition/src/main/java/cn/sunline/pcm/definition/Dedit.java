@@ -9,8 +9,6 @@ import cn.sunline.pcm.definition.enums.BillingCycle;
 import cn.sunline.pcm.definition.enums.ChannelPartnerType;
 import cn.sunline.pcm.definition.enums.DeditBasisOfFeeCollection;
 import cn.sunline.pcm.definition.enums.DeditMethodOfFeeCollection;
-import cn.sunline.pcm.definition.enums.FeeBasis;
-import cn.sunline.pcm.definition.enums.FeeCollectionMethod;
 
 /**
  * 平台违约金
@@ -18,7 +16,6 @@ import cn.sunline.pcm.definition.enums.FeeCollectionMethod;
  *
  */
 public class Dedit implements Serializable{
-	private static final long serialVersionUID = 1L;
 
 	@PropertyInfo(name="平台违约金编码", length=15)
 	public  String deditCode ; 
@@ -70,6 +67,28 @@ public class Dedit implements Serializable{
 	 */
 	@PropertyInfo(name="合作方编码",length=12)
 	public String partnerCode;
+	
+	/**
+	 * 结算信息
+	 */
+	@PropertyInfo(name="结算信息",length=32)
+	public  String settleAccounts; 
+	
+	
+	
+	
+	
+	
+
+
+	public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
 
 
 	public ChannelPartnerType getPartnerType() {

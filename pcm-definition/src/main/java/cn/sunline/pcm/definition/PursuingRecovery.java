@@ -36,6 +36,14 @@ public class PursuingRecovery  implements Serializable{
      */
     @PropertyInfo(name="结算日期",length=32)
     public String  balanceDate;
+    
+    
+    /**
+     * 结算信息
+     */
+    @PropertyInfo(name="结算信息",length=32)
+    public String settleAccounts;
+    
 
     public String getPursuingRecoveryCode() {
         return pursuingRecoveryCode;
@@ -93,7 +101,15 @@ public class PursuingRecovery  implements Serializable{
         TransferToAccount = transferToAccount;
     }
 
-    public cn.sunline.pcm.definition.enums.BillingCycle getBillingCycle() {
+    public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
+
+	public cn.sunline.pcm.definition.enums.BillingCycle getBillingCycle() {
         return BillingCycle;
     }
 

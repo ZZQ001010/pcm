@@ -138,8 +138,28 @@ public class BasicNetPremium implements Serializable{
 	 */
 	@PropertyInfo(name="提前结清费用收取方式",length=32)
 	public Settlement settlement;
+	
+	
+	
+	  /**
+     * 结算信息
+     */
+    @PropertyInfo(name="结算信息",length=12)
+    public String settleAccounts;
+	
+	
+	
+	
 
-    public ChannelPartnerType getPartnerType() {
+    public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
+
+	public ChannelPartnerType getPartnerType() {
         return partnerType;
     }
 

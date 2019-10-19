@@ -62,7 +62,20 @@ public class PaymentPremium  implements Serializable {
 	@PropertyInfo(name="结算日期",length=12)
 	public String balanceDate;
 
+	@PropertyInfo(name="结算内容",length=12)
+	public String settleAccounts;
 	
+	
+	
+	
+	public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
+
 	public String getPaymentPremiumCode() {
 		return paymentPremiumCode;
 	}

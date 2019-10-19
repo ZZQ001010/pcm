@@ -8,7 +8,6 @@ import cn.sunline.pcm.definition.enums.FrequencyOfChannel;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@SuppressWarnings("serial")
 public class BankChargeMorePenaltyInterest implements Serializable {
     @PropertyInfo(name="银行多记罚息编码", length=15)
     public String bankChargeMorePenaltyInterestCode;
@@ -41,8 +40,26 @@ public class BankChargeMorePenaltyInterest implements Serializable {
      */
     @PropertyInfo(name="结算日期",length=32)
     public String  balanceDate;
+    
+    
+    /**
+     * 结算内容
+     */
+    @PropertyInfo(name="结算内容",length=32)
+    public String  settleAccounts;
+    
+    
+    
 
-    public String getBankChargeMorePenaltyInterestCode() {
+    public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
+
+	public String getBankChargeMorePenaltyInterestCode() {
         return bankChargeMorePenaltyInterestCode;
     }
 
