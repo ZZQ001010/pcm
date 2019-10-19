@@ -92,7 +92,7 @@
 	  				url: "${ctx}/assetSideRiskCtrl/queryAssetSideRiskCtrlList.in",
 	  				method: "post",
 	  				data: function(d) {
-						d.riskCtrlWays = $("#aId").val();
+						d.aId = $("#aId").val();
 	  				}
 	  			},
 	  			columns: columns
