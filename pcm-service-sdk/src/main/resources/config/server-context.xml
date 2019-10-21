@@ -15,7 +15,6 @@
 
 	<!-- 参数刷新服务 -->
 	<bean class="cn.sunline.rpc.common.define.RPCServiceBean">
-		<property name="mode" value="BROADCAST"/>
 		<property name="serviceName" value="parameterRefreshService"/>
 		<property name="service" value="unifiedParameterRefreshServiceImpl" />
 		<property name="serviceInterface" value="cn.sunline.pcm.service.api.UnifiedParameterRefreshService" />
