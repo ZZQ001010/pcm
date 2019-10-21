@@ -71,10 +71,9 @@ public class ParameterRefreshController {
 	 */
 	@ResponseBody
 	@RequestMapping(value="clearParameter.in", method = { RequestMethod.POST })
-	public String clearParameter(String key, String paramClazzName) throws FlatException{
+	public void clearParameter(String key, String paramClazzName) throws FlatException{
 		try {
 			refreshSurface.refreshParameter(key, paramClazzName);
-			return "ok";
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			throw new FlatException(e,"parameterRefresh.clearParameterFail","刷新参数失败");
