@@ -174,6 +174,7 @@ public class PcmSettleAccManController {
 			}
 			view.addObject("pcmOrgParameterMap",new JSONObject(pcmOrgParameterMap));
 			view.addObject("organizationAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.OrganizationAccountType.class));
+			view.addObject("settlementAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SettlementAccountType.class));
 			//view.addObject("assetSideInfoMap",assetSideInfoMap);
 			view.addObject("pcmSettleAccMan", new PcmSettleAccMan());
 			return view;
@@ -263,6 +264,7 @@ public class PcmSettleAccManController {
 			}
 			view.addObject("serverInfoMap",new JSONObject(serverInfoMap));
 			view.addObject("organizationAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.OrganizationAccountType.class));
+			view.addObject("settlementAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SettlementAccountType.class));
 			if (KC.string.isNotBlank(pcmSettleAccMan.getOpenBankProv())) {
 				view.addObject("openBankPriv", addressHelperFacility.loadCity(pcmSettleAccMan.getOpenBankProv()));
 			}
