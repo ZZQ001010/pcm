@@ -125,7 +125,7 @@ public class PcmSettleAccManController {
 			ModelAndView view = KW.mvc.forwardView("pcmSettleAccMan/pcmSettleAccManAdd");
 			TreeMap<String, String> map = addressHelperFacility.loadProvince();
 			view.addObject("accountOwner", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.AccountOwner.class));
-			view.addObject("province", map);
+			view.addObject("openBankProv", map);
 			view.addObject("openBankCity", new LinkedHashMap<String, String>());
 //			view.addObject("acctType", codeService.getCodeMapByCodeType("acctType"));
 //			view.addObject("orgType", codeService.getCodeMapByCodeType("orgType"));
