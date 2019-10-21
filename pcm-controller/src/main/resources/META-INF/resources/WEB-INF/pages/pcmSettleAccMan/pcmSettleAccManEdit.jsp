@@ -59,7 +59,34 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="pcmSettleAccMan.organizationAccountType.desc" />
 			</div>
+<<<<<<< HEAD
 		</div>				
+=======
+		</div>
+		
+		<h2 style="margin-left: 20px">实体账号信息</h2>
+		<hr>
+				
+		<div class="form-group row">
+			<!-- 结算账号类型 -->
+			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+				<spring:message code="pcmSettleAccMan.settlementAccountType" text="结算账号类型" />
+				:
+			</label>
+			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
+				<form:select path="settlementAccountType" cssClass="form-control">
+			 		<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<form:options items="${settlementAccountType}" />
+				</form:select>
+				<!-- <form:input cssClass="form-control" type="text" path="organizationAccountType"  data-rule-maxlength="32" /> -->
+			</div>
+			<!-- 机构账号类型描述 -->
+			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
+				<spring:message code="pcmSettleAccMan.settlementAccountType.desc" />
+			</div>
+		</div>
+						
+>>>>>>> branch 'dev' of http://code.hq.cpic.com/PT19PCIIS/cics-pcm.git
 		<div class="form-group row">
 			<!-- 单位名称 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
@@ -152,7 +179,8 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="pcmSettleAccMan.district.desc" />
 			</div>
-		</div>				
+		</div>		
+			
 		<div class="form-group row">
 			<!-- 开户行支行 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
@@ -166,7 +194,9 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="pcmSettleAccMan.openBankBranch.desc" />
 			</div>
-		</div>				
+		</div>		
+		<h2 style="margin-left: 20px">虚拟账号信息</h2>
+		<hr>			
 		<div class="form-group row">
 			<!-- 单位名称 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
