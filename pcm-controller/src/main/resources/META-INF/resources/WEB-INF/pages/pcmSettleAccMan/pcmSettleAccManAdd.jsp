@@ -144,7 +144,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select path="openBankProv" cssClass="form-control">
+				<form:select path="openBankProv" cssClass="form-control" id="province">
 			 		<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${province}" />
 				</form:select>
@@ -160,8 +160,8 @@
 				<spring:message code="pcmSettleAccMan.openBankCity" text="开户行城市" />
 				:
 			</label>
-			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select path="openBankCity" cssClass="form-control">
+			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6" id="cityBox">
+				<form:select path="openBankCity" cssClass="form-control" id="city">
 			 		<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 				</form:select>
 				<!-- <form:input cssClass="form-control" type="text" path="openBankCity"  data-rule-maxlength="32" /> -->
@@ -330,6 +330,69 @@
 	<script type="text/javascript">
 		//开启表单验证
 		$("#pcmSettleAccManAddForm").validate();
+		
+		$("#province")
+		.on(
+				"change",
+				function() {
+					$.ajax({
+								type : "post",
+								url : "${ctx}/webCommon/loadCity.in ",
+								cache : false,
+								//async : false,
+								data : $("#province").val(),
+								dataType : "json",
+								contentType : "application/json",
+								success : function(data) {
+			
+									 $("#cityBox").empty();
+									$("#cityBox")
+											.append(
+													`<select id="city" class="form-control" name="residence.city"><option value="">--- 请选择 --- </option></select>`);
+									for ( var key in data) {
+										$("#city").append(
+												`<option value=`+key+`>`
+														+ data[key]
+														+ `</option>`);
+									} 
+								}
+
+							});
+				});
+		
+		
+		
+
+		$(document)
+		.on(
+				"change",
+				"#city",
+				function() {
+					$.ajax({
+								type : "post",
+								url : "${ctx}/webCommon/loadDistricts.in  ",
+								cache : false,
+								//async : false,
+								data : $("#city").val(),
+								dataType : "json",
+								contentType : "application/json",
+								success : function(data) {
+			
+									 $("#microdistrictBox").empty();
+									$("#microdistrictBox")
+											.append(
+													`<select id="microdistrict" class="form-control" name="residence.microdistrict"><option value="">--- 请选择 --- </option></select>`);
+									for ( var key in data) {
+										$("#microdistrict").append(
+												`<option value=`+key+`>`
+														+ data[key]
+														+ `</option>`);
+									} 
+								}
+
+							});
+				});
+		
 		
 		$(function(){
 			$('#vOpenBankProv').on('change',function(){

@@ -224,7 +224,7 @@ public class PcmSettleAccManController {
 			ModelAndView view = KW.mvc.forwardView("pcmSettleAccMan/pcmSettleAccManEdit");
 			view.addObject("accountOwner", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.AccountOwner.class));
 			PcmSettleAccMan pcmSettleAccMan = parameterSurface.getParameterObject(settleAccCode, PcmSettleAccMan.class);
-			view.addObject("openBankProv", addressHelperFacility.loadProvince());
+			view.addObject("province", addressHelperFacility.loadProvince());
 			view.addObject("city",addressHelperFacility.loadCity(pcmSettleAccMan.getOpenBankProv()));
 			/**
 			 * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
