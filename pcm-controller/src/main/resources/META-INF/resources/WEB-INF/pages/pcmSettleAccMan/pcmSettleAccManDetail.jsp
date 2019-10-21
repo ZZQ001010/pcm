@@ -60,16 +60,6 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${pcmSettleAccMan.bankAccount }	
 			</label>
-			
-			<!-- 银行账户编码 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="pcmSettleAccMan.openBankCode" text="银行账户编码" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
-				&nbsp;${pcmSettleAccMan.openBankCode }	
-			</label>
-			
 			<!-- 开户银行 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
 				<spring:message code="pcmSettleAccMan.openBank" text="开户银行" />
@@ -94,9 +84,9 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${city }	
 			</label>
-			<!-- 开户区、县 -->
+			<!-- 资金方支持展业区、县 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="pcmSettleAccMan.district" text="开户区、县" />
+				<spring:message code="pcmSettleAccMan.district" text="资金方支持展业区、县" />
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
@@ -150,9 +140,9 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${vCity }	
 			</label>
-			<!-- 开户区、县 -->
+			<!-- 资金方支持展业区、县 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="pcmSettleAccMan.vDistrict" text="开户区、县" />
+				<spring:message code="pcmSettleAccMan.vDistrict" text="资金方支持展业区、县" />
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
