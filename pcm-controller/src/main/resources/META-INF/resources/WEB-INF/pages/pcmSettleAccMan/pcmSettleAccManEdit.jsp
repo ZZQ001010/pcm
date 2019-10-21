@@ -61,6 +61,8 @@
 			</div>
 		</div>
 		
+		<h2 style="margin-left: 20px">实体账号信息</h2>
+		<hr>
 				
 		<div class="form-group row">
 			<!-- 结算账号类型 -->
@@ -188,7 +190,8 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="pcmSettleAccMan.district.desc" />
 			</div>
-		</div>				
+		</div>		
+			
 		<div class="form-group row">
 			<!-- 开户行支行 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
@@ -202,7 +205,9 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="pcmSettleAccMan.openBankBranch.desc" />
 			</div>
-		</div>				
+		</div>		
+		<h2 style="margin-left: 20px">虚拟账号信息</h2>
+		<hr>			
 		<div class="form-group row">
 			<!-- 单位名称 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
