@@ -174,6 +174,7 @@ public class PcmSettleAccManController {
 			}
 			view.addObject("pcmOrgParameterMap",new JSONObject(pcmOrgParameterMap));
 			view.addObject("organizationAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.OrganizationAccountType.class));
+			view.addObject("settlementAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SettlementAccountType.class));
 			//view.addObject("assetSideInfoMap",assetSideInfoMap);
 			view.addObject("pcmSettleAccMan", new PcmSettleAccMan());
 			return view;
@@ -224,7 +225,7 @@ public class PcmSettleAccManController {
 			ModelAndView view = KW.mvc.forwardView("pcmSettleAccMan/pcmSettleAccManEdit");
 			view.addObject("accountOwner", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.AccountOwner.class));
 			PcmSettleAccMan pcmSettleAccMan = parameterSurface.getParameterObject(settleAccCode, PcmSettleAccMan.class);
-			view.addObject("openBankProv", addressHelperFacility.loadProvince());
+			view.addObject("province", addressHelperFacility.loadProvince());
 			view.addObject("city",addressHelperFacility.loadCity(pcmSettleAccMan.getOpenBankProv()));
 			/**
 			 * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
@@ -263,6 +264,7 @@ public class PcmSettleAccManController {
 			}
 			view.addObject("serverInfoMap",new JSONObject(serverInfoMap));
 			view.addObject("organizationAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.OrganizationAccountType.class));
+			view.addObject("settlementAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SettlementAccountType.class));
 			if (KC.string.isNotBlank(pcmSettleAccMan.getOpenBankProv())) {
 				view.addObject("openBankPriv", addressHelperFacility.loadCity(pcmSettleAccMan.getOpenBankProv()));
 			}

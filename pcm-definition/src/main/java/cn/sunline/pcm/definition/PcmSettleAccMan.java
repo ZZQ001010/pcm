@@ -13,6 +13,7 @@ import java.io.Serializable;
 import cn.sunline.common.annotation.paramdef.PropertyInfo;
 import cn.sunline.pcm.definition.enums.AccountOwner;
 import cn.sunline.pcm.definition.enums.OrganizationAccountType;
+import cn.sunline.pcm.definition.enums.SettlementAccountType;
 
 /**
  * @author zzq
@@ -49,6 +50,12 @@ public class PcmSettleAccMan implements Serializable{
 	public OrganizationAccountType organizationAccountType;
 	
 	/**
+	 * 结算账号类型
+	 */
+	@PropertyInfo(name="结算账号类型",length=32)
+	public SettlementAccountType settlementAccountType;
+	
+	/**
 	 *  ------------------实体账号信息------------                     	
 	 */
 	
@@ -58,6 +65,12 @@ public class PcmSettleAccMan implements Serializable{
 	@PropertyInfo(name="单位名称",length=32)
 	public String  unitName;
 	
+	
+	/**
+	 * 开户银行编码
+	 */
+	@PropertyInfo(name="开户银行编码",length=32)
+	public String openBankCode;
 	
 	/**
 	 * 银行账户
@@ -367,8 +380,22 @@ public class PcmSettleAccMan implements Serializable{
 	public void setDistrict(String district) {
 		this.district = district;
 	}
-	
-		
+
+	public String getOpenBankCode() {
+		return openBankCode;
+	}
+
+	public void setOpenBankCode(String openBankCode) {
+		this.openBankCode = openBankCode;
+	}
+
+	public SettlementAccountType getSettlementAccountType() {
+		return settlementAccountType;
+	}
+
+	public void setSettlementAccountType(SettlementAccountType settlementAccountType) {
+		this.settlementAccountType = settlementAccountType;
+	}
 	
 	
 }
