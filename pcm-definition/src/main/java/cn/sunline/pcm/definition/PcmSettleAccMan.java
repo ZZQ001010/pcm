@@ -60,6 +60,12 @@ public class PcmSettleAccMan implements Serializable{
 	
 	
 	/**
+	 * 开户银行编码
+	 */
+	@PropertyInfo(name="开户银行编码",length=32)
+	public String openBankCode;
+	
+	/**
 	 * 银行账户
 	 */
 	@PropertyInfo(name="银行账户",length=32)
@@ -367,8 +373,14 @@ public class PcmSettleAccMan implements Serializable{
 	public void setDistrict(String district) {
 		this.district = district;
 	}
-	
-		
+
+	public String getOpenBankCode() {
+		return openBankCode;
+	}
+
+	public void setOpenBankCode(String openBankCode) {
+		this.openBankCode = openBankCode;
+	}
 	
 	
 }

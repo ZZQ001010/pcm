@@ -71,6 +71,7 @@
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.settleAccDes" text="结算账号描述" />', data: 'settleAccDes'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.unitName" text="单位名称" />', data: 'unitName'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.bankAccount" text="银行账户" />', data: 'bankAccount'});
+		columns.push({ title: '<spring:message code="pcmSettleAccMan.openBankCode" text="银行账户编码" />', data: 'openBankCode'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.openBank" text="开户银行" />', data: 'openBank'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.openBankProv" text="开户行省份" />', data: 'openBankProv'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.openBankCity" text="开户行城市" />', data: 'openBankCity'});

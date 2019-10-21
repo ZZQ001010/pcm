@@ -60,6 +60,16 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${pcmSettleAccMan.bankAccount }	
 			</label>
+			
+			<!-- 银行账户编码 -->
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<spring:message code="pcmSettleAccMan.openBankCode" text="银行账户编码" />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				&nbsp;${pcmSettleAccMan.openBankCode }	
+			</label>
+			
 			<!-- 开户银行 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
 				<spring:message code="pcmSettleAccMan.openBank" text="开户银行" />
