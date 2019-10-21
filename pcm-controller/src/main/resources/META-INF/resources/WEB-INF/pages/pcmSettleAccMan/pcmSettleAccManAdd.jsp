@@ -331,68 +331,6 @@
 		//开启表单验证
 		$("#pcmSettleAccManAddForm").validate();
 		
-		$("#province")
-		.on(
-				"change",
-				function() {
-					$.ajax({
-								type : "post",
-								url : "${ctx}/webCommon/loadCity.in ",
-								cache : false,
-								//async : false,
-								data : $("#province").val(),
-								dataType : "json",
-								contentType : "application/json",
-								success : function(data) {
-			
-									 $("#cityBox").empty();
-									$("#cityBox")
-											.append(
-													`<select id="city" class="form-control" name="residence.city"><option value="">--- 请选择 --- </option></select>`);
-									for ( var key in data) {
-										$("#city").append(
-												`<option value=`+key+`>`
-														+ data[key]
-														+ `</option>`);
-									} 
-								}
-
-							});
-				});
-		
-		
-		
-
-		$(document)
-		.on(
-				"change",
-				"#city",
-				function() {
-					$.ajax({
-								type : "post",
-								url : "${ctx}/webCommon/loadDistricts.in  ",
-								cache : false,
-								//async : false,
-								data : $("#city").val(),
-								dataType : "json",
-								contentType : "application/json",
-								success : function(data) {
-			
-									 $("#microdistrictBox").empty();
-									$("#microdistrictBox")
-											.append(
-													`<select id="microdistrict" class="form-control" name="residence.microdistrict"><option value="">--- 请选择 --- </option></select>`);
-									for ( var key in data) {
-										$("#microdistrict").append(
-												`<option value=`+key+`>`
-														+ data[key]
-														+ `</option>`);
-									} 
-								}
-
-							});
-				});
-		
 		
 		$(function(){
 			$('#vOpenBankProv').on('change',function(){
