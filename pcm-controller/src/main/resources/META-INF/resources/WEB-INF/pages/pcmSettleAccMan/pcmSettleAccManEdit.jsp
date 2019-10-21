@@ -152,9 +152,9 @@
 			</div>
 		</div>				
 		<div class="form-group row">
-			<!-- 资金方支持展业区、县 -->
+			<!-- 开户区、县 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<spring:message code="pcmSettleAccMan.district" text="资金方支持展业区、县" />
+				<spring:message code="pcmSettleAccMan.district" text="开户区、县" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
@@ -163,7 +163,7 @@
 			 		<form:options items="${district }" />
 				</form:select>
 			</div>
-			<!-- 资金方支持展业区、县描述 -->
+			<!-- 开户区、县描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="pcmSettleAccMan.district.desc" />
 			</div>
@@ -261,9 +261,9 @@
 			</div>
 		</div>				
 		<div class="form-group row">
-			<!-- 资金方支持展业区、县 -->
+			<!-- 开户区、县 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<spring:message code="pcmSettleAccMan.vDistrict" text="资金方支持展业区、县" />
+				<spring:message code="pcmSettleAccMan.vDistrict" text="开户区、县" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
@@ -272,7 +272,7 @@
 			 		<form:options items="${vDistrict }" />
 				</form:select>
 			</div>
-			<!-- 资金方支持展业区、县描述 -->
+			<!-- 开户区、县描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="pcmSettleAccMan.vDistrict.desc" />
 			</div>
