@@ -59,11 +59,8 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="pcmSettleAccMan.organizationAccountType.desc" />
 			</div>
-<<<<<<< HEAD
-		</div>				
-=======
 		</div>
-		
+		</br>
 		<h2 style="margin-left: 20px">实体账号信息</h2>
 		<hr>
 				
@@ -86,7 +83,6 @@
 			</div>
 		</div>
 						
->>>>>>> branch 'dev' of http://code.hq.cpic.com/PT19PCIIS/cics-pcm.git
 		<div class="form-group row">
 			<!-- 单位名称 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
