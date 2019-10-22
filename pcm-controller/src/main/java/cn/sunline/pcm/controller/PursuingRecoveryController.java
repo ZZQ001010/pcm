@@ -262,7 +262,6 @@ public class PursuingRecoveryController {
            		parameterSurface.getParameterObject(PcmSettleAccMan.class)
            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())));
-           
             view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
             view.addObject("banceDate", KC.Enum.getI18nLabelMap(BanceDate.class));
             //所属机构
@@ -311,6 +310,11 @@ public class PursuingRecoveryController {
             view.addObject("serverInfoMap",new JSONObject(serverInfoMap));
             PursuingRecovery pursuingRecovery = parameterSurface.getParameterObject(pursuingRecoveryCode, PursuingRecovery.class);
             view.addObject("pursuingRecovery", pursuingRecovery);
+            view.addObject("pcmSettleAccMan",
+            		parameterSurface.getParameterObject(PcmSettleAccMan.class)
+            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())));
+            
             return view;
         } catch (ProcessException e) {
             logger.error(e.getMessage(), e);
