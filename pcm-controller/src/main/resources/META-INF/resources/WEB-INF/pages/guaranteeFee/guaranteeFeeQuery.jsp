@@ -78,7 +78,7 @@
 				return ${feeBasisJson}[data];
 			}
 		});
-		columns.push({ title: '<spring:message code="guaranteeFee.frequencyOfCharge" text="费用收取频次" />', data: 'frequencyOfCharge',
+		columns.push({ title: '<spring:message code="guaranteeFee.frequencyOfCharge" text="费用计算周期" />', data: 'frequencyOfCharge',
 			render : function(data, type, row, meta) {
 				return ${frequencyOfChargeJson}[data];
 			}

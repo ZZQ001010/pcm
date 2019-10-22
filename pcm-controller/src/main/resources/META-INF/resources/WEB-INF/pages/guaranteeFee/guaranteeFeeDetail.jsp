@@ -44,9 +44,9 @@
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${feeBasis}
 			</label>
-			<!-- 费用收取频次 -->
+			<!-- 费用计算周期 -->
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
-				<spring:message code="guaranteeFee.frequencyOfCharge" text="费用收取频次" />
+				<spring:message code="guaranteeFee.frequencyOfCharge" text="费用计算周期" />
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
