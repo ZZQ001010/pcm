@@ -361,6 +361,8 @@
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$('#partnerCode').selectpicker('val','${guaranteeFee.partnerCode}')
+			
 			}
 			if(type=='ZC'){
 				var map = ${assetSideInfoMap};
@@ -370,6 +372,7 @@
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$('#partnerCode').selectpicker('val','${guaranteeFee.partnerCode}')
 			}
 			if(type=='QD'){
 				var map = ${channelInfoMap}
@@ -379,6 +382,7 @@
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$('#partnerCode').selectpicker('val','${guaranteeFee.partnerCode}')
 			}
 			if(type=='FW'){
 				var map = ${serverInfoMap}
@@ -388,6 +392,7 @@
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$('#partnerCode').selectpicker('val','${guaranteeFee.partnerCode}')
 			}
 		}
 		
