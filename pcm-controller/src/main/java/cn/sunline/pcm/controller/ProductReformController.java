@@ -1,8 +1,6 @@
 package cn.sunline.pcm.controller;
 
-import java.io.Console;
 
-import java.io.Serializable;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -20,7 +18,6 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -229,8 +226,8 @@ public class ProductReformController {
 	@RequestMapping(value = "queryProductList.in", method = {RequestMethod.POST})
 	public FetchResponse<?> queryProductList(FetchRequest request) throws FlatException {
 		try {
-			FetchResponse<Product> fetchResponse = parameterSurface.getFetchResponse(request, Product.class);
-			List rows =  (List) fetchResponse.getRows().stream().map(product->{
+			FetchResponse fetchResponse = parameterSurface.getFetchResponse(request, Product.class);
+			List rows =  ((List<Product>)fetchResponse.getRows()).stream().map(product->{
 				if(product.getProductType()!=null && product.getGroupType()==null){
 					ProductType productType = product.getProductType();
 					product.setGroupType(productType.toString());
@@ -452,6 +449,9 @@ public class ProductReformController {
 		// 组件信息
 		Map<String, ProductUnitInfo> infos = this.getProductUnitService().getProductUnitsMap();
 		view.addObject("infos", infos);
+		if (product.getGroupType()==null && product.getProductType()!=null) {
+			product.setGroupType(product.getProductType().toString());
+		}
 		// 组件携带 通过组件的分组查询
 		if(product.getGroupType()==null){
 			throw new FlatException("未查询到产品对应的类型!");
@@ -613,12 +613,12 @@ public class ProductReformController {
 		product.setProductCode(productMap.get("productCode"));
 		product.setGroupType(productMap.get("groupType"));
 		product.setDescription(productMap.get("description"));
-		product.setBin(productMap.get("bin"));
-		product.setCardnoLen(Integer.valueOf(productMap.get("cardnoLen")));
-		product.setCardnoRangeCeil((productMap.get("cardnoRangeCeil")));
-		product.setCardnoRangeFlr(productMap.get("cardnoRangeFlr"));
-		product.setIsPbocInfoMerged(Indicator.valueOf((productMap.get("isPbocInfoMerged"))));
-		product.setCurrency(productMap.get("currency"));
+//		product.setBin(productMap.get("bin"));
+//		product.setCardnoLen(Integer.valueOf(productMap.get("cardnoLen")));
+//		product.setCardnoRangeCeil((productMap.get("cardnoRangeCeil")));
+//		product.setCardnoRangeFlr(productMap.get("cardnoRangeFlr"));
+//		product.setIsPbocInfoMerged(Indicator.valueOf((productMap.get("isPbocInfoMerged"))));
+//		product.setCurrency(productMap.get("currency"));
 		return product;
 	}
 	
@@ -666,14 +666,33 @@ public class ProductReformController {
 			view.addObject("product",parameterObject);
 			String typeName = "" ; 
 			Map<String, String> productMap = KC.Enum.getI18nLabelMap(ProductType.class);
-			if(productMap.containsKey(parameterObject.getGroupType())){
-				 typeName = productMap.get(parameterObject.getGroupType());
-			}else {
-				 typeName = productGroupSurface.findProductGroupByGroupCode(parameterObject.getGroupType()).getName();
+			 BPcmProductGroup findProductGroupByGroupCode = productGroupSurface.findProductGroupByGroupCode(parameterObject.getGroupType());
+			 if (findProductGroupByGroupCode==null) {
+				if (productMap.containsValue(parameterObject.getGroupType())){
+					typeName =  productMap.get(parameterObject.getGroupType());
+				}
+			}else{
+				typeName=findProductGroupByGroupCode.getName();
 			}
-			view.addObject("productType",typeName);
-			view.addObject("currency",parameterSurface.getParameterObject(parameterObject.getCurrency(), CurrencyCd.class).getDescription());
-			view.addObject("isPbocInfoMerged",KC.Enum.getI18nLabel(parameterObject.getIsPbocInfoMerged()));
+//			if (parameterObject.getProductType()!=null) {
+//				typeName = productMap.get(parameterObject.getProductType());
+//			}
+//			if (parameterObject.getGroupType()!=null) {
+//				typeName = productGroupSurface.findProductGroupByGroupCode(parameterObject.getGroupType()).getName();
+//			}
+//			view.addObject("productType",typeName);
+			
+			String description="";
+			if (parameterObject.getCurrency()!=null) {
+				description= parameterSurface.getParameterObject(parameterObject.getCurrency(), CurrencyCd.class).getDescription();
+			}
+			view.addObject("currency",description);
+			if (parameterObject.getIsPbocInfoMerged()!=null) {
+				view.addObject("isPbocInfoMerged",KC.Enum.getI18nLabel(parameterObject.getIsPbocInfoMerged()));
+			}
+			else{
+				view.addObject("isPbocInfoMerged","");
+			}
 			return  view;
 		} catch (ProcessException e) {
 			logger.error(e.getMessage(), e);
