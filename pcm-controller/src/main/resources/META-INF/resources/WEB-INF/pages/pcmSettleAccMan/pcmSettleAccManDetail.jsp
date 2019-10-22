@@ -104,6 +104,7 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${district }	
 			</label>
+			</br>
 			<h2 style="margin-left: 20px">虚拟账号信息</h2>
 			<hr>	
 			<!-- 开户行支行 -->
