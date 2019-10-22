@@ -153,6 +153,7 @@
 				<spring:message code="guaranteeFee.partnerType.desc" />
 			</div>
 		</div>
+		
 		<div class="form-group row">
 			<!-- 合作方编码 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
