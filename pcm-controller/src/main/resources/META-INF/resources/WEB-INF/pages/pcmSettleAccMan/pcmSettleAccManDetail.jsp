@@ -86,9 +86,9 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${city }	
 			</label>
-			<!-- 资金方支持展业区、县 -->
+			<!-- 开户区、县 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="pcmSettleAccMan.district" text="资金方支持展业区、县" />
+				<spring:message code="pcmSettleAccMan.district" text="开户区、县" />
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
@@ -145,9 +145,9 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${vCity }	
 			</label>
-			<!-- 资金方支持展业区、县 -->
+			<!-- 开户区、县 -->
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
-				<spring:message code="pcmSettleAccMan.vDistrict" text="资金方支持展业区、县" />
+				<spring:message code="pcmSettleAccMan.vDistrict" text="开户区、县" />
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">

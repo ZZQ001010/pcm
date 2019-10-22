@@ -74,14 +74,14 @@
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.openBank" text="开户银行" />', data: 'openBank'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.openBankProv" text="开户行省份" />', data: 'openBankProv'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.openBankCity" text="开户行城市" />', data: 'openBankCity'});
-		columns.push({ title: '<spring:message code="pcmSettleAccMan.district" text="资金方支持展业区、县" />', data: 'district'});
+		columns.push({ title: '<spring:message code="pcmSettleAccMan.district" text="开户区、县" />', data: 'district'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.openBankBranch" text="开户行支行" />', data: 'openBankBranch'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.vUnitName" text="单位名称" />', data: 'vUnitName'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.vBankAccount" text="银行账户" />', data: 'vBankAccount'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.vOpenBank" text="开户银行" />', data: 'vOpenBank'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.vOpenBankProv" text="开户行省份" />', data: 'vOpenBankProv'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.vOpenBankCity" text="开户行城市" />', data: 'vOpenBankCity'});
-		columns.push({ title: '<spring:message code="pcmSettleAccMan.vDistrict" text="资金方支持展业区、县" />', data: 'vDistrict'});
+		columns.push({ title: '<spring:message code="pcmSettleAccMan.vDistrict" text="开户区、县" />', data: 'vDistrict'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.vOpenBankBranch" text="开户行支行" />', data: 'vOpenBankBranch'});
 		var grid = $("#pcmSettleAccMan_datatable").grid({
 			datatable : {
