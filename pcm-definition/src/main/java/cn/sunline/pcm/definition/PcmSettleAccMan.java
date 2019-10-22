@@ -101,9 +101,9 @@ public class PcmSettleAccMan implements Serializable{
 	public String openBankCity;
 	
     /**
-     * 资金方支持展业区、县
+     * 开户区、县
      */
-    @PropertyInfo(name="资金方支持展业区、县")
+    @PropertyInfo(name="开户区、县")
     public String  district;
    
 	
@@ -158,9 +158,9 @@ public class PcmSettleAccMan implements Serializable{
 	public String vOpenBankCity;
 	
     /**
-     * 资金方支持展业区、县
+     * 开户区、县
      */
-    @PropertyInfo(name="资金方支持展业区、县")
+    @PropertyInfo(name="开户区、县")
     public String  vDistrict;
    
 	
