@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.sunline.common.KC;
+import cn.sunline.common.StringUtils;
 import cn.sunline.common.address.AddressHelperFacility;
 import cn.sunline.common.exception.ProcessException;
 import cn.sunline.common.shared.query.FetchRequest;
@@ -166,7 +167,7 @@ public class PcmSettleAccManController {
 			}
 			view.addObject("serverInfoMap",new JSONObject(serverInfoMap));
 			// 自有
-			List<PcmOrgParameter> pcmOrgParameterList = parameterSurface.getFetchResponse(null, PcmOrgParameter.class).getRows();
+			List<PcmOrgParameter> pcmOrgParameterList = parameterSurface.getParameterObject(PcmOrgParameter.class);
 			Map<String,String> pcmOrgParameterMap = new HashMap<String,String>();
 			for (PcmOrgParameter pcmOrgParameter : pcmOrgParameterList) {
 				pcmOrgParameterMap.put(pcmOrgParameter.getOrgCode(), 
@@ -174,9 +175,9 @@ public class PcmSettleAccManController {
 			}
 			view.addObject("pcmOrgParameterMap",new JSONObject(pcmOrgParameterMap));
 			view.addObject("organizationAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.OrganizationAccountType.class));
-			view.addObject("settlementAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SettlementAccountType.class));
 			//view.addObject("assetSideInfoMap",assetSideInfoMap);
 			view.addObject("pcmSettleAccMan", new PcmSettleAccMan());
+			view.addObject("province",addressHelperFacility.loadProvince());
 			return view;
 		} catch (ProcessException e) {
 			logger.error(e.getMessage(), e);
@@ -225,49 +226,24 @@ public class PcmSettleAccManController {
 			ModelAndView view = KW.mvc.forwardView("pcmSettleAccMan/pcmSettleAccManEdit");
 			view.addObject("accountOwner", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.AccountOwner.class));
 			PcmSettleAccMan pcmSettleAccMan = parameterSurface.getParameterObject(settleAccCode, PcmSettleAccMan.class);
-			view.addObject("province", addressHelperFacility.loadProvince());
-			view.addObject("city",addressHelperFacility.loadCity(pcmSettleAccMan.getOpenBankProv()));
-			/**
-			 * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
-			 */
-			//资金方
-			List<FundSideInfo> fundSideInfoList = parameterSurface.getFetchResponse(null, FundSideInfo.class).getRows();
-			Map<String,String> fundSideInfoMap = new HashMap<String,String>();
-			for (FundSideInfo fundSideInfo : fundSideInfoList) {
-				fundSideInfoMap.put(fundSideInfo.getFundSideCode(), 
-						fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
-			}
-			view.addObject("fundSideInfoMap",new JSONObject(fundSideInfoMap));
 			
-			//资产方
-			List<AssetSideInfo> assetSideInfoList = parameterSurface.getFetchResponse(null, AssetSideInfo.class).getRows();
-			Map<String,String> assetSideInfoMap = new HashMap<String,String>();
-			for (AssetSideInfo AssetSideInfo : assetSideInfoList) {
-				assetSideInfoMap.put(AssetSideInfo.getAssetSideCode(),
-						AssetSideInfo.getAssetSideCode()+"-"+AssetSideInfo.getAssetSideDesc());
+			
+			view.addObject("province", addressHelperFacility.loadProvince());
+			
+			if(StringUtils.isNotEmpty(pcmSettleAccMan.getOpenBankProv())){
+				view.addObject("city",addressHelperFacility.loadCity(pcmSettleAccMan.getOpenBankProv()));
 			}
-			view.addObject("assetSideInfoMap",new JSONObject(assetSideInfoMap));
-			//渠道方  
-			List<ChannelInfo> channelInfoList = parameterSurface.getFetchResponse(null, ChannelInfo.class).getRows();
-			Map<String,String> channelInfoMap = new HashMap<String,String>();
-			for (ChannelInfo channelInfo : channelInfoList) {
-				channelInfoMap.put(channelInfo.getChannelCode(), 
-						channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+			if (StringUtils.isNotEmpty(pcmSettleAccMan.getvOpenBankProv())) {
+				view.addObject("vCity",addressHelperFacility.loadCity(pcmSettleAccMan.getvOpenBankProv())); 
 			}
-			view.addObject("channelInfoMap",new JSONObject(channelInfoMap));
-			//服务方  
-			List<ServerInfo> serverInfoList = parameterSurface.getFetchResponse(null, ServerInfo.class).getRows();
-			Map<String,String> serverInfoMap = new HashMap<String,String>();
-			for (ServerInfo serverInfo : serverInfoList) {
-				serverInfoMap.put(serverInfo.getServerCode(), 
-						serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+			
+			if (StringUtils.isNotEmpty(pcmSettleAccMan.getOpenBankCity())) {
+				view.addObject("district",addressHelperFacility.loadDistricts(pcmSettleAccMan.getOpenBankCity()));
 			}
-			view.addObject("serverInfoMap",new JSONObject(serverInfoMap));
+			if (StringUtils.isNotEmpty(pcmSettleAccMan.getvOpenBankCity())) {
+				view.addObject("vDistrict",addressHelperFacility.loadDistricts(pcmSettleAccMan.getvOpenBank()));
+			}
 			view.addObject("organizationAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.OrganizationAccountType.class));
-			view.addObject("settlementAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SettlementAccountType.class));
-			if (KC.string.isNotBlank(pcmSettleAccMan.getOpenBankProv())) {
-				view.addObject("openBankPriv", addressHelperFacility.loadCity(pcmSettleAccMan.getOpenBankProv()));
-			}
 			view.addObject("pcmSettleAccMan", pcmSettleAccMan);
 			return view;
 		} catch (ProcessException e) {
@@ -336,41 +312,33 @@ public class PcmSettleAccManController {
 			view.addObject("factory",code == null);
 			PcmSettleAccMan pcmSettleAccMan = parameterSurface.getParameterObject(
 					code==null? settleAccCode:code, PcmSettleAccMan.class);
-			Map<String, String> map = addressHelperFacility.loadChineseAddress();
-			pcmSettleAccMan.setOpenBankProv(pcmSettleAccMan.getOpenBankProv() == null ? "" : map.get(pcmSettleAccMan.getOpenBankProv()));
-			pcmSettleAccMan.setOpenBankCity(pcmSettleAccMan.getOpenBankCity() == null ? "": map.get(pcmSettleAccMan.getOpenBankCity()));
-			view.addObject("pcmSettleAccMan", pcmSettleAccMan);
+			
 			view.addObject("org",KC.Enum.getI18nLabel(pcmSettleAccMan.getOrganizationAccountType()));
+			
+			
+			if(StringUtils.isNotEmpty(pcmSettleAccMan.getOpenBankProv())){
+				view.addObject("openBankProv",addressHelperFacility.loadProvince().get(pcmSettleAccMan.getOpenBankProv()));
+				view.addObject("city",addressHelperFacility.loadCity(pcmSettleAccMan.getOpenBankProv()).get(pcmSettleAccMan.getOpenBankCity()));
+			}
+			if (StringUtils.isNotEmpty(pcmSettleAccMan.getvOpenBankProv())) {
+				view.addObject("vOpenBankProv",addressHelperFacility.loadProvince().get(pcmSettleAccMan.getvOpenBankProv()));
+				view.addObject("vCity",addressHelperFacility.loadCity(pcmSettleAccMan.getvOpenBankProv()).get(pcmSettleAccMan.getvOpenBankCity())); 
+			}
+			
+			if (StringUtils.isNotEmpty(pcmSettleAccMan.getOpenBankCity())) {
+				if (StringUtils.isNotEmpty(pcmSettleAccMan.getDistrict())) {
+					view.addObject("district",addressHelperFacility.loadDistricts(pcmSettleAccMan.getOpenBankCity()).get(pcmSettleAccMan.getDistrict()));
+				}
+			}
+			if (StringUtils.isNotEmpty(pcmSettleAccMan.getvOpenBankCity())) {
+				if (StringUtils.isNotEmpty(pcmSettleAccMan.getvDistrict())) {
+					view.addObject("vDistrict",addressHelperFacility.loadDistricts(pcmSettleAccMan.getvOpenBank()).get(pcmSettleAccMan.getvDistrict()));
+				}
+			}
+			
 			//资产方
 			view.addObject("accountOwner", KC.Enum.getI18nLabel(pcmSettleAccMan.getAccountOwner()));
-			
-//			AccountOwner accountOwner = pcmSettleAccMan.accountOwner;
-//			if(accountOwner!=null){
-//				System.err.println(accountOwner);
-//				//资产方
-//				if(accountOwner.equals(AccountOwner.A)){
-//					AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(pcmSettleAccMan.getOrgCode(),AssetSideInfo.class);
-//					view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
-//				}
-//				//资金方
-//				if(accountOwner.equals(AccountOwner.F)){
-//					FundSideInfo fundSideInfo = parameterSurface.getParameterObject(pcmSettleAccMan.getOrgCode(),FundSideInfo.class);
-//					view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
-//				}
-//				//服务方
-//				if(accountOwner.equals(AccountOwner.Z)){
-//					ServerInfo serverInfo = parameterSurface.getParameterObject(pcmSettleAccMan.getOrgCode(),ServerInfo.class);
-//					view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
-//				}
-//				//渠道方 
-//				if(accountOwner.equals(AccountOwner.Q)){
-//					ChannelInfo channelInfo = parameterSurface.getParameterObject(pcmSettleAccMan.getOrgCode(),ChannelInfo.class);
-//					view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
-//				}
-//			}
-			
-			
-			
+			view.addObject("pcmSettleAccMan", pcmSettleAccMan);
 			return view;
 		} catch (ProcessException e) {
 			logger.error(e.getMessage(), e);
