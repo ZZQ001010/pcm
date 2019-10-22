@@ -30,7 +30,7 @@
     
 
 
-	<!-- <!-- <div class="form-group row">
+	<div class="form-group row">
 		BIN
 		<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 			<span class="span-icon">*&nbsp;</span> <spring:message
@@ -40,11 +40,10 @@
 			<form:input cssClass="form-control" path="bin"
 				data-rule-maxlength="40" data-rule-required="true"  />
 		</div>
-		BIN描述
-		<div class="hide desc" for="bin">
+		<!-- <div class="hide desc" for="bin">
 			<spring:message code="bin" />
-		</div>
-	</div> -->  
+		</div> -->
+	</div>  
 	
 	<%-- <div class="form-group row">
 						<!-- 电子账号上限 -->

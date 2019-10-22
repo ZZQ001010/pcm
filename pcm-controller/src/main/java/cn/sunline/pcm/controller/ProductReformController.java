@@ -613,7 +613,7 @@ public class ProductReformController {
 		product.setProductCode(productMap.get("productCode"));
 		product.setGroupType(productMap.get("groupType"));
 		product.setDescription(productMap.get("description"));
-//		product.setBin(productMap.get("bin"));
+		product.setBin(productMap.get("bin"));
 //		product.setCardnoLen(Integer.valueOf(productMap.get("cardnoLen")));
 //		product.setCardnoRangeCeil((productMap.get("cardnoRangeCeil")));
 //		product.setCardnoRangeFlr(productMap.get("cardnoRangeFlr"));
