@@ -60,6 +60,7 @@
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${fundSideServiceFee.chargeRatio }	
 			</label>
+			
 			<!-- 所属机构 -->
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="fundSideServiceFee.organization" text="所属机构" />
@@ -68,6 +69,29 @@
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${organization }	
 			</label>
+			
+			<!-- 合作方类型 -->
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
+				<spring:message code="fundSideServiceFee.partnerType" text="合作方类型" />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
+				&nbsp;${partnerType }	
+			</label>
+			
+			
+			<!-- 合作方编码 -->
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
+				<spring:message code="fundSideServiceFee.partnerCode" text="合作方编码" />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
+				&nbsp;${fundSideServiceFee.partnerCode }	
+			</label>
+			
+			
+			
+			
 		<%-- 	<!-- 资金方 -->
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="fundSideServiceFee.capital" text="资金方" />

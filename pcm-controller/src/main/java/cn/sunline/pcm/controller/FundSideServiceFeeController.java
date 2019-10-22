@@ -360,6 +360,10 @@ public class FundSideServiceFeeController extends Fee {
 			view.addObject("feeBasis", KC.Enum.getI18nLabel(fundSideServiceFee.getFeeBasis()));
 			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabel(fundSideServiceFee.getFrequencyOfCharge()));
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(fundSideServiceFee.getBillingCycle()));
+			
+			view.addObject("partnerType",KC.Enum.getI18nLabel(fundSideServiceFee.getPartnerType()));
+			
+			
 			//所属机构
 			PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(fundSideServiceFee.getOrganization(),PcmOrgParameter.class);
 			view.addObject("organization",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
