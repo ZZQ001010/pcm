@@ -70,6 +70,7 @@
 			</label>
 			<!-- 转出账号 -->
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="dedit.transferAccount" text="转出账号" />
 				:
 			</label>
@@ -78,6 +79,7 @@
 			</label>
 			<!-- 转入账号 -->
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="dedit.transferToAccount" text="转入账号" />
 				:
 			</label>
