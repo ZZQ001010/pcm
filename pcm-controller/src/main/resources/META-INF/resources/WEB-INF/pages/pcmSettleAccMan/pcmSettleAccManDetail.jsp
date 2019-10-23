@@ -44,6 +44,14 @@
 			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
 				&nbsp;${pcmSettleAccMan.organizationAccountType }	
 			</label>
+			<!-- 结算账号类型 -->
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+				<spring:message code="pcmSettleAccMan.settlementAccountType" text="结算账号类型 " />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+				&nbsp;${pcmSettleAccMan.settlementAccountType }	
+			</label>
 			<h2 style="margin-left: 20px">实体账号信息</h2>
 			<hr>	
 			<!-- 单位名称 -->
