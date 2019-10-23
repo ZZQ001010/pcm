@@ -171,13 +171,13 @@
 			
 			
 												<!-- 结算信息-->
-			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
-				<spring:message code="fundSideServiceFee.settleAccounts" text="结算信息" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
-				&nbsp;${fundSideServiceFee.settleAccounts}	
-			</label>
+<!-- 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label"> -->
+<!-- 				<spring:message code="fundSideServiceFee.settleAccounts" text="结算信息" /> -->
+<!-- 				: -->
+<!-- 			</label> -->
+<!-- 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle"> -->
+<%-- 				&nbsp;${fundSideServiceFee.settleAccounts}	 --%>
+<!-- 			</label> -->
 			
 			<!-- 放款当天提前结清费用收取方式 -->
 			<%--<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">--%>
