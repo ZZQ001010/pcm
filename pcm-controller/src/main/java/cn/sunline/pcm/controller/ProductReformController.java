@@ -614,11 +614,11 @@ public class ProductReformController {
 		product.setGroupType(productMap.get("groupType"));
 		product.setDescription(productMap.get("description"));
 		product.setBin(productMap.get("bin"));
-//		product.setCardnoLen(Integer.valueOf(productMap.get("cardnoLen")));
-//		product.setCardnoRangeCeil((productMap.get("cardnoRangeCeil")));
-//		product.setCardnoRangeFlr(productMap.get("cardnoRangeFlr"));
+		product.setCardnoLen(Integer.valueOf(productMap.get("cardnoLen")));
+		product.setCardnoRangeCeil((productMap.get("cardnoRangeCeil")));
+		product.setCardnoRangeFlr(productMap.get("cardnoRangeFlr"));
 //		product.setIsPbocInfoMerged(Indicator.valueOf((productMap.get("isPbocInfoMerged"))));
-//		product.setCurrency(productMap.get("currency"));
+		product.setCurrency(productMap.get("currency"));
 		return product;
 	}
 	

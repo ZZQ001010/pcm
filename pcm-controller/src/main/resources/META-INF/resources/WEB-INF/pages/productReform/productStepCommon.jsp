@@ -31,7 +31,6 @@
 
 
 	<div class="form-group row">
-		BIN
 		<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 			<span class="span-icon">*&nbsp;</span> <spring:message
 				code="product.bin" text="BIN" /> :
@@ -40,9 +39,9 @@
 			<form:input cssClass="form-control" path="bin"
 				data-rule-maxlength="40" data-rule-required="true"  />
 		</div>
-		<!-- <div class="hide desc" for="bin">
+		 <%--  <div class="hide desc" for="bin">
 			<spring:message code="bin" />
-		</div> -->
+		</div>--%>  
 	</div>  
 	
  <div class="form-group row">
