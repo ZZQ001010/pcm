@@ -71,7 +71,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="phone1"  data-rule-required="true" />
+				<form:input cssClass="form-control" type="text" path="phone1"  />
 			</div>
 			<!-- 联系电话1描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -113,7 +113,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="email"  data-rule-required="true" data-rule-maxlength="50" />
+				<form:input cssClass="form-control" type="text" path="email"  data-rule-maxlength="50" />
 			</div>
 			<!-- 电子邮箱描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -167,7 +167,7 @@
 				<fmt:formatDate var="registerDateFmt" value="${assetSideInfo.registerDate}" type="date" pattern="yyyy-MM-dd"/>
 				<form:input class='form-control customize-datetime'  value="${registerDateFmt }"
 					type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" 
-					path="registerDate" onfocus="this.blur()"  data-rule-required="true" />
+					path="registerDate" onfocus="this.blur()"   />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 成立时间描述 -->
@@ -216,7 +216,7 @@
 				
 				<form:input class='form-control customize-datetime'  value="${businessBeginDateFmt }"
 				 type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" 
-				 path="businessBeginDate" onfocus="this.blur()"  data-rule-required="true" />
+				 path="businessBeginDate" onfocus="this.blur()"  />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 营业期限有限期起始日期描述 -->

@@ -45,6 +45,7 @@
 		<div class="form-group row">
 			<!-- 路由规则编码 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="fundSideRoutRule.routRuleCode" text="路由规则编码" />
 				:
 			</label>
