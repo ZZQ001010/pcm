@@ -71,7 +71,7 @@
 		<%--columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.fundSideCode" text="资金方编码" />', data: 'fundSideCode'});--%>
 		columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.fundSideProv" text="资金方支持展业省份" />', data: 'fundSideProv'});
 		columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.fundSideCity" text="资金方支持展业城市" />', data: 'fundSideCity'});
-		columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.fundSideBusinessScope" text="资金方申请行业范围" />', data: 'fundSideBusinessScope',
+		/* columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.fundSideBusinessScope" text="资金方申请行业范围" />', data: 'fundSideBusinessScope',
             render : function(data, type, row, meta) {
                 var i18arr = [] ;
                 $.each(data,function(index,val){
@@ -84,13 +84,13 @@
 		columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.fundSideProfessionScope" text="资金方申请职业范围" />', data: 'fundSideProfessionScope',
             render : function(data, type, row, meta) {
                 var i18arr = [] ;
-                $.each(data,function(index,val){
+                $.each(data,function(index,val){	
                     var i18val = ${fundSideProfessionScopeJson}[val]
                     i18arr.push(i18val);
                 })
                 return i18arr;
             }
-        });
+        }); */
         columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.applicantsAgeRange" text="资金方申请年龄范围" />', data: 'applicantsAgeRange'});
         <%--columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.fundSideInfo" text="资金方专项资产方" />', data: 'fundSideInfo'});--%>
 		columns.push({ title: '<spring:message code="fundSideProductCtrlInfo.fundSidePartRepay" text="资金方是否支持部分还款" />', data: 'fundSidePartRepay',

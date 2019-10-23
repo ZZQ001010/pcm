@@ -45,7 +45,7 @@
 		</div> -->
 	</div>  
 	
-	<%-- <div class="form-group row">
+ <div class="form-group row">
 						<!-- 电子账号上限 -->
 						<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 							<span class="span-icon">*&nbsp;</span>
@@ -103,7 +103,7 @@
 							<spring:message code="product.currency.desc" />
 						</div>
 					</div>
-						<div class="form-group row">
+					<%--		<div class="form-group row">
 						<!-- 人行记录是否合并 -->
 						<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 							<span class="span-icon">*&nbsp;</span>
