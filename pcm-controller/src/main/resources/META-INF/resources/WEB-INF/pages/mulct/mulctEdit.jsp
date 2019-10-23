@@ -243,12 +243,12 @@
 	} 
 	//小数		
 	function validPrecision(val){					
-		if(!(new RegExp(/^(?=\d+.?\d+$)[\d.]{0,7}$/g).test($.trim(val)))){
+		if(!(new RegExp(/^(?=\d+.?\d+$)[\d.]{-1,7}$/g).test($.trim(val)))){
 			return '<spring:message code="mulctDef.digitalPrecisions" text="必须是长度小于7位的数" />';			
 		}	
 	}
 	function validPrecisions(val){			
-		if(!(new RegExp(/^(?=\d+.?\d+$)[\d.]{0,16}$/g).test($.trim(val)))){				
+		if(!(new RegExp(/^(?=\d+.?\d+$)[\d.]{-1,16}$/g).test($.trim(val)))){				
 			return '<spring:message code="mulctDef.digitalPrecision" text="必须是长度小于16位的数 "/>';			
 		}	
 	}

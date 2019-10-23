@@ -288,7 +288,7 @@ public class FundSideCtrlProductInfoController {
             FundSideProductCtrlInfo fundSideProductCtrlInfo = parameterSurface.getParameterObject(
                     fundSideCtrlCode==null?code:fundSideCtrlCode, FundSideProductCtrlInfo.class);
             view.addObject("fundSideProductCtrlInfo", fundSideProductCtrlInfo);
-            if (StringUtils.isNotEmpty(fundSideProductCtrlInfo.getFundSideProv())) {
+            if ((fundSideProductCtrlInfo.getFundSidePartRepay()!=null)) {
             	 view.addObject("fundSidePartRepay",fundSideProductCtrlInfo.getFundSidePartRepay()?"是":"否");
 			}
             String province ="" ; 

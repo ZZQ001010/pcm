@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -377,8 +378,10 @@ public class PacificInsuranceAgencyDeditController  extends Fee{
 			view.addObject("partnerType", KC.Enum.getI18nLabel(pacificInsuranceAgencyDedit.getPartnerType()));
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(pacificInsuranceAgencyDedit.getBillingCycle()));
 			//所属机构
-			PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getOrganization(),PcmOrgParameter.class);
-			view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+			if (StringUtils.isNotEmpty(pacificInsuranceAgencyDedit.getOrganization())) {
+				PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getOrganization(),PcmOrgParameter.class);
+				view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+			}
 			ChannelPartnerType type = pacificInsuranceAgencyDedit.getPartnerType();
 			if(type!=null){
 				//资产方
@@ -389,7 +392,12 @@ public class PacificInsuranceAgencyDeditController  extends Fee{
 				//资金方
 				if(type.equals(ChannelPartnerType.ZJ)){
 					FundSideInfo fundSideInfo = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getPartnerCode(),FundSideInfo.class);
-					view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+					if (fundSideInfo!=null) {
+						view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+					}else{
+						view.addObject("partner", "");
+					}
+					
 				}
 				//服务方
 				if(type.equals(ChannelPartnerType.FW)){

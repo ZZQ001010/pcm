@@ -255,13 +255,13 @@
 		} 
 		//小数		
 		function validPrecision(val){					
-			if(!(new RegExp(/^(?=\d+.?\d+$)[\d.]{0,7}$/g).test($.trim(val)))){
-				return '<spring:message code="mulctDef.digitalPrecisions" text="必须是长度小于7位的数" />';			
+			if(!(new RegExp(/^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$/g).test($.trim(val)))){
+				return '<spring:message code="mulctDef.digitalPrecisions" text="必须是非负浮点数" />';			
 			}	
 		}
 		function validPrecisions(val){			
-			if(!(new RegExp(/^(?=\d+.?\d+$)[\d.]{0,16}$/g).test($.trim(val)))){				
-				return '<spring:message code="mulctDef.digitalPrecision" text="必须是长度小于16位的数 "/>';			
+			if(!(new RegExp(/^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$/g).test($.trim(val)))){				
+				return '<spring:message code="mulctDef.digitalPrecision" text="必须是非负浮点数 "/>';			
 			}	
 		}
 		
