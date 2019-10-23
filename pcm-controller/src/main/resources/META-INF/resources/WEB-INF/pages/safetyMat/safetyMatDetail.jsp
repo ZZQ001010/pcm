@@ -193,34 +193,6 @@
 			</label>
 			
 			
-												<!-- 结算信息-->
-<!-- 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label"> -->
-<!-- 				<spring:message code="fundSideServiceFee.settleAccounts" text="结算信息" /> -->
-<!-- 				: -->
-<!-- 			</label> -->
-<!-- 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle"> -->
-<%-- 				&nbsp;${safetyMat.settleAccounts}	 --%>
-<!-- 			</label> -->
-			
-			
-						<!-- 放款当天提前还款手续费方式 -->
-			<%--<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">--%>
-				<%--<spring:message code="" text="放款当天提前还款手续费方式" />--%>
-				<%--:--%>
-			<%--</label>--%>
-			<%--<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">--%>
-				<%--&nbsp;${backsettlement }	--%>
-			<%--</label>--%>
-			
-			
-			<%-- 			<!-- 放款当天提前结清手续费方式 -->
-			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
-				<spring:message code="" text="放款当天提前结清手续费方式" />
-				:
-			</label>
-			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
-				&nbsp;${settlement }	
-			</label> --%>
 		</div>
 		
 		<c:if test="${factory}">

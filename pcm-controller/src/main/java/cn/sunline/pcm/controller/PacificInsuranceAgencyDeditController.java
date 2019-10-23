@@ -378,28 +378,28 @@ public class PacificInsuranceAgencyDeditController  extends Fee{
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(pacificInsuranceAgencyDedit.getBillingCycle()));
 			//所属机构
 			PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getOrganization(),PcmOrgParameter.class);
-			view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+			view.addObject("org", pcmOrgParameter == null?"":pcmOrgParameter.orgCode + "-" + pcmOrgParameter.getOrgName());
 			ChannelPartnerType type = pacificInsuranceAgencyDedit.getPartnerType();
 			if(type!=null){
 				//资产方
 				if(type.equals(ChannelPartnerType.ZC)){
 					AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getPartnerCode(),AssetSideInfo.class);
-					view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+					view.addObject("partner", assetSideInfo == null?"":assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
 				}
 				//资金方
 				if(type.equals(ChannelPartnerType.ZJ)){
 					FundSideInfo fundSideInfo = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getPartnerCode(),FundSideInfo.class);
-					view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+					view.addObject("partner", fundSideInfo == null?"":fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
 				}
 				//服务方
 				if(type.equals(ChannelPartnerType.FW)){
 					ServerInfo serverInfo = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getPartnerCode(),ServerInfo.class);
-					view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+					view.addObject("partner", serverInfo == null?"":serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
 				}
 				//渠道方 
 				if(type.equals(ChannelPartnerType.QD)){
 					ChannelInfo channelInfo = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getPartnerCode(),ChannelInfo.class);
-					view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+					view.addObject("partner", channelInfo == null?"":channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
 				}
 			}
 			return view;
