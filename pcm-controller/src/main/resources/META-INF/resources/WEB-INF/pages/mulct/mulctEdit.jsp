@@ -242,16 +242,16 @@
 		}	
 	} 
 	//小数		
-	function validPrecision(val){					
-		if(!(new RegExp(/^(?=\d+.?\d+$)[\d.]{-1,7}$/g).test($.trim(val)))){
-			return '<spring:message code="mulctDef.digitalPrecisions" text="必须是长度小于7位的数" />';			
-		}	
-	}
-	function validPrecisions(val){			
-		if(!(new RegExp(/^(?=\d+.?\d+$)[\d.]{-1,16}$/g).test($.trim(val)))){				
-			return '<spring:message code="mulctDef.digitalPrecision" text="必须是长度小于16位的数 "/>';			
-		}	
-	}
+		function validPrecision(val){					
+			if(!(new RegExp(/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)$/g).test($.trim(val)))){
+				return '必须是整数，浮点数';			
+			}	
+		}
+		function validPrecisions(val){			
+			if(!(new RegExp(/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)$/g).test($.trim(val)))){				
+				return '必须是整数，浮点数';			
+			}	
+		}
 		
 	grid.getTable().rows.add(list).draw();
 	

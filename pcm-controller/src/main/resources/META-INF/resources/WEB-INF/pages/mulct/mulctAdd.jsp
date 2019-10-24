@@ -255,15 +255,16 @@
 		} 
 		//小数		
 		function validPrecision(val){					
-			if(!(new RegExp(/^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$/g).test($.trim(val)))){
-				return '<spring:message code="mulctDef.digitalPrecisions" text="必须是非负浮点数" />';			
+			if(!(new RegExp(/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)$/g).test($.trim(val)))){
+				return '<spring:message code="mulctDef.digitalPrecisions" text="必须是长度小于7位的数" />';			
 			}	
 		}
 		function validPrecisions(val){			
-			if(!(new RegExp(/^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$/g).test($.trim(val)))){				
-				return '<spring:message code="mulctDef.digitalPrecision" text="必须是非负浮点数 "/>';			
+			if(!(new RegExp(/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)$/g).test($.trim(val)))){				
+				return '<spring:message code="mulctDef.digitalPrecision" text="必须是整数，浮点数"/>';			
 			}	
 		}
+		
 		
 		var add = $("<button class='btn btn-success' ><i class='fa fa-plus'></i><spring:message code='kite.web.common.btnAdd' text='增加' /></button>")
 		add.click(function(){
