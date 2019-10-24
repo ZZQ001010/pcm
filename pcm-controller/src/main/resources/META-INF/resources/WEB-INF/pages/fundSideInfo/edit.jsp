@@ -214,7 +214,7 @@
 				<fmt:formatDate var="registerDateFmt" value="${fundSideInfo.registerDate}" type="date" pattern="yyyy-MM-dd"/>
 				<form:input class='form-control customize-datetime'  value="${registerDateFmt }"
 					type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" 
-					path="registerDate" onfocus="this.blur()"  data-rule-required="true" />
+					path="registerDate" onfocus="this.blur()"  />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 成立时间描述 -->
@@ -314,7 +314,7 @@
 				<form:input cssClass="form-control" type="text" path="paidInCapital.sumNum" id="sumNum"   data-rule-maxlength="12" />
 			</div>
 			<div class="col-lg-1 col-md-1 ol-sm-1 col-xs-1">
-				<form:select cssClass="form-control" path="paidInCapital.currencyCd" id="currencyCd" data-rule-required="true">
+				<form:select cssClass="form-control" path="paidInCapital.currencyCd" id="currencyCd" >
 				 <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${currencyCds}" />
 				</form:select>
