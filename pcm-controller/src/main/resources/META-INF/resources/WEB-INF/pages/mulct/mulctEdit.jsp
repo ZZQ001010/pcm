@@ -243,12 +243,12 @@
 	} 
 	//小数		
 		function validPrecision(val){					
-			if(!(new RegExp(/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)$/g).test($.trim(val)))){
+			if(!(new RegExp(/^[0-9.]+$/g).test($.trim(val)))){
 				return '必须是整数，浮点数';			
 			}	
 		}
 		function validPrecisions(val){			
-			if(!(new RegExp(/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)$/g).test($.trim(val)))){				
+			if(!(new RegExp(/^[0-9.]+$/g).test($.trim(val)))){				
 				return '必须是整数，浮点数';			
 			}	
 		}
