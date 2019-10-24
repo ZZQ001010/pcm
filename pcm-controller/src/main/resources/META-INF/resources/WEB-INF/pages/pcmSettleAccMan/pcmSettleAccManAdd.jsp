@@ -88,7 +88,6 @@
 			 		<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${settlementAccountType}" />
 				</form:select>
-				<!-- <form:input cssClass="form-control" type="text" path="organizationAccountType"  data-rule-maxlength="32" /> -->
 			</div>
 			<!-- 结算账号类型描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">

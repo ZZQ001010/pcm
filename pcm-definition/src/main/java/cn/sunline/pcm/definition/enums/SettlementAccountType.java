@@ -11,17 +11,10 @@ public enum SettlementAccountType {
 	/**
 	 * 实体账号
 	 */
-	R("实体账号"),
+	R,
 	/**
 	 * 虚拟账号
 	 */
-	V("虚拟账号");
-	String desc;
-	private SettlementAccountType(String desc){
-		this.desc=desc;
-	}
+	V
 	
-	public String getDesc(){
-		return this.desc;
-	}
 }

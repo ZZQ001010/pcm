@@ -28,6 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import cn.sunline.common.KC;
 import cn.sunline.common.KC.Null;
@@ -422,7 +423,7 @@ public class ProductUnitController {
 	 */
 	@ResponseBody
 	@PostMapping(value="/saveProductTemplate.in")
-	public void saveProductTemplate(@RequestBody VProductUnitTree vProductUnitTree) throws FlatException{
+	public void saveProductTemplate(@RequestBody VProductUnitTree vProductUnitTree) {
 			//将producttemplate 拆分为
 		List<BPcmProductUnit> list =new ArrayList<>();
 			String groupCode = vProductUnitTree.getValue();
@@ -454,11 +455,13 @@ public class ProductUnitController {
 				productUnitSurface.deleteAllByGroupId(vProductUnitTree.getValue());
 			}
 			try {
+				String json = new Gson().toJson(list);
+				System.out.println(json);
 				productUnitSurface.addAllProductUnits(list);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				throw new FlatException(e, null, "添加组件失败!");	
+				throw new RuntimeException(e);	
 			}
 			
 	}

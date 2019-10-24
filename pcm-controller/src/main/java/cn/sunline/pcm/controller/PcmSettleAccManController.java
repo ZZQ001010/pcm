@@ -126,7 +126,6 @@ public class PcmSettleAccManController {
 			ModelAndView view = KW.mvc.forwardView("pcmSettleAccMan/pcmSettleAccManAdd");
 			TreeMap<String, String> map = addressHelperFacility.loadProvince();
 			view.addObject("accountOwner", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.AccountOwner.class));
-			view.addObject("settlementAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SettlementAccountType.class));
 			view.addObject("openBankProv", map);
 			view.addObject("openBankCity", new LinkedHashMap<String, String>());
 //			view.addObject("acctType", codeService.getCodeMapByCodeType("acctType"));
@@ -176,6 +175,7 @@ public class PcmSettleAccManController {
 			}
 			view.addObject("pcmOrgParameterMap",new JSONObject(pcmOrgParameterMap));
 			view.addObject("organizationAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.OrganizationAccountType.class));
+			view.addObject("settlementAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SettlementAccountType.class));
 			//view.addObject("assetSideInfoMap",assetSideInfoMap);
 			view.addObject("pcmSettleAccMan", new PcmSettleAccMan());
 			view.addObject("province",addressHelperFacility.loadProvince());
@@ -226,7 +226,6 @@ public class PcmSettleAccManController {
 			
 			ModelAndView view = KW.mvc.forwardView("pcmSettleAccMan/pcmSettleAccManEdit");
 			view.addObject("accountOwner", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.AccountOwner.class));
-			view.addObject("settlementAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SettlementAccountType.class));
 			PcmSettleAccMan pcmSettleAccMan = parameterSurface.getParameterObject(settleAccCode, PcmSettleAccMan.class);
 			
 			
@@ -246,6 +245,7 @@ public class PcmSettleAccManController {
 				view.addObject("vDistrict",addressHelperFacility.loadDistricts(pcmSettleAccMan.getvOpenBank()));
 			}
 			view.addObject("organizationAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.OrganizationAccountType.class));
+			view.addObject("settlementAccountType", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.SettlementAccountType.class));
 			view.addObject("pcmSettleAccMan", pcmSettleAccMan);
 			return view;
 		} catch (ProcessException e) {
