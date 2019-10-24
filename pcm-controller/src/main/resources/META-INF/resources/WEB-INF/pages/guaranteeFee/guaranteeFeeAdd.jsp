@@ -82,10 +82,10 @@
 			</div>
 		</div>
 		<div class="form-group row">
-			<!-- 费用收取频次 -->
+			<!-- 费用计算周期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 				<span class="span-icon"></span>
-				<spring:message code="guaranteeFee.frequencyOfCharge" text="费用收取频次" />
+				<spring:message code="guaranteeFee.frequencyOfCharge" text="费用计算周期" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
@@ -94,7 +94,7 @@
 					<form:options items="${frequencyOfCharge}" />
 				</form:select>
 			</div>
-			<!-- 费用收取频次描述 -->
+			<!-- 费用计算周期描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="guaranteeFee.frequencyOfCharge.desc" />
 			</div>
@@ -185,6 +185,7 @@
 				<spring:message code="guaranteeFee.partnerType.desc" />
 			</div>
 		</div>
+		
 		<div class="form-group row">
 			<!-- 合作方编码 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
@@ -273,6 +274,10 @@
 				<spring:message code="guaranteeFee.balanceDate.desc" />
 			</div>
 		</div>
+		
+		
+		
+				
 
 		<div class="form-controls auto-float">
 			<div class="btn-group-md">

@@ -13,7 +13,6 @@
 		.dateTimeInput{
 			width: 80px;
 		}
-		
 	</style>
 </head>
 <!-- 整体皮肤样式 -->
@@ -69,6 +68,8 @@
                 </form:select>
             </div>
         </div>
+        
+        
         <div class="form-group row">
             <!-- 资金方支持展业城市 -->
             <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
@@ -82,6 +83,21 @@
                 </form:select>
             </div>
         </div>
+        
+          <div class="form-group row">
+            <!-- 资金方支持展业区、县 -->
+            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+                <spring:message code="fundSideProductCtrlInfo.fundSideDistrict" text="资金方支持展业区、县" />
+                :
+            </label>
+            <div id="districtBox" class="col-lg-7 col-md-7  col-sm-6 col-xs-12" >
+                <form:select cssClass="form-control" path="fundSideDistrict" id="fundSideDistrict" name="fundSideDistrict">
+                    <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+                   <%--  <form:options items="${fundSideCity}" /> --%>
+                </form:select>
+            </div>
+        </div>
+        
         
         
         
@@ -338,7 +354,37 @@
                         });
                 });
         
-    	
+
+		$(document)
+		.on(
+				"change",
+				"#fundSideCity",
+				function() {
+					$.ajax({
+								type : "post",
+								url : "${ctx}/webCommon/loadDistricts.in  ",
+								cache : false,
+								//async : false,
+								data : $("#fundSideCity").val(),
+								dataType : "json",
+								contentType : "application/json",
+								success : function(data) {
+			
+									 $("#districtBox").empty();
+									$("#districtBox")
+											.append(
+													`<select id="fundSideDistrict" class="form-control" name="fundSideDistrict"><option value="">--- 请选择 --- </option></select>`);
+									for ( var key in data) {
+										$("#fundSideDistrict").append(
+												`<option value=`+key+`>`
+														+ data[key]
+														+ `</option>`);
+									} 
+								}
+
+							});
+				});
+		
 	</script>
 	
 	<script type="text/javascript" src="${ctx }/static/plugins/jquery_datetime/js/jquery-clock-timepicker.min.js"></script>

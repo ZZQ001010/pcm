@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -377,29 +378,35 @@ public class PacificInsuranceAgencyDeditController  extends Fee{
 			view.addObject("partnerType", KC.Enum.getI18nLabel(pacificInsuranceAgencyDedit.getPartnerType()));
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(pacificInsuranceAgencyDedit.getBillingCycle()));
 			//所属机构
-			PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getOrganization(),PcmOrgParameter.class);
-			view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+			if (StringUtils.isNotEmpty(pacificInsuranceAgencyDedit.getOrganization())) {
+				PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getOrganization(),PcmOrgParameter.class);
+				view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+			}
 			ChannelPartnerType type = pacificInsuranceAgencyDedit.getPartnerType();
 			if(type!=null){
 				//资产方
 				if(type.equals(ChannelPartnerType.ZC)){
 					AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getPartnerCode(),AssetSideInfo.class);
-					view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+					view.addObject("partner", assetSideInfo == null?"":assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
 				}
 				//资金方
 				if(type.equals(ChannelPartnerType.ZJ)){
 					FundSideInfo fundSideInfo = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getPartnerCode(),FundSideInfo.class);
-					view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+					if (fundSideInfo!=null) {
+						view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+					}else{
+						view.addObject("partner", "");
+					}
 				}
 				//服务方
 				if(type.equals(ChannelPartnerType.FW)){
 					ServerInfo serverInfo = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getPartnerCode(),ServerInfo.class);
-					view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+					view.addObject("partner", serverInfo == null?"":serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
 				}
 				//渠道方 
 				if(type.equals(ChannelPartnerType.QD)){
 					ChannelInfo channelInfo = parameterSurface.getParameterObject(pacificInsuranceAgencyDedit.getPartnerCode(),ChannelInfo.class);
-					view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+					view.addObject("partner", channelInfo == null?"":channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
 				}
 			}
 			return view;

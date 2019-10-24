@@ -70,7 +70,7 @@
 		            <img alt="删除组件" title="删除组件" src="${ctx }/img/delete.png" style="height: 20px;width: 20px;">
 		        </div>
 		        <div class="lable" id="detail-unit">
-		            <img alt="组件详情" title="组件详情" src="${ctx }/img/edit.png" style="height: 20px;width: 20px;">
+		            <img alt="组件详情" title="组件详情" src="${ctx }/img/details.png" style="height: 20px;width: 20px;">
 		        </div>
 		    </div>
 		    <!-- <div id="contextDiv" class="list-group">

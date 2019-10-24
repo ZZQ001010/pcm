@@ -95,14 +95,19 @@
                 <spring:message code="bankPrincipalInterest.partnerCode.desc" />
             </div>
         </div>
-        <div class="form-group row">
+      <div class="form-group row">
             <!-- 转出账号 -->
-            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-                <spring:message code="bankPrincipalInterest.transferAccount" text="转出账号" />
+            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label ">
+                <spring:message code="bankPrincipalInterest.transferAccount" text="转出账号"  />
                 :
             </label>
             <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-                <form:input cssClass="form-control" type="text" path="transferAccount"  data-rule-maxlength="12" />
+            
+             <form:select cssClass="form-control" path="transferAccount" data-rule-required="true">
+                    <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+                    <form:options items="${pcmSettleAccMan}" />
+                </form:select>
+            
             </div>
             <!-- 转出账号描述 -->
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -111,12 +116,16 @@
         </div>
         <div class="form-group row">
             <!-- 转入账号 -->
-            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label ">
                 <spring:message code="bankPrincipalInterest.transferToAccount" text="转入账号" />
                 :
             </label>
             <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-                <form:input cssClass="form-control" type="text" path="transferToAccount"  data-rule-maxlength="12" />
+             <form:select cssClass="form-control" path="transferToAccount" data-rule-required="true">
+                    <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+                    <form:options items="${pcmSettleAccMan}" />
+                </form:select>
+            
             </div>
             <!-- 转入账号描述 -->
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -159,6 +168,7 @@
                 <spring:message code="basicNetPremium.balanceDate.desc" />
             </div>
         </div>
+        
 
         <div class="form-controls auto-float">
 			<div class="btn-group-md">

@@ -24,7 +24,7 @@ public interface ParameterSurface {
 	
 	public <T> List<T> getParameterObject(Class<T> clazz) ;
 	
-	public <T> void updateParameterObject(String key, T obj) throws ProcessException;
+	public <T> void updateParameterObject(String key, Object obj) throws ProcessException;
 	
 	public <T> void deleteParameterObject(String key, Class<T> clazz) throws ProcessException;
 	
@@ -42,8 +42,7 @@ public interface ParameterSurface {
 	 * @throws Exception
 	 * @see [类、类#方法、类#成员]
 	 */
-	@SuppressWarnings({"rawtypes"})
-	public FetchResponse getFetchResponse(FetchRequest request, Class<?> clazz);
+	public <T> FetchResponse<T> getFetchResponse(FetchRequest request, Class<T> clazz);
 	
 	/**
 	 * 区分分期产品和贷款参数定义列表
@@ -53,8 +52,7 @@ public interface ParameterSurface {
 	 * @param loanType
 	 * @return
 	 */
-	@SuppressWarnings({"rawtypes"})
-	public FetchResponse getLoanFetchResponse(FetchRequest request, Class<?> clazz, String loanType);
+	public <T> FetchResponse<T> getLoanFetchResponse(FetchRequest request, Class<T> clazz, String loanType);
 	
 	
 	/** 

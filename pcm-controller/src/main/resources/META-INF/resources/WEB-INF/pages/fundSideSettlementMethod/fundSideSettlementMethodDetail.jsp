@@ -14,59 +14,59 @@
 	<form:form cssClass="form-horizontal" cssStyle="padding-top: 40px" modelAttribute="fundSideSettlementMethod">
 		<div class="form-group row">
 			<!-- 资金方编码 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="fundSideSettlementMethod.fundSideCode" text="资金方编码" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${fundSideSettlementMethod.fundSideCode }	
 			</label>
 			<!-- 资金方描述 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="fundSideSettlementMethod.fundSideDesc" text="资金方描述" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${fundSideSettlementMethod.fundSideDesc }	
 			</label>
             <!-- 资金方 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="fundSideSettlementMethod.fundSide" text="资金方" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${fundSide}
             </label>
 			<!-- 理赔方式 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="fundSideSettlementMethod.fundSideInfo" text="理赔模式" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${fundSideInfo}
 			</label>
 			<!-- 理赔逾期天数 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="fundSideSettlementMethod.daysOverdue" text="逾期理赔等待期天数" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${fundSideSettlementMethod.daysOverdue }	
 			</label>
 			<!-- 全期理赔起始期数 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="fundSideSettlementMethod.otalNumberOfClaimsStartPeriods" text="全期理赔起始期数" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${fundSideSettlementMethod.otalNumberOfClaimsStartPeriods }	
 			</label>
             <!-- 理赔对账容差金额 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="fundSideSettlementMethod.claimsReconciliationAllowanceAmount" text="理赔对账容差金额" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${fundSideSettlementMethod.claimsReconciliationAllowanceAmount }
             </label>
 		</div>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,6 +26,7 @@ import cn.sunline.common.exception.ProcessException;
 import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.pcm.controller.common.Fee;
+import cn.sunline.pcm.controller.common.constent.ParameterFlags;
 import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.Dedit;
@@ -240,12 +242,8 @@ public class FundSideServiceFeeController extends Fee {
 			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabelMap(FrequencyOfCharge.class));				
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(BillingCycle.class));
 			//所属机构
-			FetchResponse response = parameterSurface.getFetchResponse(null, PcmOrgParameter.class);
-			List<PcmOrgParameter> list = response.getRows();
-			Map<String,String> orgMap = new HashMap<String,String>();
-			for (PcmOrgParameter pcmOrgParameter : list) {
-				orgMap.put(pcmOrgParameter.orgCode, pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
-			}
+			Map<String,String> orgMap = parameterSurface.getParameterObject(PcmOrgParameter.class)
+					.stream() .collect(Collectors.toMap(PcmOrgParameter::getOrgCode, v->v.getOrgCode()+ParameterFlags.SHORT_CROSS+v.getOrgName()));
 			view.addObject("orgMap",orgMap);
 			view.addObject("pcmSettleAccMan", getPcmSettleAccManList());
 			/**
@@ -362,6 +360,10 @@ public class FundSideServiceFeeController extends Fee {
 			view.addObject("feeBasis", KC.Enum.getI18nLabel(fundSideServiceFee.getFeeBasis()));
 			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabel(fundSideServiceFee.getFrequencyOfCharge()));
 			view.addObject("billingCycle", KC.Enum.getI18nLabel(fundSideServiceFee.getBillingCycle()));
+			
+			view.addObject("partnerType",KC.Enum.getI18nLabel(fundSideServiceFee.getPartnerType()));
+			
+			
 			//所属机构
 			PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(fundSideServiceFee.getOrganization(),PcmOrgParameter.class);
 			view.addObject("organization",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());

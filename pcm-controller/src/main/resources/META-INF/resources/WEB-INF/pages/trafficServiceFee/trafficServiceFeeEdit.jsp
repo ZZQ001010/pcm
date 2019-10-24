@@ -118,7 +118,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="chargeRatio"  data-rule-required="true" data-rule-digits="true" data-rule-min="0" data-rule-max="999999999999" />
+				<form:input cssClass="form-control" type="number" path="chargeRatio"  data-rule-required="true"  data-rule-min="0" data-rule-max="999999999999" />
 			</div>
 			<!-- 收取比例描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -319,24 +319,7 @@
 			</div>
 		</div>	
 		
-		<!-- 放款当天提前结清费用收取方式 -->
-		<%--<div class="form-group row">--%>
-			<%--<!-- 放款当天提前结清费用收取方式 -->--%>
-			<%--<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">--%>
-				<%--<span class="span-icon"></span>--%>
-				<%--<spring:message code="trafficServiceFee.advanceSettlement" text="放款当天提前结清费用收取方式" />--%>
-				<%--:--%>
-			<%--</label>--%>
-			<%--<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">--%>
-				<%--<form:select cssClass="form-control" path="advanceSettlement">--%>
-					<%--<form:options items="${advanceSettlement}" />--%>
-				<%--</form:select>--%>
-			<%--</div>--%>
-			<%--<!-- 放款当天提前结清费用收取方式描述描述 -->--%>
-			<%--<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">--%>
-				<%--<spring:message code="trafficServiceFee.advanceSettlement.desc" />--%>
-			<%--</div>--%>
-		<%--</div>	--%>
+		
 		
 				
 		<div class="form-controls auto-float">

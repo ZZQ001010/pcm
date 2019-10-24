@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.text.View;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -245,7 +246,10 @@ public class ServerInfoController {
 			String currencyCd = paidInCapital.getCurrencyCd();
 			CurrencyCd currency = parameterSurface.getParameterObject(paidInCapital.getCurrencyCd(),CurrencyCd.class);
 			
-			String paidInCapitalStr = paidInCapital.getSumNum()+" "+currency.getDescription();
+			String paidInCapitalStr=""; 
+			if (paidInCapital.getSumNum()!=null && StringUtils.isNotEmpty(currency.getDescription())) {
+				paidInCapitalStr = paidInCapital.getSumNum()+" "+currency.getDescription();
+			}
 			view.addObject("paidInCapital", paidInCapitalStr);
 			//注册资本
 			Sum registerMoney = serverInfo.getRegisterMoney();

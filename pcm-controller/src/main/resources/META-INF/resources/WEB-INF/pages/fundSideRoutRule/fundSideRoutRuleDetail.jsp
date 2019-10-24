@@ -13,7 +13,7 @@
 	<form:form cssClass="form-horizontal" cssStyle="padding-top: 40px" modelAttribute="fundSideRoutRule">
 		<div class="form-group row">
 			<!-- 资金方路由编码 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="fundSideRoutRule.fundSideRoutCode" text="资金方路由编码" />
 				:
 			</label>
@@ -21,19 +21,19 @@
 				&nbsp;${fundSideRoutRule.fundSideRoutCode }	
 			</label>
 			<!-- 资金方路由描述 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="fundSideRoutRule.fundSIdeRoutDesc" text="资金方路由描述" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${fundSideRoutRule.fundSIdeRoutDesc }	
 			</label>
 			<!-- 路由规则编码 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="fundSideRoutRule.routRuleCode" text="路由规则编码" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${fundSideRoutRule.routRuleCode }	
 			</label>
 		</div>

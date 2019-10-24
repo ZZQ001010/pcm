@@ -124,7 +124,7 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="pacificInsuranceAgencyDedit.partnerCode.desc" />
 			</div>
-		</div>				
+		</div>			
 		<div class="form-group row">
 			<!-- 转出账号 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
@@ -190,7 +190,10 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="pacificInsuranceAgencyDedit.balanceDate.desc" />
 			</div>
-		</div>				
+		</div>			
+		
+		
+			
 		<div class="form-controls auto-float">
 			<div class="btn-group-md">
 				<!-- 确定 -->

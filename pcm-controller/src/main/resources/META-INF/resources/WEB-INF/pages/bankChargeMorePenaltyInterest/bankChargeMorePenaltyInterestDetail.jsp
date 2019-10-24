@@ -13,84 +13,85 @@
 	<form:form cssClass="form-horizontal" cssStyle="padding-top: 40px" modelAttribute="bankChargeMorePenaltyInterest">
 		<div class="form-group row">
 			<!-- 风管方式 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="bankChargeMorePenaltyInterest.bankChargeMorePenaltyInterestCode" text="银行多记罚息编码" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${bankChargeMorePenaltyInterest.bankChargeMorePenaltyInterestCode}
 			</label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="bankChargeMorePenaltyInterest.bankChargeMorePenaltyInterestDesc" text="银行多记罚息描述" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${bankChargeMorePenaltyInterest.bankChargeMorePenaltyInterestDesc}
             </label>
             <!-- 罚息分担比例 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="bankChargeMorePenaltyInterest.penaltyInterestShareProportion" text="罚息分担比例" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${bankChargeMorePenaltyInterest.penaltyInterestShareProportion}
             </label>
             <!-- 所属机构 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="bankChargeMorePenaltyInterest.organization" text="所属机构" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${org }
             </label>
             <!-- 合作方类型 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="bankChargeMorePenaltyInterest.partnerType" text="合作方类型" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${partnerType}
             </label>
             <!-- 合作方编码 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="bankChargeMorePenaltyInterest.partnerCode" text="合作方编码" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${partner }
             </label>
             <!-- 转出账号 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="bankChargeMorePenaltyInterest.transferAccount" text="转出账号" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${bankChargeMorePenaltyInterest.transferAccount }
             </label>
             <!-- 转入账号 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="bankChargeMorePenaltyInterest.transferToAccount" text="转入账号" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${bankChargeMorePenaltyInterest.transferToAccount }
             </label>
             <!-- 结算周期 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="bankChargeMorePenaltyInterest.billingCycle" text="结算周期" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${billingCycle}
             </label>
             <!-- 结算日期 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="platformCoupon.balanceDate" text="结算日期" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle" id="balanceDate">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle" id="balanceDate">
                 &nbsp;${balanceDate}
             </label>
+            
 		</div>
 		<c:if test="${factory==false }">
 			<div class="form-controls auto-float">

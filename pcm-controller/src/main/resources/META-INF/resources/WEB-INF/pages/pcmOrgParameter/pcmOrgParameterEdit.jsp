@@ -47,7 +47,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="orgLevel"  data-rule-required="true" data-rule-maxlength="32" />
+				<form:input cssClass="form-control" type="text" path="orgLevel"   data-rule-maxlength="32" />
 			</div>
 			<!-- 机构级别描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -135,7 +135,8 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<fmt:formatDate var="businessLicensStartDateFmt" value="${pcmOrgParameter.businessLicensStartDate}" type="date" pattern="yyyy-MM-dd"/>
-    			<form:input class='form-control customize-datetime' value="${businessLicensStartDateFmt }" type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="businessLicensStartDate" onfocus="this.blur()"  data-rule-required="true" />
+    			<form:input class='form-control customize-datetime' value="${businessLicensStartDateFmt }" type="text" data-picker-position="top-right" 
+    			data-role-formate="yyyy-mm-dd" path="businessLicensStartDate" onfocus="this.blur()"    />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 业务许可有效起期 描述 -->
@@ -151,7 +152,8 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<fmt:formatDate var="businessLicensEndDateFmt" value="${pcmOrgParameter.businessLicensEndDate}" type="date" pattern="yyyy-MM-dd"/>
-   				<form:input class='form-control customize-datetime' value="${businessLicensEndDateFmt }" type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="businessLicensEndDate" onfocus="this.blur()"  data-rule-required="true" />
+   				<form:input class='form-control customize-datetime' value="${businessLicensEndDateFmt }" type="text"
+   				 data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="businessLicensEndDate" onfocus="this.blur()"    />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 业务许可有效止期 描述 -->
@@ -327,7 +329,8 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<fmt:formatDate var="busCertificateStartDateFmt" value="${pcmOrgParameter.busCertificateStartDate}" type="date" pattern="yyyy-MM-dd"/>
-				<form:input class='form-control customize-datetime' value="${busCertificateStartDateFmt }" type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="busCertificateStartDate" onfocus="this.blur()"  data-rule-required="true" />
+				<form:input class='form-control customize-datetime' value="${busCertificateStartDateFmt }" type="text"
+				 data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="busCertificateStartDate" onfocus="this.blur()"    />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 营业执照有效起期描述 -->
@@ -343,7 +346,8 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<fmt:formatDate var="busCertificateEndDateFmt" value="${pcmOrgParameter.busCertificateEndDate}" type="date" pattern="yyyy-MM-dd"/>
-    			<form:input class='form-control customize-datetime' value="${busCertificateEndDateFmt }" type="text" data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="busCertificateEndDate" onfocus="this.blur()"  data-rule-required="true" />
+    			<form:input class='form-control customize-datetime' value="${busCertificateEndDateFmt }" type="text" 
+    			data-picker-position="top-right" data-role-formate="yyyy-mm-dd" path="busCertificateEndDate" onfocus="this.blur()"    />
 				<i class="fa fa-calendar input_date" ></i>
 			</div>
 			<!-- 营业执照有效止期 描述 -->

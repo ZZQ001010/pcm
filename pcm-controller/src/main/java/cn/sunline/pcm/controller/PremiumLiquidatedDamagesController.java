@@ -24,6 +24,8 @@ import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
 import cn.sunline.pcm.definition.AssetSideRiskCtrl;
 import cn.sunline.pcm.definition.PremiumLiquidatedDamages;
+import cn.sunline.pcm.definition.enums.AdditionalNPremiums;
+import cn.sunline.pcm.definition.enums.CostCalculationMethod;
 import cn.sunline.pcm.surface.api.ParameterSurface;
 import cn.sunline.web.common.exception.FlatException;
 import cn.sunline.web.common.utils.KW;
@@ -227,11 +229,26 @@ public class PremiumLiquidatedDamagesController {
 			 view.addObject("factory",dcode==null);
 			PremiumLiquidatedDamages premiumLiquidatedDamages = parameterSurface.getParameterObject(
 					code==null?dcode:code, PremiumLiquidatedDamages.class);
-			view.addObject("additionalNPremiums",KC.Enum.getI18nLabel(premiumLiquidatedDamages.getAdditionalNPremiums()));
+			AdditionalNPremiums additionalNPremiums = premiumLiquidatedDamages.getAdditionalNPremiums();
+			if (additionalNPremiums!=null) {
+				view.addObject("additionalNPremiums",KC.Enum.getI18nLabel(additionalNPremiums));
+			}else{
+				view.addObject("additionalNPremiums",null);
+			}
+			
 			view.addObject("premiumLiquidatedDamages", premiumLiquidatedDamages);
-			view.addObject("costCalculationMethod", KC.Enum.getI18nLabel(premiumLiquidatedDamages.getCostCalculationMethod()));
-			view.addObject("costCalculationMethod", KC.Enum.getI18nLabel(premiumLiquidatedDamages.getCostCalculationMethod()));
-			view.addObject("whetherToCharge",premiumLiquidatedDamages.getWhetherToCharge()?"是":"否");
+			CostCalculationMethod costCalculationMethod = premiumLiquidatedDamages.getCostCalculationMethod();
+			if (costCalculationMethod!=null) {
+				view.addObject("costCalculationMethod", KC.Enum.getI18nLabel(costCalculationMethod));
+			}else{
+				view.addObject("costCalculationMethod", null);
+			}
+			if (premiumLiquidatedDamages.getWhetherToCharge()!=null) {
+				view.addObject("whetherToCharge",premiumLiquidatedDamages.getWhetherToCharge()?"是":"否");
+			}else{
+				view.addObject("whetherToCharge",null);
+			}
+			
 			return view;
 		} catch (ProcessException e) {
 			logger.error(e.getMessage(), e);

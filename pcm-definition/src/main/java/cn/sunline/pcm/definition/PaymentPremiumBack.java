@@ -43,6 +43,15 @@ public class PaymentPremiumBack implements Serializable {
 	 */
 	@PropertyInfo(name="结算日期",length=32)
 	public String  balanceDate;
+	
+	/**
+	 * 结算日期
+	 */
+	@PropertyInfo(name="结算日期",length=32)
+	public String  settleAccounts;
+	
+	
+	
 
 	public String getPaymentPremiumBackCode() {
 		return paymentPremiumBackCode;

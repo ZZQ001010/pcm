@@ -119,6 +119,7 @@
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="partnerCode" id="partnerCode">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
+					<form:options items="${partnerCode}" />
 				</form:select>
 			</div>
 			<!-- 合作方编码描述 -->
@@ -130,6 +131,7 @@
 		<div class="form-group row">
 			<!-- 转出账号 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="dedit.transferAccount" text="转出账号" />
 				:
 			</label>
@@ -147,6 +149,7 @@
 		<div class="form-group row">
 			<!-- 转入账号 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="dedit.transferToAccount" text="转入账号" />
 				:
 			</label>
@@ -196,7 +199,9 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="basicNetPremium.balanceDate.desc" />
 			</div>
-		</div>						
+		</div>			
+		
+					
 		<div class="form-controls auto-float">
 			<div class="btn-group-md">
 				<!-- 确定 -->

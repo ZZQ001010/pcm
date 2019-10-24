@@ -83,7 +83,26 @@ public class PlatformCoupon implements Serializable {
 	public String  balanceDate;
 	
 	
+	/**
+	 * 结算内容
+	 */
+	@PropertyInfo(name="结算内容",length=32)
+	public String  settleAccounts;
 	
+	
+	
+	
+	
+	public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
+
+
 	public String getBalanceDate() {
 		return balanceDate;
 	}

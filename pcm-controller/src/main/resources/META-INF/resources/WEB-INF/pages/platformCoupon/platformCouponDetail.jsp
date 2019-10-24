@@ -13,77 +13,79 @@
 	<form:form cssClass="form-horizontal" cssStyle="padding-top: 40px" modelAttribute="platformCoupon">
 		<div class="form-group row">
 			<!-- 平台优惠券编码 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="platformCoupon.couponCode" text="平台优惠券编码" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${platformCoupon.couponCode }	
 			</label>
 			<!-- 平台优惠券描述 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="platformCoupon.couponDescription" text="平台优惠券描述" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${platformCoupon.couponDescription }	
 			</label>
 			<!-- 所属机构 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="platformCoupon.organization" text="所属机构" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${org }	
 			</label>
 			<!-- 合作方类型 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="platformCoupon.partnerType" text="合作方类型" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${partnerType }	
 			</label>
 			<!-- 合作方编码 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="platformCoupon.partnerCode" text="合作方编码" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${partner }	
 			</label>
 			<!-- 转出账号 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="platformCoupon.transferAccount" text="转出账号" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${platformCoupon.transferAccount }	
 			</label>
 			<!-- 转入账号 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="platformCoupon.transferToAccount" text="转入账号" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${platformCoupon.transferToAccount }	
 			</label>
 			<!-- 结算周期 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="platformCoupon.billingCycle" text="结算周期" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${billingCycle }	
 			</label>
 			<!-- 结算日期 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="platformCoupon.balanceDate" text="结算日期" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle" id="balanceDate">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle" id="balanceDate">
 					&nbsp;${balanceDate}
 			</label>
+			
+			
 		</div>
 		<div class="form-controls auto-float">
 			<div class="btn-group-sm">

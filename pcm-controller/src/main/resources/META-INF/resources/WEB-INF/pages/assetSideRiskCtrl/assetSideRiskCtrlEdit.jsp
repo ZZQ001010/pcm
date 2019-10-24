@@ -40,7 +40,7 @@
 		<div class="form-group row">
 			<!-- 保证金基数 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
+				<span class="span-icon">&nbsp;</span>
 				<spring:message code="assetSideRiskCtrl.marginBase" text="保证金基数" />
 				:
 			</label>

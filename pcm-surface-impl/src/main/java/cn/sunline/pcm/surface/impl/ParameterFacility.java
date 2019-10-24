@@ -166,7 +166,7 @@ public class ParameterFacility {
 	@Transactional
 	public <T> void updateParameterObject(String key, T obj) throws ProcessException {
 		// 优先检查参数管控
-		checkParmControl(obj);
+//		checkParmControl(obj);
 		if (key == null){
 			key = GLOBAL_KEY;}
 		String org = KC.threadLocal.getCurrentOrg();

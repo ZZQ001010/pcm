@@ -37,8 +37,8 @@
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				<form:select cssClass="form-control" path="feeCollectionMethod">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
-					<%-- <form:options items="${feeCollectionMethod}" /> --%>
-					<option value="A">按比例</option>
+					<form:options items="${feeCollectionMethod}" />
+<!-- 					<option value="A">按比例</option> -->
 				</form:select>
 			</div>
 			<!-- 费用收取方式描述 -->
@@ -65,10 +65,10 @@
 			</div>
 		</div>				
 		<div class="form-group row">
-			<!-- 费用收取频次 -->
+			<!-- 费用计算周期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 				<span class="span-icon">*&nbsp;</span>
-				<spring:message code="guaranteeFee.frequencyOfCharge" text="费用收取频次" />
+				<spring:message code="guaranteeFee.frequencyOfCharge" text="费用计算周期" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
@@ -77,7 +77,7 @@
 					<form:options items="${frequencyOfCharge}" />
 				</form:select>
 			</div>
-			<!-- 费用收取频次描述 -->
+			<!-- 费用计算周期描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="guaranteeFee.frequencyOfCharge.desc" />
 			</div>
@@ -153,6 +153,7 @@
 				<spring:message code="guaranteeFee.partnerType.desc" />
 			</div>
 		</div>
+		
 		<div class="form-group row">
 			<!-- 合作方编码 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
@@ -239,6 +240,9 @@
 				<spring:message code="guaranteeFee.balanceDate.desc" />
 			</div>
 		</div>
+		
+		
+		
 		<div class="form-controls auto-float">
 			<div class="btn-group-md">
 				<!-- 确定 -->
@@ -344,6 +348,8 @@
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$('#partnerCode').selectpicker('val','${guaranteeFee.partnerCode}')
+			
 			}
 			if(type=='ZC'){
 				var map = ${assetSideInfoMap};
@@ -353,6 +359,7 @@
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$('#partnerCode').selectpicker('val','${guaranteeFee.partnerCode}')
 			}
 			if(type=='QD'){
 				var map = ${channelInfoMap}
@@ -362,6 +369,7 @@
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$('#partnerCode').selectpicker('val','${guaranteeFee.partnerCode}')
 			}
 			if(type=='FW'){
 				var map = ${serverInfoMap}
@@ -371,6 +379,7 @@
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$('#partnerCode').selectpicker('val','${guaranteeFee.partnerCode}')
 			}
 		}
 		

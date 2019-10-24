@@ -148,6 +148,7 @@
 		<div class="form-group row">
 			<!-- 转出账号 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label ">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="dedit.transferAccount" text="转出账号"  />
 				:
 			</label>
@@ -165,6 +166,7 @@
 		<div class="form-group row">
 			<!-- 转入账号 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label ">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="dedit.transferToAccount" text="转入账号" />
 				:
 			</label>
@@ -176,6 +178,7 @@
 			</div>
 			<!-- 转入账号描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="dedit.transferToAccount.desc" />
 			</div>
 		</div>
@@ -198,7 +201,7 @@
 			</div>
 		</div>
 		
-				<div class="form-group row">
+		<div class="form-group row">
 		<!-- 结算日期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 				<spring:message code="dedit.balanceDate" text="结算日期" />
@@ -212,6 +215,9 @@
 				<spring:message code="basicNetPremium.balanceDate.desc" />
 			</div>
 		</div>
+		
+				
+		
 		<div class="form-controls auto-float">
 			<div class="btn-group-md">
 				<!-- 确定 -->

@@ -75,13 +75,13 @@
 							<spring:message code="product.currency" text="基准货币" />
 							:
 						</label>
-						<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle"> &nbsp;${currency } </label>
+						<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle"> &nbsp;${currency } </label>
 						<!-- 人行记录是否合并 -->
-						<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+						<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 							<spring:message code="product.isPbocInfoMerged" text="人行记录是否合并" />
 							:
 						</label>
-						<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+						<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 								 &nbsp;${isPbocInfoMerged}
 						</label>
 						<!-- 人行记录是否合并描述 -->

@@ -31,7 +31,6 @@
 
 
 	<div class="form-group row">
-		<!-- BIN -->
 		<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 			<span class="span-icon">*&nbsp;</span> <spring:message
 				code="product.bin" text="BIN" /> :
@@ -40,14 +39,12 @@
 			<form:input cssClass="form-control" path="bin"
 				data-rule-maxlength="40" data-rule-required="true"  />
 		</div>
-		<!-- BIN描述 -->
-		<div class="hide desc" for="bin">
+		 <%--  <div class="hide desc" for="bin">
 			<spring:message code="bin" />
-		</div>
-	</div>
+		</div>--%>  
+	</div>  
 	
-	
-	<div class="form-group row">
+ <div class="form-group row">
 						<!-- 电子账号上限 -->
 						<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 							<span class="span-icon">*&nbsp;</span>
@@ -105,7 +102,7 @@
 							<spring:message code="product.currency.desc" />
 						</div>
 					</div>
-						<div class="form-group row">
+					<%--		<div class="form-group row">
 						<!-- 人行记录是否合并 -->
 						<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 							<span class="span-icon">*&nbsp;</span>
@@ -122,7 +119,7 @@
 							<spring:message code="product.isPbocInfoMerged.desc" />
 						</div>
 					</div>
-
+ --%>
     <div class="form-group row">
         <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
             <spring:message code="product.description" text="产品描述"/>

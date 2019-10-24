@@ -85,8 +85,6 @@ public class GuaranteeFee  implements Serializable{
 	 */
 	@PropertyInfo(name="合作方类型",length=12)
 	public ChannelPartnerType partnerType; 
-	
-
 
 	/**
 	 * 合作方编码
@@ -94,9 +92,24 @@ public class GuaranteeFee  implements Serializable{
 	@PropertyInfo(name="合作方编码",length=12)
 	public String partnerCode;
 	
+	/**
+	 * 结算信息
+	 */
+	@PropertyInfo(name="结算信息",length=30)
+	public String settleAccounts; 
 
 	
 	
+	
+	
+	public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
+
 	public String getBalanceDate() {
 		return balanceDate;
 	}

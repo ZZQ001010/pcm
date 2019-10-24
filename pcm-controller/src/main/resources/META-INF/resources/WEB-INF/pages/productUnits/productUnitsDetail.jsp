@@ -13,116 +13,116 @@
 	<form:form cssClass="form-horizontal" cssStyle="padding-top: 40px" modelAttribute="tmProductUnits">
 		<div class="form-group row">
 			<!-- 分组编码 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.groupCode" text="分组编码" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${tmProductUnits.groupCode }	
 			</label>
 			<!-- 产品组件编码 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.unitCode" text="产品组件编码" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${tmProductUnits.unitCode }	
 			</label>
 			<!-- 二级组件 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.subUnit" text="二级组件" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${tmProductUnits.subUnit }	
 			</label>
 			<!-- 关联产品组件 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.updateUnits" text="关联组件" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${tmProductUnits.updateUnits }	
 			</label>
 			<!-- 组件配置窗口 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.unitConfig" text="组件配置窗口" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${tmProductUnits.unitConfig }	
 			</label>
 			<!-- 产品组件名称 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.unitName" text="产品组件名称" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${tmProductUnits.unitName }	
 			</label>
 			<!-- 产品组件国际化名称 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.unitNameCn" text="产品组件国际化名称" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${tmProductUnits.unitNameCn }	
 			</label>
 			<!-- 产品组件序号 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.unitIndex" text="产品组件序号" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${tmProductUnits.unitIndex }	
 			</label>
 			<!-- <!-- 必配组件 
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.unitRequired" text="必配组件" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;<input id="unitRequired" type="checkbox" class="js-switch sel" unchecked /> 
 				 <form:hidden path="unitRequired"/>
 			</label> -->
 			<!-- 产品组件 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 			<spring:message code="tmProductUnits.unitModule" text="产品组件" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${unitModule }	
 			</label>
 			<!-- 创建时间 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.createTime" text="创建时间" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${tmProductUnits.createTime }	
 			</label>
 			<!-- 创建人 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.createUser" text="创建人" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${tmProductUnits.createUser }	
 			</label>
 			<!-- 修改时间 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.lstUpdTime" text="修改时间" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${tmProductUnits.lstUpdTime }	
 			</label>
 			<!-- 修改人 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="tmProductUnits.lstUpdUser" text="修改人" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${tmProductUnits.lstUpdUser }	
 			</label>
 		</div>

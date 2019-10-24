@@ -4,12 +4,12 @@ spring:
     name: ${dcn}-pcm-surface-impl
     
 server:
-  port: 8103
+  port: 8190
 eureka:
   instance: 
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://10.186.65.98:31001/eureka/,http://10.186.65.99:31001/eureka/,http://10.186.65.100:31001/eureka/
+      defaultZone: http://127.0.0.1:8001/eureka/
 logging: 
   config: classpath:config/log4j2.xml

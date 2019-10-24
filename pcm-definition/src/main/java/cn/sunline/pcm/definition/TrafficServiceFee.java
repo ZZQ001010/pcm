@@ -102,10 +102,21 @@ public class TrafficServiceFee implements Serializable{
 	
 	/**
 	 * 
-	 * @return
+	 *  费用累计月天数
 	 */
 	@PropertyInfo(name="费用累计月天数",length=32)
 	public Expenses expenses;
+	
+	
+	/**
+	 * 
+	 *  费用累计月天数
+	 */
+	@PropertyInfo(name="结算信息",length=32)
+	public String settleAccounts;
+	
+	
+	
 	
 	///**
 	// *  放款当天提前结清费用收取方式
@@ -124,6 +135,18 @@ public class TrafficServiceFee implements Serializable{
 	//public void setAdvanceSettlement(AdvanceSettlement advanceSettlement) {
 	//	this.advanceSettlement = advanceSettlement;
 	//}
+
+	
+	
+
+	public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
 
 
 	public Expenses getExpenses() {

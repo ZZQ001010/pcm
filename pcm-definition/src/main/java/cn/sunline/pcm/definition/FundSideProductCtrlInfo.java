@@ -1,12 +1,8 @@
 package cn.sunline.pcm.definition;
 import java.io.Serializable;
 
-import java.util.Date;
-import java.util.List;
 import cn.sunline.common.annotation.paramdef.PropertyInfo;
-import cn.sunline.pcm.definition.enums.FundSideBusinessScope;
 import cn.sunline.pcm.definition.enums.FundSideCreditCardCode;
-import cn.sunline.pcm.definition.enums.FundSideProfessionScope;
 /**
  *
  * @author fgy
@@ -14,9 +10,7 @@ import cn.sunline.pcm.definition.enums.FundSideProfessionScope;
  *	资金方产品经营控制
  */
 public class FundSideProductCtrlInfo implements Serializable{
-
-
-
+	
 	/**
      * 资金方经营控制编码
      */
@@ -46,6 +40,13 @@ public class FundSideProductCtrlInfo implements Serializable{
      */
     @PropertyInfo(name="资金方支持展业城市")
     public String  fundSideCity ;
+    
+    /**
+     * 资金方支持展业区、县
+     */
+    @PropertyInfo(name="资金方支持展业区、县")
+    public String  fundSideDistrict;
+   
     
     /**
      * 资金方申请行业范围
@@ -370,6 +371,16 @@ public class FundSideProductCtrlInfo implements Serializable{
 
 	public void setFundSideProductWorkdayFKEnd(String fundSideProductWorkdayFKEnd) {
 		this.fundSideProductWorkdayFKEnd = fundSideProductWorkdayFKEnd;
+	}
+	
+	
+
+	public String getFundSideDistrict() {
+		return fundSideDistrict;
+	}
+
+	public void setFundSideDistrict(String fundSideDistrict) {
+		this.fundSideDistrict = fundSideDistrict;
 	}
 
 	public String getFundSideProductHolidaysFKStart() {

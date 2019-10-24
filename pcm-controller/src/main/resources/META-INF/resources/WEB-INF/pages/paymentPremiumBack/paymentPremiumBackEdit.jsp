@@ -144,7 +144,9 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="platformCoupon.balanceDate.desc" />
 			</div>
-		</div>				
+		</div>	
+		
+					
 		<div class="form-controls auto-float">
 			<div class="btn-group-md">
 				<!-- 确定 -->

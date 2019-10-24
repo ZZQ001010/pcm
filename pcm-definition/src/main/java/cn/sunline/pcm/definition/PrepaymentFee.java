@@ -46,6 +46,10 @@ public class PrepaymentFee implements Serializable {
 	
 	@PropertyInfo(name="结算日期",length=12)
 	public String balanceDate;
+	
+	@PropertyInfo(name="结算信息",length=30)
+	public String settleAccounts;
+	
 
 	
 	

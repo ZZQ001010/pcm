@@ -134,7 +134,7 @@ public class BasicNetPremiumController extends Fee {
             		.stream().collect(Collectors.toMap(AssetSideInfo::getAssetSideCode,AssetSideInfo::getAssetSideDesc)));
             //所属机构
             view.addObject("orgCode", parameterSurface.getParameterObject(PcmOrgParameter.class)
-            		.stream().collect(Collectors.toMap(PcmOrgParameter::getOrgCode,PcmOrgParameter::getValue)));
+            		.stream().collect(Collectors.toMap(PcmOrgParameter::getOrgCode,v->v.getOrgCode()+v.getOrgName())));
 			view.addObject("basicNetPremium", new BasicNetPremium());
             /**
              * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
@@ -233,7 +233,7 @@ public class BasicNetPremiumController extends Fee {
 
             //所属机构
             view.addObject("orgCode", parameterSurface.getParameterObject(PcmOrgParameter.class)
-            		.stream().collect(Collectors.toMap(PcmOrgParameter::getOrgCode,PcmOrgParameter::getValue)));
+            		.stream().collect(Collectors.toMap(PcmOrgParameter::getOrgCode,v->v.getOrgCode()+v.getOrgName())));
             /**
              * 合作编码，四个map都要返回，根据合作类型来确定展示那个map值
              */
@@ -341,7 +341,7 @@ public class BasicNetPremiumController extends Fee {
 			view.addObject("basicNetPremium", BasicNetPremium);
 			String orgCode = BasicNetPremium.getOrgCode();
 			String newOrgCode = parameterSurface.getParameterObject(PcmOrgParameter.class).stream()
-			.collect(Collectors.toMap(PcmOrgParameter::getOrgCode, PcmOrgParameter::getValue)).get(orgCode);
+			.collect(Collectors.toMap(PcmOrgParameter::getOrgCode, v->v.getOrgCode()+"-"+v.getOrgName())).get(orgCode);
 			BasicNetPremium.setOrgCode(newOrgCode);
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(BasicNetPremium.getFeeCollectionMethod()));
 			view.addObject("feeBasis", KC.Enum.getI18nLabel(BasicNetPremium.getFeeBasis()));

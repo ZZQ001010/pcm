@@ -128,10 +128,10 @@
 					<div id="chart-container${unitStatus.index + 2}" class="view-state chart-container"></div>
 					<div id="contextDiv${unitStatus.index + 2}"  class="list-group contextDiv">
 					        <div class="lable" id="select-item${unitStatus.index + 2}">
-					            <img alt="选择组件参数" title="选择组件参数" src="${ctx }/img/修 改.png" style="height: 20px;width: 20px;">
+					            <img alt="选择组件参数" title="选择组件参数" src="${ctx }/img/update.png" style="height: 20px;width: 20px;">
 					        </div>
 					        <div class="lable" id="details${unitStatus.index + 2}">
-					            <img alt="组件详情" title="组件详情" src="${ctx }/img/详情.png" style="height: 20px;width: 20px;">
+					            <img alt="组件详情" title="组件详情" src="${ctx }/img/details.png" style="height: 20px;width: 20px;">
 					        </div>
 					    </div>   
 						<%-- <div id="contextDiv${unitStatus.index + 2}" class="list-group contextDiv"  >

@@ -14,13 +14,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.querydsl.jpa.impl.JPAQuery;
-import com.querydsl.jpa.impl.JPAQueryFactory;
 
 import cn.sunline.common.KC;
 import cn.sunline.common.exception.ProcessException;
 import cn.sunline.common.shared.query.FetchRequest;
 import cn.sunline.common.shared.query.FetchResponse;
-import cn.sunline.pcm.definition.Product;
 import cn.sunline.pcm.definition.enums.ProductUnitsURL;
 import cn.sunline.pcm.infrastructure.model.bo.BPcmProductData;
 import cn.sunline.pcm.infrastructure.model.bo.BPcmProductGroup;
@@ -30,7 +28,6 @@ import cn.sunline.pcm.infrastructure.server.repos.RPcmProductData;
 import cn.sunline.pcm.infrastructure.shared.model.QPcmPrmObject;
 import cn.sunline.pcm.infrastructure.shared.model.QPcmProductData;
 import cn.sunline.pcm.infrastructure.shared.model.QPcmProductGroup;
-import cn.sunline.pcm.infrastructure.shared.model.QPcmProductRel;
 import cn.sunline.pcm.infrastructure.shared.model.QPcmProductUnits;
 import cn.sunline.pcm.infrastructure.shared.model.PcmPrmObject;
 import cn.sunline.pcm.infrastructure.shared.model.PcmProductData;
@@ -51,10 +48,6 @@ public class ParameterSurfaceImpl implements ParameterSurface {
 	@Autowired
 	private ParameterFetchResponseFacility parameterFetchResponseFacility;
 
-	private QPcmProductRel qPcmProductRel = QPcmProductRel.pcmProductRel;
-	
-	private QPcmPrmObject qPcmPrmObject = QPcmPrmObject.pcmPrmObject; 
-	
 	@Autowired
 	private ParameterFacility parameterFacility;
 
@@ -99,7 +92,7 @@ public class ParameterSurfaceImpl implements ParameterSurface {
 	 * @see cn.sunline.pcm.surface.api.ParameterSurface#updateParameterObject(java.lang.String, java.lang.Object)
 	 */
 	@Override
-	public <T> void updateParameterObject(String key, T obj) throws ProcessException {
+	public <T> void updateParameterObject(String key, Object obj) throws ProcessException {
 		parameterFacility.updateParameterObject(key, obj);
 	}
 
@@ -128,9 +121,9 @@ public class ParameterSurfaceImpl implements ParameterSurface {
 	 * @see cn.sunline.pcm.surface.api.ParameterSurface#getFetchResponse(cn.sunline.common.shared.query.FetchRequest,
 	 * java.lang.Class)
 	 */
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({"unchecked" })
 	@Override
-	public FetchResponse getFetchResponse(FetchRequest request, Class<?> clazz) {
+	public <T> FetchResponse<T> getFetchResponse(FetchRequest request, Class<T> clazz) {
 		return parameterFetchResponseFacility.getFetchResponse(request, clazz);
 	}
 
@@ -140,9 +133,9 @@ public class ParameterSurfaceImpl implements ParameterSurface {
 	 * cn.sunline.pcm.surface.api.ParameterSurface#getLoanFetchResponse(cn.sunline.common.shared.query.FetchRequest,
 	 * java.lang.Class, java.lang.String)
 	 */
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings("unchecked")
 	@Override
-	public FetchResponse getLoanFetchResponse(FetchRequest request, Class<?> clazz, String loanType) {
+	public <T> FetchResponse<T> getLoanFetchResponse(FetchRequest request, Class<T> clazz, String loanType) {
 		return parameterFetchResponseFacility.getLoanFetchResponse(request, clazz, loanType);
 	}
 
@@ -157,18 +150,25 @@ public class ParameterSurfaceImpl implements ParameterSurface {
 	@Override
 	@Transactional
 	public <T> void delAllRel(List<String> keys, Class<T> clazz) throws ProcessException {
-		JPAQueryFactory jpaQueryFactory = new JPAQueryFactory(em);
-		keys.forEach(k->{
-			
-			jpaQueryFactory.delete(qPcmPrmObject).where(qPcmPrmObject
-					.org.eq(KC.threadLocal.getCurrentOrg()),qPcmPrmObject.paramKey
-					.eq(k),qPcmPrmObject.paramClass.eq(Product.class.getCanonicalName())).execute();
-			jpaQueryFactory
-			.delete(qPcmProductRel).where(	qPcmProductRel.org.eq(KC.threadLocal.getCurrentOrg()),
-											qPcmProductRel.productCode.eq(k))
-			.execute();
-		});
-			
+		QPcmProductData tmproductdata = QPcmProductData.pcmProductData;
+		QPcmPrmObject qPcmPrmObject = QPcmPrmObject.pcmPrmObject;
+		String org = KC.threadLocal.getCurrentOrg();
+		for (String key : keys) {
+			// 根据paramkey查询映射表中的数据
+			Iterable<PcmProductData> findAll =
+					rPcmProductData.findAll(tmproductdata.productCode.eq(key).and(tmproductdata.org.eq(org)));
+			// 删除关于该产品下的obj数据 paramkey==key
+			for (PcmProductData datas : findAll) {
+				String paramKey = datas.getParamKey();
+				if (paramKey.equals(key)) {
+					Iterable<PcmPrmObject> findAll2 = rPcmPrmObject.findAll(qPcmPrmObject.paramKey.eq(paramKey)
+							.and(qPcmPrmObject.org.eq(org)).and(qPcmPrmObject.paramClass.eq(datas.getParamClass())));
+					rPcmPrmObject.deleteAll(findAll2);
+				}
+			}
+			rPcmProductData.deleteAll(findAll);
+			this.deleteParameterObject(key, clazz);
+		}
 	}
 
 	@Override

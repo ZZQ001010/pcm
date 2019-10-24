@@ -128,13 +128,12 @@
 		</div>
 		<div class="form-group row">
 			<!-- 合作方编码 -->
-			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label ">
-			<span class="span-icon">*&nbsp;</span>
+			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 				<spring:message code="pacificInsuranceAgencyDedit.partnerCode" text="合作方编码" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="partnerCode" data-rule-required="true" id="partnerCode">
+				<form:select cssClass="form-control" path="partnerCode" id="partnerCode">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 				</form:select>
 			</div>
@@ -142,7 +141,7 @@
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
 				<spring:message code="pacificInsuranceAgencyDedit.partnerCode.desc" />
 			</div>
-		</div>
+		</div>			
 		<div class="form-group row">
 			<!-- 转出账号 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label ">
@@ -210,6 +209,11 @@
 				<spring:message code="basicNetPremium.balanceDate.desc" />
 			</div>
 		</div>
+		
+		
+		
+				
+		
 
 		<div class="form-controls auto-float">
 			<div class="btn-group-md">

@@ -3,6 +3,7 @@ package cn.sunline.pcm.definition;
 import java.io.Serializable;
 import java.util.TreeMap;
 
+import cn.sunline.common.StringUtils;
 import cn.sunline.common.address.AddressHelperFacility;
 
 /**
@@ -86,12 +87,19 @@ public class Address implements Serializable{
 	public String toString(AddressHelperFacility addressHelperFacility) {
 		//国家
 		String country = this.country;
+		String province=""; 
+		String city =  "";
 		//省
-		String province = addressHelperFacility.loadProvince().get(this.province);
-		//市
-		String city = addressHelperFacility.loadCity(this.province).get(this.city);
-		//区
-		String  microdistrict= addressHelperFacility.loadDistricts(this.city).get(this.microdistrict);
+		if (StringUtils.isNotEmpty(this.province)) {
+			province = addressHelperFacility.loadProvince().get(this.province);
+		}
+		if (StringUtils.isNotEmpty(this.city)) {
+			//市
+			city = addressHelperFacility.loadCity(this.province).get(this.city);
+		}
+		if (StringUtils.isNotEmpty(this.microdistrict)) {
+			microdistrict= addressHelperFacility.loadDistricts(this.city).get(this.microdistrict);
+		}
 		
 		return country+province+city+microdistrict+this.specificInformation;
 	}

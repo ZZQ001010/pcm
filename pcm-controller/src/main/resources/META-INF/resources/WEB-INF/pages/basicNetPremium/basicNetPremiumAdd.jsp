@@ -145,7 +145,7 @@
                 <spring:message code="basicNetPremium.partnerCode.desc" />
             </div>
         </div>
-		<div class="form-group row">
+		<%-- <div class="form-group row">
             <!-- 费用累计月天数 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
 				<spring:message code="basicNetPremium.expenses" text="费用累计月天数" />
@@ -162,7 +162,7 @@
 				<spring:message code="basicNetPremium.expenses.desc" />
 			</div>
         </div>
-		
+		 --%>
 		
 		
 		<div class="form-group row">
@@ -260,7 +260,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="upperLimitControlRatio" data-rule-digits="true" data-rule-min="0" data-rule-max="999999999999" />
+				<form:input cssClass="form-control" type="number" path="upperLimitControlRatio"   data-rule-min="0" data-rule-max="999999999999" />
 			</div>
 			<!-- 上限控制比例描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -274,7 +274,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="upperControlAmount" data-rule-digits="true" data-rule-min="0" data-rule-max="999999999999" />
+				<form:input cssClass="form-control" type="number" path="upperControlAmount"   data-rule-min="0" data-rule-max="999999999999" />
 			</div>
 			<!-- 上限控制金额描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
@@ -316,24 +316,8 @@
 			</div>
 		</div>
 
+
 		
-		<div class="form-group row">
-            <!-- 放款当天提前结清费用收取方式 -->
-			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<spring:message code="basicNetPremium.settlement" text="提前结清费用收取方式" />
-				:
-			</label>
-            <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-                <form:select cssClass="form-control" path="settlement">
-                	<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
-                   <form:options items="${settlement}" />
-                </form:select>
-            </div>
-            <!-- 资产方描述 -->
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
-				<spring:message code="basicNetPremium.settlement.desc" />
-			</div>
-        </div>
 		<div class="form-controls auto-float">
 			<div class="btn-group-md">
 				<!-- 确定 -->

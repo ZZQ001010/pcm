@@ -226,6 +226,9 @@
 				<spring:message code="fundSideServiceFee.balanceDate.desc" />
 			</div>
 		</div>
+		
+		
+		
 				<%--<div class="form-group row">--%>
 			<%--<!-- 放款当天提前放款手续费方式-->--%>
 			<%--<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">--%>
@@ -288,8 +291,9 @@
 				$('#balanceDate').attr("disabled",false); 
 			}
 		})
-		
-		typeChange();
+		$(function(){
+			typeChange();
+		})
 		
 		//合作方编码控制
 		function typeChange(){
@@ -302,6 +306,7 @@
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$('#partnerCode').selectpicker('val','${fundSideServiceFee.partnerCode}')
 			}
 			if(type=='ZC'){
 				var map = ${assetSideInfoMap}
@@ -311,6 +316,7 @@
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$('#partnerCode').selectpicker('val','${fundSideServiceFee.partnerCode}')
 			}
 			if(type=='QD'){
 				var map = ${channelInfoMap}
@@ -320,6 +326,7 @@
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$('#partnerCode').selectpicker('val','${fundSideServiceFee.partnerCode}')
 			}
 			if(type=='FW'){
 				var map = ${serverInfoMap}
@@ -329,6 +336,7 @@
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
 				$("#partnerCode").selectpicker("refresh");
+				$('#partnerCode').selectpicker('val','${fundSideServiceFee.partnerCode}')
 			}
 		}
 	</script>

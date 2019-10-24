@@ -1,3 +1,4 @@
+dcn: T134505762
 spring:
   application:
     name: ${dcn}-pcm-service-impl
@@ -9,6 +10,6 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://10.10.200.26:8001/eureka/
+      defaultZone: http://127.0.0.1:8001/eureka/
 logging: 
   config: classpath:config/log4j2.xml

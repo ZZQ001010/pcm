@@ -13,76 +13,76 @@
 	<form:form cssClass="form-horizontal" cssStyle="padding-top: 40px" modelAttribute="premiumLiquidatedDamages">
 		<div class="form-group row">
 			<!-- 编码 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="premiumLiquidatedDamages.code" text="费用编码" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${premiumLiquidatedDamages.code }	
 			</label>
 			<!-- 描述 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="premiumLiquidatedDamages.desc" text="费用描述" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${premiumLiquidatedDamages.desc }	
 			</label>
 			<!-- 费用计算方式 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="premiumLiquidatedDamages.costCalculationMethod" text="费用收取方式" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${costCalculationMethod}
 			</label>
 			<!-- 当期保费是否收取 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="premiumLiquidatedDamages.whetherToCharge" text="当期保费是否收取" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${whetherToCharge }	
 			</label>
 			<!-- 剩余本金百分比 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="premiumLiquidatedDamages.percentageRemainingPrincipal" text="手续费率" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${premiumLiquidatedDamages.percentageRemainingPrincipal }	
 			</label>
 			<!-- 加收N期保费 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="premiumLiquidatedDamages.additionalNPremiums" text="加收N期保费" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${additionalNPremiums }
 			</label>
 			<!-- 收取固定金额 -->
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="premiumLiquidatedDamages.chargeFixedAmount" text="收取固定金额" />
 				:
 			</label>
-			<label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${premiumLiquidatedDamages.chargeFixedAmount }	
 			</label>
             <!-- 收取固定金额 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
              <fmt:formatDate var="startDateFmt" value="${premiumLiquidatedDamages.startDate}" type="date" pattern="yyyy-MM-dd"/>
                 <spring:message code="premiumLiquidatedDamages.startDate" text="收取起始账期" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
                 &nbsp;${startDateFmt }
             </label>
             <!-- 收取固定金额 -->
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
                 <spring:message code="premiumLiquidatedDamages.endDate" text="收取终止账期" />
                 :
             </label>
-            <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 detailStyle">
+            <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
             <fmt:formatDate var="endDateFmt" value="${premiumLiquidatedDamages.endDate}" type="date" pattern="yyyy-MM-dd"/>
                 &nbsp;${endDateFmt }
             </label>

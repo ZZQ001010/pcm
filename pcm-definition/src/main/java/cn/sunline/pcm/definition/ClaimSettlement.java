@@ -28,8 +28,23 @@ public class ClaimSettlement  implements Serializable{
 
     @PropertyInfo(name="转入账号",length=12)
     public String transferToAccount;
+    
+    
+    @PropertyInfo(name="结算信息",length=12)
+    public String settleAccounts;
+    
 
-    public String getClaimSettlementCode() {
+    
+
+    public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
+
+	public String getClaimSettlementCode() {
         return claimSettlementCode;
     }
 

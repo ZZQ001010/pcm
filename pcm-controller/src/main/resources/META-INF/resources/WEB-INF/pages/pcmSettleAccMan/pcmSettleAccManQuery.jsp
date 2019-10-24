@@ -25,30 +25,7 @@
 								<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
 									<form:input cssClass="form-control" type="text" path="settleAccCode"  data-rule-maxlength="100" />
 								</div>
-								<label class="control-label col-lg-1 col-md-2 col-sm-6 col-xs-12" for="accountOwner">
-									<spring:message code="pcmSettleAccMan.accountOwner" text="账号归属" />
-									:
-								</label>
-								<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-									<form:select cssClass="form-control" path="accountOwner">
-										<option value=""><spring:message code="kite.web.common.pleaseChoose"  text="--请选择--" /></option>
-										<form:options items="${accountOwner}" />
-									</form:select>
-								</div>
-								<!-- <label class="control-label col-lg-1 col-md-2 col-sm-6 col-xs-12" for="orgCode">
-									<spring:message code="pcmSettleAccMan.orgCode" text="机构编号" />
-									:
-								</label>
-								<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-									<form:input cssClass="form-control" type="text" path="orgCode"  data-rule-maxlength="32" />
-								</div> -->
-								<label class="control-label col-lg-1 col-md-2 col-sm-6 col-xs-12" for="openBank">
-									<spring:message code="pcmSettleAccMan.openBank" text="开户银行" />
-									:
-								</label>
-								<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-									<form:input cssClass="form-control" type="text" path="openBank"  data-rule-maxlength="100" />
-								</div>
+								 
 							</div>
 							<div class="form-controls">
 								<div class="btn-group-sm">
@@ -92,23 +69,20 @@
 		pkNames.push("settleAccCode");
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.settleAccCode" text="结算账号编码" />', data: 'settleAccCode'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.settleAccDes" text="结算账号描述" />', data: 'settleAccDes'});
-		columns.push({ title: '<spring:message code="pcmSettleAccMan.accountOwner" text="账号归属" />', data: 'accountOwner',
-			render : function(data, type, row, meta) {
-				return ${accountOwnerJson}[data];
-			}
-		});
-		<%--//columns.push({ title: '<spring:message code="pcmSettleAccMan.asset" text="资产方" />', data: 'asset'});--%>
-		<%--//columns.push({ title: '<spring:message code="pcmSettleAccMan.unifiedSocCreCode" text="统一社会信用代码" />', data: 'unifiedSocCreCode'});--%>
-		<%--//columns.push({ title: '<spring:message code="pcmSettleAccMan.orgCode" text="机构编号" />', data: 'orgCode'});--%>
-		<%--//columns.push({ title: '<spring:message code="pcmSettleAccMan.organizationAccountType" text="机构账号类型" />', data: 'organizationAccountType'});--%>
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.unitName" text="单位名称" />', data: 'unitName'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.bankAccount" text="银行账户" />', data: 'bankAccount'});
-		<%--//columns.push({ title: '<spring:message code="pcmSettleAccMan.accNoteName" text="账户备注名" />', data: 'accNoteName'});--%>
-		<%--//columns.push({ title: '<spring:message code="pcmSettleAccMan.pubOpenNum" text="对公账户的开户行号" />', data: 'pubOpenNum'});--%>
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.openBank" text="开户银行" />', data: 'openBank'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.openBankProv" text="开户行省份" />', data: 'openBankProv'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.openBankCity" text="开户行城市" />', data: 'openBankCity'});
+		columns.push({ title: '<spring:message code="pcmSettleAccMan.district" text="开户区、县" />', data: 'district'});
 		columns.push({ title: '<spring:message code="pcmSettleAccMan.openBankBranch" text="开户行支行" />', data: 'openBankBranch'});
+		columns.push({ title: '<spring:message code="pcmSettleAccMan.vUnitName" text="单位名称" />', data: 'vUnitName'});
+		columns.push({ title: '<spring:message code="pcmSettleAccMan.vBankAccount" text="银行账户" />', data: 'vBankAccount'});
+		columns.push({ title: '<spring:message code="pcmSettleAccMan.vOpenBank" text="开户银行" />', data: 'vOpenBank'});
+		columns.push({ title: '<spring:message code="pcmSettleAccMan.vOpenBankProv" text="开户行省份" />', data: 'vOpenBankProv'});
+		columns.push({ title: '<spring:message code="pcmSettleAccMan.vOpenBankCity" text="开户行城市" />', data: 'vOpenBankCity'});
+		columns.push({ title: '<spring:message code="pcmSettleAccMan.vDistrict" text="开户区、县" />', data: 'vDistrict'});
+		columns.push({ title: '<spring:message code="pcmSettleAccMan.vOpenBankBranch" text="开户行支行" />', data: 'vOpenBankBranch'});
 		var grid = $("#pcmSettleAccMan_datatable").grid({
 			datatable : {
 	          	ajax: {
@@ -116,9 +90,13 @@
 	  				method: "post",
 	  				data: function(d) {
 						d.settleAccCode = $("#settleAccCode").val();
+						d.settleAccDes = $("#settleAccDes").val();
 						d.accountOwner = $("#accountOwner").val();
-						d.orgCode = $("#orgCode").val();
+						d.organizationAccountType = $("#organizationAccountType").val();
+						d.unitName = $("#unitName").val();
+						d.bankAccount = $("#bankAccount").val();
 						d.openBank = $("#openBank").val();
+						d.openBankProv = $("#openBankProv").val();
 	  				}
 	  			},
 	  			columns: columns

@@ -117,7 +117,26 @@ public class SafetyMat implements Serializable{
 	@PropertyInfo(name="提前结清费用收取方式",length=32)
 	public Settlement settlement;
 	
+	/**
+	 * 结算信息
+	 */
+	@PropertyInfo(name="结算信息",length=32)
+	public String settleAccounts;
 	
+	
+	
+	
+	
+	public String getSettleAccounts() {
+		return settleAccounts;
+	}
+
+
+	public void setSettleAccounts(String settleAccounts) {
+		this.settleAccounts = settleAccounts;
+	}
+
+
 	/**
 	 * 放款当天提前还款费用收取方式
 	 * @return
