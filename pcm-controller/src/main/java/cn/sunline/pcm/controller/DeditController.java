@@ -225,7 +225,8 @@ public class DeditController extends Fee{
 	public ModelAndView deditEditPage(String deditCode, HttpServletRequest request) throws FlatException {
 		try {
 			ModelAndView view = KW.mvc.forwardView("dedit/deditEdit");
-			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));	
+			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
+			view.addObject("partnerType", KC.Enum.getI18nLabelMap(ChannelPartnerType.class));
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(DeditMethodOfFeeCollection.class));				
 			view.addObject("feeBasis", KC.Enum.getI18nLabelMap(DeditBasisOfFeeCollection.class));
 			view.addObject("billingCycle", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.BillingCycle.class));
@@ -340,40 +341,45 @@ public class DeditController extends Fee{
 			view = KW.mvc.forwardView("dedit/deditDetail");
 			view.addObject("factory",deditCode==null);
 			Dedit dedit = parameterSurface.getParameterObject(deditCode==null?code:deditCode, Dedit.class);
-			view.addObject("partnerType", KC.Enum.getI18nLabel(dedit.getPartnerType()));
-			view.addObject("dedit", dedit);
-			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(dedit.getFeeCollectionMethod()));
-			view.addObject("feeBasis", KC.Enum.getI18nLabel(dedit.getFeeBasis()));
-			view.addObject("billingCycle", KC.Enum.getI18nLabel(dedit.getBillingCycle()));
-			
-			dedit.setTransferAccount(getPcmSettleAccMan(dedit.getTransferAccount()));
-			dedit.setTransferToAccount(getPcmSettleAccMan(dedit.getTransferToAccount()));
-			//所属机构
-			PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(dedit.getOrganization(),PcmOrgParameter.class);
-			view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
-			ChannelPartnerType type = dedit.getPartnerType();
-            if(type!=null){
-				//资产方
-				if(type.equals(ChannelPartnerType.ZC)){
-					AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(dedit.getPartnerCode(),AssetSideInfo.class);
-					view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+			if(null != dedit){
+				view.addObject("partnerType", KC.Enum.getI18nLabel(dedit.getPartnerType()));
+				view.addObject("dedit", dedit);
+				view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(dedit.getFeeCollectionMethod()));
+				view.addObject("feeBasis", KC.Enum.getI18nLabel(dedit.getFeeBasis()));
+				view.addObject("billingCycle", KC.Enum.getI18nLabel(dedit.getBillingCycle()));
+				
+				dedit.setTransferAccount(getPcmSettleAccMan(dedit.getTransferAccount()));
+				dedit.setTransferToAccount(getPcmSettleAccMan(dedit.getTransferToAccount()));
+				//所属机构
+				PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(dedit.getOrganization(),PcmOrgParameter.class);
+				if(null != pcmOrgParameter){
+					view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
 				}
-				//资金方
-				if(type.equals(ChannelPartnerType.ZJ)){
-					FundSideInfo fundSideInfo = parameterSurface.getParameterObject(dedit.getPartnerCode(),FundSideInfo.class);
-					view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
-				}
-				//服务方
-				if(type.equals(ChannelPartnerType.FW)){
-					ServerInfo serverInfo = parameterSurface.getParameterObject(dedit.getPartnerCode(),ServerInfo.class);
-					view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
-				}
-				//渠道方 
-				if(type.equals(ChannelPartnerType.QD)){
-					ChannelInfo channelInfo = parameterSurface.getParameterObject(dedit.getPartnerCode(),ChannelInfo.class);
-					view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+				ChannelPartnerType type = dedit.getPartnerType();
+	            if(type!=null){
+					//资产方
+					if(type.equals(ChannelPartnerType.ZC)){
+						AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(dedit.getPartnerCode(),AssetSideInfo.class);
+						view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+					}
+					//资金方
+					if(type.equals(ChannelPartnerType.ZJ)){
+						FundSideInfo fundSideInfo = parameterSurface.getParameterObject(dedit.getPartnerCode(),FundSideInfo.class);
+						view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+					}
+					//服务方
+					if(type.equals(ChannelPartnerType.FW)){
+						ServerInfo serverInfo = parameterSurface.getParameterObject(dedit.getPartnerCode(),ServerInfo.class);
+						view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+					}
+					//渠道方 
+					if(type.equals(ChannelPartnerType.QD)){
+						ChannelInfo channelInfo = parameterSurface.getParameterObject(dedit.getPartnerCode(),ChannelInfo.class);
+						view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+					}
 				}
 			}
+			
 			return view;
 		} catch (ProcessException e) {
 			logger.error(e.getMessage(), e);
