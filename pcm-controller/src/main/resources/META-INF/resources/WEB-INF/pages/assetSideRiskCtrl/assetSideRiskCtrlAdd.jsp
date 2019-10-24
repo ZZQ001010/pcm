@@ -36,7 +36,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="riskCtrlWays">
+				<form:select cssClass="form-control" path="riskCtrlWays" data-rule-required="true">
 					<form:options items="${riskCtrlWays}" />
 				</form:select>
 			</div>
@@ -54,7 +54,7 @@
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
 				
-				<form:textarea cssClass="form-control" path="desc"  data-rule-maxlength="50" />
+				<form:textarea cssClass="form-control" path="desc"  data-rule-required="true" data-rule-maxlength="50" />
 			</div>
 			<!-- 描述描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">

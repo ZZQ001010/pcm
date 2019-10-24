@@ -87,11 +87,12 @@
 		<div class="form-group row">
 			<!-- 描述 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="assetSideRiskCtrl.desc" text="描述" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:textarea cssClass="form-control"  path="desc"  data-rule-maxlength="50" />
+				<form:textarea cssClass="form-control"  path="desc" data-rule-required="true" data-rule-maxlength="50" />
 			</div>
 			<!-- 描述描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">
