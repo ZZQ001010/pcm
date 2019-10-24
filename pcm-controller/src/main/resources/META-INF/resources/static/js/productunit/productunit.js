@@ -94,7 +94,7 @@ var ocCopy ;
       'nodeContent': "unitNameCn",
       'nodeTitle': 'value', 
       'direction': 'l2r',
-      'pan': true,
+      'pan': false,
       'draggable': false,
 //      'zoom': true,
 //      'zoominLimit': 3,
@@ -116,7 +116,7 @@ var ocCopy ;
     })
     .on('mouseover','.node',function(ev){
 	    let top =   $(this).offset().top;
-	    let left = 	$(this).offset().left-155;
+	    let left = 	$(this).offset().left-220;
 	      var oEvent= ev||event;
 	      var oUl=document.getElementById("contextDiv");
 	      oUl.style.display="block";
