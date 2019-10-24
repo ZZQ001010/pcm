@@ -287,27 +287,33 @@ public class FundSideCtrlProductInfoController {
             view.addObject("factory",fundSideCtrlCode==null);
             FundSideProductCtrlInfo fundSideProductCtrlInfo = parameterSurface.getParameterObject(
                     fundSideCtrlCode==null?code:fundSideCtrlCode, FundSideProductCtrlInfo.class);
-            view.addObject("fundSideProductCtrlInfo", fundSideProductCtrlInfo);
-            if ((fundSideProductCtrlInfo.getFundSidePartRepay()!=null)) {
-            	 view.addObject("fundSidePartRepay",fundSideProductCtrlInfo.getFundSidePartRepay()?"是":"否");
-			}
-            String province ="" ; 
-            String city=""; 
-            if (fundSideProductCtrlInfo.getFundSideProv()!=null) {
-            	province = addressHelperFacility.loadProvince().get(fundSideProductCtrlInfo.getFundSideProv());
-			}
-            if (fundSideProductCtrlInfo.getFundSideCity()!=null) {
-            	city = addressHelperFacility.loadCity(fundSideProductCtrlInfo.getFundSideProv()).get(fundSideProductCtrlInfo.getFundSideCity());
-			}
-    		//市
-            view.addObject("FundSideProv",province);
-            view.addObject("fundSideCity", city);
-            view.addObject("fundSideBusinessScopes",fundSideProductCtrlInfo.getFundSideBusinessScope().stream().map(
-            		n->codeService.getCodeNameByOrgAndCodeType(KC.threadLocal.getCurrentOrg(),
-            				"fundSideBusinessScopes",n)).collect(Collectors.toList()));
-            view.addObject("fundSideProfessionScopes",fundSideProductCtrlInfo.getFundSideProfessionScope().stream().map(
-            		n->codeService.getCodeNameByOrgAndCodeType(KC.threadLocal.getCurrentOrg(),
-            				"fundSideProfessionScopes",n)).collect(Collectors.toList()));
+            if(null != fundSideProductCtrlInfo){
+            	view.addObject("fundSideProductCtrlInfo", fundSideProductCtrlInfo);
+                if ((fundSideProductCtrlInfo.getFundSidePartRepay()!=null)) {
+                	 view.addObject("fundSidePartRepay",fundSideProductCtrlInfo.getFundSidePartRepay()?"是":"否");
+    			}
+                String province ="" ; 
+                String city=""; 
+                if (fundSideProductCtrlInfo.getFundSideProv()!=null) {
+                	province = addressHelperFacility.loadProvince().get(fundSideProductCtrlInfo.getFundSideProv());
+                	if (fundSideProductCtrlInfo.getFundSideCity()!=null) {
+                		TreeMap<String, String> loadCity = addressHelperFacility.loadCity(fundSideProductCtrlInfo.getFundSideProv());
+                		if(null != loadCity){
+                			city = loadCity.get(fundSideProductCtrlInfo.getFundSideCity());
+                		}
+        			}
+    			}
+        		//市
+                view.addObject("FundSideProv",province);
+                view.addObject("fundSideCity", city);
+                view.addObject("fundSideBusinessScopes",fundSideProductCtrlInfo.getFundSideBusinessScope().stream().map(
+                		n->codeService.getCodeNameByOrgAndCodeType(KC.threadLocal.getCurrentOrg(),
+                				"fundSideBusinessScopes",n)).collect(Collectors.toList()));
+                view.addObject("fundSideProfessionScopes",fundSideProductCtrlInfo.getFundSideProfessionScope().stream().map(
+                		n->codeService.getCodeNameByOrgAndCodeType(KC.threadLocal.getCurrentOrg(),
+                				"fundSideProfessionScopes",n)).collect(Collectors.toList()));
+            }
+            
             return view;
         } catch (ProcessException e) {
             logger.error(e.getMessage(), e);
@@ -317,7 +323,6 @@ public class FundSideCtrlProductInfoController {
             throw new FlatException(e, "fundSideProductCtrlInfo.fundSideProductCtrlInfoDetailPageFail", "加载资金方产品经营控制详情页面失败");
         }
     }
-
 
 
 }
