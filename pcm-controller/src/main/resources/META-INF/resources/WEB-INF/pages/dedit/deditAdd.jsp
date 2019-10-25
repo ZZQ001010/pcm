@@ -45,12 +45,11 @@
 		<div class="form-group row">
 			<!-- 费用收取方式 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label ">
-			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="dedit.feeCollectionMethod" text="费用收取方式" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="feeCollectionMethod" data-rule-required="true">
+				<form:select cssClass="form-control" path="feeCollectionMethod" >
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${feeCollectionMethod}" />
 				</form:select>
@@ -130,12 +129,11 @@
 		<div class="form-group row">
 			<!-- 合作方编码 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="dedit.partnerCode" text="合作方编码" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="partnerCode" data-rule-required="true" id="partnerCode">
+				<form:select cssClass="form-control" path="partnerCode" id="partnerCode">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 				</form:select>
 			</div>
