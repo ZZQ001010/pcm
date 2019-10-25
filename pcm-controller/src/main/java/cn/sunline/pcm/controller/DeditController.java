@@ -352,30 +352,28 @@ public class DeditController extends Fee{
 				dedit.setTransferToAccount(getPcmSettleAccMan(dedit.getTransferToAccount()));
 				//所属机构
 				PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(dedit.getOrganization(),PcmOrgParameter.class);
-				if(null != pcmOrgParameter){
-					view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
-				}
+				view.addObject("org",pcmOrgParameter==null?"":pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
 				ChannelPartnerType type = dedit.getPartnerType();
 	            if(type!=null){
 					//资产方
 					if(type.equals(ChannelPartnerType.ZC)){
 						AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(dedit.getPartnerCode(),AssetSideInfo.class);
-						view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+						view.addObject("partner", assetSideInfo==null?"": assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
 					}
 					//资金方
 					if(type.equals(ChannelPartnerType.ZJ)){
 						FundSideInfo fundSideInfo = parameterSurface.getParameterObject(dedit.getPartnerCode(),FundSideInfo.class);
-						view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+						view.addObject("partner", fundSideInfo==null?"":fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
 					}
 					//服务方
 					if(type.equals(ChannelPartnerType.FW)){
 						ServerInfo serverInfo = parameterSurface.getParameterObject(dedit.getPartnerCode(),ServerInfo.class);
-						view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+						view.addObject("partner", serverInfo==null?"":serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
 					}
 					//渠道方 
 					if(type.equals(ChannelPartnerType.QD)){
 						ChannelInfo channelInfo = parameterSurface.getParameterObject(dedit.getPartnerCode(),ChannelInfo.class);
-						view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+						view.addObject("partner", channelInfo==null?"":channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
 					}
 				}
 			}
