@@ -324,7 +324,12 @@ public class SafetyMatController extends Fee {
 			//view.addObject("participationStatus", KC.Enum.getI18nLabel(safetyMat.getParticipationStatus()));
 			//所属机构
 			PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(safetyMat.getOrganization(),PcmOrgParameter.class);
-			view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+			if (pcmOrgParameter!=null) {
+				view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+			}else{
+				view.addObject("org","");
+			}
+			
 			//资产方
 			AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(safetyMat.getAsset(),AssetSideInfo.class);
 			view.addObject("assetSideInfo",assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());

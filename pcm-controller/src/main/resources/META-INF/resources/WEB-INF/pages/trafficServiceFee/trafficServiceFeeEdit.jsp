@@ -59,7 +59,6 @@
 		<div class="form-group row">
 			<!-- 费用收取方式 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="trafficServiceFee.feeCollectionMethod" text="费用收取方式" />
 				:
 			</label>
@@ -95,7 +94,6 @@
 		<div class="form-group row">
 			<!-- 费用收取频次 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="trafficServiceFee.frequencyOfCharge" text="费用收取频次" />
 				:
 			</label>
@@ -223,7 +221,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="partnerCode" id="partnerCode">
+				<form:select cssClass="form-control" path="partnerCode" id="partnerCode" data-rule-required="true">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 				</form:select>
 			</div>
@@ -286,7 +284,6 @@
 		<div class="form-group row">
 			<!-- 结算周期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="trafficServiceFee.billingCycle" text="结算周期" />
 				:
 			</label>

@@ -50,7 +50,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="feeCollectionMethod">
+				<form:select cssClass="form-control" path="feeCollectionMethod" data-rule-required="true">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${feeCollectionMethod}" />
 				</form:select>
@@ -68,7 +68,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="loanDayFeeColMethod">
+				<form:select cssClass="form-control" path="loanDayFeeColMethod" data-rule-required="true">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${loanDayFeeColMethod}" />
 				</form:select>
@@ -172,7 +172,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="billingCycle">
+				<form:select cssClass="form-control" path="billingCycle" data-rule-required="true">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${billingCycle}" />
 				</form:select>

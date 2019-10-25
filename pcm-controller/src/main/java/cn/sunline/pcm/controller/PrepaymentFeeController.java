@@ -378,7 +378,12 @@ public class PrepaymentFeeController extends Fee {
 			}
 			//所属机构
 			PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(prepaymentFee.getOrganization(),PcmOrgParameter.class);
-			view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+			if (pcmOrgParameter!=null) {
+				view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+			}else{
+				view.addObject("org","");
+			}
+			
 			ChannelPartnerType type = prepaymentFee.getPartnerType();
 			if(type!=null){
 				//资产方

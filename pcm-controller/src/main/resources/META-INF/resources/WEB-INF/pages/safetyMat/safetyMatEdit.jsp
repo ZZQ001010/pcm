@@ -34,7 +34,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="feeCollectionMethod">
+				<form:select cssClass="form-control" path="feeCollectionMethod" data-rule-required="true">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${feeCollectionMethod}" />
 				</form:select>
@@ -205,7 +205,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="chargeWay">
+				<form:select cssClass="form-control" path="chargeWay" data-rule-required="true">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${chargeWayMap}" />
 				</form:select>
