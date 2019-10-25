@@ -332,7 +332,12 @@ public class SafetyMatController extends Fee {
 			
 			//资产方
 			AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(safetyMat.getAsset(),AssetSideInfo.class);
-			view.addObject("assetSideInfo",assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+			if (assetSideInfo!=null) {
+				view.addObject("assetSideInfo",assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+			}
+			else{
+				view.addObject("assetSideInfo","");
+			}
 			//安全垫下限控制方式
 			view.addObject("controlMode", KC.Enum.getI18nLabel(safetyMat.getControlMode()));
 			//技术服务费收取方式
