@@ -332,44 +332,47 @@ public class GuaranteeFeeController  extends Fee{
 			 view.addObject("factroy",guaranteeFeeCode==null); 
 			GuaranteeFee guaranteeFee = parameterSurface.getParameterObject(
 						guaranteeFeeCode==null?code:guaranteeFeeCode, GuaranteeFee.class);
-			guaranteeFee.setTransferAccount(getPcmSettleAccMan(guaranteeFee.getTransferAccount()));
-			guaranteeFee.setTransferToAccount(getPcmSettleAccMan(guaranteeFee.getTransferToAccount()));
-			view.addObject("guaranteeFee", guaranteeFee);
-			
-			view.addObject("partnerType", KC.Enum.getI18nLabel(guaranteeFee.getPartnerType()));
-			view.addObject("accumulated", KC.Enum.getI18nLabel(guaranteeFee.getAccumulated()));
-			view.addObject("banceDate", KC.Enum.getI18nLabel(guaranteeFee.getBanceDate()));
+			if(null != guaranteeFee){
+				guaranteeFee.setTransferAccount(getPcmSettleAccMan(guaranteeFee.getTransferAccount()));
+				guaranteeFee.setTransferToAccount(getPcmSettleAccMan(guaranteeFee.getTransferToAccount()));
+				view.addObject("guaranteeFee", guaranteeFee);
+				
+				view.addObject("partnerType", KC.Enum.getI18nLabel(guaranteeFee.getPartnerType()));
+				view.addObject("accumulated", KC.Enum.getI18nLabel(guaranteeFee.getAccumulated()));
+				view.addObject("banceDate", KC.Enum.getI18nLabel(guaranteeFee.getBanceDate()));
 
-			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(guaranteeFee.getFeeCollectionMethod()));
-			view.addObject("feeBasis", KC.Enum.getI18nLabel(guaranteeFee.getFeeBasis()));
-			view.addObject("frequencyOfCharge", KC.Enum.getI18nLabel(guaranteeFee.getFrequencyOfCharge()));
-			view.addObject("billingCycle", KC.Enum.getI18nLabel(guaranteeFee.getBillingCycle()));
-			//所属机构
-			PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(guaranteeFee.getOrgCode(),PcmOrgParameter.class);
-			view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
-			ChannelPartnerType type = guaranteeFee.getPartnerType();
-            if(type!=null){
-				//资产方
-				if(type.equals(ChannelPartnerType.ZC)){
-					AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(guaranteeFee.getPartnerCode(),AssetSideInfo.class);
-					view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
-				}
-				//资金方
-				if(type.equals(ChannelPartnerType.ZJ)){
-					FundSideInfo fundSideInfo = parameterSurface.getParameterObject(guaranteeFee.getPartnerCode(),FundSideInfo.class);
-					view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
-				}
-				//服务方
-				if(type.equals(ChannelPartnerType.FW)){
-					ServerInfo serverInfo = parameterSurface.getParameterObject(guaranteeFee.getPartnerCode(),ServerInfo.class);
-					view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
-				}
-				//渠道方 
-				if(type.equals(ChannelPartnerType.QD)){
-					ChannelInfo channelInfo = parameterSurface.getParameterObject(guaranteeFee.getPartnerCode(),ChannelInfo.class);
-					view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+				view.addObject("feeCollectionMethod", KC.Enum.getI18nLabel(guaranteeFee.getFeeCollectionMethod()));
+				view.addObject("feeBasis", KC.Enum.getI18nLabel(guaranteeFee.getFeeBasis()));
+				view.addObject("frequencyOfCharge", KC.Enum.getI18nLabel(guaranteeFee.getFrequencyOfCharge()));
+				view.addObject("billingCycle", KC.Enum.getI18nLabel(guaranteeFee.getBillingCycle()));
+				//所属机构
+				PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(guaranteeFee.getOrgCode(),PcmOrgParameter.class);
+				view.addObject("org",pcmOrgParameter==null?"":pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+				ChannelPartnerType type = guaranteeFee.getPartnerType();
+	            if(type!=null){
+					//资产方
+					if(type.equals(ChannelPartnerType.ZC)){
+						AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(guaranteeFee.getPartnerCode(),AssetSideInfo.class);
+						view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+					}
+					//资金方
+					if(type.equals(ChannelPartnerType.ZJ)){
+						FundSideInfo fundSideInfo = parameterSurface.getParameterObject(guaranteeFee.getPartnerCode(),FundSideInfo.class);
+						view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+					}
+					//服务方
+					if(type.equals(ChannelPartnerType.FW)){
+						ServerInfo serverInfo = parameterSurface.getParameterObject(guaranteeFee.getPartnerCode(),ServerInfo.class);
+						view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+					}
+					//渠道方 
+					if(type.equals(ChannelPartnerType.QD)){
+						ChannelInfo channelInfo = parameterSurface.getParameterObject(guaranteeFee.getPartnerCode(),ChannelInfo.class);
+						view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+					}
 				}
 			}
+			
 			return view;
 		} catch (ProcessException e) {
 			logger.error(e.getMessage(), e);

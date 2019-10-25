@@ -35,7 +35,7 @@
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="feeCollectionMethod">
+				<form:select cssClass="form-control" path="feeCollectionMethod" data-rule-required="true">
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${feeCollectionMethod}" />
 <!-- 					<option value="A">按比例</option> -->
@@ -49,7 +49,6 @@
 		<div class="form-group row">
 			<!-- 费用收取基础 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="guaranteeFee.feeBasis" text="费用收取基础" />
 				:
 			</label>
@@ -67,7 +66,6 @@
 		<div class="form-group row">
 			<!-- 费用计算周期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="guaranteeFee.frequencyOfCharge" text="费用计算周期" />
 				:
 			</label>
@@ -85,7 +83,6 @@
 		<div class="form-group row">
 			<!-- 收取比例 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="guaranteeFee.ratio" text="收取比例" />
 				:
 			</label>
@@ -175,7 +172,6 @@
 		<div class="form-group row">
 			<!-- 转出账号 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="guaranteeFee.transferAccount" text="转出账号" />
 				:
 			</label>
@@ -193,7 +189,6 @@
 		<div class="form-group row">
 			<!-- 转入账号 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="guaranteeFee.transferToAccount" text="转入账号" />
 				:
 			</label>
@@ -211,7 +206,6 @@
 		<div class="form-group row">
 			<!-- 结算周期 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="guaranteeFee.billingCycle" text="结算周期" />
 				:
 			</label>
