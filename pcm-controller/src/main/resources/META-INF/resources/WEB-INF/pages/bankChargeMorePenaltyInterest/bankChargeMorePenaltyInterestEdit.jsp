@@ -95,6 +95,7 @@
         <div class="form-group row">
             <!-- 转出账号 -->
             <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+            	<span class="span-icon">*&nbsp;</span>
                 <spring:message code="bankChargeMorePenaltyInterest.transferAccount" text="转出账号" />
                 :
             </label>
@@ -112,6 +113,7 @@
         <div class="form-group row">
             <!-- 转入账号 -->
             <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+            	<span class="span-icon">*&nbsp;</span>
                 <spring:message code="bankChargeMorePenaltyInterest.transferToAccount" text="转入账号" />
                 :
             </label>

@@ -315,13 +315,13 @@ public class PaymentPremiumController  extends Fee {
 			view.addObject("serverInfoMap",new JSONObject(serverInfoMap));
 			PaymentPremium paymentPremium = parameterSurface.getParameterObject(paymentPremiumCode,PaymentPremium.class);
 			ChannelPartnerType partnerType = paymentPremium.getPartnerType();
-			if (partnerType.equals(ChannelPartnerType.FW)) {
+			if (ChannelPartnerType.FW.equals(partnerType)) {
 				view.addObject("partnerCode", serverInfoMap);
-			}else if (partnerType.equals(ChannelPartnerType.QD)) {
+			}else if (ChannelPartnerType.QD.equals(partnerType)) {
 				view.addObject("partnerCode",channelInfoMap);
-			}else if (partnerType.equals(ChannelPartnerType.ZC)) {
+			}else if (ChannelPartnerType.ZC.equals(partnerType)) {
 				view.addObject("partnerCode",assetSideInfoMap);
-			}else if (partnerType.equals(ChannelPartnerType.ZJ)) {
+			}else if (ChannelPartnerType.ZJ.equals(partnerType)) {
 				view.addObject("partnerCode",fundSideInfoMap);
 			}
 			view.addObject("paymentPremium", paymentPremium);
