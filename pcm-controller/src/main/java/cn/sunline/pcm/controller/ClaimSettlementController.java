@@ -373,31 +373,32 @@ public class ClaimSettlementController {
             view.addObject("partnerType", KC.Enum.getI18nLabel(claimSettlement.getPartnerType()));
             //所属机构
             PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(claimSettlement.getOrganization(),PcmOrgParameter.class);
-            view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
-            ChannelPartnerType type = claimSettlement.getPartnerType();
-            if(type!=null){
-                //资产方
-                if(type.equals(ChannelPartnerType.ZC)){
-                    AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(claimSettlement.getPartnerCode(),AssetSideInfo.class);
-                    view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
-                }
-                //资金方
-                if(type.equals(ChannelPartnerType.ZJ)){
-                    FundSideInfo fundSideInfo = parameterSurface.getParameterObject(claimSettlement.getPartnerCode(),FundSideInfo.class);
-                    view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
-                }
-                //服务方
-                if(type.equals(ChannelPartnerType.FW)){
-                    ServerInfo serverInfo = parameterSurface.getParameterObject(claimSettlement.getPartnerCode(),ServerInfo.class);
-                    view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
-                }
-                //渠道方 
-                if(type.equals(ChannelPartnerType.QD)){
-                    ChannelInfo channelInfo = parameterSurface.getParameterObject(claimSettlement.getPartnerCode(),ChannelInfo.class);
-                    view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+            view.addObject("org",pcmOrgParameter == null?"":pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+            if(null != claimSettlement){
+            	ChannelPartnerType type = claimSettlement.getPartnerType();
+                if(type!=null){
+                    //资产方
+                    if(ChannelPartnerType.ZC.equals(type)){
+                        AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(claimSettlement.getPartnerCode(),AssetSideInfo.class);
+                        view.addObject("partner", assetSideInfo==null?"":assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+                    }
+                    //资金方
+                    if(ChannelPartnerType.ZJ.equals(type)){
+                        FundSideInfo fundSideInfo = parameterSurface.getParameterObject(claimSettlement.getPartnerCode(),FundSideInfo.class);
+                        view.addObject("partner", fundSideInfo==null?"":fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+                    }
+                    //服务方
+                    if(ChannelPartnerType.FW.equals(type)){
+                        ServerInfo serverInfo = parameterSurface.getParameterObject(claimSettlement.getPartnerCode(),ServerInfo.class);
+                        view.addObject("partner", serverInfo==null?"":serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+                    }
+                    //渠道方 
+                    if(ChannelPartnerType.QD.equals(type)){
+                        ChannelInfo channelInfo = parameterSurface.getParameterObject(claimSettlement.getPartnerCode(),ChannelInfo.class);
+                        view.addObject("partner", channelInfo==null?"":channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+                    }
                 }
             }
-            
             
             return view;
         } catch (ProcessException e) {
