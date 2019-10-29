@@ -29,6 +29,7 @@
 		<div class="form-group row">
 			<!-- 机构地址 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="pcmOrgParameter.orgAddress" text="机构地址" />
 				:
 			</label>
