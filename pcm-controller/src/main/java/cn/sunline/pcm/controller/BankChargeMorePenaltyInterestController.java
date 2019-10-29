@@ -388,28 +388,28 @@ public class BankChargeMorePenaltyInterestController {
             view.addObject("billingCycle", KC.Enum.getI18nLabel(bankChargeMorePenaltyInterest.getBillingCycle()));
             //所属机构
             PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(bankChargeMorePenaltyInterest.getOrganization(),PcmOrgParameter.class);
-            view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+            view.addObject("org",pcmOrgParameter==null?"":pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
             ChannelPartnerType type = bankChargeMorePenaltyInterest.getPartnerType();
             if(type!=null){
                 //资产方
-                if(type.equals(ChannelPartnerType.ZC)){
+                if(ChannelPartnerType.ZC.equals(type)){
                     AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(bankChargeMorePenaltyInterest.getPartnerCode(),AssetSideInfo.class);
-                    view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+                    view.addObject("partner", assetSideInfo==null?"":assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
                 }
                 //资金方
-                if(type.equals(ChannelPartnerType.ZJ)){
+                if(ChannelPartnerType.ZJ.equals(type)){
                     FundSideInfo fundSideInfo = parameterSurface.getParameterObject(bankChargeMorePenaltyInterest.getPartnerCode(),FundSideInfo.class);
-                    view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+                    view.addObject("partner", fundSideInfo==null?"":fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
                 }
                 //服务方
-                if(type.equals(ChannelPartnerType.FW)){
+                if(ChannelPartnerType.FW.equals(type)){
                     ServerInfo serverInfo = parameterSurface.getParameterObject(bankChargeMorePenaltyInterest.getPartnerCode(),ServerInfo.class);
-                    view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+                    view.addObject("partner", serverInfo==null?"":serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
                 }
                 //渠道方 
-                if(type.equals(ChannelPartnerType.QD)){
+                if(ChannelPartnerType.QD.equals(type)){
                     ChannelInfo channelInfo = parameterSurface.getParameterObject(bankChargeMorePenaltyInterest.getPartnerCode(),ChannelInfo.class);
-                    view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+                    view.addObject("partner", channelInfo==null?"":channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
                 }
             }
             return view;
