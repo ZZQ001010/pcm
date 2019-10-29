@@ -402,7 +402,9 @@ public class BankPrincipalInterestController {
                 view.addObject("billingCycle", KC.Enum.getI18nLabel(bankPrincipalInterest.getBillingCycle()));
                 //所属机构
                 PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(bankPrincipalInterest.getOrganization(),PcmOrgParameter.class);
-                view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+                if (pcmOrgParameter!=null) {
+                	view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+				}
                 ChannelPartnerType type = bankPrincipalInterest.getPartnerType();
                 if(type!=null){
                     //资产方
