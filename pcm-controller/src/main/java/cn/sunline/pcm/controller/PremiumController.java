@@ -385,43 +385,46 @@ public class PremiumController {
 
             view.addObject("factory", premiumCode == null);
             Premium premium = parameterSurface.getParameterObject(premiumCode==null?code:premiumCode, Premium.class);
-            view.addObject("expenses", KC.Enum.getI18nLabel(premium.getExpenses()));
-            if(premium.getBillingCycle().equals(BillingCycle.Z)){
-                view.addObject("balanceDate",KC.Enum.getI18nLabelMap(BanceDate.class).get(premium.balanceDate));
-            }else{
-                view.addObject("balanceDate", premium.getBalanceDate() );
+            if(null != premium){
+            	view.addObject("expenses", KC.Enum.getI18nLabel(premium.getExpenses()));
+                if(BillingCycle.Z.equals(premium.getBillingCycle())){
+                    view.addObject("balanceDate",KC.Enum.getI18nLabelMap(BanceDate.class).get(premium.balanceDate));
+                }else{
+                    view.addObject("balanceDate", premium.getBalanceDate() );
+                }
+                view.addObject("premium", premium);
+                view.addObject("frequencyOfCharge", KC.Enum.getI18nLabel(premium.getFrequencyOfCharge()));
+                view.addObject("partnerType", KC.Enum.getI18nLabel(premium.getPartnerType()));
+                view.addObject("billingCycle", KC.Enum.getI18nLabel(premium.getBillingCycle()));
+                //所属机构
+                PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(premium.getOrganization(),PcmOrgParameter.class);
+                view.addObject("org", pcmOrgParameter==null?"": pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+                ChannelPartnerType type = premium.getPartnerType();
+                
+                if(type!=null){
+                    //资产方
+                    if(ChannelPartnerType.ZC.equals(type)){
+                        AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(premium.getPartnerCode(),AssetSideInfo.class);
+                        view.addObject("partner", assetSideInfo == null?"":assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+                    }
+                    //资金方
+                    if(ChannelPartnerType.ZJ.equals(type)){
+                        FundSideInfo fundSideInfo = parameterSurface.getParameterObject(premium.getPartnerCode(),FundSideInfo.class);
+                        view.addObject("partner", fundSideInfo == null?"":fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+                    }
+                    //服务方
+                    if(ChannelPartnerType.FW.equals(type)){
+                        ServerInfo serverInfo = parameterSurface.getParameterObject(premium.getPartnerCode(),ServerInfo.class);
+                        view.addObject("partner", serverInfo == null?"": serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+                    }
+                    //渠道方
+                    if(ChannelPartnerType.QD.equals(type)){
+                        ChannelInfo channelInfo = parameterSurface.getParameterObject(premium.getPartnerCode(),ChannelInfo.class);
+                        view.addObject("partner", channelInfo == null?"": channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+                    }
+                }
             }
-            view.addObject("premium", premium);
-            view.addObject("frequencyOfCharge", KC.Enum.getI18nLabel(premium.getFrequencyOfCharge()));
-            view.addObject("partnerType", KC.Enum.getI18nLabel(premium.getPartnerType()));
-            view.addObject("billingCycle", KC.Enum.getI18nLabel(premium.getBillingCycle()));
-            //所属机构
-            PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(premium.getOrganization(),PcmOrgParameter.class);
-            view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
-            ChannelPartnerType type = premium.getPartnerType();
             
-            if(type!=null){
-                //资产方
-                if(type.equals(ChannelPartnerType.ZC)){
-                    AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(premium.getPartnerCode(),AssetSideInfo.class);
-                    view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
-                }
-                //资金方
-                if(type.equals(ChannelPartnerType.ZJ)){
-                    FundSideInfo fundSideInfo = parameterSurface.getParameterObject(premium.getPartnerCode(),FundSideInfo.class);
-                    view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
-                }
-                //服务方
-                if(type.equals(ChannelPartnerType.FW)){
-                    ServerInfo serverInfo = parameterSurface.getParameterObject(premium.getPartnerCode(),ServerInfo.class);
-                    view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
-                }
-                //渠道方
-                if(type.equals(ChannelPartnerType.QD)){
-                    ChannelInfo channelInfo = parameterSurface.getParameterObject(premium.getPartnerCode(),ChannelInfo.class);
-                    view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
-                }
-            }
             return view;
         } catch (ProcessException e) {
             logger.error(e.getMessage(), e);

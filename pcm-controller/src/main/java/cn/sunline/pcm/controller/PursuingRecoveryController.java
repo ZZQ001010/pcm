@@ -380,46 +380,51 @@ public class PursuingRecoveryController {
             view = KW.mvc.forwardView("pursuingRecovery/pursuingRecoveryDetail");
             view.addObject("factory", pursuingRecoveryCode == null);
             PursuingRecovery pursuingRecovery = parameterSurface.getParameterObject(pursuingRecoveryCode==null?code:pursuingRecoveryCode, PursuingRecovery.class);
-            if(pursuingRecovery.getBillingCycle().equals(BillingCycle.Z)){
-                view.addObject("balanceDate",KC.Enum.getI18nLabelMap(BanceDate.class).get(pursuingRecovery.balanceDate));
-            }else{
-                view.addObject("balanceDate", pursuingRecovery.getBalanceDate() );
+            if(pursuingRecovery!=null){
+            	 if(BillingCycle.Z.equals(pursuingRecovery.getBillingCycle())){
+                     view.addObject("balanceDate",KC.Enum.getI18nLabelMap(BanceDate.class).get(pursuingRecovery.balanceDate));
+                 }else{
+                     view.addObject("balanceDate", pursuingRecovery.getBalanceDate() );
+                 }
+                 view.addObject("pursuingRecovery", pursuingRecovery);
+                 view.addObject("partnerType", KC.Enum.getI18nLabel(pursuingRecovery.getPartnerType()));
+                 view.addObject("billingCycle", KC.Enum.getI18nLabel(pursuingRecovery.getBillingCycle()));
+                 //所属机构
+                 PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(pursuingRecovery.getOrganization(),PcmOrgParameter.class);
+                 view.addObject("org",pcmOrgParameter==null?"":pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+                 ChannelPartnerType type = pursuingRecovery.getPartnerType();
+                	Map<String, String> collect = parameterSurface.getParameterObject(PcmSettleAccMan.class)
+                 		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
+                 				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())) ;
+                	if(null!=collect){
+                		pursuingRecovery.setTransferAccount(collect.get(pursuingRecovery.getTransferAccount()));
+                    	pursuingRecovery.setTransferToAccount(collect.get(pursuingRecovery.getTransferToAccount()));
+                	}
+                	
+                 if(type!=null){
+                     //资产方
+                     if(ChannelPartnerType.ZC.equals(type)){
+                         AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(pursuingRecovery.getPartnerCode(),AssetSideInfo.class);
+                         view.addObject("partner", assetSideInfo==null?"":assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
+                     }
+                     //资金方
+                     if(ChannelPartnerType.ZJ.equals(type)){
+                         FundSideInfo fundSideInfo = parameterSurface.getParameterObject(pursuingRecovery.getPartnerCode(),FundSideInfo.class);
+                         view.addObject("partner", fundSideInfo==null?"":fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
+                     }
+                     //服务方
+                     if(ChannelPartnerType.FW.equals(type)){
+                         ServerInfo serverInfo = parameterSurface.getParameterObject(pursuingRecovery.getPartnerCode(),ServerInfo.class);
+                         view.addObject("partner", serverInfo==null?"":serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
+                     }
+                     //渠道方 
+                     if(ChannelPartnerType.QD.equals(type)){
+                         ChannelInfo channelInfo = parameterSurface.getParameterObject(pursuingRecovery.getPartnerCode(),ChannelInfo.class);
+                         view.addObject("partner", channelInfo==null?"":channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
+                     }
+                 }
             }
-            view.addObject("pursuingRecovery", pursuingRecovery);
-            view.addObject("partnerType", KC.Enum.getI18nLabel(pursuingRecovery.getPartnerType()));
-            view.addObject("billingCycle", KC.Enum.getI18nLabel(pursuingRecovery.getBillingCycle()));
-            //所属机构
-            PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(pursuingRecovery.getOrganization(),PcmOrgParameter.class);
-            view.addObject("org",pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
-            ChannelPartnerType type = pursuingRecovery.getPartnerType();
-           	Map<String, String> collect = parameterSurface.getParameterObject(PcmSettleAccMan.class)
-            		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,
-            				sett->sett.getSettleAccCode()+ParameterFlags.SHORT_CROSS+sett.getSettleAccDes())) ;
-           	pursuingRecovery.setTransferAccount(collect.get(pursuingRecovery.getTransferAccount()));
-           	pursuingRecovery.setTransferToAccount(collect.get(pursuingRecovery.getTransferToAccount()));
-            
-            if(type!=null){
-                //资产方
-                if(type.equals(ChannelPartnerType.ZC)){
-                    AssetSideInfo assetSideInfo = parameterSurface.getParameterObject(pursuingRecovery.getPartnerCode(),AssetSideInfo.class);
-                    view.addObject("partner", assetSideInfo.getAssetSideCode()+"-"+assetSideInfo.getAssetSideDesc());
-                }
-                //资金方
-                if(type.equals(ChannelPartnerType.ZJ)){
-                    FundSideInfo fundSideInfo = parameterSurface.getParameterObject(pursuingRecovery.getPartnerCode(),FundSideInfo.class);
-                    view.addObject("partner", fundSideInfo.getFundSideCode()+"-"+fundSideInfo.getFundSideDesc());
-                }
-                //服务方
-                if(type.equals(ChannelPartnerType.FW)){
-                    ServerInfo serverInfo = parameterSurface.getParameterObject(pursuingRecovery.getPartnerCode(),ServerInfo.class);
-                    view.addObject("partner", serverInfo.getServerCode()+"-"+serverInfo.getServerDesc());
-                }
-                //渠道方 
-                if(type.equals(ChannelPartnerType.QD)){
-                    ChannelInfo channelInfo = parameterSurface.getParameterObject(pursuingRecovery.getPartnerCode(),ChannelInfo.class);
-                    view.addObject("partner", channelInfo.getChannelCode()+"-"+channelInfo.getChannelDesc());
-                }
-            }
+           
             return view;
         } catch (ProcessException e) {
             logger.error(e.getMessage(), e);
