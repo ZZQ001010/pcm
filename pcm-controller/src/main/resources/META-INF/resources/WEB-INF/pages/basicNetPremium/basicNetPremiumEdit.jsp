@@ -65,6 +65,7 @@
 		<div class="form-group row">
 			<!-- 费用收取频次 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="basicNetPremium.frequencyOfCharge" text="费用收取频次" />
 				:
 			</label>

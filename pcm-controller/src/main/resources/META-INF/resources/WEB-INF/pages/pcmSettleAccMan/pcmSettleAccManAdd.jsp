@@ -30,11 +30,12 @@
 		<div class="form-group row">
 			<!-- 结算账号描述 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
+				<span class="span-icon">*&nbsp;</span>
 				<spring:message code="pcmSettleAccMan.settleAccDes" text="结算账号描述" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:input cssClass="form-control" type="text" path="settleAccDes"  data-rule-maxlength="200" />
+				<form:input cssClass="form-control" type="text" path="settleAccDes"  data-rule-required="true"  data-rule-maxlength="200" />
 			</div>
 			<!-- 结算账号描述描述 -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 remark">

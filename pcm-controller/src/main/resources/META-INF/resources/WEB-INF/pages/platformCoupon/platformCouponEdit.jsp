@@ -29,12 +29,11 @@
 		<div class="form-group row">
 			<!-- 所属机构 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">
-			<span class="span-icon">*&nbsp;</span>
 				<spring:message code="platformCoupon.organization" text="所属机构" />
 				:
 			</label>
 			<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-				<form:select cssClass="form-control" path="organization" data-rule-required="true">
+				<form:select cssClass="form-control" path="organization" >
 					<option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
 					<form:options items="${orgMap}" />
 				</form:select>
