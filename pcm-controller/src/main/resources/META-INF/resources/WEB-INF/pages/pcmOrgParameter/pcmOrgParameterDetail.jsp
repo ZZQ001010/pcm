@@ -210,9 +210,9 @@
 			</label>
 			
 		</div>
-		<c:if test="${factroy }">
+		<c:if test="${!factroy }">
 		<div class="form-controls">
-			<div class="btn-group-sm" auto-float>
+			<div class="btn-group-sm auto-float" >
 			<k:access code="pcmOrgParameter_edit">
 				<!--修改 -->
 				<input type="button" class="btn-info btn" id="updatePcmOrgParameter" value="<spring:message code='kite.web.common.btnUpd' text='修改' />" />

@@ -70,7 +70,7 @@
                 :
             </label>
             <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-                <form:select cssClass="form-control" path="partnerType" id="partnerType" onchange="typeChange();">
+                <form:select cssClass="form-control" path="partnerType" id="partnerType" onchange="typeChange();" data-rule-required="true">
                     <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
                     <form:options items="${partnerType}" />
                 </form:select>
@@ -88,7 +88,7 @@
                 :
             </label>
             <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
-                <form:select cssClass="form-control" path="partnerCode" id="partnerCode">
+                <form:select cssClass="form-control" path="partnerCode" id="partnerCode" data-rule-required="true">
                     <option value=""><spring:message code="kite.web.common.pleaseChoose" text="--请选择--" /></option>
                 </form:select>
             </div>

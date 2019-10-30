@@ -391,7 +391,9 @@ public class PursuingRecoveryController {
                  view.addObject("billingCycle", KC.Enum.getI18nLabel(pursuingRecovery.getBillingCycle()));
                  //所属机构
                  PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(pursuingRecovery.getOrganization(),PcmOrgParameter.class);
-                 view.addObject("org",pcmOrgParameter==null?"":pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+                 if (pcmOrgParameter!=null) {
+                	 view.addObject("org",pcmOrgParameter==null?"":pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+                 }
                  ChannelPartnerType type = pursuingRecovery.getPartnerType();
                 	Map<String, String> collect = parameterSurface.getParameterObject(PcmSettleAccMan.class)
                  		.stream().collect(Collectors.toMap(PcmSettleAccMan::getSettleAccCode,

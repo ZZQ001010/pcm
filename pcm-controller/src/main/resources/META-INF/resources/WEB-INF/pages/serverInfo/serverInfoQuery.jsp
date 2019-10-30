@@ -67,7 +67,7 @@
 		var columns = [];
 		pkNames.push("serverCode");
 		columns.push({ title: '<spring:message code="serverInfo.serverCode" text="服务方编码" />', data: 'serverCode'});
-		columns.push({ title: '<spring:message code="serverInfo.serverDesc" text="服务方描述" />', data: 'serverDesc'});
+		columns.push({ title: '<spring:message code="serverInfo.serverDesc" text="服务方描述" />', data: 'serverDesc',width: '12px'});
 		columns.push({ title: '<spring:message code="serverInfo.phone" text="联系电话" />', data: 'phone'});
 		columns.push({ title: '<spring:message code="serverInfo.linkman" text="联系人" />', data: 'linkman'});
 		columns.push({ title: '<spring:message code="serverInfo.fax" text="传真" />', data: 'fax'});

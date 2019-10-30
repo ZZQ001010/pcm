@@ -398,7 +398,9 @@ public class PremiumController {
                 view.addObject("billingCycle", KC.Enum.getI18nLabel(premium.getBillingCycle()));
                 //所属机构
                 PcmOrgParameter pcmOrgParameter = parameterSurface.getParameterObject(premium.getOrganization(),PcmOrgParameter.class);
-                view.addObject("org", pcmOrgParameter==null?"": pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+                if (pcmOrgParameter!=null) {
+                	 view.addObject("org", pcmOrgParameter==null?"": pcmOrgParameter.orgCode+"-"+pcmOrgParameter.getOrgName());
+				}
                 ChannelPartnerType type = premium.getPartnerType();
                 
                 if(type!=null){
