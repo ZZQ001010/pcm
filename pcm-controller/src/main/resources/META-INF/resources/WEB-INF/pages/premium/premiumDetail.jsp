@@ -119,9 +119,7 @@
 			</label>
 
 		</div>
-		
- <c:if test="${factroy==false }">
-		<div class="form-controls auto-float">
+	<div class="form-controls auto-float">
 			<div class="btn-group-sm">
 			<k:access code="premium_edit">
 				<!--修改 -->
@@ -138,7 +136,6 @@
 				<input type="button" class="btn-default btn only-slide-out" value="<spring:message code='kite.web.common.btnBack' text='返回' />" />
 			</div>
 		</div>
-	</c:if>
 	</form:form>
 	<%@ include file="/common/foot.jsp"%>
 </body>

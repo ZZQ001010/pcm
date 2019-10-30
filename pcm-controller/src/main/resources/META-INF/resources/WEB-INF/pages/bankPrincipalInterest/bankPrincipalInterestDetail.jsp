@@ -101,9 +101,9 @@
 					<!--修改 -->
 					<input type="button" class="btn-info btn" id="updateBankPrincipalInterestCode" value="<spring:message code='kite.web.common.btnUpd' text='修改' />" />
 					<script type="text/javascript">
-						$("#updateBankPrincipalInterest").click(function(){
+						$("#updateBankPrincipalInterestCode").click(function(){
 							var params = [];
-							params.push("bankPrincipalInterestCode=${bankPrincipalInterest.bankPrincipalInterestCode}");
+							params.push("bankPrincipalInterestCode=${bankPrincipalInterest.bankPrincipalInterestCode }");
 							$K.frame.reloadSlideInner("${ctx}/bankPrincipalInterest/bankPrincipalInterestEditPage.in?" + params.join("&"));
 						})
 					</script>
