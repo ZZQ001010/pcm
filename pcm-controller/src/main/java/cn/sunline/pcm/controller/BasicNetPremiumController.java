@@ -61,8 +61,8 @@ public class BasicNetPremiumController extends Fee {
 	 * @return
 	 * @throws FlatException
 	 */
-	@RequestMapping("BasicNetPremiumQueryPage.in")
-	public ModelAndView BasicNetPremiumQueryPage(HttpServletRequest request) throws FlatException{
+	@RequestMapping("basicNetPremiumQueryPage.in")
+	public ModelAndView basicNetPremiumQueryPage(HttpServletRequest request) throws FlatException{
 		try {
 			ModelAndView view = KW.mvc.forwardView("basicNetPremium/basicNetPremiumQuery");
 			
@@ -114,8 +114,8 @@ public class BasicNetPremiumController extends Fee {
 	 * @return
 	 * @throws FlatException
 	 */
-	@RequestMapping("BasicNetPremiumAddPage.in")
-	public ModelAndView BasicNetPremiumAddPage(HttpServletRequest request) throws FlatException {
+	@RequestMapping("basicNetPremiumAddPage.in")
+	public ModelAndView basicNetPremiumAddPage(HttpServletRequest request) throws FlatException {
 		try {
 			ModelAndView view = KW.mvc.forwardView("basicNetPremium/basicNetPremiumAdd");
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FeeCollectionMethod.class));				
@@ -212,8 +212,8 @@ public class BasicNetPremiumController extends Fee {
 	 * @return
 	 * @throws FlatException
 	 */
-	@RequestMapping("BasicNetPremiumEditPage.in")
-	public ModelAndView BasicNetPremiumEditPage(String code, HttpServletRequest request) throws FlatException {
+	@RequestMapping("basicNetPremiumEditPage.in")
+	public ModelAndView basicNetPremiumEditPage(String code, HttpServletRequest request) throws FlatException {
 		try {
 			ModelAndView view = KW.mvc.forwardView("basicNetPremium/basicNetPremiumEdit");
 			view.addObject("feeCollectionMethod", KC.Enum.getI18nLabelMap(cn.sunline.pcm.definition.enums.FeeCollectionMethod.class));				
@@ -330,7 +330,7 @@ public class BasicNetPremiumController extends Fee {
 	 * @throws FlatException
 	 */
 	@RequestMapping("basicNetPremiumDetailPage.in")
-	public ModelAndView BasicNetPremiumDetailPage(String dcode,String code,ModelAndView view) throws FlatException {
+	public ModelAndView basicNetPremiumDetailPage(String dcode,String code,ModelAndView view) throws FlatException {
 		try {
 			 view = KW.mvc.forwardView("basicNetPremium/basicNetPremiumDetail");
 			 view.addObject("factory",dcode==null);

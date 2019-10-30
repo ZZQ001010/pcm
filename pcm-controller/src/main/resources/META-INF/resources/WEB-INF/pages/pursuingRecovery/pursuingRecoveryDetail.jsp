@@ -96,7 +96,7 @@
 					<script type="text/javascript">
 						$("#updatePursuingRecovery").click(function(){
 							var params = [];
-							params.push("aId=${pursuingRecovery.pursuingRecoveryCode}");
+							params.push("pursuingRecoveryCode=${pursuingRecovery.pursuingRecoveryCode}");
 							$K.frame.reloadSlideInner("${ctx}/pursuingRecovery/pursuingRecoveryEditPage.in?" + params.join("&"));
 						})
 					</script>
