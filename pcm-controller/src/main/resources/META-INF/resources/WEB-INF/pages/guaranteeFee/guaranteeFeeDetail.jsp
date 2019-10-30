@@ -122,7 +122,7 @@
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
-				&nbsp;${partnerCode}
+				&nbsp;${partner}
 			</label>
 			
 			
@@ -140,7 +140,7 @@
 
 		</div>
 		
- <c:if test="${factroy==false }">
+ 	<c:if test="${factroy==false }">
 		<div class="form-controls auto-float">
 			<div class="btn-group-sm">
 			<k:access code="guaranteeFee_edit">

@@ -61,13 +61,13 @@
 				&nbsp;${collectionService.periodsMax }	
 			</label>
 			<!-- 资产方编码 -->
-			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
+<%-- 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="collectionService.assetSideCode" text="资产方编码" />
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${collectionService.assetSideCode }	
-			</label>
+			</label> --%>
 			<!-- 机构编码 -->
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="collectionService.orgCode" text="机构编码" />

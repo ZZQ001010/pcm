@@ -219,11 +219,11 @@ public class MccController {
 	 * @throws FlatException
 	 */
 	@RequestMapping("mccDetailPage.in")
-	public ModelAndView mccDetailPage(String mcc,String code,ModelAndView view) throws FlatException {
+	public ModelAndView mccDetailPage(String mcc,InputSource inputSource,String code,ModelAndView view) throws FlatException {
 		try {
 			view = KW.mvc.forwardView("mcc/mccDetail");
 			view.addObject("factory", mcc == null);
-			Mcc mcc1 = parameterSurface.getParameterObject(mcc==null?code:mcc, Mcc.class);
+			Mcc mcc1 = parameterSurface.getParameterObject(mcc==null?code+"|"+inputSource:mcc+"|"+inputSource, Mcc.class);
 			view.addObject("mcc", mcc1);
 			if(mcc1.getInputSource()!=null){
 			view.addObject("inputSource", KC.Enum.getI18nLabel(mcc1.getInputSource()));

@@ -181,7 +181,7 @@
 
 						var params = [];
 						params.push("code=${basicNetPremium.code }");
-						$K.frame.reloadSlideInner("${ctx}/basicNetPremium/BasicNetPremiumEditPage.in?" + params.join("&"));
+						$K.frame.reloadSlideInner("${ctx}/basicNetPremium/basicNetPremiumEditPage.in?" + params.join("&"));
 					})
 				</script>
 			</k:access>
