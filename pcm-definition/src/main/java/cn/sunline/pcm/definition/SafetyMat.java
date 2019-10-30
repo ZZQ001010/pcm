@@ -64,6 +64,15 @@ public class SafetyMat implements Serializable{
 	@PropertyInfo(name="技术服务费收取方式",length=12)
 	public TechnicalServiceFeeCollectionMethod chargeWay; 
 	
+	
+	
+	
+	@PropertyInfo(name="技术服务费收取比例",length=12)
+	public String chargeWayScale; 
+	
+	
+	
+	
 	@PropertyInfo(name="技术服务费收取基础",length=12)
 	public TechnicalServiceFeeCollectionBasics chargeBasics; 
 	
@@ -127,6 +136,8 @@ public class SafetyMat implements Serializable{
 	
 	
 	
+	
+	
 	public String getSettleAccounts() {
 		return settleAccounts;
 	}
@@ -163,6 +174,16 @@ public class SafetyMat implements Serializable{
 
 	public void setExpenses(Expenses expenses) {
 		this.expenses = expenses;
+	}
+
+
+	public String getChargeWayScale() {
+		return chargeWayScale;
+	}
+
+
+	public void setChargeWayScale(String chargeWayScale) {
+		this.chargeWayScale = chargeWayScale;
 	}
 
 

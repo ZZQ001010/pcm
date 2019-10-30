@@ -116,6 +116,17 @@
 				&nbsp;${chargeWay }	
 			</label>
 			
+			<!-- 技术服务费收取方式  -->
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
+				<spring:message code="safetyMat.chargeWayScale" text="技术服务费收取方式 " />
+				:
+			</label>
+			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
+				&nbsp;${safetyMat.chargeWayScale }	
+			</label>
+			
+			
+			
 			<!--技术服务费收取基础  -->
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="safetyMat.chargeBasics" text="技术服务费收取基础 " />
