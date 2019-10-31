@@ -337,7 +337,7 @@ public class BasicNetPremiumController extends Fee {
 			BasicNetPremium BasicNetPremium = parameterSurface.getParameterObject(dcode==null?code:dcode, BasicNetPremium.class);
 			
 			BasicNetPremium.setTransferAccount(getPcmSettleAccMan(BasicNetPremium.getTransferAccount()));
-			BasicNetPremium.setTransferToAccount(getPcmSettleAccMan(BasicNetPremium.getTransferAccount()));
+			BasicNetPremium.setTransferToAccount(getPcmSettleAccMan(BasicNetPremium.getTransferToAccount()));
 			view.addObject("basicNetPremium", BasicNetPremium);
 			String orgCode = BasicNetPremium.getOrgCode();
 			String newOrgCode = parameterSurface.getParameterObject(PcmOrgParameter.class).stream()

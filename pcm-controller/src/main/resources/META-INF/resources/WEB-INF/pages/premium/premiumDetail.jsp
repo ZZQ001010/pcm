@@ -121,7 +121,7 @@
 		</div>
 	<div class="form-controls auto-float">
 			<div class="btn-group-sm">
-			<k:access code="premium_edit">
+			<k:access code="premiumedit">
 				<!--修改 -->
 				<input type="button" class="btn-info btn" id="updatePremium" value="<spring:message code='kite.web.common.btnUpd' text='修改' />" />
 				<script type="text/javascript">

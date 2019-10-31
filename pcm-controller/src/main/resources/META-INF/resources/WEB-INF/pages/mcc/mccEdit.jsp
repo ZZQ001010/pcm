@@ -24,7 +24,7 @@ label.detailStyle {
 </head>
 <body class="${param.skin}">
 	<!-- data-confirm=true 提交前需要确认 -->
-	<form:form cssClass="form-horizontal" id="mccUpdForm" cssStyle="padding-top: 40px;padding-right: 40px" modelAttribute="mcc" method="post" action="${ctx}/mcc/updMcc.in" data-confirm="true">
+	<form:form cssClass="form-horizontal" id="mccUpdForm" cssStyle="padding-top: 40px;padding-right: 40px" modelAttribute="MccObj" method="post" action="${ctx}/mcc/updMcc.in" data-confirm="true">
 		<div class="form-group row">
 			<!-- 国际组织MCC代码 -->
 			<label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label">

@@ -77,7 +77,7 @@ label.detailStyle {
 				${mcc.description }	
 			</label>
 		</div>				
-		<div class="form-controls">
+		<div class="form-controls auto-float">
 			<div class="btn-group-sm">
 			<k:access code="mcc_edit">
 				<!--修改 -->

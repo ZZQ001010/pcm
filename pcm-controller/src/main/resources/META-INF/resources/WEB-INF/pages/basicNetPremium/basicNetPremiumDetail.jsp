@@ -149,23 +149,23 @@
 				&nbsp;${basicNetPremium.balanceDate}
 			</label>
 			
-					 <!-- 结算日期 -->
+<%-- 					 <!-- 结算日期 -->
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="basicNetPremium.expenses" text="费用累计月天数" />
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${expenses}
-			</label>
+			</label> --%>
 			
-					 <!-- 结算日期 -->
+<%-- 					 <!-- 结算日期 -->
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">
 				<spring:message code="basicNetPremium.settlement" text="放款当天提前结清费用收取方式" />
 				:
 			</label>
 			<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 detailStyle">
 				&nbsp;${settlement}
-			</label>
+			</label> --%>
 			
 			
 		</div>
@@ -173,7 +173,7 @@
 	<c:if test="${factory==false }">
 		<div class="form-controls auto-float">
 			<div class="btn-group-sm">
-			<k:access code="basicNetPremium_edit">
+			<k:access code="BasicNetPremiumEditPage">
 				<!--修改 -->
 				<input type="button" class="btn-info btn" id="updateBasicNetPremium" value="<spring:message code='kite.web.common.btnUpd' text='修改' />" />
 				<script type="text/javascript">

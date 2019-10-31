@@ -152,7 +152,7 @@ public class MccController {
 			ModelAndView view = KW.mvc.forwardView("mcc/mccEdit");
 			view.addObject("inputSource", KC.Enum.getI18nLabelMap(InputSource.class));
 			Mcc mcc1 = parameterSurface.getParameterObject(mcc + '|' + inputSource.name(), Mcc.class);
-			view.addObject("mcc", mcc1);
+			view.addObject("MccObj", mcc1);
 			return view;
 		} catch (ProcessException e) {
 			logger.error(e.getMessage(), e);
