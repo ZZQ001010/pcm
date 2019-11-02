@@ -303,6 +303,7 @@
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
+				$("#partnerCode").selectpicker("val",'${pacificInsuranceAgencyDedit.partnerCode}')
 				$("#partnerCode").selectpicker("refresh");
 			}
 			if(type=='ZC'){
@@ -312,6 +313,7 @@
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
+				$("#partnerCode").selectpicker("val",'${pacificInsuranceAgencyDedit.partnerCode}')
 				$("#partnerCode").selectpicker("refresh");
 			}
 			if(type=='QD'){
@@ -321,6 +323,7 @@
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
+				$("#partnerCode").selectpicker("val",'${pacificInsuranceAgencyDedit.partnerCode}')
 				$("#partnerCode").selectpicker("refresh");
 			}
 			if(type=='FW'){
@@ -330,6 +333,7 @@
 				for(var key in map){
 					$("#partnerCode").append('<option value="'+key+'">'+map[key]+'</option>');
 				}
+				$("#partnerCode").selectpicker("val",'${pacificInsuranceAgencyDedit.partnerCode}')
 				$("#partnerCode").selectpicker("refresh");
 			}
 		}
