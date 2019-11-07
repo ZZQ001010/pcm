@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import cn.sunline.pcm.surface.api.ParameterFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,11 +46,11 @@ import cn.sunline.pcm.surface.api.ParameterSurface;
 @Service
 public class ParameterSurfaceImpl implements ParameterSurface {
 
-	@Autowired
-	private ParameterFetchResponseFacility parameterFetchResponseFacility;
+//	@Autowired
+//	private ParameterFetchResponseFacility parameterFetchResponseFacility;
 
 	@Autowired
-	private ParameterFacility parameterFacility;
+	private ParameterFactory parameterFacility;
 
 	@PersistenceContext(unitName = "default")
 	private EntityManager em;
@@ -65,18 +66,18 @@ public class ParameterSurfaceImpl implements ParameterSurface {
 	 * @see cn.sunline.pcm.surface.api.ParameterSurface#getParameterObject(java.lang.String, java.lang.Class)
 	 */
 	@Override
-	public <T> T getParameterObject(String key, Class<T> clazz) {
+	public <T> T getParameterObject(String key, Class<T> clazz)  {
 		return parameterFacility.getParameterObject(key, clazz);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see cn.sunline.pcm.surface.api.ParameterSurface#retrieveParameterObject(java.lang.Class)
-	 */
-	@Override
-	public <T extends Serializable> Map<String, T> retrieveParameterObject(Class<T> paramClazz) {
-		return parameterFacility.retrieveParameterObject(paramClazz);
-	}
+//	/*
+//	 * (non-Javadoc)
+//	 * @see cn.sunline.pcm.surface.api.ParameterSurface#retrieveParameterObject(java.lang.Class)
+//	 */
+//	@Override
+//	public <T extends Serializable> Map<String, T> retrieveParameterObject(Class<T> paramClazz) {
+//		return parameterFacility.retrieveParameterObject(paramClazz);
+//	}
 
 	/*
 	 * (non-Javadoc)
@@ -84,7 +85,7 @@ public class ParameterSurfaceImpl implements ParameterSurface {
 	 */
 	@Override
 	public <T> List<T> getParameterObject(Class<T> clazz) {
-		return parameterFacility.getParameterObject(clazz);
+		return parameterFacility.getParameterObjects(clazz);
 	}
 
 	/*
@@ -101,7 +102,7 @@ public class ParameterSurfaceImpl implements ParameterSurface {
 	 * @see cn.sunline.pcm.surface.api.ParameterSurface#deleteParameterObject(java.lang.String, java.lang.Class)
 	 */
 	@Override
-	public <T> void deleteParameterObject(String key, Class<T> clazz) throws ProcessException {
+	public <T> void deleteParameterObject(String key, Class<T> clazz) throws Exception {
 		//TODO 检查该参数是否关联
 		
 		parameterFacility.deleteParameterObject(key, clazz);
@@ -124,7 +125,9 @@ public class ParameterSurfaceImpl implements ParameterSurface {
 	@SuppressWarnings({"unchecked" })
 	@Override
 	public <T> FetchResponse<T> getFetchResponse(FetchRequest request, Class<T> clazz) {
-		return parameterFetchResponseFacility.getFetchResponse(request, clazz);
+//		return parameterFetchResponseFacility.getFetchResponse(request, clazz);
+		return  parameterFacility.getFetchResponse(request,clazz);
+
 	}
 
 	/*
@@ -133,15 +136,15 @@ public class ParameterSurfaceImpl implements ParameterSurface {
 	 * cn.sunline.pcm.surface.api.ParameterSurface#getLoanFetchResponse(cn.sunline.common.shared.query.FetchRequest,
 	 * java.lang.Class, java.lang.String)
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public <T> FetchResponse<T> getLoanFetchResponse(FetchRequest request, Class<T> clazz, String loanType) {
-		return parameterFetchResponseFacility.getLoanFetchResponse(request, clazz, loanType);
-	}
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public <T> FetchResponse<T> getLoanFetchResponse(FetchRequest request, Class<T> clazz, String loanType) {
+//		return parameterFetchResponseFacility.getLoanFetchResponse(request, clazz, loanType);
+//	}
 
 	@Override
 	@Transactional
-	public <T> void deleteParameterObjectList(List<String> keys, Class<T> clazz) throws ProcessException {
+	public <T> void deleteParameterObjectList(List<String> keys, Class<T> clazz) throws Exception {
 		for (String key : keys) {
 			this.deleteParameterObject(key, clazz);
 		}
@@ -149,7 +152,7 @@ public class ParameterSurfaceImpl implements ParameterSurface {
 
 	@Override
 	@Transactional
-	public <T> void delAllRel(List<String> keys, Class<T> clazz) throws ProcessException {
+	public <T> void delAllRel(List<String> keys, Class<T> clazz) throws Exception {
 		QPcmProductData tmproductdata = QPcmProductData.pcmProductData;
 		QPcmPrmObject qPcmPrmObject = QPcmPrmObject.pcmPrmObject;
 		String org = KC.threadLocal.getCurrentOrg();

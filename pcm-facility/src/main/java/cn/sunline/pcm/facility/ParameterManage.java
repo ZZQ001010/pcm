@@ -1,14 +1,11 @@
 package cn.sunline.pcm.facility;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import cn.sunline.common.enums.DelFlag;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -159,22 +156,14 @@ public class ParameterManage {
 		return param;
 	}
 
+	/**
+	 * 保存参数
+	 * @param tmPrmObject
+	 */
 	public void save(PcmPrmObject tmPrmObject) {
 		PcmPrmObject prmObjectO = rPrmObject.findByOrgAndParamClassAndParamKey(tmPrmObject.getOrg(), tmPrmObject.getParamClass(), tmPrmObject.getParamKey());
 		if (prmObjectO != null) {
-//			if (prmObjectO.getDelStatus() != DelFlag.D) {
 			throw new ProcessException(String.format("参数编码%s,已存在", tmPrmObject.getParamKey()));
-//			} else {
-//				// 删除标志的数据，直接覆盖新值保存，修改状态未正常
-//				prmObjectO.setUpdateUser(tmPrmObject.getUpdateUser());
-//				prmObjectO.setCreateUser(tmPrmObject.getCreateUser());
-//				prmObjectO.setCreateTime(new Date());
-//				prmObjectO.setUpdateTime(new Date());
-//				prmObjectO.setDelStatus(DelFlag.N);
-//				prmObjectO.setParamObject(tmPrmObject.getParamObject());
-//				rPrmObject.save(prmObjectO);
-//				return;
-//			}
 		} else {
 //			tmPrmObject.setDelStatus(DelFlag.N);
 			rPrmObject.save(tmPrmObject);

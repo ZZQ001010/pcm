@@ -20,15 +20,15 @@ public interface ParameterSurface {
 
 	public <T> T getParameterObject(String key, Class<T> clazz);
 	
-	public <T extends Serializable> Map<String, T> retrieveParameterObject(Class<T> paramClazz);
+//	public <T extends Serializable> Map<String, T> retrieveParameterObject(Class<T> paramClazz);
 	
-	public <T> List<T> getParameterObject(Class<T> clazz) ;
+	public <T> List<T> getParameterObject(Class<T> clazz)  ;
 	
 	public <T> void updateParameterObject(String key, Object obj) throws ProcessException;
 	
-	public <T> void deleteParameterObject(String key, Class<T> clazz) throws ProcessException;
+	public <T> void deleteParameterObject(String key, Class<T> clazz) throws Exception;
 	
-	public <T> void deleteParameterObjectList(List<String> key, Class<T> clazz) throws ProcessException;
+	public <T> void deleteParameterObjectList(List<String> key, Class<T> clazz) throws Exception;
 	
 	public void addNewParameter(String key, Object param) throws ProcessException;
 	
@@ -52,9 +52,9 @@ public interface ParameterSurface {
 	 * @param loanType
 	 * @return
 	 */
-	public <T> FetchResponse<T> getLoanFetchResponse(FetchRequest request, Class<T> clazz, String loanType);
-	
-	
+//	public <T> FetchResponse<T> getLoanFetchResponse(FetchRequest request, Class<T> clazz, String loanType);
+//
+//
 	/** 
 	 * <p>
 	 * 获取产品分组
@@ -106,7 +106,7 @@ public interface ParameterSurface {
 	 * @param clazz
 	 * @throws ProcessException
 	 */
-	public <T>  void  delAllRel(List<String> keys , Class<T> clazz) throws ProcessException;
+	public <T>  void  delAllRel(List<String> keys , Class<T> clazz) throws Exception;
 	
 	
 	/** 

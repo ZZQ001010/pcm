@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import cn.sunline.pcm.surface.api.ParameterFactory;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,7 @@ import cn.sunline.pcm.infrastructure.shared.model.PcmPrmObject;
 public class ParameterFetchResponseFacility {
 
 	@Autowired
-	private ParameterFacility parameterFacility;
+	private ParameterFactory parameterFacility;
 
 	@Autowired
 	private ParameterManage parameterManage;
@@ -50,7 +51,7 @@ public class ParameterFetchResponseFacility {
 	 * @see [类、类#方法、类#成员]
 	 */
 	@SuppressWarnings({"rawtypes", "unchecked"})
-	public FetchResponse getFetchResponse(FetchRequest request, Class<?> clazz) {
+	public FetchResponse getFetchResponse(FetchRequest request, Class<?> clazz) throws Exception {
 
 		// 不分页的情况，避免空指针，这里初始化FetchRequest对象
 		if (request == null) {
@@ -69,7 +70,7 @@ public class ParameterFetchResponseFacility {
 		// 如果请求条件参数为空，直接添加到列表
 		if (requestParam == null) {
 			for (PcmPrmObject prm : iter) {
-				Object obj = parameterFacility.decode(new String(prm.getParamObject()));
+				Object obj = parameterFacility.decode(new String(prm.getParamObject()),null);
 				data.add(obj);
 			}
 		}
@@ -78,11 +79,12 @@ public class ParameterFetchResponseFacility {
 		else {
 			for (PcmPrmObject prm : iter) {
 				boolean flag = true;
-				Object obj = parameterFacility.decode(new String(prm.getParamObject()));
+				Object obj = parameterFacility.decode(new String(prm.getParamObject()),null);
 
 				for (Entry param : requestParam.entrySet()) {
 					try {
-						if (null != param.getValue() && null != FieldUtils.getField(clazz, (String)param.getKey())) {
+						if (null != param.getValue() && null != FieldUtils.getField(clazz, (String)param.getKey()))
+						{
 							Object value = FieldUtils.readField(obj, (String)param.getKey(), true);
 							if (value == null) {
 								value = new String("");
@@ -208,8 +210,13 @@ public class ParameterFetchResponseFacility {
 		// 如果请求条件参数为空，直接添加到列表
 		if (requestParam == null) {
 			for (PcmPrmObject prm : iter) {
-				Object obj = parameterFacility.decode(new String(prm.getParamObject()));
-				Map<String, Serializable> map = new HashMap<String, Serializable>();
+                Object obj = null;
+                try {
+                    obj = parameterFacility.decode(new String(prm.getParamObject()),null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Map<String, Serializable> map = new HashMap<String, Serializable>();
 				Field[] fields = obj.getClass().getDeclaredFields();
 				for (int i = 0; i < fields.length; i++) {
 					try {
@@ -227,8 +234,13 @@ public class ParameterFetchResponseFacility {
 		} else {
 			for (PcmPrmObject prm : iter) {
 				boolean flag = true;
-				Object obj = parameterFacility.decode(new String(prm.getParamObject()));
-				Map<String, Serializable> map = new HashMap<String, Serializable>();
+                Object obj = null;
+                try {
+                    obj = parameterFacility.decode(new String(prm.getParamObject()),null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Map<String, Serializable> map = new HashMap<String, Serializable>();
 				Field[] fields = obj.getClass().getDeclaredFields();
 				for (int i = 0; i < fields.length; i++) {
 					try {
@@ -394,4 +406,10 @@ public class ParameterFetchResponseFacility {
 		}
 		return false;
 	}
+
+
+
+
+
+
 }

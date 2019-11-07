@@ -29,7 +29,6 @@ import cn.sunline.pcm.definition.AssetSideInfo;
 import cn.sunline.pcm.definition.ChannelInfo;
 import cn.sunline.pcm.definition.Dedit;
 import cn.sunline.pcm.definition.FundSideInfo;
-import cn.sunline.pcm.definition.FundSideRoutRule;
 import cn.sunline.pcm.definition.PcmOrgParameter;
 import cn.sunline.pcm.definition.ServerInfo;
 import cn.sunline.pcm.definition.enums.BanceDate;

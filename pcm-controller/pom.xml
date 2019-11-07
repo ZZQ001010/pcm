@@ -19,10 +19,14 @@
 			<groupId>cn.sunline.kite.web</groupId>
 			<artifactId>kite-web-surface-impl</artifactId>
 		</dependency>
-		<!-- 本模块依赖 -->
+		<!-- 本模块依赖 暂时不做前后端分离，先依赖impl-->
+		<!--<dependency>-->
+			<!--<groupId>cn.sunline.pcm</groupId>-->
+			<!--<artifactId>pcm-surface-api</artifactId>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>cn.sunline.pcm</groupId>
-			<artifactId>pcm-surface-api</artifactId>
+			<artifactId>pcm-surface-impl</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>cn.sunline.pcm</groupId>
